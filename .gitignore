@@ -196,3 +196,8 @@ _speedups.html
 .LSOverride
 Thumbs.db
 [Dd]esktop.ini
+*.csv
+worlds/sekiro/generate_item_data.py
+worlds/sekiro/generate_location_data.py
+worlds/sekiro/location_helper.py
+worlds/sekiro/items_generated.py
