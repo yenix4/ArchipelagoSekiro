@@ -189,7 +189,7 @@ _all_items = [
     *SekiroItemData("Pellet", 0xbcc, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     SekiroItemData("Divine Grass", 0xbe0, SekiroItemCategory.MISC),
     *SekiroItemData("Red Lump", 0xbea, SekiroItemCategory.MISC).counts([2]),
-    SekiroItemData("Sweet Rice Ball", 0xbf4, SekiroItemCategory.MISC, count = 2),
+    SekiroItemData("Sweet Rice Ball x2", 0xbf4, SekiroItemCategory.MISC, count = 2),
     SekiroItemData("Persimmon", 0xbfe, SekiroItemCategory.MISC, classification = ItemClassification.progression),
     SekiroItemData("Rice", 0xc08, SekiroItemCategory.MISC, classification = ItemClassification.progression, skip = True),
     SekiroItemData("Fine Snow", 0xc09, SekiroItemCategory.MISC, skip = True),
@@ -373,23 +373,26 @@ _all_items = [
                    classification = ItemClassification.useful),
     SekiroItemData("Malcontent's Ring", 0x263f, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
+    SekiroItemData("Recovery Charm", 0xb72, SekiroItemCategory.UNIQUE, classification = ItemClassification.progression,
+                   skip = True),
 
     # Upgrade
-    SekiroItemData("Scrap Iron", 0x1770, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Scrap Magnetite", 0x177a, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Adamantite Scrap", 0x1784, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Black Gunpowder", 0x17d4, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Yellow Gunpowder", 0x1838, SekiroItemCategory.UPGRADE),
+    *SekiroItemData("Scrap Iron", 0x1770, SekiroItemCategory.UPGRADE).counts([2, 3, 5]),
+    *SekiroItemData("Scrap Magnetite", 0x177a, SekiroItemCategory.UPGRADE).counts([2, 3]),
+    *SekiroItemData("Adamantite Scrap", 0x1784, SekiroItemCategory.UPGRADE).counts([2]),
+    *SekiroItemData("Black Gunpowder", 0x17d4, SekiroItemCategory.UPGRADE).counts([2, 3]),
+    *SekiroItemData("Yellow Gunpowder", 0x1838, SekiroItemCategory.UPGRADE).counts([2, 3, 4]),
     SekiroItemData("Fulminated Mercury", 0x1842, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Lump of Fat Wax", 0x189c, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Lump of Grave Wax", 0x18a6, SekiroItemCategory.UPGRADE),
-    SekiroItemData("Lapis Lazuli", 0x1900, SekiroItemCategory.UPGRADE),
+    *SekiroItemData("Lump of Fat Wax", 0x189c, SekiroItemCategory.UPGRADE).counts([2, 3]),
+    *SekiroItemData("Lump of Grave Wax", 0x18a6, SekiroItemCategory.UPGRADE).counts([2]),
+    *SekiroItemData("Lapis Lazuli", 0x1900, SekiroItemCategory.UPGRADE).counts([2]),
 
 ]
 
 _skills_as_pickup = [
-    #Skills usually obtained via Skill Tree. Keep for implementing option to also have them as item pickups.
-    #This will have to be some sort of event pickup, no bueno with item IDs.
+    # Skills usually obtained via Skill Tree. Keep for implementing option to also have them as item pickups.
+    # This will have to be some sort of event pickup, as they have no actual item IDs.
+    # Therefore, these are currently unused.
     SekiroItemData("Grappling Hook Attack", 0x30d40, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.useful, inject = True),
     SekiroItemData("Mid-air Deflection", 0x30da4, SekiroItemCategory.SKILLS, inject = True),

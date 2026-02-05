@@ -2,213 +2,33 @@ from dataclasses import dataclass
 import json
 from typing import Any, Dict
 
-from Options import Choice, DeathLink, DefaultOnToggle, ExcludeLocations, NamedRange, OptionDict, \
-    OptionGroup, PerGameCommonOptions, Range, Removed, Toggle
+from Options import Choice, DeathLink, DefaultOnToggle, ExcludeLocations, OptionDict, \
+    OptionGroup, PerGameCommonOptions, Removed, Toggle
 
 ## Game Options
 
 
-class EarlySmallLothricBanner(Choice):
-    """Force Small Lothric Banner into an early sphere in your world or across all worlds."""
-    display_name = "Early Small Lothric Banner"
+class QuickHirata(Choice):
+    """Force the Young Lord's Bell Charm to be early in your local world or the multiworld"""
+    display_name = "Quick Hirata"
     option_off = 0
     option_early_global = 1
     option_early_local = 2
     default = option_off
 
 
-class LateBasinOfVowsOption(Choice):
-    """Guarantee that you don't need to enter Lothric Castle until later in the run.
-
-    - **Off:** You may have to enter Lothric Castle and the areas beyond it immediately after High
-      Wall of Lothric.
-    - **After Small Lothric Banner:** You may have to enter Lothric Castle after Catacombs of
-      Carthus.
-    - **After Small Doll:** You won't have to enter Lothric Castle until after Irithyll of the
-      Boreal Valley.
-    """
-    display_name = "Late Basin of Vows"
+class VeryEarlyHirata(Choice):
+    """Make it possible to need to progress into Hirata Estate before Ashina Outskirts (no softlock)"""
+    display_name = "Allow Very Early Hirata"
     option_off = 0
-    alias_false = 0
-    option_after_small_lothric_banner = 1
-    alias_true = 1
-    option_after_small_doll = 2
+    option_early_global = 1
+    option_early_local = 2
+    default = option_off
 
-
-class LateDLCOption(Choice):
-    """Guarantee that you don't need to enter the DLC until later in the run.
-
-    - **Off:** You may have to enter the DLC after Catacombs of Carthus.
-    - **After Small Doll:** You may have to enter the DLC after Irithyll of the Boreal Valley.
-    - **After Basin:** You won't have to enter the DLC until after Lothric Castle.
-    """
-    display_name = "Late DLC"
-    option_off = 0
-    alias_false = 0
-    option_after_small_doll = 1
-    alias_true = 1
-    option_after_basin = 2
-
-
-class EnableDLCOption(Toggle):
-    """Include DLC locations, items, and enemies in the randomized pools.
-
-    To use this option, you must own both the "Ashes of Ariandel" and the "Ringed City" DLCs.
-    """
-    display_name = "Enable DLC"
-
-
-class EnableNGPOption(Toggle):
-    """Include items and locations exclusive to NG+ cycles."""
-    display_name = "Enable NG+"
-
-
-## Equipment
-
-class RandomizeStartingLoadout(DefaultOnToggle):
-    """Randomizes the equipment characters begin with."""
-    display_name = "Randomize Starting Loadout"
-
-
-class RequireOneHandedStartingWeapons(DefaultOnToggle):
-    """Require starting equipment to be usable one-handed."""
-    display_name = "Require One-Handed Starting Weapons"
-
-
-class AutoEquipOption(Toggle):
-    """Automatically equips any received armor or left/right weapons."""
-    display_name = "Auto-Equip"
-
-
-class LockEquipOption(Toggle):
-    """Lock the equipment slots so you cannot change your armor or your left/right weapons.
-
-    Works great with the Auto-equip option.
-    """
-    display_name = "Lock Equipment Slots"
-
-
-class NoEquipLoadOption(Toggle):
-    """Disable the equip load constraint from the game."""
-    display_name = "No Equip Load"
-
-
-class NoWeaponRequirementsOption(Toggle):
-    """Disable the weapon requirements by removing any movement or damage penalties, permitting you
-    to use any weapon early.
-    """
-    display_name = "No Weapon Requirements"
-
-
-class NoSpellRequirementsOption(Toggle):
-    """Disable the spell requirements permitting you to use any spell."""
-    display_name = "No Spell Requirements"
-
-
-## Weapons
-
-class RandomizeInfusionOption(Toggle):
-    """Enable this option to infuse a percentage of the pool of weapons and shields."""
-    display_name = "Randomize Infusion"
-
-
-class RandomizeInfusionPercentageOption(NamedRange):
-    """The percentage of weapons/shields in the pool to be infused if Randomize Infusion is toggled.
-    """
-    display_name = "Percentage of Infused Weapons"
-    range_start = 0
-    range_end = 100
-    default = 33
-    # 3/155 weapons are infused in the base game, or about 2%
-    special_range_names = {"similar to base game": 2}
-
-
-class RandomizeWeaponLevelOption(Choice):
-    """Enable this option to upgrade a percentage of the pool of weapons to a random value between
-    the minimum and maximum levels defined.
-
-    - **All:** All weapons are eligible, both basic and epic
-    - **Basic:** Only weapons that can be upgraded to +10
-    - **Epic:** Only weapons that can be upgraded to +5
-    """
-    display_name = "Randomize Weapon Level"
-    option_none = 0
-    option_all = 1
-    option_basic = 2
-    option_epic = 3
-
-
-class RandomizeWeaponLevelPercentageOption(Range):
-    """The percentage of weapons in the pool to be upgraded if randomize weapons level is toggled."""
-    display_name = "Percentage of Randomized Weapons"
-    range_start = 0
-    range_end = 100
-    default = 33
-
-
-class MinLevelsIn5WeaponPoolOption(Range):
-    """The minimum upgraded value of a weapon in the pool of weapons that can only reach +5."""
-    display_name = "Minimum Level of +5 Weapons"
-    range_start = 0
-    range_end = 5
-    default = 1
-
-
-class MaxLevelsIn5WeaponPoolOption(Range):
-    """The maximum upgraded value of a weapon in the pool of weapons that can only reach +5."""
-    display_name = "Maximum Level of +5 Weapons"
-    range_start = 0
-    range_end = 5
-    default = 5
-
-
-class MinLevelsIn10WeaponPoolOption(Range):
-    """The minimum upgraded value of a weapon in the pool of weapons that can reach +10."""
-    display_name = "Minimum Level of +10 Weapons"
-    range_start = 0
-    range_end = 10
-    default = 1
-
-
-class MaxLevelsIn10WeaponPoolOption(Range):
-    """The maximum upgraded value of a weapon in the pool of weapons that can reach +10."""
-    display_name = "Maximum Level of +10 Weapons"
-    range_start = 0
-    range_end = 10
-    default = 10
-
-
-## Item Smoothing
-
-class SmoothSoulItemsOption(DefaultOnToggle):
-    """Distribute soul items in a similar order as the base game.
-
-    By default, soul items will be distributed totally randomly. If this is set, less valuable soul
-    items will generally appear in earlier spheres and more valuable ones will generally appear
-    later.
-    """
-    display_name = "Smooth Soul Items"
-
-
-class SmoothUpgradeItemsOption(DefaultOnToggle):
-    """Distribute upgrade items in a similar order as the base game.
-
-    By default, upgrade items will be distributed totally randomly. If this is set, lower-level
-    upgrade items will generally appear in earlier spheres and higher-level ones will generally
-    appear later.
-    """
-    display_name = "Smooth Upgrade Items"
-
-
-class SmoothUpgradedWeaponsOption(DefaultOnToggle):
-    """Distribute upgraded weapons in a similar order as the base game.
-
-    By default, upgraded weapons will be distributed totally randomly. If this is set, lower-level
-    weapons will generally appear in earlier spheres and higher-level ones will generally appear
-    later.
-    """
-    display_name = "Smooth Upgraded Weapons"
-
+## Skills
+class RandomizeSkillsItemOption(Toggle):
+    """Randomize the Skills as Item pickups """
+    display_name = "Randomize Skills"
 
 ### Enemies
 
@@ -217,15 +37,38 @@ class RandomizeEnemiesOption(DefaultOnToggle):
     display_name = "Randomize Enemies"
 
 
-class SimpleEarlyBossesOption(DefaultOnToggle):
-    """Avoid replacing Iudex Gundyr and Vordt with late bosses.
-
-    This excludes all bosses after Dancer of the Boreal Valley from these two boss fights. Disable
-    it for a chance at a much harder early game.
+class RandomizeHeadlessOption(Toggle):
+    """Include headless in the randomizer pool for minibosses (non-underwater)
 
     This is ignored unless enemies are randomized.
     """
-    display_name = "Simple Early Bosses"
+    display_name = "Randomize Headless"
+
+
+class SimilarBossPhases(DefaultOnToggle):
+    """Prevent fights to be something like Sword Saint Isshin + Demon of Hatred.
+
+     This setting will try to keep a similar number of phases compared to the replaced vanilla bosses.
+
+     This is ignored unless enemies are randomized.
+     """
+    display_name = "Similar Number of Boss Phases"
+
+
+class BalancedEndgameBossPhases(DefaultOnToggle):
+    """Prevent early bosses to be seriously unfun by considering late game boss phases as longer than earlier ones.
+
+    This is ignored unless enemies are randomized.
+    """
+    display_name = "Smoothed Boss Phases"
+
+
+class SimpleEarlyMinibosses(DefaultOnToggle):
+    """Prevent early minibosses from being unfun without scaling.
+
+    This is ignored unless enemies are randomized.
+    """
+    display_name = "Simple Early Minibosses"
 
 
 class ScaleEnemiesOption(DefaultOnToggle):
@@ -237,59 +80,6 @@ class ScaleEnemiesOption(DefaultOnToggle):
     This is ignored unless enemies are randomized.
     """
     display_name = "Scale Enemies"
-
-
-class RandomizeMimicsWithEnemiesOption(Toggle):
-    """Mix Mimics into the main enemy pool.
-
-    If this is enabled, Mimics will be replaced by normal enemies who drop the Mimic rewards on
-    death, and Mimics will be placed randomly in place of normal enemies. It's recommended to enable
-    Impatient Mimics as well if you enable this.
-
-    This is ignored unless enemies are randomized.
-    """
-    display_name = "Randomize Mimics With Enemies"
-
-
-class RandomizeSmallCrystalLizardsWithEnemiesOption(Toggle):
-    """Mix small Crystal Lizards into the main enemy pool.
-
-    If this is enabled, Crystal Lizards will be replaced by normal enemies who drop the Crystal
-    Lizard rewards on death, and Crystal Lizards will be placed randomly in place of normal enemies.
-
-    This is ignored unless enemies are randomized.
-    """
-    display_name = "Randomize Small Crystal Lizards With Enemies"
-
-
-class ReduceHarmlessEnemiesOption(Toggle):
-    """Reduce the frequency that "harmless" enemies appear.
-
-    Enable this to add a bit of extra challenge. This severely limits the number of enemies that are
-    slow to aggro, slow to attack, and do very little damage that appear in the enemy pool.
-
-    This is ignored unless enemies are randomized.
-    """
-    display_name = "Reduce Harmless Enemies"
-
-
-class AllChestsAreMimicsOption(Toggle):
-    """Replace all chests with mimics that drop the same items.
-
-    If "Randomize Mimics With Enemies" is set, these chests will instead be replaced with random
-    enemies that drop the same items.
-
-    This is ignored unless enemies are randomized.
-    """
-    display_name = "All Chests Are Mimics"
-
-
-class ImpatientMimicsOption(Toggle):
-    """Mimics attack as soon as you get close instead of waiting for you to open them.
-
-    This is ignored unless enemies are randomized.
-    """
-    display_name = "Impatient Mimics"
 
 
 class RandomEnemyPresetOption(OptionDict):
@@ -319,9 +109,14 @@ class RandomEnemyPresetOption(OptionDict):
 
 ## Item & Location
 
-class DS3ExcludeLocations(ExcludeLocations):
+class Carpsanity(Toggle):
+    """Add Treasure Carp drops into the item pool"""
+    display_name = "Carpsanity"
+
+
+class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""
-    default = frozenset({"Hidden", "Small Crystal Lizards", "Upgrade", "Small Souls", "Miscellaneous"})
+    default = frozenset({"Hidden", "Upgrade", "Currency", "Miscellaneous"})
 
 
 class ExcludedLocationBehaviorOption(Choice):
@@ -369,109 +164,45 @@ class MissableLocationBehaviorOption(Choice):
 @dataclass
 class SekiroOptions(PerGameCommonOptions):
     # Game Options
-    early_banner: EarlySmallLothricBanner
-    late_basin_of_vows: LateBasinOfVowsOption
-    late_dlc: LateDLCOption
+    quick_hirata: QuickHirata
+    very_early_hirata: VeryEarlyHirata
     death_link: DeathLink
-    enable_dlc: EnableDLCOption
-    enable_ngp: EnableNGPOption
 
-    # Equipment
-    random_starting_loadout: RandomizeStartingLoadout
-    require_one_handed_starting_weapons: RequireOneHandedStartingWeapons
-    auto_equip: AutoEquipOption
-    lock_equip: LockEquipOption
-    no_equip_load: NoEquipLoadOption
-    no_weapon_requirements: NoWeaponRequirementsOption
-    no_spell_requirements: NoSpellRequirementsOption
-
-    # Weapons
-    randomize_infusion: RandomizeInfusionOption
-    randomize_infusion_percentage: RandomizeInfusionPercentageOption
-    randomize_weapon_level: RandomizeWeaponLevelOption
-    randomize_weapon_level_percentage: RandomizeWeaponLevelPercentageOption
-    min_levels_in_5: MinLevelsIn5WeaponPoolOption
-    max_levels_in_5: MaxLevelsIn5WeaponPoolOption
-    min_levels_in_10: MinLevelsIn10WeaponPoolOption
-    max_levels_in_10: MaxLevelsIn10WeaponPoolOption
-
-    # Item Smoothing
-    smooth_soul_items: SmoothSoulItemsOption
-    smooth_upgrade_items: SmoothUpgradeItemsOption
-    smooth_upgraded_weapons: SmoothUpgradedWeaponsOption
+    # Skills
+    randomize_skills: RandomizeSkillsItemOption
 
     # Enemies
     randomize_enemies: RandomizeEnemiesOption
-    simple_early_bosses: SimpleEarlyBossesOption
+    randomize_headless: RandomizeHeadlessOption
+    similar_boss_phases: SimilarBossPhases
+    balanced_endgame_boss_phases: BalancedEndgameBossPhases
+    simple_early_minibosses: SimpleEarlyMinibosses
     scale_enemies: ScaleEnemiesOption
-    randomize_mimics_with_enemies: RandomizeMimicsWithEnemiesOption
-    randomize_small_crystal_lizards_with_enemies: RandomizeSmallCrystalLizardsWithEnemiesOption
-    reduce_harmless_enemies: ReduceHarmlessEnemiesOption
-    all_chests_are_mimics: AllChestsAreMimicsOption
-    impatient_mimics: ImpatientMimicsOption
     random_enemy_preset: RandomEnemyPresetOption
 
     # Item & Location
-    exclude_locations: DS3ExcludeLocations
+    carpsanity: Carpsanity
+    exclude_locations: SekiroExcludeLocations
     excluded_location_behavior: ExcludedLocationBehaviorOption
     missable_location_behavior: MissableLocationBehaviorOption
 
-    # Removed
-    pool_type: Removed
-    enable_weapon_locations: Removed
-    enable_shield_locations: Removed
-    enable_armor_locations: Removed
-    enable_ring_locations: Removed
-    enable_spell_locations: Removed
-    enable_key_locations: Removed
-    enable_boss_locations: Removed
-    enable_npc_locations: Removed
-    enable_misc_locations: Removed
-    enable_health_upgrade_locations: Removed
-    enable_progressive_locations: Removed
-    guaranteed_items: Removed
-    excluded_locations: Removed
-    missable_locations: Removed
-
 
 option_groups = [
-    OptionGroup("Equipment", [
-        RandomizeStartingLoadout,
-        RequireOneHandedStartingWeapons,
-        AutoEquipOption,
-        LockEquipOption,
-        NoEquipLoadOption,
-        NoWeaponRequirementsOption,
-        NoSpellRequirementsOption,
-    ]),
-    OptionGroup("Weapons", [
-        RandomizeInfusionOption,
-        RandomizeInfusionPercentageOption,
-        RandomizeWeaponLevelOption,
-        RandomizeWeaponLevelPercentageOption,
-        MinLevelsIn5WeaponPoolOption,
-        MaxLevelsIn5WeaponPoolOption,
-        MinLevelsIn10WeaponPoolOption,
-        MaxLevelsIn10WeaponPoolOption,
-    ]),
-    OptionGroup("Item Smoothing", [
-        SmoothSoulItemsOption,
-        SmoothUpgradeItemsOption,
-        SmoothUpgradedWeaponsOption,
+    OptionGroup("Skills", [
+        RandomizeSkillsItemOption,
     ]),
     OptionGroup("Enemies", [
         RandomizeEnemiesOption,
-        SimpleEarlyBossesOption,
+        RandomizeHeadlessOption,
+        SimilarBossPhases,
+        BalancedEndgameBossPhases,
+        SimpleEarlyMinibosses,
         ScaleEnemiesOption,
-        RandomizeMimicsWithEnemiesOption,
-        RandomizeSmallCrystalLizardsWithEnemiesOption,
-        ReduceHarmlessEnemiesOption,
-        AllChestsAreMimicsOption,
-        ImpatientMimicsOption,
         RandomEnemyPresetOption,
     ]),
     OptionGroup("Item & Location Options", [
-        DS3ExcludeLocations,
+        Carpsanity,
+        SekiroExcludeLocations,
         ExcludedLocationBehaviorOption,
         MissableLocationBehaviorOption,
     ])
