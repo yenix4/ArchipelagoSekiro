@@ -185,8 +185,8 @@ class SekiroLocationData:
 
         default_item = item_dictionary[cast(str, self.default_item_name)]
         names.append({
-                         SekiroItemCategory.ESOTERIC_TEXTS: 'Esoteric Texts',
-                         SekiroItemCategory.SKILLS: 'Skills',
+                         SekiroItemCategory.ESOTERIC_TEXTS: "Esoteric Texts",
+                         SekiroItemCategory.SKILLS: "Skills",
                          SekiroItemCategory.MISC: "Miscellaneous",
                          SekiroItemCategory.UNIQUE: "Unique",
                          SekiroItemCategory.MEMORIES: "Memories",
@@ -399,7 +399,7 @@ location_tables: Dict[str, List[SekiroLocationData]] = {
         SekiroLocationData("HE1: Light Coin Purse - Main Hall, left building after marsh", "Light Coin Purse",
                            conditional=True),
         SekiroLocationData("HE1: Light Coin Purse - on rocks near Pot Noble Harunaga", "Light Coin Purse"),
-        SekiroLocationData("HE1: Light Count Purse - left of buddha shrine", "Light Coin Purse"),
+        SekiroLocationData("HE1: Light Coin Purse - left of buddha shrine", "Light Coin Purse"),
         SekiroLocationData("HE1: Mask Fragment: Right - Pot Noble Harunaga", "Mask Fragment: Right", npc=True,
                            shop=True, conditional=True),
         SekiroLocationData("HE1: Memory: Lady Butterfly - Hidden Temple, boss drop", "Memory: Lady Butterfly",
@@ -466,7 +466,7 @@ location_tables: Dict[str, List[SekiroLocationData]] = {
         SekiroLocationData("AC1: Ako's Sugar - before Bull arena, on left cliffside, behind wall", "Ako's Sugar x2",
                            hidden=True),
         SekiroLocationData("AC1: Ako's Sugar - Upper Tower, map room", "Ako's Sugar"),
-        SekiroLocationData("AC1: Anti-Air Deathblow Text - Blackhat Badger", "Anti-air Deathblow Text", npc=True,
+        SekiroLocationData("AC1: Anti-air Deathblow Text - Blackhat Badger", "Anti-air Deathblow Text", npc=True,
                            shop=True, offering_box=True),
         SekiroLocationData("AC1: Black Gunpowder - destroyed bridge to Ashina Outskirts", "Black Gunpowder"),
         SekiroLocationData("AC1: Black Gunpowder - outside building at Abandoned Dungeon Entrance", "Black Gunpowder"),
@@ -1064,7 +1064,7 @@ location_tables: Dict[str, List[SekiroLocationData]] = {
         SekiroLocationData("AC2: Prayer Bead - basement, miniboss drop", "Prayer Bead", miniboss=True),
         SekiroLocationData("AC2: Prayer Bead - Great Serpent Shrine, miniboss drop", "Prayer Bead", miniboss=True,
                            offering_box=True),
-        SekiroLocationData("AC2: Scrap Magnitite - on a corpse before central tower", "Scrap Magnetite x2"),
+        SekiroLocationData("AC2: Scrap Magnetite - on a corpse before central tower", "Scrap Magnetite x2"),
         SekiroLocationData("AC2: Shinobi Medicine Rank 3 - basement, miniboss drop", "Shinobi Medicine Rank 3",
                            miniboss=True),
         SekiroLocationData("AC2: Sweet Rice Ball - finish incense and give Rice to Kuro", "Sweet Rice Ball",
