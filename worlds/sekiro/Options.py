@@ -91,8 +91,8 @@ class RandomEnemyPresetOption(OptionDict):
     .. code-block:: YAML
 
       random_enemy_preset:
-        RemoveSource: Ancient Wyvern; Darkeater Midir
-        DontRandomize: Iudex Gundyr
+        RemoveSource: Demon of Hatred; Corrupted monk
+        DontRandomize: Shichimen Warrior
     """
     display_name = "Random Enemy Preset"
     supports_weighting = False
@@ -116,7 +116,7 @@ class Carpsanity(Toggle):
 
 class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""
-    default = frozenset({"Hidden", "Upgrade", "Currency", "Miscellaneous"})
+    default = frozenset({"Hidden", "Upgrade", "Miscellaneous"})
 
 
 class ExcludedLocationBehaviorOption(Choice):

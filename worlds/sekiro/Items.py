@@ -123,7 +123,7 @@ class SekiroItem(Item):
 
 _all_items = [
     # Currency
-    SekiroItemData("Light Coin Purse", 0xe74, SekiroItemCategory.CURRENCY),
+    SekiroItemData("Light Coin Purse", 0xe74, SekiroItemCategory.CURRENCY, filler = True),
     SekiroItemData("Heavy Coin Purse", 0xe78, SekiroItemCategory.CURRENCY,
                    classification = ItemClassification.useful),
     SekiroItemData("Bulging Coin Purse", 0xe7c, SekiroItemCategory.CURRENCY,
@@ -191,7 +191,7 @@ _all_items = [
     *SekiroItemData("Red Lump", 0xbea, SekiroItemCategory.MISC).counts([2]),
     SekiroItemData("Sweet Rice Ball x2", 0xbf4, SekiroItemCategory.MISC, count = 2),
     SekiroItemData("Persimmon", 0xbfe, SekiroItemCategory.MISC, classification = ItemClassification.progression),
-    SekiroItemData("Rice", 0xc08, SekiroItemCategory.MISC, classification = ItemClassification.progression, skip = True),
+    SekiroItemData("Rice", 0xc08, SekiroItemCategory.MISC, classification = ItemClassification.progression),
     SekiroItemData("Fine Snow", 0xc09, SekiroItemCategory.MISC, skip = True),
     *SekiroItemData("Antidote Powder", 0xc80, SekiroItemCategory.MISC, filler = True).counts([2]),
     *SekiroItemData("Dousing Powder", 0xc8a, SekiroItemCategory.MISC, filler = True).counts([2]),
@@ -200,7 +200,7 @@ _all_items = [
                     classification = ItemClassification.useful).counts([2, 3, 5]),
     *SekiroItemData("Eel Liver", 0xc9e, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Contact Medicine", 0xcb2, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
-    *SekiroItemData("Bite Down", 0xcda, SekiroItemCategory.MISC).counts([2]),
+    *SekiroItemData("Bite Down", 0xcda, SekiroItemCategory.MISC, filler = True).counts([2]),
     *SekiroItemData("Ako's Sugar", 0xd48, SekiroItemCategory.MISC).counts([2, 3]),
     *SekiroItemData("Yashariku's Sugar", 0xd52, SekiroItemCategory.MISC).counts([2, 3]),
     *SekiroItemData("Ungo's Sugar", 0xd5c, SekiroItemCategory.MISC).counts([2, 3]),

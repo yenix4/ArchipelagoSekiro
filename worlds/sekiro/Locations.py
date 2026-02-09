@@ -188,6 +188,7 @@ class SekiroLocationData:
                          SekiroItemCategory.ESOTERIC_TEXTS: "Esoteric Texts",
                          SekiroItemCategory.SKILLS: "Skills",
                          SekiroItemCategory.MISC: "Miscellaneous",
+                         SekiroItemCategory.INCENSE: "Incense",
                          SekiroItemCategory.UNIQUE: "Unique",
                          SekiroItemCategory.MEMORIES: "Memories",
                          SekiroItemCategory.CURRENCY: "Currency",
@@ -1729,6 +1730,7 @@ location_name_groups: Dict[str, Set[str]] = {
     # instead so we can choose the ordering.
     "Prominent": set(),
     "Progression": set(),
+    "Incense": set(),
     "Boss Rewards": set(),
     "Miniboss Rewards": set(),
     "Hostile": set(),
@@ -1749,6 +1751,7 @@ location_descriptions = {
     "Prominent": "A small number of locations that are in very obvious locations. Mostly boss " + \
                  "drops. Ideal for setting as priority locations.",
     "Progression": "Locations that contain items in vanilla which unlock other locations.",
+    "Incense": "Locations that contain items required to reach the Divine Realm (Fountainhead Palace).",
     "Boss Rewards": "Boss drops. Bosses are strong enemies that drop memories.",
     "Miniboss Rewards": "Miniboss drops. Minibosses are enemies with unique health bars that do not drop memories.",
     "Hostile": "Drops from regular enemies or NPCs that are hostile to you.",
@@ -1775,14 +1778,14 @@ location_dictionary: Dict[str, SekiroLocationData] = {}
 for location_name, location_table in location_tables.items():
     location_dictionary.update({location_data.name: location_data for location_data in location_table})
 
-for location_data in location_table:
-    if not location_data.is_event:
-        for group_name in location_data.location_groups():
-            location_name_groups[group_name].add(location_data.name)
+    for location_data in location_table:
+        if not location_data.is_event:
+            for group_name in location_data.location_groups():
+                location_name_groups[group_name].add(location_data.name)
 
-# Allow entire locations to be added to location sets.
-if not location_name.endswith(" Shop"):
-    location_name_groups[location_name] = set([
-        location_data.name for location_data in location_table
-        if not location_data.is_event
-    ])
+    # Allow entire locations to be added to location sets.
+    if not location_name.endswith(" Shop"):
+        location_name_groups[location_name] = set([
+            location_data.name for location_data in location_table
+            if not location_data.is_event
+        ])
