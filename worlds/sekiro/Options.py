@@ -99,7 +99,7 @@ class RandomEnemyPresetOption(OptionDict):
     default = {}
 
     valid_keys = ["Description", "RecommendFullRandomization", "RecommendNoEnemyProgression",
-                  "OopsAll", "Boss", "Miniboss", "Basic", "BuffBasicEnemiesAsBosses",
+                  "OopsAll", "Boss", "Miniboss", "Basic", "Add", "FoldingMonkey", "BuffBasicEnemiesAsBosses",
                   "DontRandomize", "RemoveSource", "Enemies"]
 
     @classmethod
