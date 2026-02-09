@@ -4,7 +4,8 @@ import json
 from logging import warning
 from typing import cast, Any, Callable, Dict, Set, List, Optional, TextIO, Union
 
-from BaseClasses import MultiWorld, Region, Location, LocationProgressType, Entrance, Tutorial, ItemClassification
+from BaseClasses import MultiWorld, Region, Location, LocationProgressType, Entrance, Tutorial, ItemClassification, \
+    CollectionState
 
 from worlds.AutoWorld import World, WebWorld
 from worlds.generic.Rules import CollectionRule, ItemRule, add_rule, add_item_rule
@@ -431,11 +432,24 @@ class SekiroWorld(World):
                                 self._can_get(state, "AC1: Memory: Genichiro - upper tower roof, boss drop")
                                 )
 
-        # After AC1 boss for progression rules
+        # Either having three prosthetics or after AC2 boss for progression rules
         # You can access enough of the game at this point that you should always have 3 tools available
+        # If someone actually hits a seed where this is an issue, I shall do it differently.
         self._add_location_rule("DT: Prosthetic Esoteric Text - talk to Sculptor with 3 prosthetic tools"
                                 , lambda state: (
-              self._can_get(state, "AC1: Memory: Genichiro - upper tower roof, boss drop")
+                state.has_from_list([
+                  "Shuriken Wheel",
+                  "Flame Barrel",
+                  "Shinobi Axe of the Monkey",
+                  "Robert's Firecrackers",
+                  "Gyoubu's Broken Horn",
+                  "Mist Raven's Feathers",
+                  "Iron Fortress",
+                  "Sabimaru",
+                  "Large Fan",
+                  "Slender Finger"
+              ], self.player, 3)
+                or self._can_get(state, "AC2: Memory: Great Shinobi - upper tower roof, boss drop")
             ))
 
         # Similar to above, but much simpler. Making sure this does not BK Prosthetic/Bell
@@ -499,8 +513,8 @@ class SekiroWorld(World):
         self._add_location_rule([
             "SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp"
         ], lambda state: (
-            self._can_get(state, "FP: Lapis Lazuli - Koremori's pot after Truly Precious Bait")
-            or self._can_get(state, "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait")
+            self.has_any_truly_precious_bait(state)
+            and self._can_get(state, "FP: Treasure Carp Scale - feed Great Carp twice")
         ))
 
         self._add_location_rule([
@@ -642,18 +656,16 @@ class SekiroWorld(World):
             and self._can_go_to(state, "Hidden Forest")
         ))
 
-        ## Kuro
-        self._add_location_rule([
-            "AC1: Okami's Ancient Text - show Lotus of the Palace to Kuro"
-        ], lambda state: (
-            state.has("Lotus of the Palace", self.player)
-        ))
+        ## Anayama
+        self._add_location_rule("AO1: Oil - Anayama for 20 sen while having Flame Barrel",
+                                "Flame Barrel")
 
-        self._add_location_rule([
-            "AC2: Sweet Rice Ball - finish incense and give Rice to Kuro"
-        ], lambda state: (
-            state.has("Rice for Kuro", self.player)
-        ))
+        ## Kuro
+        self._add_location_rule("AC1: Okami's Ancient Text - show Lotus of the Palace to Kuro",
+                                "Lotus of the Palace")
+
+        self._add_location_rule("AC2: Sweet Rice Ball - finish incense and give Rice to Kuro",
+                                "Rice for Kuro")
 
         self._add_location_rule([
             "AC2: Sweet Rice Ball - finish incense and give Rice to Kuro"
@@ -737,11 +749,14 @@ class SekiroWorld(World):
                 self._can_go_to(state, "Ashina Castle")
             ))
 
-        self._add_location_rule(
-            "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
-            lambda state: (
-                self._can_go_to(state, "Fountainhead Palace")
-            ))
+        # Since we cannot guarantee which Pot Nobles Bait is used, we do not generate these at all for now.
+        # self._add_location_rule(
+        #     "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
+        #     lambda state: (
+        #         self._can_go_to(state, "Fountainhead Palace")
+        #         and self._can_get(state,"SVP: Great White Whisker - "
+        #                                 "Guardian Ape's Watering Hole, after killing Giant Carp")
+        #     ))
 
     def _add_mibu_rules(self) -> None:
         """Adds rules for items obtainable only after obtaining Mibu Breathing Technique."""
@@ -770,7 +785,7 @@ class SekiroWorld(World):
             "FP: Dragon's Blood Droplet - left of Sanctuary idol",
             "FP: Gourd Seed - Palace Grounds, chest",
             "FP: Heavy Coin Purse - Feeding Grounds, bridge",
-            "FP: Lapis Lazuli - Koremori's pot after Truly Precious Bait",
+            #"FP: Lapis Lazuli - Koremori's pot after Truly Precious Bait",
             "FP: Light Coin Purse - underwater, building overlooking headless",
             "FP: Light Coin Purse - underwater, near bottom of Great Carp ravine",
             "FP: Light Coin Purse - underwater, plants near Pot Noble Koremori",
@@ -796,7 +811,7 @@ class SekiroWorld(World):
             "FP: Ungo's Sugar - up the stairs from Feeding Grounds idol",
             "FP: Water of the Palace - Mibu Manor, dive in left corner before exit, chest",
             "FP: Yashariku's Spiritfall - underwater, headless drop",
-            "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
+            #"HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
             "MV: Light Coin Purse - underwater, pond village side #1",
             "MV: Light Coin Purse - underwater, pond village side #2",
             "MV: Prayer Bead - underwater, pond chest",
@@ -895,6 +910,12 @@ class SekiroWorld(World):
                  self.multiworld.early_items[self.player]["Young Lord's Bell Charm"] = 1
              elif self.options.quick_hirata == "early_local":
                  self.multiworld.local_early_items[self.player]["Young Lord's Bell Charm"] = 1
+
+    def has_any_truly_precious_bait(self, state: CollectionState) -> bool:
+        return (
+                state.has("Truly Precious Bait (Harunaga)", self.player)
+                or state.has("Truly Precious Bait (Koremori)", self.player)
+        )
 
     def _add_location_rule(self, location: Union[str, List[str]], rule: Union[CollectionRule, str]) -> None:
         """Sets a rule for the given location if it that location is randomized.
