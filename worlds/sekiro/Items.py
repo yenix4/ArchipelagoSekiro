@@ -132,13 +132,13 @@ _all_items = [
                     classification = ItemClassification.useful).counts([3, 5]),
 
     # Esoteric_texts
-    SekiroItemData("Shinobi Esoteric Text", 0xb62, SekiroItemCategory.ESOTERIC_TEXTS,
+    SekiroItemData("Shinobi Esoteric Text", 0xb68, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
-    SekiroItemData("Prosthetic Esoteric Text", 0xb63, SekiroItemCategory.ESOTERIC_TEXTS,
+    SekiroItemData("Prosthetic Esoteric Text", 0xb69, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
-    SekiroItemData("Ashina Esoteric Text", 0xb64, SekiroItemCategory.ESOTERIC_TEXTS,
+    SekiroItemData("Ashina Esoteric Text", 0xb6a, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
-    SekiroItemData("Senpou Esoteric Text", 0xb65, SekiroItemCategory.ESOTERIC_TEXTS,
+    SekiroItemData("Senpou Esoteric Text", 0xb6b, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
 
     # Healing
@@ -230,12 +230,12 @@ _all_items = [
 
     # Skills
     SekiroItemData("Bloodsmoke Ninjutsu", 0x834, SekiroItemCategory.SKILLS),
-    SekiroItemData("Puppeteer Ninjutsu", 0x835, SekiroItemCategory.SKILLS,
+    SekiroItemData("Puppeteer Ninjutsu", 0x83e, SekiroItemCategory.SKILLS,
                    classification=ItemClassification.progression),
-    SekiroItemData("Bestowal Ninjutsu", 0x836, SekiroItemCategory.SKILLS),
-    SekiroItemData("Mibu Breathing Technique", 0x972, SekiroItemCategory.SKILLS,
+    SekiroItemData("Bestowal Ninjutsu", 0x848, SekiroItemCategory.SKILLS),
+    SekiroItemData("Mibu Breathing Technique", 0x974, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.progression),
-    SekiroItemData("Anti-air Deathblow Text", 0x999, SekiroItemCategory.SKILLS,
+    SekiroItemData("Anti-air Deathblow Text", 0x992, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.useful),
     SekiroItemData("Dragon Flash", 0x9a6, SekiroItemCategory.SKILLS),
     SekiroItemData("Shinobi Medicine Rank 1", 0x9a6, SekiroItemCategory.SKILLS,
@@ -256,7 +256,7 @@ _all_items = [
                    classification = ItemClassification.useful),
 
     # Unique
-    SekiroItemData("Shinobi Prosthetic", 0x907, SekiroItemCategory.UNIQUE,
+    SekiroItemData("Shinobi Prosthetic", 0x906, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
     SekiroItemData("Mortal Blade", 0x960, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
@@ -275,7 +275,7 @@ _all_items = [
     SekiroItemData("Gachiin's Spiritfall", 0xd3e, SekiroItemCategory.UNIQUE),
     SekiroItemData("Five-color Rice", 0xdfc, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mibu Pilgrimage Balloon", 0xe38, SekiroItemCategory.UNIQUE),
-    SekiroItemData("Jinza's Jizo Statue", 0xe89, SekiroItemCategory.UNIQUE),
+    SekiroItemData("Jinza's Jizo Statue", 0xe89, SekiroItemCategory.UNIQUE, inject = True),
     SekiroItemData("Ceremonial Tanto", 0xed8, SekiroItemCategory.UNIQUE),
     SekiroItemData("Nightjar Monocular", 0xf3c, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mask Fragment: Right", 0x157c, SekiroItemCategory.UNIQUE),
@@ -289,7 +289,7 @@ _all_items = [
                    classification = ItemClassification.progression),
     SekiroItemData("Father's Bell Charm", 0x2333, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
-    SekiroItemData("Ornamental Letter", 0x234c, SekiroItemCategory.UNIQUE),
+    SekiroItemData("Ornamental Letter", 0x233c, SekiroItemCategory.UNIQUE),
     SekiroItemData("Red Carp Eyes", 0x235c, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
     SekiroItemData("Dragon's Tally Board", 0x2364, SekiroItemCategory.UNIQUE,
