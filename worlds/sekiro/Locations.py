@@ -949,8 +949,9 @@ location_tables: Dict[str, List[SekiroLocationData]] = {
                            static='07,0:6746::', prominent=True, progression=True, boss=True),
         SekiroLocationData("ST: Red and White Pinwheel - hill with many pinwheels", "Red and White Pinwheel",
                            static='07,0:52000030::'),
+        # Missable as this will not trigger if you already have Rice for Kuro in your inventory.
         SekiroLocationData("ST: Rice for Kuro - Divine Child for Persimmon", "Rice for Kuro", static='07,0:50006226::',
-                           npc=True, conditional=True),
+                           missable = True, npc=True, conditional=True),
         SekiroLocationData("ST: Scrap Iron - uphill from Kotaro", "Scrap Iron x2", static='07,0:52000180::'),
         SekiroLocationData("ST: Scrap Magnetite - before Sunken Valley Cavern idol", "Scrap Magnetite",
                            static='07,0:52000510::', conditional=True),
