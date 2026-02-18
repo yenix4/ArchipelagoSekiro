@@ -588,7 +588,7 @@ location_tables: Dict[str, List[SekiroLocationData]] = {
                            static='02,0:50006111::', missable=True, npc=True),
         SekiroLocationData("AC1: Gachiin's Sugar - at tree near Bull arena walls", "Gachiin's Sugar x2",
                            static='02,0:51110840::'),
-        SekiroLocationData("AC1: Gachiin's Sugar - basement, side room with chest", "Gachiin's Sugar x2",
+        SekiroLocationData("AC1: Gachiin's Sugar - upper tower, rafters", "Gachiin's Sugar x2",
                            static='02,0:51110330::'),
         SekiroLocationData("AC1: Gachiin's Sugar - bird's nest on roof near Isshin's watchtower", "Gachiin's Sugar",
                            static='02,0:51110350::'),
@@ -713,7 +713,7 @@ location_tables: Dict[str, List[SekiroLocationData]] = {
     "Ashina Reservoir - Revisit": [
         SekiroLocationData("AR2: Bundled Jizo Statue - moon-view tower, red balcony", "Bundled Jizo Statue",
                            static='01,0:51120120::'),
-        SekiroLocationData("AR2: Ceramic Shard - under gatehouse", "Ceramic Shard x2", static='02,0:51110984::',
+        SekiroLocationData("AR2: Ceramic Shard - under gatehouse", "Ceramic Shard x2", static='02,0:51110060::',
                            hidden=True),
         SekiroLocationData("AR2: Fistful of Ash - stairs leading to gatehouse", "Fistful of Ash",
                            static='01,0:51120070::'),
@@ -1759,9 +1759,9 @@ location_descriptions = {
     "Boss Rewards": "Boss drops. Bosses are strong enemies that drop memories.",
     "Miniboss Rewards": "Miniboss drops. Minibosses are enemies with unique health bars that do not drop memories.",
     "Hostile": "Drops from regular enemies or NPCs that are hostile to you.",
-    "Friendly": "Items given by friendly NPCs as part of their quests or from " + \
+    "Friendly": "Locations that contain items given by friendly NPCs as part of their quests or from " + \
                 "non-violent interaction.",
-    "Esoteric Texts": "Locations that contain an esoteric text item",
+    "Esoteric Texts": "Locations that contain an esoteric text item.",
     "SKills": "Locations that contain skills found as item drops, such as " +
               "Shinobi Medicine or Ninjutsu Techniques.",
     "Upgrade": "Locations that contain non-unique upgrade materials for prosthetic tools.",
@@ -1769,9 +1769,9 @@ location_descriptions = {
     "Memories": "Locations that contain memories in vanilla.",
     "Unique": "Locations that contain items which can be obtained once in a run, such as keys, notes, " + \
               "reusable items, prosthetics & unique upgrades.",
-    "Healing": "Locations that contain Prayer Beads and Gourd Seeds in vanilla.",
+    "Healing": "Locations that contain Gourd Seeds and Prayer Beads in vanilla.",
     "Miscellaneous": "Locations that contain generic stackable items in vanilla, such as sugars, " +
-                     "mibu balloons, sakes, and so on.",
+                     "mibu balloons, sakes and so on.",
     "Hidden": "Locations that are particularly difficult to find, such as in crawl spaces, " + \
               "down hidden drops, behind walls and so on.",
     "Offering Box": "Locations that contain items which move into the Offering Box after " + \

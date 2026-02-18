@@ -142,8 +142,10 @@ _all_items = [
                    classification = ItemClassification.useful),
 
     # Healing
-    SekiroItemData("Prayer Bead", 0xfa0, SekiroItemCategory.HEALING),
-    SekiroItemData("Gourd Seed", 0x1130, SekiroItemCategory.HEALING),
+    SekiroItemData("Prayer Bead", 0xfa0, SekiroItemCategory.HEALING,
+                   classification = ItemClassification.useful),
+    SekiroItemData("Gourd Seed", 0x1130, SekiroItemCategory.HEALING,
+                   classification = ItemClassification.useful),
 
     # Incense
     SekiroItemData("Lotus of the Palace", 0x9c4, SekiroItemCategory.INCENSE,
