@@ -1,9 +1,18 @@
-from dataclasses import dataclass
 import json
-from typing import Any, Dict
+from dataclasses import dataclass
+from typing import Any
 
-from Options import Choice, DeathLink, DefaultOnToggle, ExcludeLocations, OptionDict, \
-    OptionGroup, PerGameCommonOptions, Removed, Toggle
+from Options import (
+    Choice,
+    DeathLink,
+    DefaultOnToggle,
+    ExcludeLocations,
+    OptionDict,
+    OptionGroup,
+    PerGameCommonOptions,
+    Toggle,
+    Visibility,
+)
 
 ## Game Options
 
@@ -26,9 +35,16 @@ class VeryEarlyHirata(Choice):
     default = option_off
 
 ## Skills
+
+class ShuffleSkills(Toggle):
+    """Shuffle the Skills in the Skill Trees unlocked via Esoteric Texts"""
+    display_name = "Shuffle Skills in Esoteric Texts"
+
+
 class RandomizeSkillsItemOption(Toggle):
     """Randomize the Skills as Item pickups """
-    display_name = "Randomize Skills"
+    display_name = "Randomize Skills as Item Pickups"
+    visibility = Visibility.none
 
 ### Enemies
 
@@ -103,7 +119,7 @@ class RandomEnemyPresetOption(OptionDict):
                   "DontRandomize", "RemoveSource", "Enemies"]
 
     @classmethod
-    def get_option_name(cls, value: Dict[str, Any]) -> str:
+    def get_option_name(cls, value: dict[str, Any]) -> str:
         return json.dumps(value)
 
 
@@ -169,7 +185,8 @@ class SekiroOptions(PerGameCommonOptions):
     death_link: DeathLink
 
     # Skills
-    randomize_skills: RandomizeSkillsItemOption
+    shuffle_skills: ShuffleSkills
+    randomize_skills_as_items: RandomizeSkillsItemOption
 
     # Enemies
     randomize_enemies: RandomizeEnemiesOption
@@ -189,6 +206,7 @@ class SekiroOptions(PerGameCommonOptions):
 
 option_groups = [
     OptionGroup("Skills", [
+        ShuffleSkills,
         RandomizeSkillsItemOption,
     ]),
     OptionGroup("Enemies", [

@@ -204,3 +204,5 @@ fuzz_output/
 worlds/sekiro/helper/
 worlds/sekiro/test/
 worlds/sekiro/.apignore
+item_location_count.py
+determinism.py
