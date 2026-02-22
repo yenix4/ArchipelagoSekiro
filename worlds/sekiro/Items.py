@@ -1,7 +1,8 @@
-from dataclasses import dataclass
 import dataclasses
+from collections.abc import Generator
+from dataclasses import dataclass
 from enum import IntEnum
-from typing import ClassVar, Dict, Generator, List, Optional, Set
+from typing import ClassVar
 
 from BaseClasses import Item, ItemClassification
 
@@ -24,16 +25,16 @@ class SekiroItemData:
     """The next item ID to use when creating item data."""
 
     name: str
-    sekiro_code: Optional[int]
+    sekiro_code: int | None
     category: SekiroItemCategory
 
-    base_name: Optional[str] = None
+    base_name: str | None = None
     """The name of the individual item, if this is a multi-item group."""
 
     classification: ItemClassification = ItemClassification.filler
     """How important this item is to the game progression."""
 
-    ap_code: Optional[int] = None
+    ap_code: int | None = None
     """The Archipelago ID for this item."""
 
     count: int = 1
@@ -67,7 +68,7 @@ class SekiroItemData:
         if not self.base_name: self.base_name = self.name
         SekiroItemData.__item_id += 1
 
-    def item_groups(self) -> List[str]:
+    def item_groups(self) -> list[str]:
         """The names of item groups this item should appear in.
 
         This is computed from the properties assigned to this item."""
@@ -88,14 +89,14 @@ class SekiroItemData:
 
         return names
 
-    def counts(self, counts: List[int]) -> Generator["SekiroItemData", None, None]:
+    def counts(self, counts: list[int]) -> Generator["SekiroItemData", None, None]:
         """Returns an iterable of copies of this item with the given counts."""
         yield self
         for count in counts:
             yield dataclasses.replace(
                 self,
                 ap_code = None,
-                name = "{} x{}".format(self.base_name, count),
+                name = f"{self.base_name} x{count}",
                 base_name = self.base_name,
                 count = count,
                 filler = False, # Don't count multiples as filler by default
@@ -124,8 +125,7 @@ class SekiroItem(Item):
 _all_items = [
     # Currency
     SekiroItemData("Light Coin Purse", 0xe74, SekiroItemCategory.CURRENCY, filler = True),
-    SekiroItemData("Heavy Coin Purse", 0xe78, SekiroItemCategory.CURRENCY,
-                   classification = ItemClassification.useful),
+    SekiroItemData("Heavy Coin Purse", 0xe78, SekiroItemCategory.CURRENCY),
     SekiroItemData("Bulging Coin Purse", 0xe7c, SekiroItemCategory.CURRENCY,
                    classification = ItemClassification.useful),
     *SekiroItemData("Treasure Carp Scale", 0x2710, SekiroItemCategory.CURRENCY,
@@ -197,9 +197,8 @@ _all_items = [
     SekiroItemData("Fine Snow", 0xc09, SekiroItemCategory.MISC, skip = True),
     *SekiroItemData("Antidote Powder", 0xc80, SekiroItemCategory.MISC, filler = True).counts([2]),
     *SekiroItemData("Dousing Powder", 0xc8a, SekiroItemCategory.MISC, filler = True).counts([2]),
-    *SekiroItemData("Ministry Dousing Powder", 0xc8b, SekiroItemCategory.MISC).counts([2]),
-    *SekiroItemData("Pacifying Agent", 0xc94, SekiroItemCategory.MISC,
-                    classification = ItemClassification.useful).counts([2, 3, 5]),
+    *SekiroItemData("Ministry Dousing Powder", 0xc8b, SekiroItemCategory.MISC, filler = True).counts([2]),
+    *SekiroItemData("Pacifying Agent", 0xc94, SekiroItemCategory.MISC).counts([2, 3, 5]),
     *SekiroItemData("Eel Liver", 0xc9e, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Contact Medicine", 0xcb2, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Bite Down", 0xcda, SekiroItemCategory.MISC, filler = True).counts([2]),
@@ -213,8 +212,7 @@ _all_items = [
     *SekiroItemData("Ceramic Shard", 0xdac, SekiroItemCategory.MISC, filler = True).counts([2, 3, 4]),
     *SekiroItemData("Fistful of Ash", 0xdb6, SekiroItemCategory.MISC, filler = True).counts([2, 3, 5]),
     *SekiroItemData("Oil", 0xdc0, SekiroItemCategory.MISC, filler = True).counts([2, 3, 5]),
-    *SekiroItemData("Snap Seed", 0xdca, SekiroItemCategory.MISC,
-                   classification = ItemClassification.useful).counts([2, 3, 5]),
+    *SekiroItemData("Snap Seed", 0xdca, SekiroItemCategory.MISC).counts([2, 3, 5]),
     *SekiroItemData("Mibu Balloon of Wealth", 0xe10, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Mibu Balloon of Soul", 0xe1a, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Mibu Possession Balloon", 0xe24, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
@@ -223,10 +221,10 @@ _all_items = [
                    classification = ItemClassification.useful),
     SekiroItemData("Dragon's Blood Droplet", 0x15e0, SekiroItemCategory.MISC,
                    classification = ItemClassification.useful),
-    SekiroItemData("Ashina Sake", 0x238c, SekiroItemCategory.MISC),
-    SekiroItemData("Unrefined Sake", 0x238d, SekiroItemCategory.MISC),
-    SekiroItemData("Monkey Booze", 0x238e, SekiroItemCategory.MISC),
-    SekiroItemData("Dragonspring Sake", 0x238f, SekiroItemCategory.MISC),
+    SekiroItemData("Ashina Sake", 0x238c, SekiroItemCategory.MISC, skip=True),
+    SekiroItemData("Unrefined Sake", 0x238d, SekiroItemCategory.MISC, skip=True),
+    SekiroItemData("Monkey Booze", 0x238e, SekiroItemCategory.MISC, skip=True),
+    SekiroItemData("Dragonspring Sake", 0x238f, SekiroItemCategory.MISC, skip=True),
     SekiroItemData("Precious Bait", 0x23dc, SekiroItemCategory.MISC,
                    classification = ItemClassification.progression),
 
@@ -237,8 +235,7 @@ _all_items = [
     SekiroItemData("Bestowal Ninjutsu", 0x848, SekiroItemCategory.SKILLS),
     SekiroItemData("Mibu Breathing Technique", 0x974, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.progression),
-    SekiroItemData("Anti-air Deathblow Text", 0x992, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful),
+    SekiroItemData("Anti-air Deathblow Text", 0x992, SekiroItemCategory.SKILLS),
     SekiroItemData("Dragon Flash", 0x99c, SekiroItemCategory.SKILLS),
     SekiroItemData("Shinobi Medicine Rank 1", 0x9a6, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.useful),
@@ -264,9 +261,9 @@ _all_items = [
                    classification = ItemClassification.progression),
     SekiroItemData("Aromatic Flower", 0x9c7, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mechanical Barrel", 0xb5e, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.useful),
+                   classification = ItemClassification.progression),
     SekiroItemData("Sweet Rice Ball", 0xbf5, SekiroItemCategory.UNIQUE),
-    SekiroItemData("Taro Persimmon", 0xbff, SekiroItemCategory.UNIQUE),
+    SekiroItemData("Taro Persimmon", 0xbff, SekiroItemCategory.UNIQUE, skip = True),
     SekiroItemData("Green Mossy Gourd", 0xce4, SekiroItemCategory.UNIQUE),
     SekiroItemData("Withered Red Gourd", 0xcee, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mottled Purple Gourd", 0xcf8, SekiroItemCategory.UNIQUE),
@@ -277,6 +274,7 @@ _all_items = [
     SekiroItemData("Gachiin's Spiritfall", 0xd3e, SekiroItemCategory.UNIQUE),
     SekiroItemData("Five-color Rice", 0xdfc, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mibu Pilgrimage Balloon", 0xe38, SekiroItemCategory.UNIQUE),
+    #Inject as it is currently out of logic as a quest reward
     SekiroItemData("Jinza's Jizo Statue", 0xe89, SekiroItemCategory.UNIQUE, inject = True),
     SekiroItemData("Ceremonial Tanto", 0xed8, SekiroItemCategory.UNIQUE),
     SekiroItemData("Nightjar Monocular", 0xf3c, SekiroItemCategory.UNIQUE),
@@ -295,7 +293,7 @@ _all_items = [
     SekiroItemData("Red Carp Eyes", 0x235c, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
     SekiroItemData("Dragon's Tally Board", 0x2364, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.useful),
     SekiroItemData("Promissory Note", 0x2365, SekiroItemCategory.UNIQUE),
     SekiroItemData("Water of the Palace", 0x236e, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
@@ -303,10 +301,11 @@ _all_items = [
                    classification = ItemClassification.progression),
     SekiroItemData("Red and White Pinwheel", 0x2378, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
-    SekiroItemData("White Pinwheel", 0x2379, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+    #Skip this to force Kotaro to go to quest, as we do not generate the Kotaro Senpou quest items
+    SekiroItemData("White Pinwheel", 0x2379, SekiroItemCategory.UNIQUE, skip = True),
+                   #classification = ItemClassification.progression,
     SekiroItemData("Rice for Kuro", 0x2382, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression, inject = True),
     SekiroItemData("Frozen Tears", 0x2383, SekiroItemCategory.UNIQUE),
     SekiroItemData("Truly Precious Bait (Harunaga)", 0x23dd, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
@@ -355,6 +354,7 @@ _all_items = [
                    classification = ItemClassification.useful),
     SekiroItemData("Robert's Firecrackers", 0x25ee, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
+    #Mark as progression if we implement it being there for Anayama
     SekiroItemData("Flame Barrel", 0x25f8, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
     SekiroItemData("Pine Resin Ember", 0x25f9, SekiroItemCategory.UNIQUE,
@@ -375,15 +375,14 @@ _all_items = [
                    classification = ItemClassification.useful),
     SekiroItemData("Malcontent's Ring", 0x263f, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
-    SekiroItemData("Recovery Charm", 0xb72, SekiroItemCategory.UNIQUE, classification = ItemClassification.progression,
-                   skip = True),
+
 
     # Upgrade
-    *SekiroItemData("Scrap Iron", 0x1770, SekiroItemCategory.UPGRADE).counts([2, 3, 5]),
-    *SekiroItemData("Scrap Magnetite", 0x177a, SekiroItemCategory.UPGRADE).counts([2, 3]),
-    *SekiroItemData("Adamantite Scrap", 0x1784, SekiroItemCategory.UPGRADE).counts([2]),
-    *SekiroItemData("Black Gunpowder", 0x17d4, SekiroItemCategory.UPGRADE).counts([2, 3]),
-    *SekiroItemData("Yellow Gunpowder", 0x1838, SekiroItemCategory.UPGRADE).counts([2, 3, 4]),
+    *SekiroItemData("Scrap Iron", 0x1770, SekiroItemCategory.UPGRADE, filler=True).counts([2, 3, 5]),
+    *SekiroItemData("Scrap Magnetite", 0x177a, SekiroItemCategory.UPGRADE, filler=True).counts([2, 3]),
+    *SekiroItemData("Adamantite Scrap", 0x1784, SekiroItemCategory.UPGRADE, filler=True).counts([2]),
+    *SekiroItemData("Black Gunpowder", 0x17d4, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3]),
+    *SekiroItemData("Yellow Gunpowder", 0x1838, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3, 4]),
     SekiroItemData("Fulminated Mercury", 0x1842, SekiroItemCategory.UPGRADE),
     *SekiroItemData("Lump of Fat Wax", 0x189c, SekiroItemCategory.UPGRADE).counts([2, 3]),
     *SekiroItemData("Lump of Grave Wax", 0x18a6, SekiroItemCategory.UPGRADE).counts([2]),
@@ -444,7 +443,7 @@ _skills_as_pickup = [
                    classification = ItemClassification.useful, inject = True),
 ]
 
-item_name_groups: Dict[str, Set] = {
+item_name_groups: dict[str, set] = {
     "Esoteric Texts": set(),
     "Progression": set(),
     "Incense": set(),
@@ -464,7 +463,8 @@ item_descriptions = {
     "Progression": "Items that unlock locations.",
     "Incense": "Items needed to reach Fountainhead Palace.",
     "Miscellaneous": "Generic stackable items, such as mibu balloons, ceramic shards, resistance buffs and so on.",
-    "Unique": "Items that are unique in the playthrough, such as notes, keys, charms, reusables and so on. Doesn't include Skill Texts or Skills.",
+    "Unique": "Items that are unique in the playthrough, such as notes, keys, charms, reusables and so on. "
+              "Doesn't include Skill Texts or Skills.",
     "Memories": "Memories dropped by major bosses to increase Attack Power.",
     "Currency": "Coin Purses and Treasure Carp Scales.",
     "Upgrade": "Non-unique materials to upgrade prosthetic tools.",
