@@ -12,11 +12,12 @@ be used in YAML options like `local_items` to refer to many items at once:
 
 * **Progression:** Items that unlock locations.
 * **Incense:** Ingredients required for the incense to access the Fountainhead Palace.
-* **Miscellaneous:** Generic stackable items such as sugars, balloons, sakes and so on.
-* **Unique:** Items that can be obtained once in a run, such as keys, notes, reusable items, prosthetics & unique upgrades.
-* **Esoteric Texts:** Items that unlock skill trees.
-* **Skills:** Skills found as item drops, such as Shinobi Medicine and Ninjutsu Techniques.
 * **Memories** Items dropped by major bosses to increase Attack Power.
-* **Upgrade:** Non-unique upgrade materials to upgrade prosthetic tools.
-* **Currency:** Coin Purses and Treasure Carp Scales.
 * **Healing:** Gourd Seeds and Prayer Beads.
+* **Esoteric Texts:** Items that unlock skill trees.
+* **Skills:** Skills obtained as Items, such as Shinobi Medicine and Ninjutsu Techniques.
+* **Unique:** Items that can be obtained once in a run, such as keys, notes, reusable items, prosthetics 
+& unique upgrades. Doesn't include Skill Texts or Skills.
+* **Currency:** Coin Purses and Treasure Carp Scales.
+* **Upgrade:** Non-unique upgrade materials to upgrade prosthetic tools.
+* **Miscellaneous:** Generic stackable items such as sugars, mibu balloons, resistance buffs and so on.

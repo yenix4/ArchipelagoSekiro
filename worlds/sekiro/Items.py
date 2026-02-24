@@ -74,7 +74,7 @@ class SekiroItemData:
         This is computed from the properties assigned to this item."""
         names = []
         if self.classification == ItemClassification.progression: names.append("Progression")
-
+        if self.category == SekiroItemCategory.INCENSE: names.append("Unique")
         names.append({
                          SekiroItemCategory.ESOTERIC_TEXTS: "Esoteric Texts",
                          SekiroItemCategory.SKILLS: "Skills",
@@ -86,7 +86,6 @@ class SekiroItemData:
                          SekiroItemCategory.UPGRADE: "Upgrade",
                          SekiroItemCategory.HEALING: "Healing",
                      }[self.category])
-
         return names
 
     def counts(self, counts: list[int]) -> Generator["SekiroItemData", None, None]:
@@ -131,7 +130,7 @@ _all_items = [
     *SekiroItemData("Treasure Carp Scale", 0x2710, SekiroItemCategory.CURRENCY,
                     classification = ItemClassification.useful).counts([3, 5]),
 
-    # Esoteric_texts
+    # Esoteric Texts
     SekiroItemData("Shinobi Esoteric Text", 0xb68, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
     SekiroItemData("Prosthetic Esoteric Text", 0xb69, SekiroItemCategory.ESOTERIC_TEXTS,
@@ -154,6 +153,8 @@ _all_items = [
                    classification = ItemClassification.progression),
     SekiroItemData("Aromatic Branch", 0x9c6, SekiroItemCategory.INCENSE,
                    classification = ItemClassification.progression),
+    SekiroItemData("Mortal Blade", 0x960, SekiroItemCategory.INCENSE,
+                   classification=ItemClassification.progression),
 
     # Memories
     SekiroItemData("Memory: Gyoubu Oniwa", 0x1450, SekiroItemCategory.MEMORIES,
@@ -257,13 +258,11 @@ _all_items = [
     # Unique
     SekiroItemData("Shinobi Prosthetic", 0x906, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
-    SekiroItemData("Mortal Blade", 0x960, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
     SekiroItemData("Aromatic Flower", 0x9c7, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mechanical Barrel", 0xb5e, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
     SekiroItemData("Sweet Rice Ball", 0xbf5, SekiroItemCategory.UNIQUE),
-    SekiroItemData("Taro Persimmon", 0xbff, SekiroItemCategory.UNIQUE, skip = True),
+    SekiroItemData("Taro Persimmon", 0xbff, SekiroItemCategory.UNIQUE, inject = True),
     SekiroItemData("Green Mossy Gourd", 0xce4, SekiroItemCategory.UNIQUE),
     SekiroItemData("Withered Red Gourd", 0xcee, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mottled Purple Gourd", 0xcf8, SekiroItemCategory.UNIQUE),
@@ -305,7 +304,7 @@ _all_items = [
     SekiroItemData("White Pinwheel", 0x2379, SekiroItemCategory.UNIQUE, skip = True),
                    #classification = ItemClassification.progression,
     SekiroItemData("Rice for Kuro", 0x2382, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression, inject = True),
+                   classification = ItemClassification.progression),
     SekiroItemData("Frozen Tears", 0x2383, SekiroItemCategory.UNIQUE),
     SekiroItemData("Truly Precious Bait (Harunaga)", 0x23dd, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
@@ -458,17 +457,17 @@ item_name_groups: dict[str, set] = {
 
 
 item_descriptions = {
-    "Esoteric Texts": "Items that unlock skill trees",
-    "Skills": "Skills found outside Esoteric Texts, such as Shinobi Medicine and Ninjutsu",
     "Progression": "Items that unlock locations.",
-    "Incense": "Items needed to reach Fountainhead Palace.",
-    "Miscellaneous": "Generic stackable items, such as mibu balloons, ceramic shards, resistance buffs and so on.",
-    "Unique": "Items that are unique in the playthrough, such as notes, keys, charms, reusables and so on. "
-              "Doesn't include Skill Texts or Skills.",
-    "Memories": "Memories dropped by major bosses to increase Attack Power.",
+    "Incense": "Ingredients required for the incense to access the Fountainhead Palace.",
+    "Memories": "Items dropped by major bosses to increase Attack Power.",
+    "Healing": "Gourd Seeds and Prayer Beads.",
+    "Esoteric Texts": "Items that unlock skill trees.",
+    "Skills": "Skills obtained as Items, such as Shinobi Medicine and Ninjutsu Techniques.",
+    "Unique": "Items that can be obtained once in a run, such as keys, notes, reusable items, prosthetics "
+              "& unique upgrades. Doesn't include Skill Texts or Skills.",
     "Currency": "Coin Purses and Treasure Carp Scales.",
     "Upgrade": "Non-unique materials to upgrade prosthetic tools.",
-    "Healing": "Gourd Seeds and Prayer Beads.",
+    "Miscellaneous": "Generic stackable items, such as sugars, mibu balloons, resistance buffs and so on.",
 }
 
 for item_data in _all_items:
