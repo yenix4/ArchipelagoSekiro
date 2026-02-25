@@ -128,6 +128,8 @@ This region ends at the Ashina Castle Gate Idol, anything after the gate falls u
 
 * **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path Idol.
 
+* **Destroyed House:** The two-floor building with a missing roof near the cliff courtyard.
+
 * **Cliffside Gate:** The closed gate flanked by giant cobblestone structures, 
   next to the secluded platforms with the giant snake skin.
 
@@ -137,7 +139,7 @@ This region ends at the Ashina Castle Gate Idol, anything after the gate falls u
 * **Ridge Inner Curve:** Much of Ashina Outskirts is on a thin U-shaped mountain ridge, 
   the inner curve is the "bowl" of the U-shape.
 
-* **Lookout Building:** The long 2nd-floor building that the player grapples into after the miniboss blocking 
+* **Lookout Building:** The long second floor building that the player grapples into after the miniboss blocking 
   progression at the Outskirts Wall - Stairway Idol.
   The directions "left" and "right" are from looking towards Ashina Castle.
 
@@ -147,8 +149,6 @@ This region ends at the Ashina Castle Gate Idol, anything after the gate falls u
 
 * **Tengu Tower:** The tower accessed after defeating the boss in Gyoubu's arena, 
   where you can meet Tengu for the first time.
-
-* **Destroyed House:** The two-floor building with a missing roof near the cliff courtyard.
 
 ### Hirata Estate (Young Lord's Bell Charm)
 
