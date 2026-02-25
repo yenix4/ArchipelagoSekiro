@@ -1099,6 +1099,7 @@ class SekiroWorld(World):
         slot_data = {
             "options": {
                 "death_link": self.options.death_link.value,
+                "remove_headless_slow_walk": self.options.remove_headless_slow_walk.value,
                 "shuffle_skills": self.options.shuffle_skills.value,
                 "randomize_enemies": self.options.randomize_enemies.value,
                 "randomize_headless": self.options.randomize_headless.value,
