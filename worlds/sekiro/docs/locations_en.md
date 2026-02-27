@@ -128,7 +128,7 @@ This region ends at the Ashina Castle Gate Idol, anything after the gate falls u
 
 * **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path Idol.
 
-* **Destroyed House:** The two-floor building with a missing roof near the cliff courtyard.
+* **Destroyed House:** The two-floor building with a missing roof after the cliff courtyard.
 
 * **Cliffside Gate:** The closed gate flanked by giant cobblestone structures, 
   next to the secluded platforms with the giant snake skin.

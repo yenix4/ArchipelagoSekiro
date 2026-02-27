@@ -474,7 +474,7 @@ class SekiroWorld(World):
         # Similar to above, but much simpler. Making sure this does not BK Prosthetic/Bell
         self._add_location_rule("DT: Shinobi Esoteric Text - talk to Sculptor with 1 skill point"
             , lambda state: (
-                self._can_get(state, "AO1: Prayer Bead - near Stairway idol, miniboss drop")
+                self._can_get(state, "AO1: Prayer Bead - before lookout building, miniboss drop")
             ))
 
         self._add_location_rule([
@@ -714,7 +714,7 @@ class SekiroWorld(World):
 
         ## Tengu
         self._add_location_rule([
-            "AO1: Ashina Esoteric Text - Tengu after killing rats"
+            "AO1: Ashina Esoteric Text - Tengu Tower, Tengu after killing rats"
         ], lambda state: (
             self._can_get(state, "AC1: Black Gunpowder - Tengu rat quest, enemy drop")
         ))
