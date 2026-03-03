@@ -16,8 +16,7 @@ from .Locations import location_dictionary
 location_re = re.compile(r"^([A-Z0-9]+): (.*?)(?:$| - )")
 
 if __name__ == "__main__":
-    # TODO: update this to the main branch of the main randomizer once Archipelago support is merged
-    url = "https://raw.githubusercontent.com/yenix4/SoulsRandomizers/archipelago-server/dists/Base/annotations.txt"
+    url = "https://raw.githubusercontent.com/fswap/SoulsRandomizers/refs/heads/archipelago/dists/Base/annotations.txt"
     response = requests.get(url)
     if response.status_code != 200:
         raise Exception(f"Got {response.status_code} when downloading static randomizer locations")

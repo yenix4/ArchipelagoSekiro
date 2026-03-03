@@ -206,3 +206,5 @@ worlds/sekiro/test/
 worlds/sekiro/.apignore
 item_location_count.py
 determinism.py
+/fuzz_input
+detect_rule_variable_capture_issues.py
