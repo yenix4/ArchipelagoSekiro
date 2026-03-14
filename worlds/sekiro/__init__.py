@@ -671,9 +671,7 @@ class SekiroWorld(World):
         """Adds rules for items accessible via NPC quests.
 
         We list missable locations here even though they never contain progression items so that the
-        game knows what sphere they're in. This is especially useful for item smoothing. (We could
-        add rules for boss transposition items as well, but then we couldn't freely reorder boss
-        soul locations for smoothing.)
+        game knows what sphere they're in.
 
         Generally, for locations that can be accessed early by killing NPCs, we set up requirements
         assuming the player _doesn't_ so they aren't forced to start killing allies to advance the

@@ -284,7 +284,7 @@ This region starts after proceeding through the Gun Fort Shrine doors with the G
 * **Shrine Cave:** The cave that contains the underground shrine proceeding past the Toxic Memorial Mob.
 
 * **Underground Shrine:** The underground temple guarded by a Great Serpent.
-  Requires Puppeteer Ninjutsu or Mist Raven's Feathers is needed to pass.
+  Requires Puppeteer Ninjutsu or Mist Raven's Feathers.
 
 * **Sunken Valley Cavern:** The area after making the kite-jump from Senpou Temple and 
   plunging on the Great Serpent from the wooden beam. Requires Puppeteer Ninjutsu.
