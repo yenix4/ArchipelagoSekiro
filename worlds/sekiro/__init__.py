@@ -18,7 +18,6 @@ from BaseClasses import (
 from worlds.AutoWorld import WebWorld, World
 from worlds.generic.Rules import CollectionRule, ItemRule, add_item_rule, add_rule
 
-from .Bosses import SekiroBossInfo, all_bosses
 from .Items import SekiroItem, SekiroItemData, filler_item_names, item_descriptions, item_dictionary, item_name_groups
 from .Locations import (
     SekiroLocation,
