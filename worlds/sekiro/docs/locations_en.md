@@ -44,7 +44,7 @@ at once:
 
 * **Boss Rewards:** Boss drops. Bosses are strong enemies that drop memories.
 
-* **Miniboss Rewards:** Miniboss drops. Minibosses are enemies with unique health bars that do not drop memories.
+* **Miniboss Rewards:** Miniboss drops. Minibosses are enemies with boss bars that do not drop memories.
 
 * **Hostile:** Drops from regular enemies or NPCs that are hostile to you. 
   This includes initially-friendly NPCs that must be fought as part of their questline.
