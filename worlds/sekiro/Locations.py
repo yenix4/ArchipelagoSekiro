@@ -47,7 +47,7 @@ class SekiroLocationData:
     If this is None, that indicates that this location is an "event" that's
     automatically considered accessed as soon as it's available. Events are used
     to indicate major game transitions that aren't otherwise gated by items so
-    that progression balancing and item smoothing is more accurate for DS3.
+    that progression balancing and item smoothing is more accurate for Sekiro.
     """
 
     ap_code: int | None = None
