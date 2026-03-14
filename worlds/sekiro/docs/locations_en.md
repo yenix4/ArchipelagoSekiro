@@ -10,6 +10,7 @@
 * [Location Groups](#location-groups)
 * [Understanding Location Names](#understanding-location-names)
   * [T: Tutorial](#tutorial)
+  * [DT: Dilapidated Temple](#dilapidated-temple)
   * [AO: Ashina Outskirts](#ashina-outskirts)
   * [HE1: Hirata Estate (Young Lord's Bell Charm)](#hirata-estate-young-lords-bell-charm)
   * [AC: Ashina Castle](#ashina-castle)
@@ -40,7 +41,9 @@ at once:
 
 * **Progression:** Locations that contain items in vanilla which unlock other locations.
 
-* **Incense:** Locations that contain items required to reach the Divine Realm (Fountainhead Palace) in vanilla.
+* **Prayer Beads:** Locations that contain Prayer Beads in vanilla.
+
+* **Gourd Seeds:** Locations that contain Gourd Seeds in vanilla.
 
 * **Boss Rewards:** Boss drops. Bosses are strong enemies that drop memories.
 
@@ -65,8 +68,6 @@ at once:
 * **Unique:** Locations that contain items which can be obtained once in a run, such as keys, notes, 
   reusable items, prosthetics & unique upgrades.
 
-* **Healing:** Locations that contain Gourd Seeds and Prayer Beads in vanilla.
-
 * **Miscellaneous:** Locations that contain generic stackable items such as sugars, mibu balloons, resistance buffs and so on.
 
 * **Hidden:** Locations that are particularly difficult to find, such as in crawl spaces,
@@ -82,7 +83,7 @@ locations have a set of landmarks that are used in location names to keep them
 short.
 
 * **T:** [Tutorial](#tutorial)
-* **DT:** Dilapidated Temple
+* **DT:** [Dilapidated Temple](#dilapidated-temple)
 * **AO:** [Ashina Outskirts](#ashina-outskirts)
 * **HE1:** [Hirata Estate (Young Lord's Bell Charm)](#hirata-estate-young-lords-bell-charm)
 * **AC:** [Ashina Castle](#ashina-castle)
@@ -118,16 +119,23 @@ The area from spawning into the starting well up to losing your arm in the intro
 
 * **Moon-View Tower:** The pagoda Kuro resides in at the start of the game, where he gives you the Kusabimaru.
 
+### Dilapidated Temple
+
+The area where you wake up after the intro boss cutscene. Houses the Sculptor and leads to Ashina Outskirts.
+
 ### Ashina Outskirts
 
-This area ends at the Ashina Castle Gate Idol, anything after the gate falls under Ashina Castle. \
-"Right" is the side opposite of Ashina Castle in the distance. "Forward" is the path towards progress.
+This area ends at the miniboss guarding the last gate to Ashina Castle.
+The directions "left" and "right" are used with the player facing in the direction of area progression.
 
 * **Gate:** Large torii gates with solid doors.
 
-* **Wide Gate House:** Large gate with a wide second floor, just after the Outskirts Wall - Gate Path Idol.
+* **Wide Gate House:** Large gate with a wide second floor, just after the Outskirts Wall - Gate Path idol.
 
-* **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path Idol.
+* **Hidden Wall Cave:** A small cave reached by dropping down onto a ledge 
+  from the platform left of the Wide Gate House.
+
+* **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path idol.
 
 * **Destroyed House:** The two-floor building with a missing roof after the cliff courtyard.
 
@@ -135,21 +143,21 @@ This area ends at the Ashina Castle Gate Idol, anything after the gate falls und
   next to the secluded platforms with the giant snake skin.
 
 * **Cobblestone Platform:** Large rectangular cobblestone platforms beside a giant gate near 
-  the Outskirts Wall - Stairway Idol.
-
-* **Ridge Inner Curve:** Much of Ashina Outskirts is on a thin U-shaped mountain ridge, 
-  the inner curve is the "bowl" of the U-shape.
+  the Outskirts Wall - Stairway idol.
 
 * **Lookout Building:** The long second floor building that the player grapples into after the miniboss blocking 
-  progression at the Outskirts Wall - Stairway Idol.
-  The directions "left" and "right" are from looking towards Ashina Castle.
+  progression at the Outskirts Wall - Stairway idol.
 
 * **Headless Cave:** The cliffside cave containing a headless miniboss in vanilla.
 
-* **Fortress:** The fortress after the Ashina Castle Gate Fortress Idol.
+* **Fortress:** The fortress after the Ashina Castle Gate Fortress idol.
 
 * **Tengu Tower:** The tower accessed after defeating the boss in Gyoubu's arena, 
   where you can meet Tengu for the first time.
+
+* **Castle Gate Courtyard:** The courtyard right before the stairs to the Ashina Castle Gate miniboss arena.
+
+* **Ashina Castle entrance:** The miniboss arena right before reaching the Ashina Castle idol.
 
 ### Hirata Estate (Young Lord's Bell Charm)
 
@@ -165,15 +173,13 @@ This area ends at the Ashina Castle Gate Idol, anything after the gate falls und
 
 ### Ashina Castle
 
-This region begins going out the gate after the Ashina Castle Gate Idol.
+This region begins going out the gate after the Ashina Castle Gate idol.
 "Left" and "Right" are always considering the player to be facing towards Ashina Castle.
-
-* **Before Bull Arena:** The courtyard right before the stairs to the Blazing Bull miniboss arena.
 
 * **Main Stairway:** The long stairway leading up to the front entrance of the castle with a miniboss at the top.
 
-* **Upper Tower:** Anything in the area of the Idols that have "Upper Tower" in their naming. 
-  Mainly used for the area before Ashina Dojo starting from the Antechamber Idol.
+* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in their naming. 
+  Mainly used for the area before Ashina Dojo starting from the Antechamber idol.
 
   * Roof: The boss arena at the top of the tower.
 
@@ -190,7 +196,7 @@ This region begins going out the gate after the Ashina Castle Gate Idol.
 
 ### Ashina Reservoir
 
-This area begins from the Ashina Reservoir Idol. Once grappling up from the water 
+This area begins from the Ashina Reservoir idol. Once grappling up from the water 
 in the starting well and then dropping down, it moves to Bottomless Hole in Abandoned Dungeon.
 
 * **Yard:** The large open area patrolled by multiple Taro Troops in vanilla, with a gate separating it 
@@ -212,13 +218,13 @@ in the starting well and then dropping down, it moves to Bottomless Hole in Aban
 
 * **Cricket Pit:** The area in a slight pit right after the entrance from Ashina Castle, containing crickets in vanilla.
 
-* **Underground Waterway:** The area from the Underground Waterway Idol up to the Senpou entrance elevator.
+* **Underground Waterway:** The area from the Underground Waterway idol up to the Senpou entrance elevator.
 
   * Island: The island with a docked boat and multiple enemies.
 
-* **Bottomless Hole:** The area near the Bottomless Hole Idol. Includes the pit where a miniboss is fought.
+* **Bottomless Hole:** The area near the Bottomless Hole idol. Includes the pit where a miniboss is fought.
 
-  * "Drop": The area after throwing oneself down into the depths, before dropping to the Ashina Depths Idol.
+  * "Drop": The area after throwing oneself down into the depths, before dropping to the Ashina Depths idol.
 
 * **Underwater**: Requires diving via Mibu Breathing Technique.
 
@@ -229,24 +235,24 @@ in the starting well and then dropping down, it moves to Bottomless Hole in Aban
   * "Entrance" is the grapple path into the temple, 
   * "Exit" is the window leaving the main room.
 
-* **Broken Bridge:** The broken bridge before the Shugendo Idol. 
+* **Broken Bridge:** The broken bridge before the Shugendo idol. 
   
   * "Other side" refers to the side with a slope leading up to the Carp Pond.
 
-* **Shugendo:** The area from the Shugendo Idol to the Bridge Arena containing thin walkways along cliffs.
+* **Shugendo:** The area from the Shugendo idol to the Bridge Arena containing thin walkways along cliffs.
 
 * **Bridge Arena:** The bridge after Shugendo where a miniboss is fought.
 
-* **Carp Pond:** The pond under the Temple Grounds Idol, containing two Treasure Carps.
+* **Carp Pond:** The pond under the Temple Grounds idol, containing two Treasure Carps.
 
-* **Atrium:** The building after the Carp Pond near the Temple Grounds Idol, 
+* **Atrium:** The building after the Carp Pond near the Temple Grounds idol, 
   containing enemies on the roof and in the courtyard.
 
 * **Sloped Path:** The long, sloped path exiting the Cliffside Temple up to the Main Hall.
 
 * **Cliffside Temple:** The temple to the right of the Atrium where a miniboss is fought.
 
-* **Main Hall:** The large building at the highest point of the area, containing the Main Hall Idol.
+* **Main Hall:** The large building at the highest point of the area, containing the Main Hall idol.
   The directions assume the player is facing the big central buddha statue.
 
 * **Halls of Illusion:** The boss arena containing the Folding Screen Monkeys in vanilla.
@@ -257,19 +263,19 @@ in the starting well and then dropping down, it moves to Bottomless Hole in Aban
 
 ### Sunken Valley
 
-* **Hidden Encampment:** Go right from the Under-Shrine Valley Idol, and after two tree branch grapples,
+* **Hidden Encampment:** Go right from the Under-Shrine Valley idol, and after two tree branch grapples,
   climb up the ledge on the left wall.
 
 * **Pond Cave:** The cave with stone pyramids and a miniboss, accessible through diving into a pond.
 
   * "Before" is the outside area with stone pyramids leading to the pond.
 
-* **Gun Fort:** Starting from Sunken Valley Idol all the way to the doors unlocked with the Gun Fort Shrine Key.
-                Gun Fort itself is the area with the barricades/mines and the cave leading to the Gun Fort Idol.
+* **Gun Fort:** Starting from Sunken Valley idol all the way to the doors unlocked with the Gun Fort Shrine Key.
+                Gun Fort itself is the area with the barricades/mines and the cave leading to the Gun Fort idol.
 
-  * "Approach" is the area starting from Sunken Valley Idol and ending once you climb up to the 
+  * "Approach" is the area starting from Sunken Valley idol and ending once you climb up to the 
                barricaded area containing mines.
-  * "Shrine" is the shrine past the Gun Fort Idol where a miniboss is fought.
+  * "Shrine" is the shrine past the Gun Fort idol where a miniboss is fought.
   * "Chasm" is the small network of caves accessed through broken floorboards inside the Gun Fort Shrine.
 
 ### Sunken Valley Passage
@@ -279,7 +285,7 @@ This region starts after proceeding through the Gun Fort Shrine doors with the G
 * **Bodhi Statue:** Refers to the many giant statues littering Bodhisattva Valley, right after Riven Cave.
   "Left" and "Right" are from the perspective of the player coming from Riven Cave.
   
-* **Swamp Island:** The landmass at the end of the toxic swamp, coming from the Bodhisattva Valley Idol.
+* **Swamp Island:** The landmass at the end of the toxic swamp, coming from the Bodhisattva Valley idol.
 
 * **Shrine Cave:** The cave that contains the underground shrine proceeding past the Toxic Memorial Mob.
 
@@ -294,7 +300,7 @@ This region starts after proceeding through the Gun Fort Shrine doors with the G
 ### Poison Pool
 
 This area is assumed to be entered from Abandoned Dungeon (dropping into Bottomless Hole).
-"left" and "right" are used assuming the player is coming from the Ashina Depths Idol.
+"left" and "right" are used assuming the player is coming from the Ashina Depths idol.
 
 * **Island:** Any platform where you don't get poison buildup, but are surrounded by swamp.
 
@@ -305,21 +311,21 @@ This area is assumed to be entered from Abandoned Dungeon (dropping into Bottoml
 This area starts after grappling out of the Guardian Ape's Burrow arena and ends 
 behind the Temple before descending to Mibu Village.
 
-* **Sinkhole:** The area with many tree branches beginning from the Hidden Forest Idol. 
+* **Sinkhole:** The area with many tree branches beginning from the Hidden Forest idol. 
 
 * **Bonfire:** The bonfire next to the dying monk above the sinkhole.
 
 * **Temple:** The building containing a miniboss with rafters. 
-  The directions "left" and "right" are used assuming the player is coming from the Hidden Forest Idol.
+  The directions "left" and "right" are used assuming the player is coming from the Hidden Forest idol.
 
 * **Cliffside:** The cliff beside a bottomless pit containing a miniboss.
 
 ### Mibu Village
 
-This region begins at the descent to the Mibu Village Idol and ends at the palanquin to Fountainhead Palace.
+This region begins at the descent to the Mibu Village idol and ends at the palanquin to Fountainhead Palace.
 
 * **Main Path:** The path beginning upon entering the village by crossing a small stream 
-  and ending near the Water Mill Idol.
+  and ending near the Water Mill idol.
 
 * **Villager Fields:** The fields where the villagers are laboring left of the main village.
 
@@ -337,13 +343,13 @@ This region begins at the descent to the Mibu Village Idol and ends at the palan
 This region covers the area of Ashina Castle once the first invasion occurs. This happens once the 
 Mortal Blade, Shelter Stone and Lotus of the Palace are collected and the player is not in Ashina Castle.
 
-* **Main Stairway:** The long stairway leading up to the front entrance of the castle from the Ashina Castle Idol.
+* **Main Stairway:** The long stairway leading up to the front entrance of the castle from the Ashina Castle idol.
 
 * **Secluded Courtyard:** A small courtyard between the main castle and some tower roofs.
   Accessible by jumping out of the Antechamber idol window, running straight and dropping to the left.
 
-* **Upper Tower:** Anything in the area of the Idols that have "Upper Tower" in their naming. 
-  Mainly used for the area before Ashina Dojo starting from the Antechamber Idol.
+* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in their naming. 
+  Mainly used for the area before Ashina Dojo starting from the Antechamber idol.
 
   * Roof: The boss arena at the top of the tower.
 
@@ -363,9 +369,9 @@ Going backwards from the spawn brings you back into Hirata Estate - Young Lord's
 
 * **Burning Courtyard:** The area containing the first miniboss directly ahead after arriving in the memory.
 
-* **Main Hall:** The area between the Main Hall Idol and the miniboss guarding the Audience Chamber.
+* **Main Hall:** The area between the Main Hall idol and the miniboss guarding the Audience Chamber.
 
-* **Audience Chamber:** The big building containing the Audience Chamber Idol guarded by a miniboss and many enemies.
+* **Audience Chamber:** The big building containing the Audience Chamber idol guarded by a miniboss and many enemies.
 
 * **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the end of the area.
 
@@ -376,9 +382,9 @@ diving in the lake and progressing through the Great Carp ravine.
 
 * **Vermilion Bridge:** The area you are brought into by the strawman from Mibu Village, containing the first area boss.
 
-* **Courtyard:** The enclosed area right before the Mibu Manor Idol.
+* **Courtyard:** The enclosed area right before the Mibu Manor idol.
 
-* **Mibu Manor:** The complex entered from the Mibu Manor Idol up to the exit to the Flower Viewing Stage Idol.
+* **Mibu Manor:** The complex entered from the Mibu Manor idol up to the exit to the Flower Viewing Stage idol.
 
   * "Beside" refers to the area outside the Mibu Manor left wall containing a miniboss.
 
@@ -392,10 +398,10 @@ diving in the lake and progressing through the Great Carp ravine.
 
 This region covers any diving in the lake.
 
-* **Palace Grounds:** The building after the Palace Grounds Idol with the shortcut door 
+* **Palace Grounds:** The building after the Palace Grounds idol with the shortcut door 
   and the area leading out the back to various pools of water.
 
-* **Feeding Grounds:** The area around the Feeding Grounds Idol accessed by grappling from the Palace Ground roof.
+* **Feeding Grounds:** The area around the Feeding Grounds idol accessed by grappling from the Palace Ground roof.
 
 * **Sanctuary:** The boss arena you warp to at the end of the area by praying.
 
@@ -406,10 +412,10 @@ This region covers any diving in the lake.
 This region covers the area of Ashina Castle once the second invasion occurs. 
 This happens once the area boss of Fountainhead Palace has been defeated.
 
-* **Main Stairway:** The long stairway leading up to the front entrance of the castle from the Ashina Castle Idol.
+* **Main Stairway:** The long stairway leading up to the front entrance of the castle from the Ashina Castle idol.
 
-* **Upper Tower:** Anything in the area of the Idols that have "Upper Tower" in their naming. 
-  Mainly used for the area before Ashina Dojo starting from the Antechamber Idol.
+* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in their naming. 
+  Mainly used for the area before Ashina Dojo starting from the Antechamber idol.
 
 * **Isshin's Dojo:** The dojo located under Isshin Ashina's tower containing a miniboss. 
   This can also be reached by destroying the folding screen behind the stairs up to Ashina Dojo.
@@ -417,9 +423,9 @@ This happens once the area boss of Fountainhead Palace has been defeated.
 ### Ashina Outskirts (Central Forces)
 
 This region covers the area starting after the kite jump from the Ashina Castle rooftops.
-"left" and "right" are used assuming the player comes from Old Grave Idol and follows the area progression.
+"left" and "right" are used assuming the player comes from Old Grave idol and follows the area progression.
 
-* **Lookout Building:** The long second floor building separating the courtyard from the Stairway Idol area.
+* **Lookout Building:** The long second floor building separating the courtyard from the Stairway idol area.
 
 * **Destroyed House:** The two-story building with a missing roof near soldier camp. 
   On the right side of the path leading up to the courtyard with the teleport to the Flames of Hatred boss arena.
@@ -466,9 +472,9 @@ static _Sekiro_ randomizer].
 <tr><td>AC/I: Oil - basement, passage to main stairway left</td><td>Past the door which can be opened from within the Upper Tower basement, in the passageway connecting to the main castle stairway</td></tr>
 <tr><td>AC/I: Oil - courtyard far right from Ashina Castle idol</td><td>In a courtyard with a lone dead tree, against the right wall overlooking Gyoubu&#x27;s field.</td></tr>
 <tr><td>AC/I: Oil - main stairway</td><td>On the main castle stairway</td></tr>
-<tr><td>AC/I: Pellet - at end of bridge from ADG</td><td>On the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
+<tr><td>AC/I: Pellet - at end of bridge from AD</td><td>On the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
 <tr><td>AC/I: Pellet - balcony at Isshin&#x27;s watchtower</td><td>On a balcony of Isshin&#x27;s watchtower</td></tr>
-<tr><td>AC/I: Pellet - corpse on rooftop path, overlooking Gyoubu&#x27;s arena</td><td>On a Nightjar Ninja corpse on the rooftop path from the Ashina Castle Sculptor&#x27;s Idol to the central tower roof, overlooking Gyoubu&#x27;s field</td></tr>
+<tr><td>AC/I: Pellet - corpse on rooftop path, overlooking Ashina Castle Gate arena</td><td>On a Nightjar Ninja corpse on the rooftop path from the Ashina Castle Sculptor&#x27;s Idol to the central tower roof, overlooking Gyoubu&#x27;s field</td></tr>
 <tr><td>AC/I: Pellet - upper tower, rafters</td><td>On the rafters which can be grappled to from one of the Upper Tower rooms, before dropping to the stairs leading up to Ashina Dojo</td></tr>
 <tr><td>AC/I: Prayer Bead - Ashina Dojo, miniboss drop</td><td>Dropped by Lone Shadow Vilehand</td></tr>
 <tr><td>AC/I: Prayer Bead - Great Serpent Shrine, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-bearer, or in the Offering Box after the Central Forces invasion</td></tr>
@@ -482,16 +488,13 @@ static _Sekiro_ randomizer].
 <tr><td>AC/I: Yashariku&#x27;s Sugar - under gate separating Ashina Castle and Serpent Shrine</td><td>Under the open gate separating the rear moat of Ashina Castle and the Great Serpent Shrine path</td></tr>
 <tr><td>AC/I: Yellow Gunpowder - Great Serpent Shrine, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-Bearer</td></tr>
 <tr><td>AC: Ako&#x27;s Sugar - any Old Praying Woman, pop 2 balloons</td><td>Given by any Old Praying Woman after popping two balloons</td></tr>
-<tr><td>AC: Ako&#x27;s Sugar - before Bull arena, on left cliffside, behind wall</td><td>Dropping down past the left wall near the start of the courtyard with the Taro Troops</td></tr>
 <tr><td>AC: Ako&#x27;s Sugar - upper tower, map room</td><td>In the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Anti-air Deathblow Text - Blackhat Badger</td><td>Sold by Blackhat Badger before the Interior Ministry invasion, or in the Offering Box after</td></tr>
-<tr><td>AC: Black Gunpowder - Tengu rat quest, enemy drop</td><td>Guaranteed drop from the &quot;rat&quot; Senpou Assassin conspiring by the tree, the one closest to the treasure</td></tr>
 <tr><td>AC: Black Gunpowder - destroyed bridge to AO</td><td>On the Ashina Castle side of the destroyed/rebuilt bridge to Outskirts</td></tr>
-<tr><td>AC: Black Gunpowder - outside building at ADG entrance</td><td>Outside of the building with the Abandoned Dungeon entrance</td></tr>
+<tr><td>AC: Black Gunpowder - outside building at AD entrance</td><td>Outside of the building with the Abandoned Dungeon entrance</td></tr>
 <tr><td>AC: Bloodsmoke Ninjutsu - upper tower roof, boss drop</td><td>Dropped by Genichiro</td></tr>
 <tr><td>AC: Ceramic Shard - Old Grave, courtyard near Blackhat Badger</td><td>In a courtyard with many treasures down the stairs from Old Grave, close to Blackhat Badger&#x27;s building</td></tr>
 <tr><td>AC: Ceramic Shard - area right of main stairway, near Fujioka&#x27;s pursuers</td><td>In the area to the right of the main stairway with many soldiers</td></tr>
-<tr><td>AC: Ceramic Shard - base of stairs after Ashina Castle Gate idol</td><td>At the base of the stairs with several soldiers patrolling, leading up to the courtyard with Taro Troops</td></tr>
 <tr><td>AC: Ceramic Shard - bird&#x27;s nest before Antechamber idol</td><td>In a bird&#x27;s nest on the roof outside of the Antechamber Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Ceramic Shard - bird&#x27;s nest on rooftop of buildings on right</td><td>In a bird&#x27;s nest on a roof patrolled by Nightjar Ninjas. Visible from the roofs which can be grappled to on the right of the main stairway.</td></tr>
 <tr><td>AC: Ceramic Shard - right of stairway to Ashina Dojo idol</td><td>To the right of the stairway leading up to Ashina Dojo</td></tr>
@@ -503,16 +506,14 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Eel Liver - basement, side room with chest</td><td>In the basement of the Upper Tower building, in the side room with the Sabimaru</td></tr>
 <tr><td>AC: Eel Liver - small shrine across from Great Serpent Shrine</td><td>In the small shrine on the other side of the ravine from Great Serpent Shrine</td></tr>
 <tr><td>AC: Fistful of Ash - Old Grave, courtyard near Blackhat Badger building</td><td>In a courtyard with many treasures down the stairs from Old Grave, close to Blackhat Badger&#x27;s building</td></tr>
-<tr><td>AC: Fistful of Ash - before Bull arena, corner house at tree</td><td>Near the end of the path leading up to Blazing Bull, rather than going through the gate and up the stairs to the right, go up the stairs behind a tree to the left</td></tr>
 <tr><td>AC: Fistful of Ash - between window and Antechamber idol</td><td>In between the window and the Antechamber Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Fistful of Ash - courtyard right of Ashina Castle idol</td><td>In a courtyard nearly directly right of the Ashina Castle Sculptor&#x27;s Idol, facing the castle</td></tr>
 <tr><td>AC: Fragrant Flower Note - talk to Kuro about flower</td><td>Given by Kuro upon asking about the flower</td></tr>
 <tr><td>AC: Gachiin&#x27;s Sugar - Old Grave, bird&#x27;s nest close to idol</td><td>In a bird&#x27;s nest close to the Old Grave Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Gachiin&#x27;s Sugar - Old Grave, courtyard near Blackhat Badger building</td><td>In a courtyard with many treasures down the stairs from Old Grave, close to Blackhat Badger&#x27;s building</td></tr>
-<tr><td>AC: Gachiin&#x27;s Sugar - at tree near Bull arena walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AC: Gachiin&#x27;s Sugar - bird&#x27;s nest on roof near Isshin&#x27;s watchtower</td><td>In a bird&#x27;s nest on a roof near Isshin&#x27;s watchtower</td></tr>
 <tr><td>AC: Gachiin&#x27;s Sugar - upper tower, rafters</td><td>On the rafters which can be grappled to from one of the Upper Tower rooms, in the corner.</td></tr>
-<tr><td>AC: Gatehouse Key - bridge leading to ADG, enemy drop</td><td>Dropped by a soldier on the bridge leading to the Abandoned Dungeon entrance, or in the courtyard immediately to the left after the Ashina Castle Sculptor&#x27;s Idol</td></tr>
+<tr><td>AC: Gatehouse Key - bridge leading to AD, enemy drop</td><td>Dropped by a soldier on the bridge leading to the Abandoned Dungeon entrance, or in the courtyard immediately to the left after the Ashina Castle Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Gokan&#x27;s Sugar - basement, side room with chest</td><td>In the basement of the Upper Tower building, in the side room with the Sabimaru</td></tr>
 <tr><td>AC: Gokan&#x27;s Sugar - room with Ashina Dojo idol</td><td>At the entrance to the room with the Ashina Dojo Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Gourd Seed - chest near Antechamber idol</td><td>In a chest before the Upper Tower Antechamber</td></tr>
@@ -529,8 +530,7 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Isshin&#x27;s Letter - Isshin&#x27;s watchtower before upper tower roof boss</td><td>Found in Isshin&#x27;s watchtower before he relocates there, until defeating Genichiro and killing the &quot;rats&quot;</td></tr>
 <tr><td>AC: Light Coin Purse - Old Grave, courtyard near Blackhat Badger building</td><td>In a courtyard with many treasures down the stairs from Old Grave, close to Blackhat Badger&#x27;s building</td></tr>
 <tr><td>AC: Light Coin Purse - bird&#x27;s nest near Castle Tower Lookout idol</td><td>In a bird&#x27;s nest near the Castle Lookout. Leaving the Ashina Dojo window and grappling to the dragon, rather than grappling again to the right, instead drop off to the left.</td></tr>
-<tr><td>AC: Light Coin Purse - left before bridge to ADG in house</td><td>On one side of a barricated gate looking into the Blazing Bull room, on the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
-<tr><td>AC: Light Coin Purse - top level of building near stairs to Bull arena</td><td>In the top level of the building to the right of the stairs leading up to Blazing Bull</td></tr>
+<tr><td>AC: Light Coin Purse - left before bridge to AD in house</td><td>On one side of a barricated gate looking into the Blazing Bull room, on the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
 <tr><td>AC: Light Coin Purse - upper tower, past shinobi door</td><td>Past a scroll-covered shinobi door in the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Memory: Genichiro - upper tower roof, boss drop</td><td>Dropped by Genichiro</td></tr>
 <tr><td>AC: Mibu Balloon of Spirit - room before Serpent Shrine idol</td><td>In the room before the Great Serpent Shrine Sculptor&#x27;s Idol</td></tr>
@@ -547,23 +547,17 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Pellet - Isshin&#x27;s dojo, stairs to Isshin</td><td>On the lower floor of Isshin&#x27;s watchtower at the base of the stairs</td></tr>
 <tr><td>AC: Pellet - before AR gate</td><td>Before the door which opens up into Ashina Reservoir. Accessible from the building going down the left path after the Ashina Castle Sculptor&#x27;s Idol, dropping down to the lower level.</td></tr>
 <tr><td>AC: Pellet - bird&#x27;s nest after grappling to main castle roof</td><td>In a bird&#x27;s nest on the tall building before the roof where the Kite Nightjar Ninja can ambush you</td></tr>
-<tr><td>AC: Pellet - tree near Tengu rat quest enemy</td><td>On a tree with two two Senpou Assassin &quot;rats&quot; you can eavesdrop on</td></tr>
 <tr><td>AC: Pellet - upper tower, corner room near map</td><td>In a corner room next to the Upper Tower room where two fencers are studying a map</td></tr>
-<tr><td>AC: Prayer Bead - Ashina Castle Gate, miniboss drop</td><td>Dropped by Blazing Bull</td></tr>
 <tr><td>AC: Prayer Bead - Ashina Dojo, miniboss drop</td><td>Dropped by Ashina Elite Jinsuke Saze, or in the Offering Box after the Interior Ministry invasion</td></tr>
 <tr><td>AC: Prayer Bead - main stairway, miniboss drop</td><td>Dropped by General Kuranosuke Matsumoto, or in the Offering Box after the Interior Ministry invasion</td></tr>
 <tr><td>AC: Prayer Bead - upper tower, chest past shinobi door</td><td>In a chest past a scroll-covered shinobi door in the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Sabimaru - basement, chest</td><td>In a chest in the Upper Tower basement</td></tr>
-<tr><td>AC: Scrap Iron - before Bull arena, hidden behind corner house</td><td>Near the end of the path leading up to Blazing Bull, rather than going through the gate and up the stairs to the right, go up the stairs behind the building to the left</td></tr>
 <tr><td>AC: Scrap Iron - ledge on right overlooking Ashina Castle idol</td><td>Between two trees on a ledge overlooking the Ashina Castle Sculptor&#x27;s Idol. To the right of the Idol, facing the castle</td></tr>
 <tr><td>AC: Scrap Iron - left from Ashina Castle idol and through building</td><td>By a tree overlooking a moat in Ashina Castle. It can be accessed by taking a left after the Ashina Castle Sculptor&#x27;s Idol and going through the building.</td></tr>
 <tr><td>AC: Scrap Iron - on ledge across moat with underwater headless</td><td>On a ledge overlooking the moat with the Underwater Headless. Can be accessed by jumping down from the castle buildings overlooking the bridge to the building on the other side of the bridge.</td></tr>
-<tr><td>AC: Scrap Iron - on stone near Bull arena walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AC: Scrap Iron - upper tower, map room</td><td>In the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Scrap Magnetite - Ashina Dojo, side room</td><td>In the side room of Ashina Dojo</td></tr>
-<tr><td>AC: Scrap Magnetite - before Bull arena, enemy drop</td><td>Guaranteed drop from either of the Taro Troop in the courtyard with the tall grass</td></tr>
 <tr><td>AC: Scrap Magnetite - behind statue in Kuro&#x27;s Room</td><td>Behind the main statue in Kuro&#x27;s Room</td></tr>
-<tr><td>AC: Shinobi Medicine Rank 2 - Ashina Castle Gate, miniboss drop</td><td>Dropped by Blazing Bull</td></tr>
 <tr><td>AC: Sweet Rice Ball - Kuro after Rice for Kuro</td><td>Given by Kuro after he receives Rice for Kuro</td></tr>
 <tr><td>AC: Treasure Carp Scale - underwater, below Ashina Castle idol</td><td>Underwater in the moat below the Ashina Castle Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Ungo&#x27;s Spiritfall - underwater, headless drop</td><td>Dropped by Underwater Headless</td></tr>
@@ -574,7 +568,7 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Yashariku&#x27;s Sugar - underwater, near headless against castle wall</td><td>Underwater in the moat with the Underwater Headless, against the castle wall</td></tr>
 <tr><td>AD: Academics&#x27; Red Lump - Underground Waterway island, red-eyed Doujun, enemy drop</td><td>Dropped by the Doujun at the end of his quest</td></tr>
 <tr><td>AD: Ako&#x27;s Sugar - Underground Waterway island, in boat</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
-<tr><td>AD: Bite Down - thin cave connecting ADG to Bottomless Hole</td><td>In the narrow cave between the cricket area and the Shichimen Warrior area</td></tr>
+<tr><td>AD: Bite Down - thin cave connecting AD to Bottomless Hole</td><td>In the narrow cave between the cricket area and the Shichimen Warrior area</td></tr>
 <tr><td>AD: Black Gunpowder - Bottomless Hole, in an alcove in miniboss arena</td><td>In the pit with Shichimen Warrior</td></tr>
 <tr><td>AD: Black Gunpowder - Underground Waterway island</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
 <tr><td>AD: Bulging Coin Purse - Bottomless Hole, stalagmite near idol</td><td>Before the Bottomless Hole Sculptor&#x27;s Idol, coming from Ashina Reservoir</td></tr>
@@ -629,12 +623,15 @@ static _Sekiro_ randomizer].
 <tr><td>AO/C: Prayer Bead - courtyard before lookout building, miniboss drop</td><td>Dropped by Shigekichi of the Red Guard</td></tr>
 <tr><td>AO/C: Promissory Note - Anayama the Peddler</td><td>Item sold by dying Anyama the Peddler</td></tr>
 <tr><td>AO: Ako&#x27;s Spiritfall - headless cave, miniboss drop</td><td>Dropped by Headless</td></tr>
+<tr><td>AO: Ako&#x27;s Sugar - castle gate courtyard, cliffside, behind wall</td><td>Dropping down past the left wall near the start of the courtyard with the Taro Troops</td></tr>
 <tr><td>AO: Ako&#x27;s Sugar - fortress, along left outer wall from idol</td><td>Following the outer wall of the main courtyard to the left from the Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO: Ako&#x27;s Sugar - right cliff from Outskirts idol, wall cave</td><td>Following the right cliff edge from the Ashina Outskirts Sculptor&#x27;s Idol, dropping down to the right of a destroyed wall, in a cave</td></tr>
 <tr><td>AO: Antidote Powder - lookout building, right room</td><td>On the upper floor of the lookout building which can be grappled into at the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
 <tr><td>AO: Ashina Esoteric Text - Tengu Tower, Tengu after killing rats</td><td>Given by Tengu after killing rats, or in his spot in Ashina Castle if the quest is refused and after Divine Dragon</td></tr>
+<tr><td>AO: Black Gunpowder - Tengu rat quest, enemy drop</td><td>Guaranteed drop from the &quot;rat&quot; Senpou Assassin conspiring by the tree, the one closest to the treasure</td></tr>
 <tr><td>AO: Black Gunpowder - right cobblestone platform, enemy drop</td><td>Guaranteed drop from cannon-wielding soldier overlooking closed gate</td></tr>
-<tr><td>AO: Bundled Jizo Statue - ridge inner curve, wall cave</td><td>From the upraised ground to the left of the building with the Shuriken Wheel, coming from Gate Path (can be accessed by grappling to the building&#x27;s roof), drop down to the left, in a cave</td></tr>
+<tr><td>AO: Bundled Jizo Statue - hidden wall cave</td><td>From the upraised ground to the left of the building with the Shuriken Wheel, coming from Gate Path (can be accessed by grappling to the building&#x27;s roof), drop down to the left, in a cave</td></tr>
+<tr><td>AO: Ceramic Shard - base of stairs after Ashina Castle Gate idol</td><td>At the base of the stairs with several soldiers patrolling, leading up to the courtyard with Taro Troops</td></tr>
 <tr><td>AO: Ceramic Shard - before the stairs to Battlefield Memorial Mob</td><td>Before the stairs leading up to Battlefield Memorial Mob</td></tr>
 <tr><td>AO: Ceramic Shard - destroyed house, second floor</td><td>On the second floor of the ruined building with the rifleman, on the right going down the main stairway after General Naomori Kawarada</td></tr>
 <tr><td>AO: Ceramic Shard - fortress, courtyard outside house</td><td>On the ground floor of the building with a rifleman in the main courtyard</td></tr>
@@ -644,15 +641,17 @@ static _Sekiro_ randomizer].
 <tr><td>AO: Ceramic Shard - under branch after first gate</td><td>On a path dropping down to the left of the Ashina Outskirts Sculptor&#x27;s Idol, before making a right turn to go up a stairway</td></tr>
 <tr><td>AO: Divine Confetti - slope before headless warning sign</td><td>On the small slope to the right before the Headless warning sign</td></tr>
 <tr><td>AO: Divine Grass - lookout building, right room</td><td>On the upper floor of the lookout building which can be grappled into at the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
+<tr><td>AO: Fistful of Ash - castle gate courtyard, corner house at tree</td><td>Near the end of the path leading up to Blazing Bull, rather than going through the gate and up the stairs to the right, go up the stairs behind a tree to the left</td></tr>
 <tr><td>AO: Fistful of Ash - cliff courtyard, broken hut</td><td>In a destroyed hut to the left of General Naomori Kawarada</td></tr>
 <tr><td>AO: Fistful of Ash - fortress, near dead horse</td><td>On the tree where the soldier is mourning for Kokage the horse. RIP</td></tr>
-<tr><td>AO: Fistful of Ash - in Gyoubu arena</td><td>In the middle of the field before Ashina Castle Gate</td></tr>
+<tr><td>AO: Fistful of Ash - in Ashina Castle Gate arena</td><td>In the middle of the field before Ashina Castle Gate</td></tr>
 <tr><td>AO: Fistful of Ash - right of gate leading to Gate Path idol</td><td>At the top of a short stairway close to the start of Ashina Outskirts, in a courtyard with tall grass before the courtyard with hounds and the Gate Path Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO: Flame Barrel Memo - Anayama for 20 sen</td><td>Given by Anayama the Peddler upon paying 20 sen for information, or dropped on death</td></tr>
 <tr><td>AO: Gachiin&#x27;s Sugar - after shimmy on way to headless cave</td><td>At the end of the shimmy wall before jumping down onto the platform with the Headless Cave entrance</td></tr>
+<tr><td>AO: Gachiin&#x27;s Sugar - at tree near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AO: Gachiin&#x27;s Sugar - fortress, left of idol</td><td>To the left of the Ashina Castle Fortress Sculptor&#x27;s Idol</td></tr>
+<tr><td>AO: Gachiin&#x27;s Sugar - grapple down from hidden wall cave</td><td>In some tall grass on a steep side path to the left of the soldier camp after General Naomori Kawarada. Can be accessed by dropping down it immediately to the left after the General&#x27;s closed gate.</td></tr>
 <tr><td>AO: Gachiin&#x27;s Sugar - house containing headless cave shortcut</td><td>In a building almost completely missing a roof, toward the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
-<tr><td>AO: Gachiin&#x27;s Sugar - ridge inner curve, tall grass</td><td>In some tall grass on a steep side path to the left of the soldier camp after General Naomori Kawarada. Can be accessed by dropping down it immediately to the left after the General&#x27;s closed gate.</td></tr>
 <tr><td>AO: Gourd Seed - Battlefield Memorial Mob</td><td>Unique item sold by Battlefield Memorial Mob</td></tr>
 <tr><td>AO: Gourd Seed - cliff courtyard, miniboss drop</td><td>Dropped by General Naomori Kawarada, or in Offering Box after the Central Forces invasion</td></tr>
 <tr><td>AO: Gourd Seed - lookout building, left room</td><td>In the left room of the lookout building after Chained Ogre</td></tr>
@@ -663,6 +662,7 @@ static _Sekiro_ randomizer].
 <tr><td>AO: Light Coin Purse - room under Inosuke&#x27;s Mother #1</td><td>Underneath the building with Inosuke&#x27;s Mother, behind some destructible cartons</td></tr>
 <tr><td>AO: Light Coin Purse - room under Inosuke&#x27;s Mother #2</td><td>Underneath the building with Inosuke&#x27;s Mother, behind some destructible cartons</td></tr>
 <tr><td>AO: Light Coin Purse - room under Inosuke&#x27;s Mother #3</td><td>Underneath the building with Inosuke&#x27;s Mother, behind some destructible cartons</td></tr>
+<tr><td>AO: Light Coin Purse - top level of building in castle gate courtyard</td><td>In the top level of the building to the right of the stairs leading up to Blazing Bull</td></tr>
 <tr><td>AO: Mechanical Barrel - Ashina Castle Gate, boss drop</td><td>Dropped by Gyoubu Oniwa</td></tr>
 <tr><td>AO: Memory: Gyoubu Oniwa - Ashina Castle Gate, boss drop</td><td>Dropped by Gyoubu Oniwa</td></tr>
 <tr><td>AO: Mibu Balloon of Wealth - destroyed house, first floor</td><td>On the ground floor of the ruined building with the rifleman, on the right going down the main stairway after General Naomori Kawarada</td></tr>
@@ -679,17 +679,23 @@ static _Sekiro_ randomizer].
 <tr><td>AO: Pellet - just before Underbridge Valley idol</td><td>At the start of the descent into the Underbridge Valley, dropping down to the left of the bridge from the courtyard</td></tr>
 <tr><td>AO: Pellet - left above wide gate house</td><td>On the upraised ground to the left of the building with the Shuriken Wheel, coming from Gate Path; can be accessed by grappling to the building&#x27;s roof</td></tr>
 <tr><td>AO: Pellet - left of gate to Gate Path idol</td><td>At the top of a short stairway close to the start of Ashina Outskirts, in a courtyard with tall grass before the courtyard with hounds and the Gate Path Sculptor&#x27;s Idol</td></tr>
+<tr><td>AO: Pellet - tree near Tengu rat quest enemy</td><td>On a tree with two two Senpou Assassin &quot;rats&quot; you can eavesdrop on</td></tr>
 <tr><td>AO: Pellet - up stairs, before lookout building miniboss</td><td>Up the short stairs to the left after the Stairway Sculptor&#x27;s Idol, before the Chained Ogre</td></tr>
 <tr><td>AO: Phantom Kunai - Anayama the Peddler</td><td>Initial unique item sold by Anayama the Peddler, or available in offering box after Central Forces invasion</td></tr>
+<tr><td>AO: Prayer Bead - Ashina Castle entrance, miniboss drop</td><td>Dropped by Blazing Bull</td></tr>
 <tr><td>AO: Prayer Bead - Tengu Tower, top floor chest</td><td>In a chest on the top floor of the building up the stairs after Gyoubu</td></tr>
 <tr><td>AO: Prayer Bead - before lookout building, miniboss drop</td><td>Dropped by Chained Ogre</td></tr>
 <tr><td>AO: Prayer Bead - cliff courtyard, miniboss drop</td><td>Dropped by General Naomori Kawarada, or in Offering Box after the Central Forces invasion</td></tr>
 <tr><td>AO: Prayer Bead - courtyard after lookout building, miniboss drop</td><td>Dropped by General Tenzen Yamauchi, or in the Offering Box after the Central Forces invasion</td></tr>
 <tr><td>AO: Rat Description - Tengu Tower, agree to help Tengu</td><td>Given by Tengu of Ashina in the building up the stairs after Gyoubu</td></tr>
 <tr><td>AO: Robert&#x27;s Firecrackers - Crow&#x27;s Bed &amp; Battlefield Memorial Mob</td><td>Unique item sold by Crow&#x27;s Bed Memorial Mob and Battlefield Memorial Mob</td></tr>
+<tr><td>AO: Scrap Iron - castle gate courtyard, hidden behind corner house</td><td>Near the end of the path leading up to Blazing Bull, rather than going through the gate and up the stairs to the right, go up the stairs behind the building to the left</td></tr>
 <tr><td>AO: Scrap Iron - courtyard after lookout building</td><td>In the courtyard after Chained Ogre against the far wall</td></tr>
+<tr><td>AO: Scrap Iron - on stone near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AO: Scrap Iron - secluded platform, after snake skin</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the left of the Great Serpent&#x27;s shed skin</td></tr>
+<tr><td>AO: Scrap Magnetite - castle gate courtyard, enemy drop</td><td>Guaranteed drop from either of the Taro Troop in the courtyard with the tall grass</td></tr>
 <tr><td>AO: Shinobi Medicine Rank 1 - before lookout building, miniboss drop</td><td>Dropped by Chained Ogre</td></tr>
+<tr><td>AO: Shinobi Medicine Rank 2 - Ashina Castle entrance, miniboss drop</td><td>Dropped by Blazing Bull</td></tr>
 <tr><td>AO: Shuriken Wheel - wide gate house, second floor</td><td>On the second floor of the building next to the Gate Path Sculptor&#x27;s Idol, or in the Offering Box after the second invasion</td></tr>
 <tr><td>AO: Snap Seed - near palanquin where Great Serpent lies</td><td>At the top of a hill above a wall shimmy in Underbridge Valley, guarded by a Great Serpent the first time through</td></tr>
 <tr><td>AO: Ungo&#x27;s Sugar - broken wall above Ashina Outskirts idol</td><td>In the corner on the upraised ground to the right of the Ashina Outskirts Sculptor&#x27;s Idol</td></tr>

@@ -704,7 +704,7 @@ class SekiroWorld(World):
         self._add_location_rule([
             "AO: Ashina Esoteric Text - Tengu Tower, Tengu after killing rats"
         ], lambda state: (
-            self._can_get(state, "AC: Black Gunpowder - Tengu rat quest, enemy drop")
+            self._can_get(state, "AO: Black Gunpowder - Tengu rat quest, enemy drop")
         ))
 
         ## Kuro

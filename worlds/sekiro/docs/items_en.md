@@ -11,9 +11,9 @@ The Sekiro: Shadows Die Twice randomizer supports a number of item group names, 
 be used in YAML options like `local_items` to refer to many items at once:
 
 * **Progression:** Items that unlock locations.
-* **Incense:** Ingredients required for the incense to access the Fountainhead Palace.
 * **Memories** Items dropped by major bosses to increase Attack Power.
-* **Healing:** Gourd Seeds and Prayer Beads.
+* **Prayer Beads:** Items that increase Vitality and Posture.
+* **Healing:** Items that increase Healing Gourd charges.
 * **Esoteric Texts:** Items that unlock skill trees.
 * **Skills:** Skills obtained as Items, such as Shinobi Medicine and Ninjutsu Techniques.
 * **Unique:** Items that can be obtained once in a run, such as keys, notes, reusable items, prosthetics 

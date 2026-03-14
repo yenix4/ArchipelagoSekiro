@@ -10,8 +10,8 @@ from BaseClasses import Item, ItemClassification
 class SekiroItemCategory(IntEnum):
     ESOTERIC_TEXTS = 0
     SKILLS = 1
-    HEALING = 2
-    INCENSE = 3
+    GOURD_SEEDS = 2
+    PRAYER_BEADS = 3
     MEMORIES = 4
     MISC = 5
     CURRENCY = 6
@@ -60,7 +60,7 @@ class SekiroItemData:
         """Whether this item should be unique, appearing only once in the randomizer."""
         return self.category not in {
             SekiroItemCategory.MISC, SekiroItemCategory.CURRENCY, SekiroItemCategory.UPGRADE,
-            SekiroItemCategory.HEALING,
+            SekiroItemCategory.GOURD_SEEDS, SekiroItemCategory.PRAYER_BEADS,
         }
 
     def __post_init__(self):
@@ -74,17 +74,16 @@ class SekiroItemData:
         This is computed from the properties assigned to this item."""
         names = []
         if self.classification == ItemClassification.progression: names.append("Progression")
-        if self.category == SekiroItemCategory.INCENSE: names.append("Unique")
         names.append({
                          SekiroItemCategory.ESOTERIC_TEXTS: "Esoteric Texts",
                          SekiroItemCategory.SKILLS: "Skills",
                          SekiroItemCategory.MISC: "Miscellaneous",
-                         SekiroItemCategory.INCENSE: "Incense",
+                         SekiroItemCategory.PRAYER_BEADS: "Prayer Beads",
                          SekiroItemCategory.UNIQUE: "Unique",
                          SekiroItemCategory.MEMORIES: "Memories",
                          SekiroItemCategory.CURRENCY: "Currency",
                          SekiroItemCategory.UPGRADE: "Upgrade",
-                         SekiroItemCategory.HEALING: "Healing",
+                         SekiroItemCategory.GOURD_SEEDS: "Gourd Seeds",
                      }[self.category])
         return names
 
@@ -141,19 +140,19 @@ _all_items = [
                    classification = ItemClassification.useful),
 
     # Healing
-    SekiroItemData("Prayer Bead", 0x40000FA0, SekiroItemCategory.HEALING,
+    SekiroItemData("Prayer Bead", 0x40000FA0, SekiroItemCategory.PRAYER_BEADS,
                    classification = ItemClassification.useful),
-    SekiroItemData("Gourd Seed", 0x40001130, SekiroItemCategory.HEALING,
+    SekiroItemData("Gourd Seed", 0x40001130, SekiroItemCategory.GOURD_SEEDS,
                    classification = ItemClassification.useful),
 
     # Incense
-    SekiroItemData("Lotus of the Palace", 0x400009C4, SekiroItemCategory.INCENSE,
+    SekiroItemData("Lotus of the Palace", 0x400009C4, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
-    SekiroItemData("Shelter Stone", 0x400009C5, SekiroItemCategory.INCENSE,
+    SekiroItemData("Shelter Stone", 0x400009C5, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
-    SekiroItemData("Aromatic Branch", 0x400009C6, SekiroItemCategory.INCENSE,
+    SekiroItemData("Aromatic Branch", 0x400009C6, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
-    SekiroItemData("Mortal Blade", 0x40000960, SekiroItemCategory.INCENSE,
+    SekiroItemData("Mortal Blade", 0x40000960, SekiroItemCategory.UNIQUE,
                    classification=ItemClassification.progression),
 
     # Memories
@@ -445,22 +444,22 @@ _skills_as_pickup = [
 item_name_groups: dict[str, set] = {
     "Esoteric Texts": set(),
     "Progression": set(),
-    "Incense": set(),
+    "Prayer Beads": set(),
     "Skills": set(),
     "Miscellaneous": set(),
     "Unique": set(),
     "Memories": set(),
     "Currency": set(),
     "Upgrade": set(),
-    "Healing": set(),
+    "Gourd Seeds": set(),
 }
 
 
 item_descriptions = {
     "Progression": "Items that unlock locations.",
-    "Incense": "Ingredients required for the incense to access the Fountainhead Palace.",
     "Memories": "Items dropped by major bosses to increase Attack Power.",
-    "Healing": "Gourd Seeds and Prayer Beads.",
+    "Prayer Beads": "Items that increase Vitality and Posture.",
+    "Gourd Seeds": "Items that increase Healing Gourd charges.",
     "Esoteric Texts": "Items that unlock skill trees.",
     "Skills": "Skills obtained as Items, such as Shinobi Medicine and Ninjutsu Techniques.",
     "Unique": "Items that can be obtained once in a run, such as keys, notes, reusable items, prosthetics "
