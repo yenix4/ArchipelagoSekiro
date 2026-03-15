@@ -968,7 +968,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("ST: Snap Seed - after kite jump", "Snap Seed x2", static="07,0:52000450::",
                            conditional=True),
         SekiroLocationData("ST: Taro Persimmon - Halls of Illusion, Kotaro quest", "Taro Persimmon",
-                           static="04,0:50006260", npc=True, missable=True, conditional=True),
+                           static="04,0:50006260::", npc=True, missable=True, conditional=True),
         SekiroLocationData("ST: Treasure Carp Scale - Carp Pond, Carp drop #1", "Treasure Carp Scale",
                            static="07,0:52500970::", drop=True),
         SekiroLocationData("ST: Treasure Carp Scale - Carp Pond, Carp drop #2", "Treasure Carp Scale",
