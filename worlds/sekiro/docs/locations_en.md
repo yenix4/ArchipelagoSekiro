@@ -110,9 +110,6 @@ General notes:
 * NPC quest items are always in the first location you can get them _without_
   killing the NPC or ending the quest early.
 
-* Currently the logic assumes you send Jinzaemon to Doujun in the Abandoned Dungeon and Kotaro to Anayama.
-  Therefore the locations for Jinza's Jizo Statue and the Taro Persimmon are deemed unreachable and not generated.
-
 ### Tutorial
 
 The area from spawning into the starting well up to losing your arm in the intro boss cutscene.

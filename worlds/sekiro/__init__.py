@@ -774,14 +774,6 @@ class SekiroWorld(World):
             self._can_get(state, "AC: Immortal Severance Text - talk to Kuro")
         ))
 
-        ## Blackhat Badger
-        self._add_location_rule([
-            "AC/C: Mibu Pilgrimage Balloon - complete Blackhat Badger quest"
-        ], lambda state: (
-            state.has("Puppeteer Ninjutsu", self.player)
-            and self._can_get(state, "ST: Mibu Balloon of Spirit - after Sunken Valley Cavern idol")
-        ))
-
         ## Doujun
         ## We assume the player sends Jinzaemon, since it is earlier and Kotaro to Anayama gives Promissory Note
         self._add_location_rule([
@@ -806,9 +798,26 @@ class SekiroWorld(World):
 
         self._add_location_rule([
             "AD: Red Lump - Underground Waterway island, red-eyed Jinzaemon, enemy drop",
+            "AD: Red Lump - Underground Waterway island, red-eyed Kotaro, enemy drop",
             "AD: Academics' Red Lump - Underground Waterway island, red-eyed Doujun, enemy drop"
         ], lambda state: (
             self._can_get(state, "AD: Lump of Grave Wax - Doujun for Red Carp Eyes")
+        ))
+
+        ## Kotaro
+        self._add_location_rule([
+            "ST: Taro Persimmon - Halls of Illusion, Kotaro quest"
+        ], lambda state: (
+            state.has("White Pinwheel", self.player)
+            and state.has("Large Fan", self.player)
+            and self._can_get(state, "ST: Puppeteer Ninjutsu - Halls of Illusion, boss drop")
+        ))
+
+        ## Jinzaemon
+        self._add_location_rule([
+            "MV: Jinza's Jizo Statue - Jinzaemon reward after killing miniboss"
+        ], lambda state: (
+            self._can_get(state, "MV: Prayer Bead - miniboss drop")
         ))
 
         ## Pot Noble Harunaga
@@ -819,9 +828,9 @@ class SekiroWorld(World):
             "HE1: Truly Precious Bait - Pot Noble Harunaga after trading 6 scales",
         ], lambda state: self._can_go_to(state, "Ashina Castle"))
 
-        self._add_location_rule(
+        self._add_location_rule([
             "HE1: Lapis Lazuli - Pot Noble Harunaga's pot after Truly Precious Bait",
-            lambda state: (
+        ], lambda state: (
                     self._can_go_to(state, "Fountainhead Palace (underwater progression)")
                     and self._can_get(state, "SVP: Great White Whisker - "
                                              "Guardian Ape's Watering Hole, after killing Giant Carp")
@@ -844,6 +853,14 @@ class SekiroWorld(World):
                                              "Guardian Ape's Watering Hole, after killing Giant Carp")
             ))
 
+        ## Blackhat Badger
+        self._add_location_rule([
+            "AC/C: Mibu Pilgrimage Balloon - complete Blackhat Badger quest"
+        ], lambda state: (
+            state.has("Puppeteer Ninjutsu", self.player)
+            and self._can_get(state, "ST: Mibu Balloon of Spirit - after Sunken Valley Cavern idol")
+        ))
+
     def _add_mibu_rules(self) -> None:
         """Adds rules for items obtainable only after obtaining Mibu Breathing Technique."""
 
@@ -864,6 +881,7 @@ class SekiroWorld(World):
             "AD: Mibu Balloon of Soul - underwater, grapple after path to Doujun's cell",
             "AD: Pacifying Agent - underwater, Doujun's cell",
             "AD: Red Lump - Underground Waterway island, red-eyed Jinzaemon, enemy drop",
+            "AD: Red Lump - Underground Waterway island, red-eyed Kotaro, enemy drop",
             "AR: Mibu Balloon of Soul - underwater, starting well",
             "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #1",
             "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #2",
