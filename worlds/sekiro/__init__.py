@@ -22,7 +22,6 @@ from .Items import SekiroItem, SekiroItemData, filler_item_names, item_descripti
 from .Locations import (
     SekiroLocation,
     SekiroLocationData,
-    carpsanity_locations,
     location_descriptions,
     location_dictionary,
     location_name_groups,
@@ -194,9 +193,8 @@ class SekiroWorld(World):
 
                 # Don't create headless locations if the option is disabled.
                 if location.headless and not self.options.randomize_headless: continue
-
                 # Don't create Carp drop locations if the option is disabled.
-                if location in carpsanity_locations and not self.options.carpsanity: continue
+                if location.carp and not self.options.carpsanity: continue
 
                 # Replace non-randomized items with events that give the default item
                 event_item = (
@@ -604,10 +602,7 @@ class SekiroWorld(World):
         self._add_location_rule([
             "AR/C: Dragon Flash - final boss drop",
             "AR/C: Memory: Saint Isshin - final boss drop"
-        ],lambda state: (
-            state.has("Secret Passage Key", self.player)
-            and state.has("Divine Dragon's Tears", self.player)
-            ))
+        ],lambda state: state.has("Secret Passage Key", self.player))
 
 
         # Forbid shops from carrying items with multiple counts (the static randomizer has its own
@@ -999,8 +994,7 @@ class SekiroWorld(World):
         for location in locations:
             data = location_dictionary[location]
             if data.headless and not self.options.randomize_headless: continue
-            if location in carpsanity_locations and not self.options.carpsanity: continue
-
+            if data.carp and not self.options.carpsanity: continue
             if isinstance(rule, str):
                 assert item_dictionary[rule].classification == ItemClassification.progression
                 rule = lambda state, item=rule: state.has(item, self.player)
@@ -1040,11 +1034,10 @@ class SekiroWorld(World):
             data = location.data
         else:
             data = location_dictionary[location]
-
         return (
             not data.is_event
             and (not data.headless or bool(self.options.randomize_headless))
-            and (location not in carpsanity_locations or bool(self.options.carpsanity))
+            and (not data.carp or bool(self.options.carpsanity))
             and not (
                 self.options.excluded_location_behavior == "do_not_randomize"
                 and data.name in self.all_excluded_locations

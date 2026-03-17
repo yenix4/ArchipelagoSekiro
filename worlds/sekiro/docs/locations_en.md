@@ -555,6 +555,7 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Scrap Iron - upper tower, map room</td><td>In the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Scrap Magnetite - Ashina Dojo, side room</td><td>In the side room of Ashina Dojo</td></tr>
 <tr><td>AC: Scrap Magnetite - behind statue in Kuro&#x27;s Room</td><td>Behind the main statue in Kuro&#x27;s Room</td></tr>
+<tr><td>AC: Scrap Magnetite - outside building at AD entrance, enemy drop</td><td>Guaranteed drop from the Taro Troop outside of the building with the Abandoned Dungeon entrance</td></tr>
 <tr><td>AC: Sweet Rice Ball - Kuro after Rice for Kuro</td><td>Given by Kuro after he receives Rice for Kuro</td></tr>
 <tr><td>AC: Treasure Carp Scale - underwater, below Ashina Castle idol</td><td>Underwater in the moat below the Ashina Castle Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Ungo&#x27;s Spiritfall - underwater, headless drop</td><td>Dropped by Underwater Headless</td></tr>
@@ -690,7 +691,6 @@ static _Sekiro_ randomizer].
 <tr><td>AO: Scrap Iron - courtyard after lookout building</td><td>In the courtyard after Chained Ogre against the far wall</td></tr>
 <tr><td>AO: Scrap Iron - on stone near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AO: Scrap Iron - secluded platform, after snake skin</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the left of the Great Serpent&#x27;s shed skin</td></tr>
-<tr><td>AO: Scrap Magnetite - castle gate courtyard, enemy drop</td><td>Guaranteed drop from either of the Taro Troop in the courtyard with the tall grass</td></tr>
 <tr><td>AO: Shinobi Medicine Rank 1 - before lookout building, miniboss drop</td><td>Dropped by Chained Ogre</td></tr>
 <tr><td>AO: Shinobi Medicine Rank 2 - Ashina Castle entrance, miniboss drop</td><td>Dropped by Blazing Bull</td></tr>
 <tr><td>AO: Shuriken Wheel - wide gate house, second floor</td><td>On the second floor of the building next to the Gate Path Sculptor&#x27;s Idol, or in the Offering Box after the second invasion</td></tr>
