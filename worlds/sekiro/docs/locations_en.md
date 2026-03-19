@@ -2,44 +2,45 @@
 
 [Game Page] | [Items] | Locations
 
-[Game Page]: /worlds/sekiro/docs/en_Sekiro%20Shadows%20Die%20Twice.md
-[Items]: /worlds/sekiro/docs/items_en.md
+[Game Page]: /games/Sekiro/info/en
+[Items]: /tutorial/Sekiro/items/en
 
 ## Table of Contents
 
 * [Location Groups](#location-groups)
 * [Understanding Location Names](#understanding-location-names)
-  * [T: Tutorial](#tutorial)
-  * [DT: Dilapidated Temple](#dilapidated-temple)
-  * [AO: Ashina Outskirts](#ashina-outskirts)
-  * [HE1: Hirata Estate (Young Lord's Bell Charm)](#hirata-estate-young-lords-bell-charm)
-  * [AC: Ashina Castle](#ashina-castle)
-  * [AR: Ashina Reservoir](#ashina-reservoir)
-  * [AD: Abandoned Dungeon](#abandoned-dungeon)
-  * [ST: Senpou Temple, Mt. Kongo](#senpou-temple-mt-kongo)
-  * [SV: Sunken Valley](#sunken-valley)
-  * [SVP: Sunken Valley Passage](#sunken-valley-passage)
-  * [PP: Poison Pool](#poison-pool)
-  * [HF: Hidden Forest](#hidden-forest)
-  * [MV: Mibu Village](#mibu-village)
-  * [AC/I: Ashina Castle (Interior Ministry)](#ashina-castle-interior-ministry)
-  * [HE2: Hirata Estate (Father's Bell Charm)](#hirata-estate-fathers-bell-charm)
-  * [FP1: Fountainhead Palace (before underwater progression)](#fountainhead-palace-before-underwater-progression)
-  * [FP2: Fountainhead Palace (underwater progression)](#fountainhead-palace-underwater-progression)
-  * [AC/C: Ashina Castle (Central Forces)](#ashina-castle-central-forces)
-  * [AO/C: Ashina Outskirts (Central Forces)](#ashina-outskirts-central-forces)
+    * [T: Tutorial](#tutorial)
+    * [DT: Dilapidated Temple](#dilapidated-temple)
+    * [AO: Ashina Outskirts](#ashina-outskirts)
+    * [HE1: Hirata Estate (Young Lord's Bell Charm)](#hirata-estate-young-lords-bell-charm)
+    * [AC: Ashina Castle](#ashina-castle)
+    * [AR: Ashina Reservoir](#ashina-reservoir)
+    * [AD: Abandoned Dungeon](#abandoned-dungeon)
+    * [ST: Senpou Temple, Mt. Kongo](#senpou-temple-mt-kongo)
+    * [SV: Sunken Valley](#sunken-valley)
+    * [SVP: Sunken Valley Passage](#sunken-valley-passage)
+    * [PP: Poison Pool](#poison-pool)
+    * [HF: Hidden Forest](#hidden-forest)
+    * [MV: Mibu Village](#mibu-village)
+    * [AC/I: Ashina Castle (Interior Ministry)](#ashina-castle-interior-ministry)
+    * [HE2: Hirata Estate (Father's Bell Charm)](#hirata-estate-fathers-bell-charm)
+    * [FP1: Fountainhead Palace (before underwater progression)](#fountainhead-palace-before-underwater-progression)
+    * [FP2: Fountainhead Palace (underwater progression)](#fountainhead-palace-underwater-progression)
+    * [AC/C: Ashina Castle (Central Forces)](#ashina-castle-central-forces)
+    * [AO/C: Ashina Outskirts (Central Forces)](#ashina-outskirts-central-forces)
 * [Detailed Location Descriptions](#detailed-location-descriptions)
 
 ## Location Groups
 
-The Sekiro: Shadows Die Twice randomizer supports a number of location group names, which
-can be used in YAML options like `exclude_locations` to refer to many locations
-at once:
+The Sekiro: Shadows Die Twice randomizer supports a number of location group
+names, which can be used in YAML options like `exclude_locations` to refer to
+many locations at once:
 
 * **Prominent:** A small number of locations that are in very obvious locations.
   Mostly boss drops. Ideal for setting as priority locations.
 
-* **Progression:** Locations that contain items in vanilla which unlock other locations.
+* **Progression:** Locations that contain items in vanilla which unlock other
+  locations.
 
 * **Prayer Beads:** Locations that contain Prayer Beads in vanilla.
 
@@ -47,34 +48,40 @@ at once:
 
 * **Boss Rewards:** Boss drops. Bosses are strong enemies that drop memories.
 
-* **Miniboss Rewards:** Miniboss drops. Minibosses are enemies with boss bars that do not drop memories.
+* **Miniboss Rewards:** Miniboss drops. Minibosses are enemies with boss bars
+  that do not drop memories.
 
-* **Hostile:** Drops from regular enemies or NPCs that are hostile to you. 
-  This includes initially-friendly NPCs that must be fought as part of their questline.
+* **Hostile:** Drops from regular enemies or NPCs that are hostile to you. This
+  includes initially-friendly NPCs that must be fought as part of their
+  questline.
 
-* **Friendly:** Locations that contain items given by friendly NPCs as part of their quests
-  or from non-violent interaction.
+* **Friendly:** Locations that contain items given by friendly NPCs as part of
+  their quests or from non-violent interaction.
 
 * **Esoteric Texts:** Locations that contain an esoteric text item.
 
-* **Skills:** Locations that contain skills found as item drops, such as Shinobi Medicine or Ninjutsu techniques.
+* **Skills:** Locations that contain skills found as item drops, such as
+  Shinobi Medicine or Ninjutsu techniques.
 
-* **Upgrade:** Locations that contain non-unique upgrade materials for prosthetic tools in vanilla.
+* **Upgrade:** Locations that contain non-unique upgrade materials for
+  prosthetic tools in vanilla.
 
-* **Currency:** Locations that contain coin pouches and treasure carp scales in vanilla.
+* **Currency:** Locations that contain coin pouches and treasure carp scales in
+  vanilla.
 
 * **Memories:** Locations that contain memories in vanilla.
 
-* **Unique:** Locations that contain items which can be obtained once in a run, such as keys, notes, 
-  reusable items, prosthetics & unique upgrades.
+* **Unique:** Locations that contain items which can be obtained once in a run,
+  such as keys, notes, reusable items, prosthetics & unique upgrades.
 
-* **Miscellaneous:** Locations that contain generic stackable items such as sugars, mibu balloons, resistance buffs and so on.
+* **Miscellaneous:** Locations that contain generic stackable items such as
+  sugars, mibu balloons, resistance buffs and so on.
 
-* **Hidden:** Locations that are particularly difficult to find, such as in crawl spaces,
-  down hidden drops, behind walls and so on. 
+* **Hidden:** Locations that are particularly difficult to find, such as in
+  crawl spaces, down hidden drops, behind walls and so on.
 
-* **Offering Box:** Locations that contain items which move into the Offering Box after
-  becoming unavailable elsewhere.
+* **Offering Box:** Locations that contain items which move into the Offering
+  Box after becoming unavailable elsewhere.
 
 ## Understanding Location Names
 
@@ -105,87 +112,109 @@ short.
 
 General notes:
 
-* "Miniboss" refers to enemies with unique health bars that do not drop memories.
+* "Miniboss" refers to enemies with unique health bars that do not drop
+  memories.
 
 * NPC quest items are always in the first location you can get them _without_
   killing the NPC or ending the quest early.
 
 ### Tutorial
 
-The area from spawning into the starting well up to losing your arm in the intro boss cutscene.
+The area from spawning into the starting well up to losing your arm in the intro
+boss cutscene.
 
-* **Moon-View Tower:** The pagoda Kuro resides in at the start of the game, where he gives you the Kusabimaru.
+* **Moon-View Tower:** The pagoda Kuro resides in at the start of the game,
+  where he gives you the Kusabimaru.
 
 ### Dilapidated Temple
 
-The area where you wake up after the intro boss cutscene. Houses the Sculptor and leads to Ashina Outskirts.
+The area where you wake up after the intro boss cutscene. Houses the Sculptor
+and leads to Ashina Outskirts.
 
 ### Ashina Outskirts
 
 This area ends at the miniboss guarding the last gate to Ashina Castle.
-The directions "left" and "right" are used with the player facing in the direction of area progression.
+"Left" and "right" are used with the player facing in the direction of area 
+progression.
 
 * **Gate:** Large torii gates with solid doors.
 
-* **Wide Gate House:** Large gate with a wide second floor, just after the Outskirts Wall - Gate Path idol.
+* **Wide Gate House:** Large gate with a wide second floor, just after the
+  Outskirts Wall - Gate Path idol.
 
-* **Hidden Wall Cave:** A small cave reached by dropping down onto a ledge 
+* **Hidden Wall Cave:** A small cave reached by dropping down onto a ledge
   from the platform left of the Wide Gate House.
 
-* **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path idol.
+* **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path
+  idol.
 
-* **Destroyed House:** The two-floor building with a missing roof after the cliff courtyard.
+* **Destroyed House:** The two-floor building with a missing roof after the
+  cliff courtyard.
 
-* **Cliffside Gate:** The closed gate flanked by giant cobblestone structures, 
+* **Cliffside Gate:** The closed gate flanked by giant cobblestone structures,
   next to the secluded platforms with the giant snake skin.
 
-* **Cobblestone Platform:** Large rectangular cobblestone platforms beside a giant gate near 
-  the Outskirts Wall - Stairway idol.
+* **Cobblestone Platform:** Large rectangular cobblestone platforms beside a
+  giant gate near the Outskirts Wall - Stairway idol.
 
-* **Lookout Building:** The long second floor building that the player grapples into after the miniboss blocking 
-  progression at the Outskirts Wall - Stairway idol.
+* **Lookout Building:** The long second floor building that the player grapples
+  into after the miniboss blocking progression at the Outskirts Wall - 
+  Stairway idol.
 
-* **Headless Cave:** The cliffside cave containing a headless miniboss in vanilla.
+* **Headless Cave:** The cliffside cave containing a headless miniboss in
+  vanilla.
 
 * **Fortress:** The fortress after the Ashina Castle Gate Fortress idol.
 
-* **Tengu Tower:** The tower accessed after defeating the boss in Gyoubu's arena, 
-  where you can meet Tengu for the first time.
+* **Tengu Tower:** The tower accessed after defeating the boss in Gyoubu's
+  arena, where you can meet Tengu for the first time.
 
-* **Castle Gate Courtyard:** The courtyard right before the stairs to the Ashina Castle Gate miniboss arena.
+* **Castle Gate Courtyard:** The courtyard right before the stairs to the Ashina
+  Castle Gate miniboss arena.
 
-* **Ashina Castle entrance:** The miniboss arena right before reaching the Ashina Castle idol.
+* **Ashina Castle entrance:** The miniboss arena right before reaching the
+  Ashina Castle idol.
 
 ### Hirata Estate (Young Lord's Bell Charm)
 
-* **Estate Path:** The main walled-off path that leads from the Estate Path idol to the rest of the area.
+* **Estate Path:** The main walled-off path that leads from the Estate Path idol
+  to the rest of the area.
 
-* **Main Hall:** The area between the Main Hall idol and the miniboss guarding the Audience Chamber.
+* **Main Hall:** The area between the Main Hall idol and the miniboss guarding
+  the Audience Chamber.
 
-* **Audience Chamber:** The big building containing the Audience Chamber idol guarded by a miniboss and many enemies.
+* **Audience Chamber:** The big building containing the Audience Chamber idol
+  guarded by a miniboss and many enemies.
 
-* **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the end of the area.
+* **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the
+  end of the area.
 
 * **Underwater:** Requires diving via Mibu Breathing Technique.
 
 ### Ashina Castle
 
 This region begins going out the gate after the Ashina Castle Gate idol.
-"Left" and "Right" are always considering the player to be facing towards Ashina Castle.
+"Left" and "right" are always considering the player to be facing towards Ashina
+Castle.
 
-* **Main Stairway:** The long stairway leading up to the front entrance of the castle with a miniboss at the top.
+* **Main Stairway:** The long stairway leading up to the front entrance of the
+  castle with a miniboss at the top.
 
-* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in their naming. 
-  Mainly used for the area before Ashina Dojo starting from the Antechamber idol.
+* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in
+  their naming. Mainly used for the area before Ashina Dojo starting from the 
+  Antechamber idol.
 
-  * Roof: The boss arena at the top of the tower.
+    * Roof: The boss arena at the top of the tower.
 
-* **Ashina Dojo:** The room containing a miniboss and the lightning reversal scroll on the wall.
+* **Ashina Dojo:** The room containing a miniboss and the lightning reversal
+  scroll on the wall.
 
-* **Basement:** The tall room reached by dropping down the big hole with the grapple beam in the Upper Tower.
+* **Basement:** The tall room reached by dropping down the big hole with the
+  grapple beam in the Upper Tower.
 
-* **Isshin's Dojo:** The dojo located under Isshin Ashina's tower. 
-  This can also be reached by destroying the folding screen behind the stairs up to Ashina Dojo.
+* **Isshin's Dojo:** The dojo located under Isshin Ashina's tower.
+  This can also be reached by destroying the folding screen behind the stairs up
+  to Ashina Dojo.
 
 * **Old Grave:** The area at the Old Grave idol descending to the broken bridge.
 
@@ -193,66 +222,82 @@ This region begins going out the gate after the Ashina Castle Gate idol.
 
 ### Ashina Reservoir
 
-This area begins from the Ashina Reservoir idol. Once grappling up from the water 
-in the starting well and then dropping down, it moves to Bottomless Hole in Abandoned Dungeon.
+This area begins from the Ashina Reservoir idol. Once grappling up from the
+water in the starting well and then dropping down, it moves to Bottomless Hole 
+in Abandoned Dungeon.
 
-* **Yard:** The large open area patrolled by multiple Taro Troops in vanilla, with a gate separating it 
-  from the area with the Ashina Reservoir idol.
+* **Yard:** The large open area patrolled by multiple Taro Troops in vanilla,
+  with a gate separating it from the area with the Ashina Reservoir idol.
 
-* **Moon-View Tower:** The pagoda Kuro resides in at the start of the game, where he gives you the Kusabimaru.
+* **Moon-View Tower:** The pagoda Kuro resides in at the start of the game,
+  where he gives you the Kusabimaru.
 
-* **Gatehouse:** The locked building requiring the Gatehouse Key containing Gyoubu's Broken Horn in vanilla.
+* **Gatehouse:** The locked building requiring the Gatehouse Key containing
+  Gyoubu's Broken Horn in vanilla.
 
-* **Starting Well:** The well you spawn in at the beginning of a new game, now containing a miniboss.
+* **Starting Well:** The well you spawn in at the beginning of a new game, now
+  containing a miniboss.
 
 * **Underwater:** Requires diving via Mibu Breathing Technique.
 
 ### Abandoned Dungeon
 
-"Left" and "Right" are always considering the player coming from the castle, facing towards the rest of the dungeon.
+"Left" and "right" are always considering the player coming from the castle,
+facing towards the rest of the dungeon.
 
 * **Cell:** Barred cave rooms near the entrance from Ashina Castle.
 
-* **Cricket Pit:** The area in a slight pit right after the entrance from Ashina Castle, containing crickets in vanilla.
+* **Cricket Pit:** The area in a slight pit right after the entrance from Ashina
+  Castle, containing crickets in vanilla.
 
-* **Underground Waterway:** The area from the Underground Waterway idol up to the Senpou entrance elevator.
+* **Underground Waterway:** The area from the Underground Waterway idol up to
+  the Senpou entrance elevator.
 
-  * Island: The island with a docked boat and multiple enemies.
+    * Island: The island with a docked boat and multiple enemies.
 
-* **Bottomless Hole:** The area near the Bottomless Hole idol. Includes the pit where a miniboss is fought.
+* **Bottomless Hole:** The area near the Bottomless Hole idol. Includes the pit
+  where a miniboss is fought.
 
-  * "Drop": The area after throwing oneself down into the depths, before dropping to the Ashina Depths idol.
+    * "Drop": The area after throwing oneself down into the depths, before
+      dropping to the Ashina Depths idol.
 
 * **Underwater**: Requires diving via Mibu Breathing Technique.
 
 ### Senpou Temple, Mt. Kongo
 
-* **Cricket Building:** The cricket-filled building the player enters when grappling into Senpou Temple proper.
+* **Cricket Building:** The cricket-filled building the player enters when
+  grappling into Senpou Temple proper.
 
-  * "Entrance" is the grapple path into the temple, 
-  * "Exit" is the window leaving the main room.
+    * "Entrance" is the grapple path into the temple,
+    * "Exit" is the window leaving the main room.
 
-* **Broken Bridge:** The broken bridge before the Shugendo idol. 
-  
-  * "Other side" refers to the side with a slope leading up to the Carp Pond.
+* **Broken Bridge:** The broken bridge before the Shugendo idol.
 
-* **Shugendo:** The area from the Shugendo idol to the Bridge Arena containing thin walkways along cliffs.
+    * "Other side" refers to the side with a slope leading up to the Carp Pond.
+
+* **Shugendo:** The area from the Shugendo idol to the Bridge Arena containing
+  thin walkways along cliffs.
 
 * **Bridge Arena:** The bridge after Shugendo where a miniboss is fought.
 
-* **Carp Pond:** The pond under the Temple Grounds idol, containing two Treasure Carps.
+* **Carp Pond:** The pond under the Temple Grounds idol, containing two Treasure
+  Carps.
 
-* **Atrium:** The building after the Carp Pond near the Temple Grounds idol, 
+* **Atrium:** The building after the Carp Pond near the Temple Grounds idol,
   containing enemies on the roof and in the courtyard.
 
-* **Sloped Path:** The long, sloped path exiting the Cliffside Temple up to the Main Hall.
+* **Sloped Path:** The long, sloped path exiting the Cliffside Temple up to the
+  Main Hall.
 
-* **Cliffside Temple:** The temple to the right of the Atrium where a miniboss is fought.
+* **Cliffside Temple:** The temple to the right of the Atrium where a miniboss
+  is fought.
 
-* **Main Hall:** The large building at the highest point of the area, containing the Main Hall idol.
+* **Main Hall:** The large building at the highest point of the area, containing
+  the Main Hall idol.
   The directions assume the player is facing the big central buddha statue.
 
-* **Halls of Illusion:** The boss arena containing the Folding Screen Monkeys in vanilla.
+* **Halls of Illusion:** The boss arena containing the Folding Screen Monkeys in
+  vanilla.
 
 * **Cave:** The cavern to the left of the Main Hall.
 
@@ -260,76 +305,92 @@ in the starting well and then dropping down, it moves to Bottomless Hole in Aban
 
 ### Sunken Valley
 
-* **Hidden Encampment:** Go right from the Under-Shrine Valley idol, and after two tree branch grapples,
-  climb up the ledge on the left wall.
+* **Hidden Encampment:** Go right from the Under-Shrine Valley idol, and after
+  two tree branch grapples, climb up the ledge on the left wall.
 
-* **Pond Cave:** The cave with stone pyramids and a miniboss, accessible through diving into a pond.
+* **Pond Cave:** The cave with stone pyramids and a miniboss, accessible through
+  diving into a pond.
 
-  * "Before" is the outside area with stone pyramids leading to the pond.
+    * "Before" is the outside area with stone pyramids leading to the pond.
 
-* **Gun Fort:** Starting from Sunken Valley idol all the way to the doors unlocked with the Gun Fort Shrine Key.
-                Gun Fort itself is the area with the barricades/mines and the cave leading to the Gun Fort idol.
+* **Gun Fort:** Starting from Sunken Valley idol all the way to the doors
+  unlocked with the Gun Fort Shrine Key. Gun Fort itself is the area with the 
+  barricades/mines and the cave leading to the Gun Fort idol.
 
-  * "Approach" is the area starting from Sunken Valley idol and ending once you climb up to the 
-               barricaded area containing mines.
-  * "Shrine" is the shrine past the Gun Fort idol where a miniboss is fought.
-  * "Chasm" is the small network of caves accessed through broken floorboards inside the Gun Fort Shrine.
+    * "Approach" is the area starting from Sunken Valley idol and ending once
+      you climb up to the barricaded area containing mines.
+    * "Shrine" is the shrine past the Gun Fort idol where a miniboss is fought.
+    * "Chasm" is the small network of caves accessed through broken floorboards
+      inside the Gun Fort Shrine.
 
 ### Sunken Valley Passage
 
-This region starts after proceeding through the Gun Fort Shrine doors with the Gun Fort Shrine Key.
+This region starts after proceeding through the Gun Fort Shrine doors with the
+Gun Fort Shrine Key.
 
-* **Bodhi Statue:** Refers to the many giant statues littering Bodhisattva Valley, right after Riven Cave.
-  "Left" and "Right" are from the perspective of the player coming from Riven Cave.
-  
-* **Swamp Island:** The landmass at the end of the toxic swamp, coming from the Bodhisattva Valley idol.
+* **Bodhi Statue:** Refers to the many giant statues littering Bodhisattva
+  Valley, right after Riven Cave. "Left" and "right" are from the perspective 
+  of the player coming from Riven Cave.
 
-* **Shrine Cave:** The cave that contains the underground shrine proceeding past the Toxic Memorial Mob.
+* **Swamp Island:** The landmass at the end of the toxic swamp, coming from the
+  Bodhisattva Valley idol.
+
+* **Shrine Cave:** The cave that contains the underground shrine proceeding past
+  the Toxic Memorial Mob.
 
 * **Underground Shrine:** The underground temple guarded by a Great Serpent.
   Requires Puppeteer Ninjutsu or Mist Raven's Feathers.
 
-* **Sunken Valley Cavern:** The area after making the kite-jump from Senpou Temple and 
-  plunging on the Great Serpent from the wooden beam. Requires Puppeteer Ninjutsu.
+* **Sunken Valley Cavern:** The area after making the kite-jump from Senpou
+  Temple and plunging on the Great Serpent from the wooden beam. Requires 
+  Puppeteer Ninjutsu.
 
 * **Underwater:** Requires diving via Mibu Breathing Technique.
 
 ### Poison Pool
 
-This area is assumed to be entered from Abandoned Dungeon (dropping into Bottomless Hole).
-"left" and "right" are used assuming the player is coming from the Ashina Depths idol.
+This area is assumed to be entered from Abandoned Dungeon (dropping into
+Bottomless Hole). "Left" and "right" are used assuming the player is coming 
+from the Ashina Depths idol.
 
-* **Island:** Any platform where you don't get poison buildup, but are surrounded by swamp.
+* **Island:** Any platform where you don't get poison buildup, but are
+  surrounded by swamp.
 
-* **Outcropping:** The large landmass with some camps containing a tilted statue and a miniboss.
+* **Outcropping:** The large landmass with some camps containing a tilted statue
+  and a miniboss.
 
 ### Hidden Forest
 
-This area starts after grappling out of the Guardian Ape's Burrow arena and ends 
+This area starts after grappling out of the Guardian Ape's Burrow arena and ends
 behind the Temple before descending to Mibu Village.
 
-* **Sinkhole:** The area with many tree branches beginning from the Hidden Forest idol. 
+* **Sinkhole:** The area with many tree branches beginning from the Hidden
+  Forest idol.
 
 * **Bonfire:** The bonfire next to the dying monk above the sinkhole.
 
-* **Temple:** The building containing a miniboss with rafters. 
-  The directions "left" and "right" are used assuming the player is coming from the Hidden Forest idol.
+* **Temple:** The building containing a miniboss with rafters.
+  "Left" and "right" are used assuming the player is coming from
+  the Hidden Forest idol.
 
 * **Cliffside:** The cliff beside a bottomless pit containing a miniboss.
 
 ### Mibu Village
 
-This region begins at the descent to the Mibu Village idol and ends at the palanquin to Fountainhead Palace.
+This region begins at the descent to the Mibu Village idol and ends at the
+palanquin to Fountainhead Palace.
 
-* **Main Path:** The path beginning upon entering the village by crossing a small stream 
-  and ending near the Water Mill idol.
+* **Main Path:** The path beginning upon entering the village by crossing a
+  small stream and ending near the Water Mill idol.
 
-* **Villager Fields:** The fields where the villagers are laboring left of the main village.
+* **Villager Fields:** The fields where the villagers are laboring left of the
+  main village.
 
-* **Inuhiko's House:** The house in the area across the lake, mentioned by the NPC in the village.
+* **Inuhiko's House:** The house in the area across the lake, mentioned by the
+  NPC in the village.
 
-* **Head Priest's House:** The house accessed through a shinobi door in a crouch space 
-  after the bridge following the miniboss.
+* **Head Priest's House:** The house accessed through a shinobi door in a crouch
+  space after the bridge following the miniboss.
 
 * **Wedding Cave:** The cave at the end of the area guarded by a boss fight.
 
@@ -337,57 +398,72 @@ This region begins at the descent to the Mibu Village idol and ends at the palan
 
 ### Ashina Castle (Interior Ministry)
 
-This region covers the area of Ashina Castle once the first invasion occurs. This happens once the 
-Mortal Blade, Shelter Stone and Lotus of the Palace are collected and the player is not in Ashina Castle.
+This region covers the area of Ashina Castle once the first invasion occurs.
+This happens once the Mortal Blade, Shelter Stone and Lotus of the Palace are 
+collected and the player is in Senpou Temple/Sunken Valley/Ashina Depths.
 
-* **Main Stairway:** The long stairway leading up to the front entrance of the castle from the Ashina Castle idol.
+* **Main Stairway:** The long stairway leading up to the front entrance of the
+  castle from the Ashina Castle idol.
 
-* **Secluded Courtyard:** A small courtyard between the main castle and some tower roofs.
-  Accessible by jumping out of the Antechamber idol window, running straight and dropping to the left.
+* **Secluded Courtyard:** A small courtyard between the main castle and some
+  tower roofs. Accessible by jumping out of the Antechamber idol window, 
+  running straight and dropping to the left.
 
-* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in their naming. 
-  Mainly used for the area before Ashina Dojo starting from the Antechamber idol.
+* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in
+  their naming. Mainly used for the area before Ashina Dojo starting from the 
+  Antechamber idol.
 
-  * Roof: The boss arena at the top of the tower.
+    * Roof: The boss arena at the top of the tower.
 
-* **Ashina Dojo:** The room containing a miniboss and the lightning reversal scroll on the wall.
+* **Ashina Dojo:** The room containing a miniboss and the lightning reversal
+  scroll on the wall.
 
-* **Isshin's Dojo:** The dojo located under Isshin Ashina's tower. 
-  This can also be reached by destroying the folding screen behind the stairs up to Ashina Dojo.
+* **Isshin's Dojo:** The dojo located under Isshin Ashina's tower.
+  This can also be reached by destroying the folding screen behind the stairs up
+  to Ashina Dojo.
 
-* **Basement:** The tall room reached by dropping down the big hole with the grapple beam in the Upper Tower, 
-  now containing a miniboss.
+* **Basement:** The tall room reached by dropping down the big hole with the
+  grapple beam in the Upper Tower, now containing a miniboss.
 
 ### Hirata Estate (Father's Bell Charm)
 
-This region covers everything accessed by using the Father's Bell Charm and progressing 
-forward through the burning courtyard. 
-Going backwards from the spawn brings you back into Hirata Estate - Young Lord's Bell Charm.
+This region covers everything accessed by using the Father's Bell Charm and
+progressing forward through the burning courtyard. Going backwards from the 
+spawn brings you back into Hirata Estate - Young Lord's Bell Charm.
 
-* **Burning Courtyard:** The area containing the first miniboss directly ahead after arriving in the memory.
+* **Burning Courtyard:** The area containing the first miniboss directly ahead
+  after arriving in the memory.
 
-* **Main Hall:** The area between the Main Hall idol and the miniboss guarding the Audience Chamber.
+* **Main Hall:** The area between the Main Hall idol and the miniboss guarding
+  the Audience Chamber.
 
-* **Audience Chamber:** The big building containing the Audience Chamber idol guarded by a miniboss and many enemies.
+* **Audience Chamber:** The big building containing the Audience Chamber idol
+  guarded by a miniboss and many enemies.
 
-* **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the end of the area.
+* **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the
+  end of the area.
 
 ### Fountainhead Palace (before underwater progression)
 
-This region covers the parts of Fountainhead Palace that can be reached before 
+This region covers the parts of Fountainhead Palace that can be reached before
 diving in the lake and progressing through the Great Carp ravine.
 
-* **Vermilion Bridge:** The area you are brought into by the strawman from Mibu Village, containing the first area boss.
+* **Vermilion Bridge:** The area you are brought into by the strawman from Mibu
+  Village, containing the first area boss.
 
 * **Courtyard:** The enclosed area right before the Mibu Manor idol.
 
-* **Mibu Manor:** The complex entered from the Mibu Manor idol up to the exit to the Flower Viewing Stage idol.
+* **Mibu Manor:** The complex entered from the Mibu Manor idol up to the exit to
+  the Flower Viewing Stage idol.
 
-  * "Beside" refers to the area outside the Mibu Manor left wall containing a miniboss.
+    * "Beside" refers to the area outside the Mibu Manor left wall containing a
+      miniboss.
 
-* **Past Bridge:** The area past the bridge that gets destroyed by the Giant Carp. 
+* **Past Bridge:** The area past the bridge that gets destroyed by the Giant
+  Carp.
 
-  * "Lower" refers to the traversable area beneath the platforms intersected by streams.
+    * "Lower" refers to the traversable area beneath the platforms intersected
+      by streams.
 
 * **Underwater:** Requires diving via Mibu Breathing Technique.
 
@@ -395,10 +471,11 @@ diving in the lake and progressing through the Great Carp ravine.
 
 This region covers any diving in the lake.
 
-* **Palace Grounds:** The building after the Palace Grounds idol with the shortcut door 
-  and the area leading out the back to various pools of water.
+* **Palace Grounds:** The building after the Palace Grounds idol with the
+  shortcut door and the area leading out the back to various pools of water.
 
-* **Feeding Grounds:** The area around the Feeding Grounds idol accessed by grappling from the Palace Ground roof.
+* **Feeding Grounds:** The area around the Feeding Grounds idol accessed by
+  grappling from the Palace Ground roof.
 
 * **Sanctuary:** The boss arena you warp to at the end of the area by praying.
 
@@ -406,26 +483,32 @@ This region covers any diving in the lake.
 
 ### Ashina Castle (Central Forces)
 
-This region covers the area of Ashina Castle once the second invasion occurs. 
+This region covers the area of Ashina Castle once the second invasion occurs.
 This happens once the area boss of Fountainhead Palace has been defeated.
 
-* **Main Stairway:** The long stairway leading up to the front entrance of the castle from the Ashina Castle idol.
+* **Main Stairway:** The long stairway leading up to the front entrance of the
+  castle from the Ashina Castle idol.
 
-* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in their naming. 
-  Mainly used for the area before Ashina Dojo starting from the Antechamber idol.
+* **Upper Tower:** Anything in the area of the idols that have "Upper Tower" in
+  their naming. Mainly used for the area before Ashina Dojo starting from the 
+  Antechamber idol.
 
-* **Isshin's Dojo:** The dojo located under Isshin Ashina's tower containing a miniboss. 
-  This can also be reached by destroying the folding screen behind the stairs up to Ashina Dojo.
+* **Isshin's Dojo:** The dojo located under Isshin Ashina's tower containing a
+  miniboss. This can also be reached by destroying the folding screen behind 
+  the stairs up to Ashina Dojo.
 
 ### Ashina Outskirts (Central Forces)
 
-This region covers the area starting after the kite jump from the Ashina Castle rooftops.
-"left" and "right" are used assuming the player comes from Old Grave idol and follows the area progression.
+This region covers the area starting after the kite jump from the Ashina Castle
+rooftops. "Left" and "right" are used assuming the player comes from Old Grave 
+idol and follows the area progression.
 
-* **Lookout Building:** The long second floor building separating the courtyard from the Stairway idol area.
+* **Lookout Building:** The long second floor building separating the courtyard
+  from the Stairway idol area.
 
-* **Destroyed House:** The two-story building with a missing roof near soldier camp. 
-  On the right side of the path leading up to the courtyard with the teleport to the Flames of Hatred boss arena.
+* **Destroyed House:** The two-story building with a missing roof near soldier
+  camp. On the right side of the path leading up to the courtyard with the 
+  teleport to the Flames of Hatred boss arena.
 
 ## Detailed Location Descriptions
 
@@ -594,6 +677,7 @@ static _Sekiro_ randomizer].
 <tr><td>AD: Pacifying Agent - underwater, Doujun&#x27;s cell</td><td>In the cell behind Doujun, accessed through an underwater path</td></tr>
 <tr><td>AD: Prayer Bead - Dungeon Memorial Mob</td><td>Unique item sold by Dungeon Memorial Mob</td></tr>
 <tr><td>AD: Red Lump - Underground Waterway island, red-eyed Jinzaemon, enemy drop</td><td>Dropped by Jinzaemon upon completing his quest in the dungeon</td></tr>
+<tr><td>AD: Red Lump - Underground Waterway island, red-eyed Kotaro, enemy drop</td><td>Given or dropped by Kotaro upon completing his quest using Red and White Pinwheel in either location</td></tr>
 <tr><td>AD: Red Lump - corpse before Underground Waterway idol</td><td>Near the end of the cricket area heading toward the Underground Waterway</td></tr>
 <tr><td>AD: Rotting Prisoner&#x27;s Note - cell, first on the left</td><td>Crouching into the first cell on the left entering the dungeon from Ashina Castle</td></tr>
 <tr><td>AD: Scrap Iron - Underground Waterway, ramp after idol</td><td>After the Underground Waterway Sculptor&#x27;s Idol on the surface of the water</td></tr>
@@ -954,6 +1038,7 @@ static _Sekiro_ randomizer].
 <tr><td>MV: Fistful of Ash - in second house with hole in roof</td><td>In the second of the houses with holes in their roofs along the main path</td></tr>
 <tr><td>MV: Gourd Seed - main path, big tree bed center</td><td>In front of the tree in the area with many underground villagers</td></tr>
 <tr><td>MV: Heavy Coin Purse - Head Priest&#x27;s house, bird&#x27;s nest on roof</td><td>In the bird&#x27;s nest on top of the Head Priest&#x27;s house</td></tr>
+<tr><td>MV: Jinza&#x27;s Jizo Statue - Jinzaemon reward after killing miniboss</td><td>Given by Jinzaemon if you talk to him at all points from Ashina Reservoir to Mibu Village, and kill O&#x27;Rin while he is near the Water Mill Sculptor&#x27;s Idol</td></tr>
 <tr><td>MV: Light Coin Purse - hut across from Head Priest&#x27;s house in bird&#x27;s nest</td><td>In the bird&#x27;s nest on top of the hut on the other side of the river from the Head Priest&#x27;s house</td></tr>
 <tr><td>MV: Light Coin Purse - right of Exiled Memorial Mob, up ledge past enemies</td><td>At the end of a path found climbing up a ledge to the right of the Memorial Mob, past several hounds</td></tr>
 <tr><td>MV: Light Coin Purse - underwater, pond village side #1</td><td>At the bottom of the village pond</td></tr>
@@ -1085,6 +1170,7 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Scrap Magnetite - sloped path, enemies after bonfire, enemy drop</td><td>Guaranteed drop from the greatshield-wielding Taro Troop on the slope leading up to Main Hall</td></tr>
 <tr><td>ST: Senpou Esoteric Text - cave, pagoda after exiting</td><td>Inside of the pagoda after the cave accessible near the Main Hall side entrance</td></tr>
 <tr><td>ST: Snap Seed - after kite jump</td><td>Right after using the kite to grapple</td></tr>
+<tr><td>ST: Taro Persimmon - Halls of Illusion, Kotaro quest</td><td>Given or dropped by Kotaro upon completing his quest using Red and White Pinwheel in either location</td></tr>
 <tr><td>ST: Treasure Carp Scale - Carp Pond, Carp drop #1</td><td>Dropped by a Treasure Carp on the surface of the Temple Grounds pond</td></tr>
 <tr><td>ST: Treasure Carp Scale - Carp Pond, Carp drop #2</td><td>Dropped by a Treasure Carp on the surface of the Temple Grounds pond</td></tr>
 <tr><td>ST: Ungo&#x27;s Sugar - Main Hall, right wing</td><td>Guarded by an Infested Seeker all the way to the right from the Main Hall Sculptor&#x27;s Idol</td></tr>
