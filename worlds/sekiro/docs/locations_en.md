@@ -51,17 +51,19 @@ many locations at once:
 * **Miniboss Rewards:** Miniboss drops. Minibosses are enemies with boss bars
   that do not drop memories.
 
-* **Hostile:** Drops from regular enemies or NPCs that are hostile to you. This
-  includes initially-friendly NPCs that must be fought as part of their
-  questline.
+* **Headless:** Headless miniboss drops. These locations contain the spiritfall 
+  items in vanilla.
+
+* **Drops:** Drops from anything other than bosses, including minibosses, 
+  treasure carps, NPCs or normal enemies.
 
 * **Friendly:** Locations that contain items given by friendly NPCs as part of
   their quests or from non-violent interaction.
 
 * **Esoteric Texts:** Locations that contain an esoteric text item.
 
-* **Skills:** Locations that contain skills found as item drops, such as
-  Shinobi Medicine or Ninjutsu techniques.
+* **Skills:** Locations that contain skills found as item drops in vanilla, such
+  as Shinobi Medicine or Ninjutsu techniques.
 
 * **Upgrade:** Locations that contain non-unique upgrade materials for
   prosthetic tools in vanilla.
@@ -133,8 +135,8 @@ and leads to Ashina Outskirts.
 
 ### Ashina Outskirts
 
-This area ends at the miniboss guarding the last gate to Ashina Castle.
-"Left" and "right" are used with the player facing in the direction of area 
+This area ends at the miniboss guarding the last gate to Ashina Castle."Left" 
+and "right" are used with the player facing in the direction of area 
 progression.
 
 * **Gate:** Large torii gates with solid doors.
@@ -142,17 +144,18 @@ progression.
 * **Wide Gate House:** Large gate with a wide second floor, just after the
   Outskirts Wall - Gate Path idol.
 
-* **Hidden Wall Cave:** A small cave reached by dropping down onto a ledge
-  from the platform left of the Wide Gate House.
-
 * **Cliff Courtyard:** The miniboss arena after the Outskirts Wall - Gate Path
   idol.
 
 * **Destroyed House:** The two-floor building with a missing roof after the
   cliff courtyard.
 
-* **Cliffside Gate:** The closed gate flanked by giant cobblestone structures,
-  next to the secluded platforms with the giant snake skin.
+* **Cliffside Gate:** The closed gate flanked by giant cobblestone structures, 
+  shortly before Anayama's final location.
+
+* **Secluded Platforms:** A pair of secluded rock formations to the right just 
+  before the cliffside gate. A giant piece of snake skin shed by the Great 
+  Serpent hangs off a tree there.
 
 * **Cobblestone Platform:** Large rectangular cobblestone platforms beside a
   giant gate near the Outskirts Wall - Stairway idol.
@@ -172,13 +175,16 @@ progression.
 * **Castle Gate Courtyard:** The courtyard right before the stairs to the Ashina
   Castle Gate miniboss arena.
 
-* **Ashina Castle entrance:** The miniboss arena right before reaching the
+* **Ashina Castle Entrance:** The miniboss arena right before reaching the
   Ashina Castle idol.
 
 ### Hirata Estate (Young Lord's Bell Charm)
 
 * **Estate Path:** The main walled-off path that leads from the Estate Path idol
   to the rest of the area.
+
+* **Side Path Before Cave:** The side path before the cave that leads to Main 
+  Hall. Contains two Monk enemies in vanilla.
 
 * **Main Hall:** The area between the Main Hall idol and the miniboss guarding
   the Audience Chamber.
@@ -193,8 +199,8 @@ progression.
 
 ### Ashina Castle
 
-This region begins going out the gate after the Ashina Castle Gate idol.
-"Left" and "right" are always considering the player to be facing towards Ashina
+This region begins going out the gate after the Ashina Castle Gate idol. "Left" 
+and "right" are always considering the player to be facing towards Ashina 
 Castle.
 
 * **Main Stairway:** The long stairway leading up to the front entrance of the
@@ -469,7 +475,8 @@ diving in the lake and progressing through the Great Carp ravine.
 
 ### Fountainhead Palace (underwater progression)
 
-This region covers any diving in the lake.
+This region covers anything requiring diving in the lake and past the Giant Carp
+ravine.
 
 * **Palace Grounds:** The building after the Palace Grounds idol with the
   shortcut door and the area leading out the back to various pools of water.
@@ -525,7 +532,7 @@ static _Sekiro_ randomizer].
 <tr><td>AC/C: Adamantite Scrap - main stairway, top</td><td>At the top of the main stairway</td></tr>
 <tr><td>AC/C: Adamantite Scrap - upper tower, map room</td><td>In the Upper Tower room where the two fencers were studying a map, now overrun with Lone Shadows</td></tr>
 <tr><td>AC/C: Ako&#x27;s Sugar - area right of main stairway</td><td>In the area to the right of the main stairway</td></tr>
-<tr><td>AC/C: Bundled Jizo Statue - along path to Serpent Shrine, enemy drop</td><td>Guaranteed drop from either of the strong monkeys in the Great Serpent Shrine path</td></tr>
+<tr><td>AC/C: Bundled Jizo Statue - path to Serpent Shrine, enemy drop</td><td>Guaranteed drop from either of the strong monkeys in the Great Serpent Shrine path</td></tr>
 <tr><td>AC/C: Fistful of Ash - courtyard before Old Grave idol</td><td>In the courtyard which used to have the Shinobi Hunter before the Old Grave Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC/C: Fulminated Mercury - main stairway, alcove on right</td><td>Going up the main castle stairway, in an alcove to the right</td></tr>
 <tr><td>AC/C: Gokan&#x27;s Sugar - courtyard left of Ashina Castle idol</td><td>In the courtyard immediately to the left after the Ashina Castle Sculptor&#x27;s Idol</td></tr>
@@ -542,19 +549,19 @@ static _Sekiro_ randomizer].
 <tr><td>AC/I: Aromatic Branch - upper tower roof, boss drop</td><td>Dropped by Owl</td></tr>
 <tr><td>AC/I: Black Gunpowder - courtyard far right from Ashina Castle idol</td><td>In a courtyard with a lone dead tree, against the right wall overlooking Gyoubu&#x27;s field.</td></tr>
 <tr><td>AC/I: Black Scroll - balcony of Isshin&#x27;s watchtower in chest</td><td>In a chest on a balcony of Isshin&#x27;s watchtower</td></tr>
-<tr><td>AC/I: Ceramic Shard - on bridge to Great Serpent Shrine</td><td>On the bridge leading to the Great Serpent Shrine</td></tr>
+<tr><td>AC/I: Ceramic Shard - bridge to Great Serpent Shrine</td><td>On the bridge leading to the Great Serpent Shrine</td></tr>
 <tr><td>AC/I: Divine Grass - Kuro after entering Fountainhead Palace</td><td>Given by Kuro after entering Fountainhead Palace</td></tr>
-<tr><td>AC/I: Dragon&#x27;s Blood Droplet - on a corpse at Serpent Shrine idol</td><td>On Lone Shadow Masanari&#x27;s corpse next to the Great Serpent Shrine Sculptor&#x27;s Idol</td></tr>
+<tr><td>AC/I: Dragon&#x27;s Blood Droplet - corpse at Serpent Shrine idol</td><td>On Lone Shadow Masanari&#x27;s corpse next to the Great Serpent Shrine Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC/I: Father&#x27;s Bell Charm - Emma after eavesdropping on her</td><td>Given by Emma after eavesdropping Kuro saying &quot;Do what must be done&quot;, meeting with her in Castle Lookout, then Old Grave, then eavesdropping on her in Dilapidated Temple. Once she moves to Dilapidated Temple, the Sculptor will no longer give unique dialogue that lets you recognize him.</td></tr>
-<tr><td>AC/I: Heavy Coin Purse - near broken bridge to AO, enemy drop</td><td>Guaranteed drop from an Interior Ministry Assassin who is hanging off the building on the Ashina Castle side of the destroyed bridge to Outskirts during the Interior Ministry invasion. He can be eavesdropped and has unique death dialogue.</td></tr>
+<tr><td>AC/I: Heavy Coin Purse - near broken bridge to AO, enemy drop</td><td>Dropped by Lone Shadow Vilehand in NG+</td></tr>
 <tr><td>AC/I: Lump of Fat Wax - Ashina Dojo, miniboss drop</td><td>Dropped by Lone Shadow Vilehand</td></tr>
-<tr><td>AC/I: Memory: Great Shinobi - upper tower roof, boss drop</td><td>Dropped by Owl</td></tr>
+<tr><td>AC/I: Memory: Great Shinobi</td><td>Dropped by Owl</td></tr>
 <tr><td>AC/I: Oil - basement, passage to main stairway left</td><td>Past the door which can be opened from within the Upper Tower basement, in the passageway connecting to the main castle stairway</td></tr>
 <tr><td>AC/I: Oil - courtyard far right from Ashina Castle idol</td><td>In a courtyard with a lone dead tree, against the right wall overlooking Gyoubu&#x27;s field.</td></tr>
 <tr><td>AC/I: Oil - main stairway</td><td>On the main castle stairway</td></tr>
-<tr><td>AC/I: Pellet - at end of bridge from AD</td><td>On the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
 <tr><td>AC/I: Pellet - balcony at Isshin&#x27;s watchtower</td><td>On a balcony of Isshin&#x27;s watchtower</td></tr>
 <tr><td>AC/I: Pellet - corpse on rooftop path, overlooking Ashina Castle Gate arena</td><td>On a Nightjar Ninja corpse on the rooftop path from the Ashina Castle Sculptor&#x27;s Idol to the central tower roof, overlooking Gyoubu&#x27;s field</td></tr>
+<tr><td>AC/I: Pellet - end of bridge from AD</td><td>On the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
 <tr><td>AC/I: Pellet - upper tower, rafters</td><td>On the rafters which can be grappled to from one of the Upper Tower rooms, before dropping to the stairs leading up to Ashina Dojo</td></tr>
 <tr><td>AC/I: Prayer Bead - Ashina Dojo, miniboss drop</td><td>Dropped by Lone Shadow Vilehand</td></tr>
 <tr><td>AC/I: Prayer Bead - Great Serpent Shrine, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-bearer, or in the Offering Box after the Central Forces invasion</td></tr>
@@ -564,8 +571,8 @@ static _Sekiro_ randomizer].
 <tr><td>AC/I: Sweet Rice Ball - Kuro after incense and Rice for Kuro</td><td>Given by Kuro after he receives Rice for Kuro and adding all Fountainhead Incense materials</td></tr>
 <tr><td>AC/I: Tomoe&#x27;s Note - Emma after eavesdropping on Kuro</td><td>Given by Emma after eavesdropping Kuro saying &quot;Do what must be done&quot; and meeting with her in Castle Lookout</td></tr>
 <tr><td>AC/I: Treasure Carp Scale - underwater, below Ashina Castle idol, Carp drop</td><td>Dropped by the underwater Treasure Carp in the moat below the Ashina Castle Sculptor&#x27;s Idol</td></tr>
+<tr><td>AC/I: Yashariku&#x27;s Sugar - gate separating Ashina Castle and Serpent Shrine</td><td>Under the open gate separating the rear moat of Ashina Castle and the Great Serpent Shrine path</td></tr>
 <tr><td>AC/I: Yashariku&#x27;s Sugar - moat below Ashina Castle idol</td><td>On the surface of the moat directly below the Ashina Castle Sculptor&#x27;s Idol</td></tr>
-<tr><td>AC/I: Yashariku&#x27;s Sugar - under gate separating Ashina Castle and Serpent Shrine</td><td>Under the open gate separating the rear moat of Ashina Castle and the Great Serpent Shrine path</td></tr>
 <tr><td>AC/I: Yellow Gunpowder - Great Serpent Shrine, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-Bearer</td></tr>
 <tr><td>AC: Ako&#x27;s Sugar - any Old Praying Woman, pop 2 balloons</td><td>Given by any Old Praying Woman after popping two balloons</td></tr>
 <tr><td>AC: Ako&#x27;s Sugar - upper tower, map room</td><td>In the Upper Tower room where two fencers are studying a map</td></tr>
@@ -576,7 +583,7 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Ceramic Shard - Old Grave, courtyard near Blackhat Badger</td><td>In a courtyard with many treasures down the stairs from Old Grave, close to Blackhat Badger&#x27;s building</td></tr>
 <tr><td>AC: Ceramic Shard - area right of main stairway, near Fujioka&#x27;s pursuers</td><td>In the area to the right of the main stairway with many soldiers</td></tr>
 <tr><td>AC: Ceramic Shard - bird&#x27;s nest before Antechamber idol</td><td>In a bird&#x27;s nest on the roof outside of the Antechamber Sculptor&#x27;s Idol</td></tr>
-<tr><td>AC: Ceramic Shard - bird&#x27;s nest on rooftop of buildings on right</td><td>In a bird&#x27;s nest on a roof patrolled by Nightjar Ninjas. Visible from the roofs which can be grappled to on the right of the main stairway.</td></tr>
+<tr><td>AC: Ceramic Shard - bird&#x27;s nest on roof above Fujioka&#x27;s pursuers</td><td>In a bird&#x27;s nest on a roof patrolled by Nightjar Ninjas. Visible from the roofs which can be grappled to on the right of the main stairway.</td></tr>
 <tr><td>AC: Ceramic Shard - right of stairway to Ashina Dojo idol</td><td>To the right of the stairway leading up to Ashina Dojo</td></tr>
 <tr><td>AC: Divine Confetti - any Old Praying Woman, pop 3 balloons</td><td>Given by any Old Praying Woman after popping three balloons</td></tr>
 <tr><td>AC: Divine Grass - main stairway, chest at top</td><td>In the chest at the top of the main castle stairway</td></tr>
@@ -594,8 +601,8 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Gachiin&#x27;s Sugar - bird&#x27;s nest on roof near Isshin&#x27;s watchtower</td><td>In a bird&#x27;s nest on a roof near Isshin&#x27;s watchtower</td></tr>
 <tr><td>AC: Gachiin&#x27;s Sugar - upper tower, rafters</td><td>On the rafters which can be grappled to from one of the Upper Tower rooms, in the corner.</td></tr>
 <tr><td>AC: Gatehouse Key - bridge leading to AD, enemy drop</td><td>Dropped by a soldier on the bridge leading to the Abandoned Dungeon entrance, or in the courtyard immediately to the left after the Ashina Castle Sculptor&#x27;s Idol</td></tr>
+<tr><td>AC: Gokan&#x27;s Sugar - Ashina Dojo idol room</td><td>At the entrance to the room with the Ashina Dojo Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Gokan&#x27;s Sugar - basement, side room with chest</td><td>In the basement of the Upper Tower building, in the side room with the Sabimaru</td></tr>
-<tr><td>AC: Gokan&#x27;s Sugar - room with Ashina Dojo idol</td><td>At the entrance to the room with the Ashina Dojo Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Gourd Seed - chest near Antechamber idol</td><td>In a chest before the Upper Tower Antechamber</td></tr>
 <tr><td>AC: Gun Fort Shrine Key - library in Kuro&#x27;s Room after talking to Isshin</td><td>In the library area in Kuro&#x27;s Room which opens up after you ask Isshin where the Mortal Blade can be found.</td></tr>
 <tr><td>AC: Heavy Coin Purse - before Serpent Shrine bridge, enemy drop</td><td>Guaranteed drop from Shinobi Hunter in or near the courtyard before the bridge leading to the Great Serpent Shrine</td></tr>
@@ -609,10 +616,10 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Iron Fortress - Blackhat Badger</td><td>Sold by Blackhat Badger, or left behind after he moves to Senpou Temple, or in Offering Box if killed</td></tr>
 <tr><td>AC: Isshin&#x27;s Letter - Isshin&#x27;s watchtower before upper tower roof boss</td><td>Found in Isshin&#x27;s watchtower before he relocates there, until defeating Genichiro and killing the &quot;rats&quot;</td></tr>
 <tr><td>AC: Light Coin Purse - Old Grave, courtyard near Blackhat Badger building</td><td>In a courtyard with many treasures down the stairs from Old Grave, close to Blackhat Badger&#x27;s building</td></tr>
-<tr><td>AC: Light Coin Purse - bird&#x27;s nest near Castle Tower Lookout idol</td><td>In a bird&#x27;s nest near the Castle Lookout. Leaving the Ashina Dojo window and grappling to the dragon, rather than grappling again to the right, instead drop off to the left.</td></tr>
-<tr><td>AC: Light Coin Purse - left before bridge to AD in house</td><td>On one side of a barricated gate looking into the Blazing Bull room, on the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
+<tr><td>AC: Light Coin Purse - bird&#x27;s nest below upper tower roof grapple</td><td>In a bird&#x27;s nest near the Castle Lookout. Leaving the Ashina Dojo window and grappling to the dragon, rather than grappling again to the right, instead drop off to the left.</td></tr>
+<tr><td>AC: Light Coin Purse - left in house before bridge to AD</td><td>On one side of a barricated gate looking into the Blazing Bull room, on the other end of the bridge from the Abandoned Dungeon entrance. Can be accessed using grapple point from Ashina Castle Sculptor&#x27;s Idol.</td></tr>
 <tr><td>AC: Light Coin Purse - upper tower, past shinobi door</td><td>Past a scroll-covered shinobi door in the Upper Tower room where two fencers are studying a map</td></tr>
-<tr><td>AC: Memory: Genichiro - upper tower roof, boss drop</td><td>Dropped by Genichiro</td></tr>
+<tr><td>AC: Memory: Genichiro</td><td>Dropped by Genichiro</td></tr>
 <tr><td>AC: Mibu Balloon of Spirit - room before Serpent Shrine idol</td><td>In the room before the Great Serpent Shrine Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Mibu Balloon of Wealth - main stairway, alcove on right near end</td><td>Near the end of the main stairway in an alcove to the right</td></tr>
 <tr><td>AC: Mibu Balloon of Wealth - stairway to Ashina Dojo idol</td><td>On the stairway leading up to the Ashina Dojo</td></tr>
@@ -620,45 +627,45 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Mibu Possession Balloon - left from Ashina Castle idol and through building</td><td>By a tree overlooking a moat in Ashina Castle. It can be accessed by taking a left after the Ashina Castle Sculptor&#x27;s Idol and going through the building.</td></tr>
 <tr><td>AC: Mibu Possession Balloon - under Serpent Shrine bridge</td><td>On the surface of the rear moat, underneath the bridge leading toward the Great Serpent Shrine</td></tr>
 <tr><td>AC: Mibu Possession Balloon - underwater, near Serpent Shrine bridge</td><td>Underwater past and to the right of the bridge leading to the Great Serpent Shrine</td></tr>
-<tr><td>AC: Nightjar Beacon Memo - Fujioka after killing nearby enemies</td><td>Given by Fujioka the Info Broker after completing his request in Ashina Castle</td></tr>
+<tr><td>AC: Nightjar Beacon Memo - Fujioka after killing his pursuers</td><td>Given by Fujioka the Info Broker after completing his request in Ashina Castle</td></tr>
 <tr><td>AC: Okami&#x27;s Ancient Text - show Lotus of the Palace to Kuro</td><td>Given by Kuro after he recruits you to achieve Immortal Severence and you show him Lotus of the Palace, describing Ashina Depths</td></tr>
 <tr><td>AC: Page&#x27;s Diary - talk to Kuro after agreeing to Immortal Severance</td><td>Given by Kuro after he recruits you to achieve Immortal Severence and you show him Lotus of the Palace, to ask Emma about the Mortal Blade</td></tr>
 <tr><td>AC: Pellet - Ashina Dojo, side room</td><td>In the side room of Ashina Dojo</td></tr>
 <tr><td>AC: Pellet - Isshin&#x27;s dojo, stairs to Isshin</td><td>On the lower floor of Isshin&#x27;s watchtower at the base of the stairs</td></tr>
 <tr><td>AC: Pellet - before AR gate</td><td>Before the door which opens up into Ashina Reservoir. Accessible from the building going down the left path after the Ashina Castle Sculptor&#x27;s Idol, dropping down to the lower level.</td></tr>
-<tr><td>AC: Pellet - bird&#x27;s nest after grappling to main castle roof</td><td>In a bird&#x27;s nest on the tall building before the roof where the Kite Nightjar Ninja can ambush you</td></tr>
+<tr><td>AC: Pellet - bird&#x27;s nest before grappling to main castle roof</td><td>In a bird&#x27;s nest on the tall building before the roof where the Kite Nightjar Ninja can ambush you</td></tr>
 <tr><td>AC: Pellet - upper tower, corner room near map</td><td>In a corner room next to the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Prayer Bead - Ashina Dojo, miniboss drop</td><td>Dropped by Ashina Elite Jinsuke Saze, or in the Offering Box after the Interior Ministry invasion</td></tr>
 <tr><td>AC: Prayer Bead - main stairway, miniboss drop</td><td>Dropped by General Kuranosuke Matsumoto, or in the Offering Box after the Interior Ministry invasion</td></tr>
 <tr><td>AC: Prayer Bead - upper tower, chest past shinobi door</td><td>In a chest past a scroll-covered shinobi door in the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Sabimaru - basement, chest</td><td>In a chest in the Upper Tower basement</td></tr>
+<tr><td>AC: Scrap Iron - ledge across moat with underwater headless</td><td>On a ledge overlooking the moat with the Underwater Headless. Can be accessed by jumping down from the castle buildings overlooking the bridge to the building on the other side of the bridge.</td></tr>
 <tr><td>AC: Scrap Iron - ledge on right overlooking Ashina Castle idol</td><td>Between two trees on a ledge overlooking the Ashina Castle Sculptor&#x27;s Idol. To the right of the Idol, facing the castle</td></tr>
 <tr><td>AC: Scrap Iron - left from Ashina Castle idol and through building</td><td>By a tree overlooking a moat in Ashina Castle. It can be accessed by taking a left after the Ashina Castle Sculptor&#x27;s Idol and going through the building.</td></tr>
-<tr><td>AC: Scrap Iron - on ledge across moat with underwater headless</td><td>On a ledge overlooking the moat with the Underwater Headless. Can be accessed by jumping down from the castle buildings overlooking the bridge to the building on the other side of the bridge.</td></tr>
 <tr><td>AC: Scrap Iron - upper tower, map room</td><td>In the Upper Tower room where two fencers are studying a map</td></tr>
 <tr><td>AC: Scrap Magnetite - Ashina Dojo, side room</td><td>In the side room of Ashina Dojo</td></tr>
 <tr><td>AC: Scrap Magnetite - behind statue in Kuro&#x27;s Room</td><td>Behind the main statue in Kuro&#x27;s Room</td></tr>
 <tr><td>AC: Scrap Magnetite - outside building at AD entrance, enemy drop</td><td>Guaranteed drop from the Taro Troop outside of the building with the Abandoned Dungeon entrance</td></tr>
 <tr><td>AC: Sweet Rice Ball - Kuro after Rice for Kuro</td><td>Given by Kuro after he receives Rice for Kuro</td></tr>
 <tr><td>AC: Treasure Carp Scale - underwater, below Ashina Castle idol</td><td>Underwater in the moat below the Ashina Castle Sculptor&#x27;s Idol</td></tr>
-<tr><td>AC: Ungo&#x27;s Spiritfall - underwater, headless drop</td><td>Dropped by Underwater Headless</td></tr>
+<tr><td>AC: Ungo&#x27;s Spiritfall - underwater, miniboss drop</td><td>Dropped by Underwater Headless</td></tr>
 <tr><td>AC: Ungo&#x27;s Sugar - any Old Praying Woman, pop 1 balloon</td><td>Given by any Old Praying Woman after popping one balloon</td></tr>
+<tr><td>AC: Ungo&#x27;s Sugar - bird&#x27;s nest on first tower before Antechamber idol</td><td>In a bird&#x27;s nest on the roof of one of the towers outside of the Antechamber Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Ungo&#x27;s Sugar - bird&#x27;s nest on roof of Blackhat Badger building</td><td>In a bird&#x27;s nest on the second-story roof of the building where Blackhat Badger hides near Old Grave</td></tr>
-<tr><td>AC: Ungo&#x27;s Sugar - bird&#x27;s nest on tower roof outside Antechamber idol</td><td>In a bird&#x27;s nest on the roof of one of the towers outside of the Antechamber Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Unrefined Sake - ask Isshin about Mortal Blade</td><td>Given by Isshin when asking about the Mortal Blade, if you don&#x27;t already have the Mortal Blade</td></tr>
-<tr><td>AC: Yashariku&#x27;s Sugar - underwater, near headless against castle wall</td><td>Underwater in the moat with the Underwater Headless, against the castle wall</td></tr>
+<tr><td>AC: Yashariku&#x27;s Sugar - underwater, near headless against castle wall</td><td>Unique item sold by Blackhat Badger until he moves to Senpou Temple, from buying items or after Interior Ministry invasion</td></tr>
 <tr><td>AD: Academics&#x27; Red Lump - Underground Waterway island, red-eyed Doujun, enemy drop</td><td>Dropped by the Doujun at the end of his quest</td></tr>
-<tr><td>AD: Ako&#x27;s Sugar - Underground Waterway island, in boat</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
+<tr><td>AD: Ako&#x27;s Sugar - Underground Waterway island, boat</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
 <tr><td>AD: Bite Down - thin cave connecting AD to Bottomless Hole</td><td>In the narrow cave between the cricket area and the Shichimen Warrior area</td></tr>
-<tr><td>AD: Black Gunpowder - Bottomless Hole, in an alcove in miniboss arena</td><td>In the pit with Shichimen Warrior</td></tr>
+<tr><td>AD: Black Gunpowder - Bottomless Hole, alcove in miniboss arena</td><td>In the pit with Shichimen Warrior</td></tr>
 <tr><td>AD: Black Gunpowder - Underground Waterway island</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
 <tr><td>AD: Bulging Coin Purse - Bottomless Hole, stalagmite near idol</td><td>Before the Bottomless Hole Sculptor&#x27;s Idol, coming from Ashina Reservoir</td></tr>
 <tr><td>AD: Ceramic Shard - underwater, Underground Waterway</td><td>Underwater in the Underground Waterway</td></tr>
 <tr><td>AD: Ceremonial Tanto - Bottomless Hole, miniboss drop</td><td>Dropped by Shichimen Warrior</td></tr>
 <tr><td>AD: Dosaku&#x27;s Note - underwater, Doujun&#x27;s cell</td><td>In the cell behind Doujun, accessed through an underwater path</td></tr>
-<tr><td>AD: Fistful of Ash - Bottomless Hole drop, before dropping to Ashina Depths idol</td><td>Near the Test Subject in the Bottomless Hole</td></tr>
-<tr><td>AD: Light Coin Purse - Underground Waterway island</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
-<tr><td>AD: Light Coin Purse - underwater, Underground Waterway #1, 3-item group</td><td>Underwater in the Underground Waterway</td></tr>
+<tr><td>AD: Fistful of Ash - Bottomless Hole, before drop to Ashina Depths idol</td><td>Near the Test Subject in the Bottomless Hole</td></tr>
+<tr><td>AD: Light Coin Purse - Underground Waterway island</td><td>Unique item sold by Dungeon Memorial Mob</td></tr>
+<tr><td>AD: Light Coin Purse - underwater, Underground Waterway #1, 3-item group</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
 <tr><td>AD: Light Coin Purse - underwater, Underground Waterway #2, 3-item group</td><td>Underwater in the Underground Waterway</td></tr>
 <tr><td>AD: Light Coin Purse - underwater, Underground Waterway #3, 3-item group</td><td>Underwater in the Underground Waterway</td></tr>
 <tr><td>AD: Lump of Fat Wax - Doujun after sending subject</td><td>Given by Doujun after sending him Kotaro or Jinzaemon</td></tr>
@@ -681,10 +688,10 @@ static _Sekiro_ randomizer].
 <tr><td>AD: Red Lump - corpse before Underground Waterway idol</td><td>Near the end of the cricket area heading toward the Underground Waterway</td></tr>
 <tr><td>AD: Rotting Prisoner&#x27;s Note - cell, first on the left</td><td>Crouching into the first cell on the left entering the dungeon from Ashina Castle</td></tr>
 <tr><td>AD: Scrap Iron - Underground Waterway, ramp after idol</td><td>After the Underground Waterway Sculptor&#x27;s Idol on the surface of the water</td></tr>
-<tr><td>AD: Scrap Magnetite - Bottomless Hole, at wall in miniboss arena</td><td>In the pit with Shichimen Warrior</td></tr>
+<tr><td>AD: Scrap Magnetite - Bottomless Hole, wall in miniboss arena</td><td>In the pit with Shichimen Warrior</td></tr>
 <tr><td>AD: Surgeon&#x27;s Bloody Letter - start Doujun&#x27;s quest</td><td>Given by Doujun if you accept his mysterious quest</td></tr>
 <tr><td>AD: Surgeon&#x27;s Stained Letter - Doujun requests Red Carp Eyes</td><td>Given by Doujun when he asks about Red Carp Eyes, after accepting his quest and sending him Kotaro or Jinzaemon</td></tr>
-<tr><td>AO/C: Adamantite Scrap - gate before stairs leading to Inosuke&#x27;s house</td><td>Before the gate at the base of the stairs leading up to the Demon of Hatred teleport idol</td></tr>
+<tr><td>AO/C: Adamantite Scrap - gate before stairs to Inosuke&#x27;s house</td><td>Before the gate at the base of the stairs leading up to the Demon of Hatred teleport idol</td></tr>
 <tr><td>AO/C: Adamantite Scrap - near headless warning sign</td><td>In front of the Headless warning sign</td></tr>
 <tr><td>AO/C: Adamantite Scrap - top of tower near Stairway idol</td><td>At the top of the lookout tower built near the Stairway Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO/C: Dragon&#x27;s Blood Droplet - inside Tengu tower, ground floor</td><td>In the fortress building after the Demon of Hatred fight</td></tr>
@@ -697,7 +704,7 @@ static _Sekiro_ randomizer].
 <tr><td>AO/C: Lapis Lazuli - Flames of Hatred, boss drop</td><td>Dropped by Demon of Hatred</td></tr>
 <tr><td>AO/C: Lump of Grave Wax - base of second tower on cliffside</td><td>On a ledge in the soldier camp taken over by Central Forces after their invasion</td></tr>
 <tr><td>AO/C: Lump of Grave Wax - stairs leading to Tengu tower</td><td>On the stairway leading up the fortress building after the Demon of Hatred fight</td></tr>
-<tr><td>AO/C: Memory: Hatred Demon - Flames of Hatred, boss drop</td><td>Dropped by Demon of Hatred</td></tr>
+<tr><td>AO/C: Memory: Hatred Demon</td><td>Dropped by Demon of Hatred</td></tr>
 <tr><td>AO/C: Ministry Dousing Powder - after crossing rebuilt bridge</td><td>On the courtyard side of the newly rebuilt bridge</td></tr>
 <tr><td>AO/C: Ministry Dousing Powder - explosive crates after Inosuke&#x27;s house</td><td>In the soldier camp taken over by Central Forces after their invasion, dropping down to the left after passing Inosuke&#x27;s house</td></tr>
 <tr><td>AO/C: Pellet - destroyed house, second floor</td><td>In the soldier camp taken over by Central Forces after their invasion, on the second floor of the building by the new free-roaming Chained Ogre, on newly built planks</td></tr>
@@ -705,62 +712,62 @@ static _Sekiro_ randomizer].
 <tr><td>AO/C: Prayer Bead - courtyard before lookout building, miniboss drop</td><td>Dropped by Shigekichi of the Red Guard</td></tr>
 <tr><td>AO/C: Promissory Note - Anayama the Peddler</td><td>Item sold by dying Anyama the Peddler</td></tr>
 <tr><td>AO: Ako&#x27;s Spiritfall - headless cave, miniboss drop</td><td>Dropped by Headless</td></tr>
-<tr><td>AO: Ako&#x27;s Sugar - castle gate courtyard, cliffside, behind wall</td><td>Dropping down past the left wall near the start of the courtyard with the Taro Troops</td></tr>
-<tr><td>AO: Ako&#x27;s Sugar - fortress, along left outer wall from idol</td><td>Following the outer wall of the main courtyard to the left from the Sculptor&#x27;s Idol</td></tr>
-<tr><td>AO: Ako&#x27;s Sugar - right cliff from Outskirts idol, wall cave</td><td>Following the right cliff edge from the Ashina Outskirts Sculptor&#x27;s Idol, dropping down to the right of a destroyed wall, in a cave</td></tr>
-<tr><td>AO: Antidote Powder - lookout building, right room</td><td>On the upper floor of the lookout building which can be grappled into at the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
-<tr><td>AO: Ashina Esoteric Text - Tengu Tower, Tengu after killing rats</td><td>Given by Tengu after killing rats, or in his spot in Ashina Castle if the quest is refused and after Divine Dragon</td></tr>
+<tr><td>AO: Ako&#x27;s Sugar - castle gate courtyard, cliffside, behind wall</td><td>Following the outer wall of the main courtyard to the left from the Sculptor&#x27;s Idol</td></tr>
+<tr><td>AO: Ako&#x27;s Sugar - fortress, along left outer wall from idol</td><td>Following the right cliff edge from the Ashina Outskirts Sculptor&#x27;s Idol, dropping down to the right of a destroyed wall, in a cave</td></tr>
+<tr><td>AO: Ako&#x27;s Sugar - right cliff from Outskirts idol, wall cave</td><td>Infinite item sold by Anayama the Peddler after sending him Kotaro</td></tr>
+<tr><td>AO: Antidote Powder - lookout building, right room</td><td>Unique item sold by Crow&#x27;s Bed Memorial Mob</td></tr>
+<tr><td>AO: Ashina Esoteric Text - Tengu after killing rats</td><td>Given by Tengu after killing rats, or in his spot in Ashina Castle if the quest is refused and after Divine Dragon</td></tr>
 <tr><td>AO: Black Gunpowder - Tengu rat quest, enemy drop</td><td>Guaranteed drop from the &quot;rat&quot; Senpou Assassin conspiring by the tree, the one closest to the treasure</td></tr>
 <tr><td>AO: Black Gunpowder - right cobblestone platform, enemy drop</td><td>Guaranteed drop from cannon-wielding soldier overlooking closed gate</td></tr>
-<tr><td>AO: Bundled Jizo Statue - hidden wall cave</td><td>From the upraised ground to the left of the building with the Shuriken Wheel, coming from Gate Path (can be accessed by grappling to the building&#x27;s roof), drop down to the left, in a cave</td></tr>
+<tr><td>AO: Bundled Jizo Statue - cave beneath wide gate house</td><td>Replaces Prayer Bead in NG+</td></tr>
 <tr><td>AO: Ceramic Shard - base of stairs after Ashina Castle Gate idol</td><td>At the base of the stairs with several soldiers patrolling, leading up to the courtyard with Taro Troops</td></tr>
-<tr><td>AO: Ceramic Shard - before the stairs to Battlefield Memorial Mob</td><td>Before the stairs leading up to Battlefield Memorial Mob</td></tr>
+<tr><td>AO: Ceramic Shard - before stairs next to Tengu Tower</td><td>Before the stairs leading up to Battlefield Memorial Mob</td></tr>
 <tr><td>AO: Ceramic Shard - destroyed house, second floor</td><td>On the second floor of the ruined building with the rifleman, on the right going down the main stairway after General Naomori Kawarada</td></tr>
 <tr><td>AO: Ceramic Shard - fortress, courtyard outside house</td><td>On the ground floor of the building with a rifleman in the main courtyard</td></tr>
 <tr><td>AO: Ceramic Shard - left of Gate Path idol</td><td>In the courtyard with the hounds and Gate Path Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO: Ceramic Shard - lookout building, left room</td><td>In the left room of the lookout building after Chained Ogre</td></tr>
-<tr><td>AO: Ceramic Shard - right cliff at broken wall</td><td>Following the right cliff edge from the Ashina Outskirt&#x27;s Sculptor&#x27;s Idol, to the right of a destroyed wall, guarded by a soldier</td></tr>
-<tr><td>AO: Ceramic Shard - under branch after first gate</td><td>On a path dropping down to the left of the Ashina Outskirts Sculptor&#x27;s Idol, before making a right turn to go up a stairway</td></tr>
+<tr><td>AO: Ceramic Shard - right cliff from Outskirts idol, near broken wall</td><td>Following the right cliff edge from the Ashina Outskirt&#x27;s Sculptor&#x27;s Idol, to the right of a destroyed wall, guarded by a soldier</td></tr>
+<tr><td>AO: Ceramic Shard - under branch on lower path at area start</td><td>On a path dropping down to the left of the Ashina Outskirts Sculptor&#x27;s Idol, before making a right turn to go up a stairway</td></tr>
 <tr><td>AO: Divine Confetti - slope before headless warning sign</td><td>On the small slope to the right before the Headless warning sign</td></tr>
-<tr><td>AO: Divine Grass - lookout building, right room</td><td>On the upper floor of the lookout building which can be grappled into at the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
+<tr><td>AO: Divine Grass - lookout building, right room</td><td>Unused shop item from Anayama</td></tr>
+<tr><td>AO: Fistful of Ash - boss arena</td><td>In the middle of the field before Ashina Castle Gate</td></tr>
 <tr><td>AO: Fistful of Ash - castle gate courtyard, corner house at tree</td><td>Near the end of the path leading up to Blazing Bull, rather than going through the gate and up the stairs to the right, go up the stairs behind a tree to the left</td></tr>
 <tr><td>AO: Fistful of Ash - cliff courtyard, broken hut</td><td>In a destroyed hut to the left of General Naomori Kawarada</td></tr>
 <tr><td>AO: Fistful of Ash - fortress, near dead horse</td><td>On the tree where the soldier is mourning for Kokage the horse. RIP</td></tr>
-<tr><td>AO: Fistful of Ash - in Ashina Castle Gate arena</td><td>In the middle of the field before Ashina Castle Gate</td></tr>
 <tr><td>AO: Fistful of Ash - right of gate leading to Gate Path idol</td><td>At the top of a short stairway close to the start of Ashina Outskirts, in a courtyard with tall grass before the courtyard with hounds and the Gate Path Sculptor&#x27;s Idol</td></tr>
-<tr><td>AO: Flame Barrel Memo - Anayama for 20 sen</td><td>Given by Anayama the Peddler upon paying 20 sen for information, or dropped on death</td></tr>
+<tr><td>AO: Flame Barrel Memo - Anayama</td><td>Given by Anayama the Peddler upon paying 20 sen for information, or dropped on death</td></tr>
 <tr><td>AO: Gachiin&#x27;s Sugar - after shimmy on way to headless cave</td><td>At the end of the shimmy wall before jumping down onto the platform with the Headless Cave entrance</td></tr>
-<tr><td>AO: Gachiin&#x27;s Sugar - at tree near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
+<tr><td>AO: Gachiin&#x27;s Sugar - below cave beneath wide gate house</td><td>In some tall grass on a steep side path to the left of the soldier camp after General Naomori Kawarada. Can be accessed by dropping down it immediately to the left after the General&#x27;s closed gate.</td></tr>
 <tr><td>AO: Gachiin&#x27;s Sugar - fortress, left of idol</td><td>To the left of the Ashina Castle Fortress Sculptor&#x27;s Idol</td></tr>
-<tr><td>AO: Gachiin&#x27;s Sugar - grapple down from hidden wall cave</td><td>In some tall grass on a steep side path to the left of the soldier camp after General Naomori Kawarada. Can be accessed by dropping down it immediately to the left after the General&#x27;s closed gate.</td></tr>
-<tr><td>AO: Gachiin&#x27;s Sugar - house containing headless cave shortcut</td><td>In a building almost completely missing a roof, toward the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
+<tr><td>AO: Gachiin&#x27;s Sugar - house with headless cave shortcut</td><td>In a building almost completely missing a roof, toward the end of the loop back from Headless&#x27; cave to Ashina Outskirts.</td></tr>
+<tr><td>AO: Gachiin&#x27;s Sugar - tree near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AO: Gourd Seed - Battlefield Memorial Mob</td><td>Unique item sold by Battlefield Memorial Mob</td></tr>
 <tr><td>AO: Gourd Seed - cliff courtyard, miniboss drop</td><td>Dropped by General Naomori Kawarada, or in Offering Box after the Central Forces invasion</td></tr>
 <tr><td>AO: Gourd Seed - lookout building, left room</td><td>In the left room of the lookout building after Chained Ogre</td></tr>
-<tr><td>AO: Heavy Coin Purse - fortress, courtyard house bottom floor</td><td>On the ground floor of the building with a rifleman in the main courtyard</td></tr>
+<tr><td>AO: Heavy Coin Purse - fortress, courtyard house bottom floor</td><td>Unique item sold by Battlefield Memorial Mob</td></tr>
 <tr><td>AO: Herb Catalogue Scrap - fortress, near idol, enemy drop</td><td>Dropped by the Senpou Assassin by the Ashina Castle Fortress Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO: Light Coin Purse - Tengu Tower, second floor</td><td>On the second floor of the fortress building up the stairs from Gyoubu</td></tr>
+<tr><td>AO: Light Coin Purse - building in castle gate courtyard, top floor</td><td>In the top level of the building to the right of the stairs leading up to Blazing Bull</td></tr>
 <tr><td>AO: Light Coin Purse - destroyed house, roof</td><td>On the second roof of the ruined building with the rifleman, on the right going down the main stairway after General Naomori Kawarada</td></tr>
 <tr><td>AO: Light Coin Purse - room under Inosuke&#x27;s Mother #1</td><td>Underneath the building with Inosuke&#x27;s Mother, behind some destructible cartons</td></tr>
 <tr><td>AO: Light Coin Purse - room under Inosuke&#x27;s Mother #2</td><td>Underneath the building with Inosuke&#x27;s Mother, behind some destructible cartons</td></tr>
 <tr><td>AO: Light Coin Purse - room under Inosuke&#x27;s Mother #3</td><td>Underneath the building with Inosuke&#x27;s Mother, behind some destructible cartons</td></tr>
-<tr><td>AO: Light Coin Purse - top level of building in castle gate courtyard</td><td>In the top level of the building to the right of the stairs leading up to Blazing Bull</td></tr>
-<tr><td>AO: Mechanical Barrel - Ashina Castle Gate, boss drop</td><td>Dropped by Gyoubu Oniwa</td></tr>
-<tr><td>AO: Memory: Gyoubu Oniwa - Ashina Castle Gate, boss drop</td><td>Dropped by Gyoubu Oniwa</td></tr>
+<tr><td>AO: Mechanical Barrel - boss arena, boss drop</td><td>Dropped by Gyoubu Oniwa</td></tr>
+<tr><td>AO: Memory: Gyoubu Oniwa</td><td>Dropped by Gyoubu Oniwa</td></tr>
 <tr><td>AO: Mibu Balloon of Wealth - destroyed house, first floor</td><td>On the ground floor of the ruined building with the rifleman, on the right going down the main stairway after General Naomori Kawarada</td></tr>
 <tr><td>AO: Mibu Balloon of Wealth - fortress, courtyard house bottom floor</td><td>On the ground floor of the building with a rifleman in the main courtyard</td></tr>
 <tr><td>AO: Mibu Balloon of Wealth - left of miniboss before lookout building</td><td>Guarded by a spear-wielding Ashina Soldier up a slope to the left of the Chained Ogre</td></tr>
-<tr><td>AO: Mibu Possession Balloon - secluded platform, before snake skin #1</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the right of the Great Serpent&#x27;s shed skin</td></tr>
-<tr><td>AO: Mibu Possession Balloon - secluded platform, before snake skin #2</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the right of the Great Serpent&#x27;s shed skin</td></tr>
-<tr><td>AO: Nightjar Monocular - lookout building, at grapple entrance</td><td>In the lookout building after Chained Ogre</td></tr>
-<tr><td>AO: Oil - Anayama for 20 sen while having Flame Barrel</td><td>Given by Anayama upon paying 20 sen for information if you have Flame Barrel already</td></tr>
+<tr><td>AO: Mibu Possession Balloon - secluded platforms, before snake skin #1</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the right of the Great Serpent&#x27;s shed skin</td></tr>
+<tr><td>AO: Mibu Possession Balloon - secluded platforms, before snake skin #2</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the right of the Great Serpent&#x27;s shed skin</td></tr>
+<tr><td>AO: Nightjar Monocular - lookout building, grapple entrance</td><td>In the lookout building after Chained Ogre</td></tr>
+<tr><td>AO: Oil - Anayama with Flame Barrel</td><td>Given by Anayama upon paying 20 sen for information if you have Flame Barrel already</td></tr>
 <tr><td>AO: Pellet - Tengu Tower, bottom floor</td><td>On the first floor of the fortress building up the stairs from Gyoubu</td></tr>
-<tr><td>AO: Pellet - after gate closest to Outskirts idol</td><td>On a path dropping down to the left of the Ashina Outskirts Sculptor&#x27;s Idol, shortly after the first gate</td></tr>
 <tr><td>AO: Pellet - behind cliffside gate</td><td>On the other side of the closed gate at the end of the path after the soldier camp after General Naomori Kawarada, before the building Anayama sets up camp</td></tr>
 <tr><td>AO: Pellet - fortress, near doors opened from other side</td><td>Up the stairs to the left of Kokage the horse, in front of the fortress building entrance opened from the other side</td></tr>
 <tr><td>AO: Pellet - just before Underbridge Valley idol</td><td>At the start of the descent into the Underbridge Valley, dropping down to the left of the bridge from the courtyard</td></tr>
 <tr><td>AO: Pellet - left above wide gate house</td><td>On the upraised ground to the left of the building with the Shuriken Wheel, coming from Gate Path; can be accessed by grappling to the building&#x27;s roof</td></tr>
 <tr><td>AO: Pellet - left of gate to Gate Path idol</td><td>At the top of a short stairway close to the start of Ashina Outskirts, in a courtyard with tall grass before the courtyard with hounds and the Gate Path Sculptor&#x27;s Idol</td></tr>
+<tr><td>AO: Pellet - left on lower path at area start</td><td>On a path dropping down to the left of the Ashina Outskirts Sculptor&#x27;s Idol, shortly after the first gate</td></tr>
 <tr><td>AO: Pellet - tree near Tengu rat quest enemy</td><td>On a tree with two two Senpou Assassin &quot;rats&quot; you can eavesdrop on</td></tr>
 <tr><td>AO: Pellet - up stairs, before lookout building miniboss</td><td>Up the short stairs to the left after the Stairway Sculptor&#x27;s Idol, before the Chained Ogre</td></tr>
 <tr><td>AO: Phantom Kunai - Anayama the Peddler</td><td>Initial unique item sold by Anayama the Peddler, or available in offering box after Central Forces invasion</td></tr>
@@ -769,23 +776,23 @@ static _Sekiro_ randomizer].
 <tr><td>AO: Prayer Bead - before lookout building, miniboss drop</td><td>Dropped by Chained Ogre</td></tr>
 <tr><td>AO: Prayer Bead - cliff courtyard, miniboss drop</td><td>Dropped by General Naomori Kawarada, or in Offering Box after the Central Forces invasion</td></tr>
 <tr><td>AO: Prayer Bead - courtyard after lookout building, miniboss drop</td><td>Dropped by General Tenzen Yamauchi, or in the Offering Box after the Central Forces invasion</td></tr>
-<tr><td>AO: Rat Description - Tengu Tower, agree to help Tengu</td><td>Given by Tengu of Ashina in the building up the stairs after Gyoubu</td></tr>
+<tr><td>AO: Rat Description - agree to help Tengu</td><td>Given by Tengu of Ashina in the building up the stairs after Gyoubu</td></tr>
 <tr><td>AO: Robert&#x27;s Firecrackers - Crow&#x27;s Bed &amp; Battlefield Memorial Mob</td><td>Unique item sold by Crow&#x27;s Bed Memorial Mob and Battlefield Memorial Mob</td></tr>
 <tr><td>AO: Scrap Iron - castle gate courtyard, hidden behind corner house</td><td>Near the end of the path leading up to Blazing Bull, rather than going through the gate and up the stairs to the right, go up the stairs behind the building to the left</td></tr>
 <tr><td>AO: Scrap Iron - courtyard after lookout building</td><td>In the courtyard after Chained Ogre against the far wall</td></tr>
-<tr><td>AO: Scrap Iron - on stone near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
-<tr><td>AO: Scrap Iron - secluded platform, after snake skin</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the left of the Great Serpent&#x27;s shed skin</td></tr>
+<tr><td>AO: Scrap Iron - secluded platforms, after snake skin</td><td>Dropping down past the Stairway Sculptor&#x27;s Idol and following the path all the way to the right, on a secluded platform to the left of the Great Serpent&#x27;s shed skin</td></tr>
+<tr><td>AO: Scrap Iron - stone near Ashina Castle entrance walls</td><td>By a secluded tree below the Blazing Bull courtyard. Grab and climb up onto a wall from the field with the &quot;rats&quot; and follow it until you find a tree branch on the right you can grapple to.</td></tr>
 <tr><td>AO: Shinobi Medicine Rank 1 - before lookout building, miniboss drop</td><td>Dropped by Chained Ogre</td></tr>
 <tr><td>AO: Shinobi Medicine Rank 2 - Ashina Castle entrance, miniboss drop</td><td>Dropped by Blazing Bull</td></tr>
 <tr><td>AO: Shuriken Wheel - wide gate house, second floor</td><td>On the second floor of the building next to the Gate Path Sculptor&#x27;s Idol, or in the Offering Box after the second invasion</td></tr>
-<tr><td>AO: Snap Seed - near palanquin where Great Serpent lies</td><td>At the top of a hill above a wall shimmy in Underbridge Valley, guarded by a Great Serpent the first time through</td></tr>
+<tr><td>AO: Snap Seed - near palanquin in Underbridge Valley</td><td>At the top of a hill above a wall shimmy in Underbridge Valley, guarded by a Great Serpent the first time through</td></tr>
 <tr><td>AO: Ungo&#x27;s Sugar - broken wall above Ashina Outskirts idol</td><td>In the corner on the upraised ground to the right of the Ashina Outskirts Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO: Ungo&#x27;s Sugar - fortress, behind house</td><td>Behind the building with a rifleman in the main courtyard</td></tr>
 <tr><td>AO: Ungo&#x27;s Sugar - gate house before tall grass</td><td>Against a barricated gate close to the start of Ashina Outskirts, in a courtyard with tall grass before the courtyard with hounds and the Gate Path Sculptor&#x27;s Idol</td></tr>
 <tr><td>AO: Young Lord&#x27;s Bell Charm - Inosuke&#x27;s Mother</td><td>Given by Inosuke&#x27;s Mother</td></tr>
 <tr><td>AR/C: Dragon Flash - final boss drop</td><td>Dropped by Sword Saint Isshin</td></tr>
 <tr><td>AR/C: Fulminated Mercury - behind miniboss against gate</td><td>In the area with the Seven Ashina Spears and Samurai General, against the gate</td></tr>
-<tr><td>AR/C: Memory: Saint Isshin - final boss drop</td><td>Dropped by Sword Saint Isshin</td></tr>
+<tr><td>AR/C: Memory: Saint Isshin</td><td>Dropped by Sword Saint Isshin</td></tr>
 <tr><td>AR/C: Ministry Dousing Powder - tree near miniboss</td><td>In the area with the Seven Ashina Spears and Samurai General, against a tree</td></tr>
 <tr><td>AR/C: Pellet - under bridge before Secret Passage</td><td>Under the bridge leading to the Secret Passage entrance</td></tr>
 <tr><td>AR/C: Prayer Bead - miniboss drop</td><td>Dropped by Seven Ashina Spears - Shume Masaji Oniwa</td></tr>
@@ -807,16 +814,16 @@ static _Sekiro_ randomizer].
 <tr><td>DT: Ashina Sake - Emma after healing Sculptor&#x27;s dragonrot</td><td>Given by Emma to give to the Sculptor after his Dragonrot is healed</td></tr>
 <tr><td>DT: Gourd Seed - Fujioka the Info Broker</td><td>Unique initial item sold by Fujioka the Info Broker</td></tr>
 <tr><td>DT: Hidden Tooth - complete Hanbei&#x27;s quest</td><td>Dropped by Hanbei the Undying after killing him with the Mortal Blade</td></tr>
-<tr><td>DT: Light Coin Purse - behind DT</td><td>Behind the Dilapidated Temple</td></tr>
-<tr><td>DT: Pellet - next to idol</td><td>To the right of the Dilapidated Temple Sculptor&#x27;s Idol</td></tr>
+<tr><td>DT: Light Coin Purse - behind DT</td><td>Unique initial item sold by Fujioka the Info Broker</td></tr>
+<tr><td>DT: Pellet - next to idol</td><td>Unique initial item sold by Fujioka the Info Broker</td></tr>
 <tr><td>DT: Prosthetic Esoteric Text - talk to Sculptor with 3 prosthetic tools</td><td>Given by the Sculptor after collecting 3 prosthetic tools</td></tr>
 <tr><td>DT: Sabimaru Memo - Fujioka the Info Broker</td><td>Unique initial item sold by Fujioka the Info Broker</td></tr>
 <tr><td>DT: Shinobi Esoteric Text - talk to Sculptor with 1 skill point</td><td>Given by the Sculptor after acquiring 1 skill point</td></tr>
-<tr><td>DT: Shinobi Prosthetic - reach DT</td><td>Given upon arriving in Dilapidated Temple</td></tr>
+<tr><td>DT: Shinobi Prosthetic - complete Tutorial</td><td>Given upon arriving in Dilapidated Temple</td></tr>
 <tr><td>DT: Three-story Pagoda Memo - Fujioka the Info Broker</td><td>Unique initial item sold by Fujioka the Info Broker</td></tr>
 <tr><td>DT: Valley Apparitions Memo - Fujioka after boss killed in Guardian Ape&#x27;s Burrow</td><td>Unique item sold by Fujioka the Info Broker after Shichimen Warrior spawns in Headless Ape&#x27;s arena</td></tr>
 <tr><td>FP1: A Beast&#x27;s Karma - beside Mibu Manor, miniboss drop</td><td>Dropped by Sakura Bull of the Palace</td></tr>
-<tr><td>FP1: Adamantite Scrap - Mibu Manor, in room with chest</td><td>In the open room in Mibu Manor with a red-robed Palace Noble and Okami Warrior in Mibu Manor, across the main courtyard from the starting room</td></tr>
+<tr><td>FP1: Adamantite Scrap - Mibu Manor, room with chest</td><td>In the open room in Mibu Manor with a red-robed Palace Noble and Okami Warrior in Mibu Manor, across the main courtyard from the starting room</td></tr>
 <tr><td>FP1: Adamantite Scrap - beside Mibu Manor, 3-item group</td><td>In the alcove guarded by the Sakura Bull, in a group of three items</td></tr>
 <tr><td>FP1: Adamantite Scrap - courtyard, inside left building</td><td>Inside the building in the courtyard with the many hounds</td></tr>
 <tr><td>FP1: Adamantite Scrap - inside building in middle of lake</td><td>Inside of a tilted building in the middle of the lake, on the water surface</td></tr>
@@ -841,14 +848,14 @@ static _Sekiro_ randomizer].
 <tr><td>FP1: Gokan&#x27;s Sugar - past bridge, left-most high roof</td><td>In a bird&#x27;s nest at the top of the building to the right of the leftmost waterfall at the back of the Fountainhead lake</td></tr>
 <tr><td>FP1: Heavy Coin Purse - courtyard, middle between trees</td><td>In the water in the courtyard with many hounds, in the area of the second bent grapple tree</td></tr>
 <tr><td>FP1: Heavy Coin Purse - past bridge, giant tree base, left</td><td>In a bird&#x27;s nest overlooking the lake at the base of the massive tree</td></tr>
-<tr><td>FP1: Lapis Lazuli - past bridge, at waterfall, miniboss drop</td><td>Dropped by Shichimen Warrior</td></tr>
+<tr><td>FP1: Lapis Lazuli - past bridge, at waterfall, miniboss drop</td><td>Sold by Pot Noble Koremori, or Harunaga in Hirata after using his Truly Precious Bait</td></tr>
 <tr><td>FP1: Light Coin Purse - log left of first building</td><td>In a bird&#x27;s nest on a log in the debris to the left of the first building with the Palace Noble</td></tr>
 <tr><td>FP1: Light Coin Purse - past bridge, giant tree base, front</td><td>In a bird&#x27;s at the base of the massive tree</td></tr>
 <tr><td>FP1: Lump of Grave Wax - Mibu Manor, booth in house with rafters</td><td>On the bridge near the start of the area where the Okami Warrior is dancing</td></tr>
 <tr><td>FP1: Lump of Grave Wax - first bridge into water</td><td>On top of a barely above-water roof of a submerged building in the lake, in the path from the area start to Feeding Grounds</td></tr>
 <tr><td>FP1: Lump of Grave Wax - nearly submerged house roof in lake</td><td>In a small four-sided booth in Mibu Manor, on the far end from the Sculptor&#x27;s Idol, below the rafters you can grapple up into</td></tr>
 <tr><td>FP1: Mask Fragment: Left - Pot Noble Koremori</td><td>Sold by Pot Noble Koremori, or Harunaga in Hirata after using his Truly Precious Bait</td></tr>
-<tr><td>FP1: Memory: True Monk - Vermilion Bridge, boss drop</td><td>Dropped by True Monk</td></tr>
+<tr><td>FP1: Memory: True Monk</td><td>Dropped by True Monk</td></tr>
 <tr><td>FP1: Mibu Balloon of Soul - first building after descent from Vermilion Bridge</td><td>On the porch of the building where the first Palace Nobles can be found</td></tr>
 <tr><td>FP1: Mibu Balloon of Soul - past bridge, building across from bridge</td><td>In front of a building on the other side of the bridge demolished by the Great Carp</td></tr>
 <tr><td>FP1: Mibu Balloon of Soul - past bridge, underneath first platform</td><td>At the bank of the lake underneath the platform where the Okami Warrior is playing with a Mari ball and another is sitting and watching</td></tr>
@@ -856,7 +863,7 @@ static _Sekiro_ randomizer].
 <tr><td>FP1: Mibu Possession Balloon - by three enemies near waterfall miniboss #1</td><td>Upstream to the right from underneath the platform where the Okami Warrior is playing with a Mari ball and others are patrolling. Guarded by three hounds.</td></tr>
 <tr><td>FP1: Mibu Possession Balloon - by three enemies near waterfall miniboss #2</td><td>Upstream to the right from underneath the platform where the Okami Warrior is playing with a Mari ball and others are patrolling. Guarded by three hounds.</td></tr>
 <tr><td>FP1: Pellet - Mibu Manor, central open area under tree</td><td>On the ground beneath on the sakura trees in the main Mibu Manor courtyard</td></tr>
-<tr><td>FP1: Pellet - beginning of area behind collapsed strawman</td><td>At the edge of the cliff before the bridge</td></tr>
+<tr><td>FP1: Pellet - Vermilion Bridge, behind collapsed strawman</td><td>At the edge of the cliff before the bridge</td></tr>
 <tr><td>FP1: Pellet - beside Mibu Manor, along wall</td><td>Along the wall on the far side of Mibu Manor patrolled by the Sakura Bull</td></tr>
 <tr><td>FP1: Pellet - past bridge, left before stairs to Palace Grounds</td><td>Down the stairs and to the right from the Palace Grounds entrance</td></tr>
 <tr><td>FP1: Prayer Bead - Great Sakura, miniboss drop</td><td>Dropped by Okami Leader Shizu</td></tr>
@@ -883,7 +890,7 @@ static _Sekiro_ randomizer].
 <tr><td>FP2: Light Coin Purse - underwater, near bottom of Great Carp ravine</td><td>At the bottom of the Great Carp ravine closer to the entrance. The carp will not attack after feeding it Precious Bait.</td></tr>
 <tr><td>FP2: Light Coin Purse - underwater, plants near Pot Noble Koremori</td><td>At the bottom of the lake near Pot Noble Koremori under some tall plants</td></tr>
 <tr><td>FP2: Lump of Grave Wax - underwater, building with Old Woman on roof</td><td>Underneath the building where the Old Palace Maid asks you to open the palace doors, near Feeding Grounds</td></tr>
-<tr><td>FP2: Memory: Divine Dragon - Sanctuary, boss drop</td><td>Dropped by Divine Dragon</td></tr>
+<tr><td>FP2: Memory: Divine Dragon</td><td>Dropped by Divine Dragon</td></tr>
 <tr><td>FP2: Mibu Balloon of Soul - Palace Grounds, pool of water</td><td>On the surface of the pool after the Palace Grounds building below the waterfall</td></tr>
 <tr><td>FP2: Prayer Bead - underwater, chest near giant fish skeleton</td><td>In the chest guarded by the two Underwater Headless</td></tr>
 <tr><td>FP2: Precious Bait - underwater, below Feeding Grounds</td><td>In the lake underneath the Feeding Grounds area</td></tr>
@@ -905,12 +912,12 @@ static _Sekiro_ randomizer].
 <tr><td>FP2: Treasure Carp Scale - underwater, near first house of area, Carp drop</td><td>Dropped by an underwater Treasure Carp near the first house with the Palace Nobles</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, right wall before building, Carp drop</td><td>Dropped by an underwater Treasure Carp before the completely submerged building on the right wall of the lake</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, under Sakura Branch, Carp drop</td><td>Dropped by an underwater Treasure Carp underneath the Great Sakura branch</td></tr>
-<tr><td>FP2: Ungo&#x27;s Sugar - Feeding Grounds, up the stairs from idol</td><td>Up the stairs from the Feeding Grounds area</td></tr>
-<tr><td>FP2: Yashariku&#x27;s Spiritfall - underwater, headless drop</td><td>Dropped by Underwater Headless</td></tr>
-<tr><td>HE1: Ako&#x27;s Sugar - Estate Path, behind first houses</td><td>Behind one of the smaller huts in the first group of houses down the Estate Path</td></tr>
+<tr><td>FP2: Ungo&#x27;s Sugar - Feeding Grounds, up stairs from idol</td><td>Up the stairs from the Feeding Grounds area</td></tr>
+<tr><td>FP2: Yashariku&#x27;s Spiritfall - underwater, miniboss drop</td><td>Dropped by Underwater Headless</td></tr>
+<tr><td>HE1: Ako&#x27;s Sugar - Estate Path, first compound along right wall</td><td>Behind one of the smaller huts in the first group of houses down the Estate Path</td></tr>
 <tr><td>HE1: Antidote Powder - talk to woman inside unpillaged house</td><td>Given by a villager you can talk to in the group of buildings not yet invaded by bandits</td></tr>
-<tr><td>HE1: Bulging Coin Purse - side path before cave to Main Hall, enemy drop</td><td>Dropped by either of the two Shinobi Hunters in a side path before the cave leading up to the Main Hall</td></tr>
-<tr><td>HE1: Bundled Jizo Statue - bamboo path behind Anayama</td><td>Down a short bamboo path over a gate in the area where Anayama is standing</td></tr>
+<tr><td>HE1: Bulging Coin Purse - side path before cave, enemy drop</td><td>Dropped by either of the two Shinobi Hunters in a side path before the cave leading up to the Main Hall</td></tr>
+<tr><td>HE1: Bundled Jizo Statue - bamboo path behind Anayama</td><td>Replaces Shinobi Axe of the Monkey in NG+</td></tr>
 <tr><td>HE1: Ceramic Shard - Main Hall, island in the marsh</td><td>On an island in the middle of the marsh</td></tr>
 <tr><td>HE1: Ceramic Shard - beside Estate Path idol</td><td>Next to the Estate Path Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Ceramic Shard - bonfire houses, base of tree</td><td>By the group of houses with the bonfire, under a tree near the outer wall</td></tr>
@@ -936,27 +943,27 @@ static _Sekiro_ randomizer].
 <tr><td>HE1: Light Coin Purse - Estate Path, left house roof after shortcut</td><td>In a bird&#x27;s nest on the roof of the house with many gamefowl</td></tr>
 <tr><td>HE1: Light Coin Purse - Main Hall, left building after marsh</td><td>In the open building in Main Hall after crossing the marsh, before accessing the Audience Chamber building</td></tr>
 <tr><td>HE1: Light Coin Purse - left of buddha shrine</td><td>In the main building in the group of houses where you can eavesdrop the bandits arguing about whether to loot the shrine</td></tr>
-<tr><td>HE1: Light Coin Purse - on rocks near Pot Noble Harunaga</td><td>On Pot Noble Harunaga&#x27;s island</td></tr>
+<tr><td>HE1: Light Coin Purse - rocks near Pot Noble Harunaga</td><td>On Pot Noble Harunaga&#x27;s island</td></tr>
 <tr><td>HE1: Mask Fragment: Right - Pot Noble Harunaga</td><td>Sold by Pot Noble Harunaga, or Koremori in Fountainhead after using his Truly Precious Bait</td></tr>
-<tr><td>HE1: Memory: Lady Butterfly - Hidden Temple, boss drop</td><td>Dropped by Lady Butterfly</td></tr>
+<tr><td>HE1: Memory: Lady Butterfly</td><td>Dropped by Lady Butterfly</td></tr>
 <tr><td>HE1: Mibu Balloon of Soul - Audience Chamber, room left of idol</td><td>In the room on the left side of the Audience Chamber Sculptor&#x27;s Idol</td></tr>
-<tr><td>HE1: Mibu Balloon of Soul - side path before cave to Main Hall</td><td>In the area where the two Shinobi Hunters can be found, on a side path before the cave leading up to the Main Hall</td></tr>
+<tr><td>HE1: Mibu Balloon of Soul - side path before cave</td><td>In the area where the two Shinobi Hunters can be found, on a side path before the cave leading up to the Main Hall</td></tr>
 <tr><td>HE1: Mibu Balloon of Wealth - Audience Chamber, straight behind shinobi door</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
 <tr><td>HE1: Mibu Balloon of Wealth - near bandits&#x27; bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
 <tr><td>HE1: Mibu Possession Balloon - boat near Pot Noble Harunaga</td><td>On one of the boats to the right side of the entrance to Hirata</td></tr>
 <tr><td>HE1: Mibu Possession Balloon - left of gate to Bamboo Thicket Slope idol</td><td>In front of the large gate leading to the Bamboo Thicket Slope</td></tr>
-<tr><td>HE1: Mibu Possession Balloon - side path before cave to Main Hall, crouch opening</td><td>Crouching through an opening in bamboo near where the two Shinobi Hunters can be found, partly down a side path before the cave leading up to the Main Hall</td></tr>
+<tr><td>HE1: Mibu Possession Balloon - side path before cave, crouch opening</td><td>Crouching through an opening in bamboo near where the two Shinobi Hunters can be found, partly down a side path before the cave leading up to the Main Hall</td></tr>
 <tr><td>HE1: Mist Raven&#x27;s Feathers - three-story pagoda</td><td>In the Three-Story Pagoda guarded by a Lone Shadow</td></tr>
 <tr><td>HE1: Oil - Audience Chamber, left hallway before shinobi door</td><td>In the hallway with the scroll-covered shinobi door near the Audience Chamber</td></tr>
 <tr><td>HE1: Oil - Main Hall, between well and idol</td><td>Between the well you climb out of and the Main Hall Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Oil - before Bamboo Thicket Slope bridge</td><td>On Bamboo Thicket Slope right before the bridge leading up to the courtyard</td></tr>
 <tr><td>HE1: Pellet - Audience Chamber, left room on far wall</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
-<tr><td>HE1: Pellet - Estate Path, first houses, inside largest house</td><td>In the large building in the first group of houses on the right down the Estate Path</td></tr>
+<tr><td>HE1: Pellet - Estate Path, first compound, inside largest house</td><td>In the large building in the first group of houses on the right down the Estate Path</td></tr>
 <tr><td>HE1: Pellet - Estate Path, left house after shortcut near well</td><td>In the group of houses with the many gamefowl, next to a well outside</td></tr>
 <tr><td>HE1: Pellet - behind start</td><td>Behind you at the start</td></tr>
 <tr><td>HE1: Pellet - near bandits&#x27; bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
 <tr><td>HE1: Pellet - right of gate to Bamboo Thicket Slope idol</td><td>To the right of the large gate leading to the Bamboo Thicket Slope</td></tr>
-<tr><td>HE1: Pellet - side path before cave to Main Hall</td><td>In the area where the two Shinobi Hunters can be found, on a side path before the cave leading up to the Main Hall</td></tr>
+<tr><td>HE1: Pellet - side path before cave</td><td>In the area where the two Shinobi Hunters can be found, on a side path before the cave leading up to the Main Hall</td></tr>
 <tr><td>HE1: Prayer Bead - Audience Chamber, chest behind shinobi door</td><td>In a chest behind the scroll-covered shinobi door before the Audience Chamber</td></tr>
 <tr><td>HE1: Prayer Bead - Main Hall, miniboss drop</td><td>Dropped by Juzou the Drunkard</td></tr>
 <tr><td>HE1: Prayer Bead - before Bamboo Thicket Slope, miniboss drop</td><td>Dropped by Shinobi Hunter Enshin of Misen</td></tr>
@@ -968,15 +975,15 @@ static _Sekiro_ randomizer].
 <tr><td>HE1: Treasure Carp Scale - near Pot Noble Harunaga, Carp drop</td><td>Dropped by Treasure Carp on the surface of the Dragonspring lake, near Pot Noble Harunaga</td></tr>
 <tr><td>HE1: Treasure Carp Scale - near bridge, Carp drop</td><td>Dropped by Treasure Carp on the surface of the Dragonspring lake, near the bridge</td></tr>
 <tr><td>HE1: Treasure Carp Scale - under Bamboo Thicket Slope bridge, Carp drop</td><td>Dropped by Treasure Carp on the surface of the river under the Bamboo Thicket Slope bridge</td></tr>
-<tr><td>HE1: Treasure Carp Scale - underwater, in Dragonspring Lake, Carp drop #1</td><td>Dropped by one of the two underwater Treasure Carp in Dragonspring lake</td></tr>
-<tr><td>HE1: Treasure Carp Scale - underwater, in Dragonspring Lake, Carp drop #2</td><td>Dropped by one of the two underwater Treasure Carp in Dragonspring lake</td></tr>
+<tr><td>HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #1</td><td>Dropped by one of the two underwater Treasure Carp in Dragonspring lake</td></tr>
+<tr><td>HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #2</td><td>Dropped by one of the two underwater Treasure Carp in Dragonspring lake</td></tr>
 <tr><td>HE1: Treasure Carp Scale - underwater, under Bamboo Thicket Slope bridge, Carp drop</td><td>Dropped by underwater Treasure Carp in the river under the Bamboo Thicket Slope bridge</td></tr>
 <tr><td>HE1: Truly Precious Bait - Pot Noble Harunaga after trading 6 scales</td><td>Given by Pot Noble Harunaga after using 6 carp scales at his shop</td></tr>
 <tr><td>HE1: Ungo&#x27;s Sugar - Estate Path, left big house after shortcut</td><td>In the large building in the second group of houses on the right down the Estate Path</td></tr>
 <tr><td>HE1: Ungo&#x27;s Sugar - left of Estate Path, over wall</td><td>In the grassy area to the left of the Estate Path after the Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Unrefined Sake - Main Hall, miniboss drop</td><td>Dropped by Juzou the Drunkard</td></tr>
 <tr><td>HE1: Withered Red Gourd - Pot Noble Harunaga</td><td>Sold by Pot Noble Harunaga, or Koremori in Fountainhead after using his Truly Precious Bait</td></tr>
-<tr><td>HE2: Adamantite Scrap - Main Hall, on the roof near three enemies</td><td>In a bird&#x27;s nest on the roof of the building overlooking the Main Hall marsh, in the middle of three Lone Shadows</td></tr>
+<tr><td>HE2: Adamantite Scrap - Main Hall, roof near three enemies</td><td>In a bird&#x27;s nest on the roof of the building overlooking the Main Hall marsh, in the middle of three Lone Shadows</td></tr>
 <tr><td>HE2: Adamantite Scrap - Main Hall, tree at entrance to Audience Chamber</td><td>To the right of the door leading into the Audience Chamber building</td></tr>
 <tr><td>HE2: Adamantite Scrap - burning courtyard, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-Bearer</td></tr>
 <tr><td>HE2: Aromatic Flower - Hidden Temple, boss drop</td><td>Dropped by Owl</td></tr>
@@ -986,29 +993,29 @@ static _Sekiro_ randomizer].
 <tr><td>HE2: Fulminated Mercury - burning courtyard, after miniboss</td><td>To the left of the courtyard with Lone Shadow Masanaga the Spear-bearer</td></tr>
 <tr><td>HE2: Gokan&#x27;s Sugar - Audience Chamber, left second room in left corner</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
 <tr><td>HE2: Light Coin Purse - Main Hall, left building after marsh</td><td>In the open building in Main Hall after crossing the marsh, before accessing the Audience Chamber building</td></tr>
-<tr><td>HE2: Memory: Foster Father - Hidden Temple, boss drop</td><td>Dropped by Owl</td></tr>
+<tr><td>HE2: Memory: Foster Father</td><td>Dropped by Owl</td></tr>
 <tr><td>HE2: Mibu Balloon of Wealth - Main Hall, open area before marsh</td><td>In the open after the Main Hall Sculptor&#x27;s Idol, through the opening in the newly burnt down wall</td></tr>
 <tr><td>HE2: Pellet - Audience Chamber, room straight from entrance</td><td>In the Audience Chamber</td></tr>
 <tr><td>HE2: Prayer Bead - Main Hall, miniboss drop</td><td>Dropped by Juzou the Drunkard</td></tr>
 <tr><td>HE2: Prayer Bead - burning courtyard, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-bearer</td></tr>
-<tr><td>HF: Adamantite Scrap - on ledge opposite of temple</td><td>In the forest area in front of the temple, on the opposite side, high up. Can be accessed with a jump and wall jump from the closest ledge.</td></tr>
-<tr><td>HF: Bite Down - 3-item group in front of temple</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
+<tr><td>HF: Adamantite Scrap - ledge opposite of temple</td><td>In the forest area in front of the temple, on the opposite side, high up. Can be accessed with a jump and wall jump from the closest ledge.</td></tr>
+<tr><td>HF: Bite Down - temple front, 3-item group</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
 <tr><td>HF: Bite Down - temple front, right side</td><td>Following the right wall leading up to the temple</td></tr>
 <tr><td>HF: Ceramic Shard - above sinkhole, branch before bonfire</td><td>On a lower tree branch of the tree with the gamefowl</td></tr>
 <tr><td>HF: Ceramic Shard - behind temple</td><td>On the ground behind the temple to the right</td></tr>
-<tr><td>HF: Contact Medicine - 3-item group in front of temple</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
+<tr><td>HF: Contact Medicine - temple front, 3-item group</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
 <tr><td>HF: Fistful of Ash - cliffside, bonfire near miniboss</td><td>On the ground in the area with the monkeys and Tokujiro the Glutton</td></tr>
 <tr><td>HF: Gachiin&#x27;s Spiritfall - sinkhole, miniboss drop</td><td>Dropped by Headless</td></tr>
-<tr><td>HF: Heavy Coin Purse - pit in front of temple</td><td>In a pit in front of the temple</td></tr>
-<tr><td>HF: Light Coin Purse - 3-item group in front of temple</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
+<tr><td>HF: Heavy Coin Purse - temple front, pit</td><td>In a pit in front of the temple</td></tr>
 <tr><td>HF: Light Coin Purse - above sinkhole, right side cliff</td><td>Found climbing up a path to the right of the tree with the gamefowl</td></tr>
-<tr><td>HF: Lump of Fat Wax - just after cliffside path</td><td>At the end of the path looping back from the monkey area to the tree overlooking the temple</td></tr>
+<tr><td>HF: Light Coin Purse - temple front, 3-item group</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
+<tr><td>HF: Lump of Fat Wax - after cliffside path</td><td>At the end of the path looping back from the monkey area to the tree overlooking the temple</td></tr>
 <tr><td>HF: Lump of Fat Wax - sinkhole, next to miniboss</td><td>Next to the Headless</td></tr>
 <tr><td>HF: Lump of Grave Wax - temple, miniboss drop</td><td>Dropped by the Mist Noble in the temple</td></tr>
 <tr><td>HF: Mibu Balloon of Soul - above sinkhole, before second branch</td><td>Under the tree right after the Hidden Forest Sculptor&#x27;s Idol</td></tr>
 <tr><td>HF: Mibu Balloon of Wealth - sinkhole, 3-item group</td><td>Below the tree with the gamefowl in a group of three items</td></tr>
 <tr><td>HF: Oil - left of temple</td><td>On the ground to the left of the temple</td></tr>
-<tr><td>HF: Oil - temple, front near stone lantern</td><td>On the other side of a tree from the front left of the temple</td></tr>
+<tr><td>HF: Oil - temple front, near stone lantern</td><td>On the other side of a tree from the front left of the temple</td></tr>
 <tr><td>HF: Pellet - cliffside, ledge hang at end</td><td>At the end of the ledge hang looping back from the area with the monkeys to the tree overlooking the temple, before grappling up</td></tr>
 <tr><td>HF: Pellet - sinkhole, 3-item group</td><td>Below the tree with the gamefowl in a group of three items</td></tr>
 <tr><td>HF: Pellet - sinkhole, ledge above Bonfire</td><td>On a ledge behind the Temple Master. Can be accessed by climbing up a path to the right of the tree with the gamefowl and grappling over.</td></tr>
@@ -1024,20 +1031,20 @@ static _Sekiro_ randomizer].
 <tr><td>MV: Adamantite Scrap - Head Priest&#x27;s house, behind</td><td>On the ground behind the Head Priest&#x27;s house</td></tr>
 <tr><td>MV: Adamantite Scrap - Inuhiko&#x27;s house, bird&#x27;s nest on roof</td><td>In the bird&#x27;s nest on top of Inuhiko&#x27;s house, the last house down the path on the other side of the pond</td></tr>
 <tr><td>MV: Adamantite Scrap - villager fields, upper ledge on right</td><td>On a high-up ledge to the right of the field with the laboring villagers</td></tr>
-<tr><td>MV: Ashina Sake - villager fields, at shrine</td><td>At the top of the fields along the left where the villagers are laboring, in front of the small shrine</td></tr>
+<tr><td>MV: Ashina Sake - villager fields, shrine</td><td>At the top of the fields along the left where the villagers are laboring, in front of the small shrine</td></tr>
 <tr><td>MV: Black Gunpowder - main path, before big tree</td><td>Down the main path, shortly before crossing the wooden planks to the Taro Troop</td></tr>
 <tr><td>MV: Breath of Life: Shadow - miniboss drop</td><td>Dropped by O&#x27;Rin</td></tr>
-<tr><td>MV: Contact Medicine - at house before Inuhiko&#x27;s house</td><td>In front of the second-to-last house down the path on the other side of the pond, before Inuhiko&#x27;s house.</td></tr>
+<tr><td>MV: Contact Medicine - house before Inuhiko&#x27;s house</td><td>In front of the second-to-last house down the path on the other side of the pond, before Inuhiko&#x27;s house.</td></tr>
 <tr><td>MV: Contact Medicine - villager fields, middle</td><td>In the middle of the fields where the villagers are laboring</td></tr>
 <tr><td>MV: Divine Confetti - Head Priest&#x27;s house, statue</td><td>In front of the statue on the first floor of the Head Priest&#x27;s house</td></tr>
-<tr><td>MV: Divine Confetti - in building before Water Mill idol</td><td>In the building with the two knife-fielding Mibu Villagers before the Water Mill Sculptor&#x27;s Idol</td></tr>
-<tr><td>MV: Divine Grass - bottom waterfall chest</td><td>In the chest under the waterfall from the Head Priest&#x27;s house</td></tr>
+<tr><td>MV: Divine Confetti - building before Water Mill idol</td><td>In the building with the two knife-fielding Mibu Villagers before the Water Mill Sculptor&#x27;s Idol</td></tr>
+<tr><td>MV: Divine Grass - bottom waterfall chest</td><td>Replaces Gourd Seed in NG+</td></tr>
 <tr><td>MV: Dragonspring Sake - Exiled Memorial Mob</td><td>Unique item sold by Exiled Memorial Mob</td></tr>
 <tr><td>MV: Dragonspring Sake - Head Priest for Water of the Palace</td><td>Given by the Head Priest after you give him Water of the Palace</td></tr>
 <tr><td>MV: Fistful of Ash - Inuhiko&#x27;s house, front</td><td>In front of Inuhiko&#x27;s house, the last house down the path on the other side of the pond.</td></tr>
-<tr><td>MV: Fistful of Ash - in second house with hole in roof</td><td>In the second of the houses with holes in their roofs along the main path</td></tr>
+<tr><td>MV: Fistful of Ash - second house with hole in roof</td><td>In the second of the houses with holes in their roofs along the main path</td></tr>
 <tr><td>MV: Gourd Seed - main path, big tree bed center</td><td>In front of the tree in the area with many underground villagers</td></tr>
-<tr><td>MV: Heavy Coin Purse - Head Priest&#x27;s house, bird&#x27;s nest on roof</td><td>In the bird&#x27;s nest on top of the Head Priest&#x27;s house</td></tr>
+<tr><td>MV: Heavy Coin Purse - Head Priest&#x27;s house, bird&#x27;s nest on roof</td><td>Unique item sold by Exiled Memorial Mob</td></tr>
 <tr><td>MV: Jinza&#x27;s Jizo Statue - Jinzaemon reward after killing miniboss</td><td>Given by Jinzaemon if you talk to him at all points from Ashina Reservoir to Mibu Village, and kill O&#x27;Rin while he is near the Water Mill Sculptor&#x27;s Idol</td></tr>
 <tr><td>MV: Light Coin Purse - hut across from Head Priest&#x27;s house in bird&#x27;s nest</td><td>In the bird&#x27;s nest on top of the hut on the other side of the river from the Head Priest&#x27;s house</td></tr>
 <tr><td>MV: Light Coin Purse - right of Exiled Memorial Mob, up ledge past enemies</td><td>At the end of a path found climbing up a ledge to the right of the Memorial Mob, past several hounds</td></tr>
@@ -1045,7 +1052,7 @@ static _Sekiro_ randomizer].
 <tr><td>MV: Light Coin Purse - underwater, pond village side #2</td><td>At the bottom of the village pond</td></tr>
 <tr><td>MV: Lump of Fat Wax - behind house closest to Exiled Memorial Mob</td><td>Behind a house near the Memorial Mob, following the river on the right side and turning right before reaching the pond</td></tr>
 <tr><td>MV: Lump of Fat Wax - right before bridge to Head Priest&#x27;s house</td><td>On the right before the crossing bridge toward the Head Priest&#x27;s house, near the waterfall</td></tr>
-<tr><td>MV: Memory: Corrupted Monk - Wedding Cave, boss drop</td><td>Dropped by Corrupted Monk</td></tr>
+<tr><td>MV: Memory: Corrupted Monk</td><td>Dropped by Corrupted Monk</td></tr>
 <tr><td>MV: Mibu Balloon of Soul - grapple from Inuhiko&#x27;s house, up the path</td><td>On a ledge high up on the other side of the pond. Can be accessed by grappling from the roof of Inuhiko&#x27;s house, the last house down the path</td></tr>
 <tr><td>MV: Mibu Balloon of Soul - main path, after big tree behind barricade</td><td>Up the path past the bell-wielding Taro Troop</td></tr>
 <tr><td>MV: Mibu Balloon of Soul - main path, big tree bed right</td><td>In front of the tree in the area with many underground villagers</td></tr>
@@ -1056,7 +1063,7 @@ static _Sekiro_ randomizer].
 <tr><td>MV: Pacifying Agent - main path, behind Shosuke&#x27;s house</td><td>Down the main path along the left wall</td></tr>
 <tr><td>MV: Pellet - before descending to MV</td><td>Before descending down into Mibu Village after Hidden Forest</td></tr>
 <tr><td>MV: Pellet - boat across pond</td><td>On a boat by the docks at the other side of the pond</td></tr>
-<tr><td>MV: Pellet - in dried riverbank left of big tree</td><td>In the dried riverbank to the left of the tree with many underground villagers</td></tr>
+<tr><td>MV: Pellet - dried riverbank left of big tree</td><td>In the dried riverbank to the left of the tree with many underground villagers</td></tr>
 <tr><td>MV: Pellet - top of plank before Water Mill idol</td><td>At the end of a wooden plank accessible from the roof of the building before the Water Mill Sculptor&#x27;s Idol</td></tr>
 <tr><td>MV: Pine Resin Ember - Inuhiko&#x27;s house, roof</td><td>On the roof of Inuhiko&#x27;s house, the last house down the path on the other side of the pond</td></tr>
 <tr><td>MV: Prayer Bead - Head Priest&#x27;s house, second floor</td><td>On a small shrine in the upper floor of the Head Priest&#x27;s house</td></tr>
@@ -1067,15 +1074,15 @@ static _Sekiro_ randomizer].
 <tr><td>MV: Red Lump - Head Priest&#x27;s house, behind pots</td><td>Behind some pots on the first floor of the Head Priest&#x27;s house</td></tr>
 <tr><td>MV: Scrap Magnetite - downstream from Mibu Village idol, enemy drop</td><td>Guaranteed drop from the Sabimaru-wielding Lone Shadow downstream of the Mibu Village Sculptor&#x27;s Idol</td></tr>
 <tr><td>MV: Shelter Stone - Wedding Cave</td><td>On the cave altar</td></tr>
-<tr><td>MV: Treasure Carp Scale - Head Priest&#x27;s house, enemy drop</td><td>Dropped by the Head Priest after you give him Water of the Palace, reload, and kill him</td></tr>
-<tr><td>MV: Treasure Carp Scale - near enemy downstream from Mibu Village idol</td><td>At the end of the river near the Mibu Village Sculptor&#x27;s Idol, guarded by a Sabimaru-wielding Lone Shadow</td></tr>
-<tr><td>MV: Treasure Carp Scale - underwater, near Water Mill idol, Carp drop</td><td>Dropped by an underwater Treasure Carp up the river from the Water Mill Sculptor&#x27;s Idol</td></tr>
-<tr><td>MV: Yellow Gunpowder - in building before Water Mill idol</td><td>In the building with the two knife-fielding Mibu Villagers before the Water Mill Sculptor&#x27;s Idol</td></tr>
+<tr><td>MV: Treasure Carp Scale - Head Priest&#x27;s house, enemy drop</td><td>Unique item sold by Exiled Memorial Mob</td></tr>
+<tr><td>MV: Treasure Carp Scale - near enemy downstream from Mibu Village idol</td><td>Dropped by the Head Priest after you give him Water of the Palace, reload, and kill him</td></tr>
+<tr><td>MV: Treasure Carp Scale - underwater, near Water Mill idol, Carp drop</td><td>At the end of the river near the Mibu Village Sculptor&#x27;s Idol, guarded by a Sabimaru-wielding Lone Shadow</td></tr>
+<tr><td>MV: Yellow Gunpowder - building before Water Mill idol</td><td>In the building with the two knife-fielding Mibu Villagers before the Water Mill Sculptor&#x27;s Idol</td></tr>
 <tr><td>PP: Bestowal Ninjutsu - Guardian Ape&#x27;s Burrow, boss drop</td><td>Dropped by Headless Ape upon deathblow</td></tr>
 <tr><td>PP: Black Gunpowder - outcropping, among enemies</td><td>In the area between the Poison Pool Sculptor&#x27;s Idol and Snake Eyes Shirahagi</td></tr>
-<tr><td>PP: Heavy Coin Purse - in poison against left wall</td><td>Midway down the left wall of the poison swamp area, coming from the Ashina Depths Sculptor&#x27;s Idol</td></tr>
+<tr><td>PP: Heavy Coin Purse - poison against left wall</td><td>Midway down the left wall of the poison swamp area, coming from the Ashina Depths Sculptor&#x27;s Idol</td></tr>
 <tr><td>PP: Malcontent&#x27;s Ring - Guardian Ape&#x27;s Burrow, miniboss drop</td><td>Dropped by Shichimen Warrior</td></tr>
-<tr><td>PP: Memory: Headless Ape - Guardian Ape&#x27;s Burrow, boss drop</td><td>Dropped by Headless Ape</td></tr>
+<tr><td>PP: Memory: Headless Ape</td><td>Dropped by Headless Ape</td></tr>
 <tr><td>PP: Mibu Possession Balloon - central island</td><td>Near a wooden structure on the central island</td></tr>
 <tr><td>PP: Monkey Booze - above Guardian Ape&#x27;s Burrow</td><td>Rather than dropping down into the burrow, grapple to the left and then go straight. Guarded by a monkey</td></tr>
 <tr><td>PP: Oil - ledge above Poison Pool idol</td><td>Grappling and climbing up past the Poison Pool Sculptor&#x27;s Idol</td></tr>
@@ -1088,8 +1095,8 @@ static _Sekiro_ randomizer].
 <tr><td>PP: Scrap Magnetite - central island</td><td>Near a wooden structure on the central island</td></tr>
 <tr><td>PP: Scrap Magnetite - hand of giant statue against right wall</td><td>In the hand of a large statue, accessed by jumping and grappling from wooden rafters shortly after the Ashina Depths Sculptor&#x27;s Idol</td></tr>
 <tr><td>PP: Scrap Magnetite - outcropping, among enemies</td><td>In the area between the Poison Pool Sculptor&#x27;s Idol and Snake Eyes Shirahagi</td></tr>
+<tr><td>PP: Yellow Gunpowder - before tallest statue top</td><td>Rather than dropping down into the burrow, grapple to the left and wall jump up to the cliff edge overlooking Poison Pool</td></tr>
 <tr><td>PP: Yellow Gunpowder - behind stone head near left wall</td><td>Along the left wall in the swamp area, coming from Ashina Depths Sculptor&#x27;s Idol</td></tr>
-<tr><td>PP: Yellow Gunpowder - just before tallest statue top</td><td>Rather than dropping down into the burrow, grapple to the left and wall jump up to the cliff edge overlooking Poison Pool</td></tr>
 <tr><td>ST: Ako&#x27;s Sugar - cliff left of Main Hall</td><td>Dropping down near the Main Hall side entrance, or on the return path from the pagoda</td></tr>
 <tr><td>ST: Ako&#x27;s Sugar - cricket building, after grappling</td><td>In the upper floor of the cricket building, immediately after grappling and climbing in</td></tr>
 <tr><td>ST: Ako&#x27;s Sugar - stairs before cricket building</td><td>On the stairs on the path leading up to the cricket building</td></tr>
@@ -1101,8 +1108,8 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Black Gunpowder - cliffside temple #2</td><td>In the room with Long Arm Centipede Sen-Un</td></tr>
 <tr><td>ST: Black Gunpowder - room before Bell Demon&#x27;s Temple idol</td><td>In the building before the bell, accessible from Ashina Outskirts</td></tr>
 <tr><td>ST: Breath of Nature: Shadow - bridge arena, miniboss drop</td><td>Dropped by Armored Warrior</td></tr>
-<tr><td>ST: Bulging Coin Purse - kill 3 enemies outside Main Hall, enemy drop</td><td>Guaranteed drop from killing all three Spear Adepts outside of Main Hall</td></tr>
-<tr><td>ST: Bundled Jizo Statue - Main Hall, amid statues left of idol</td><td>In the rows of statues after the Main Hall Sculptor&#x27;s Idol, on the left side</td></tr>
+<tr><td>ST: Bulging Coin Purse - kill 3 enemies outside Main Hall, enemy drop</td><td>Unique item sold by Shegundo Memorial Mob</td></tr>
+<tr><td>ST: Bundled Jizo Statue - Main Hall, amid statues left of idol</td><td>Replaces Senpou Esoteric Text in NG+</td></tr>
 <tr><td>ST: Ceramic Shard - atrium, left side outside the wall</td><td>Down a long hallway on the left side of the temple with the inner courtyard</td></tr>
 <tr><td>ST: Ceramic Shard - cricket building, left of exit window</td><td>In a corner in the cricket building to the left of the exit window</td></tr>
 <tr><td>ST: Ceramic Shard - nest before Shugendo Memorial Mob</td><td>In a bird&#x27;s nest along the wooden planks before Shegundo Memorial Mob</td></tr>
@@ -1113,9 +1120,9 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Fistful of Ash - sloped path, beside bonfire</td><td>On top of the massive rock where a bonfire is burning before the long slope leading up to the Main Hall, before where the greatshield-wielding Taro Troop patrols</td></tr>
 <tr><td>ST: Five-color Rice - Shugendo Memorial Mob</td><td>Unique item sold by Shegundo Memorial Mob</td></tr>
 <tr><td>ST: Frozen Tears - Divine Child for both Serpent Viscera after first Invasion</td><td>Given by the Divine Child after receiving rice, healing her with a Persimmon, giving her the two serpentine fruits, and returning</td></tr>
-<tr><td>ST: Gachiin&#x27;s Sugar - in area with kite mechanism</td><td>In the area with the kite mechanism</td></tr>
+<tr><td>ST: Gachiin&#x27;s Sugar - area with kite mechanism</td><td>In the area with the kite mechanism</td></tr>
+<tr><td>ST: Gachiin&#x27;s Sugar - broken bridge</td><td>At the end of the broken bridge before grappling to the Shegundo Sculptor&#x27;s Idol</td></tr>
 <tr><td>ST: Gachiin&#x27;s Sugar - left of Senpou Temple, Mt. Kongo idol building</td><td>To the left of the building with the Senpou Temple Sculptor&#x27;s Idol</td></tr>
-<tr><td>ST: Gachiin&#x27;s Sugar - on broken bridge</td><td>At the end of the broken bridge before grappling to the Shegundo Sculptor&#x27;s Idol</td></tr>
 <tr><td>ST: Gachiin&#x27;s Sugar - separate stone pillar in Shugendo</td><td>By a tree in the area with many Senpou Assassins after the Shegundo Sculptor&#x27;s Idol</td></tr>
 <tr><td>ST: Gokan&#x27;s Sugar - below Temple Grounds idol</td><td>Heading down the stairs from Temple Grounds Sculptor&#x27;s Idol, passing the pond on your left, then dropping down to the right behind a tree</td></tr>
 <tr><td>ST: Gokan&#x27;s Sugar - cliffside temple</td><td>In the room with Long Arm Centipede Sen-Un</td></tr>
@@ -1127,26 +1134,26 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Heavy Coin Purse - broken bridge, other side</td><td>On the broken bridge on the Temple Grounds side, at the end of the long slope</td></tr>
 <tr><td>ST: Heavy Coin Purse - elevated cliff right of cricket building entrance</td><td>Found grappling up to a tree branch all the way to the right from the cricket building entrance, then onto a higher platform</td></tr>
 <tr><td>ST: Heavy Coin Purse - grapple room before Bell Demon&#x27;s Temple idol</td><td>In the building before the Bell Demon, in the room accessible only from grappling onto a ledge grab after Shegundo</td></tr>
-<tr><td>ST: Holy Chapter: Dragon&#x27;s Return - cave, on blue-robed monk after Holy Chapter: Infested</td><td>On the corpse of the blue-robed Master of Senpou Temple after visiting the Divine Child in the Halls of Illusion, late in her questline</td></tr>
+<tr><td>ST: Holy Chapter: Dragon&#x27;s Return - cave, blue-robed corpse after Holy Chapter: Infested</td><td>On the corpse of the blue-robed Master of Senpou Temple after visiting the Divine Child in the Halls of Illusion, late in her questline</td></tr>
 <tr><td>ST: Holy Chapter: Infested - underwater, Carp pond</td><td>Given by the Green Robed Infested after talking to the first Faithful One at Ashina Castle, or at the bottom of the pool near the Temple Grounds Sculptor&#x27;s Idol after asking Isshin where the Mortal Blade can be found</td></tr>
 <tr><td>ST: Light Coin Purse - atrium, right side near exit</td><td>In the courtyard of the temple with the inner courtyard</td></tr>
 <tr><td>ST: Light Coin Purse - cliffside right of cricket building, 3-item group</td><td>By a tree on the right cliff edge before grappling up to the cricket building, in a group of three items</td></tr>
 <tr><td>ST: Light Coin Purse - nest on large tree after cricket building exit</td><td>In a bird&#x27;s nest in the tree you stand on to grapple to Sunken Valley Cavern</td></tr>
-<tr><td>ST: Light Coin Purse - on roof of mini gate at area start</td><td>In a bird&#x27;s nest on top of a gate on a way up to the cricket building</td></tr>
+<tr><td>ST: Light Coin Purse - roof of mini gate at area start</td><td>In a bird&#x27;s nest on top of a gate on a way up to the cricket building</td></tr>
 <tr><td>ST: Lump of Fat Wax - Main Hall, behind large statue</td><td>Behind the statue with many hands in the Main Hall</td></tr>
 <tr><td>ST: Lump of Fat Wax - atrium, inside main building</td><td>Guarded by an Infested Seeker in the temple with the inner courtyard</td></tr>
 <tr><td>ST: Lump of Fat Wax - cricket building, behind shrine</td><td>In the main room in the cricket building, behind the small shrine with the Infested Seeker</td></tr>
-<tr><td>ST: Memory: Screen Monkeys - Halls of Illusion, boss drop</td><td>Dropped by Folding Screen Monkeys</td></tr>
+<tr><td>ST: Memory: Screen Monkeys</td><td>Dropped by Folding Screen Monkeys</td></tr>
 <tr><td>ST: Mibu Balloon of Spirit - Shugendo, cave path</td><td>In a short cave after the lower grpaple point from the Shegundo Sculptor&#x27;s Idol to the Senpou Assassin area</td></tr>
 <tr><td>ST: Mibu Balloon of Spirit - after Sunken Valley Cavern idol</td><td>After the Sunken Valley Cavern Sculptor&#x27;s Idol</td></tr>
+<tr><td>ST: Mibu Balloon of Spirit - area with kite mechanism</td><td>In the area with the kite mechanism</td></tr>
 <tr><td>ST: Mibu Balloon of Spirit - cave, shallow section with puddle</td><td>In the narrow cave section you crouch through to get from the Main Hall to where the Temple Master&#x27;s corpse is</td></tr>
 <tr><td>ST: Mibu Balloon of Spirit - cricket building, right of exit</td><td>To the right after exiting the cricket building through the open window</td></tr>
-<tr><td>ST: Mibu Balloon of Spirit - in area with kite mechanism</td><td>In the area with the kite mechanism</td></tr>
-<tr><td>ST: Mibu Balloon of Spirit - on path leading to other side of broken bridge #1</td><td>In front of a big cluster of small statues on the Temple Grounds side of the broken bridge, heading nearly all the way down the slope</td></tr>
-<tr><td>ST: Mibu Balloon of Spirit - on path leading to other side of broken bridge #2</td><td>In front of a cluster of a few small statues on the Temple Grounds side of the broken bridge, heading nearly all the way down the slope</td></tr>
-<tr><td>ST: Mibu Balloon of Spirit - on path leading to other side of broken bridge #3</td><td>In front of a big cluster of small statues on the Temple Grounds side of the broken bridge, heading nearly all the way down the slope</td></tr>
+<tr><td>ST: Mibu Balloon of Spirit - path leading to other side of broken bridge #1</td><td>In front of a big cluster of small statues on the Temple Grounds side of the broken bridge, heading nearly all the way down the slope</td></tr>
+<tr><td>ST: Mibu Balloon of Spirit - path leading to other side of broken bridge #2</td><td>In front of a cluster of a few small statues on the Temple Grounds side of the broken bridge, heading nearly all the way down the slope</td></tr>
+<tr><td>ST: Mibu Balloon of Spirit - path leading to other side of broken bridge #3</td><td>In front of a big cluster of small statues on the Temple Grounds side of the broken bridge, heading nearly all the way down the slope</td></tr>
 <tr><td>ST: Mibu Balloon of Spirit - sloped path. base</td><td>Up the slope from the building with Long Arm Centipede Sen-Un, guarded by many hounds</td></tr>
-<tr><td>ST: Mibu Possession Balloon - on path before cricket building</td><td>Along the left cliff edge on the way up to the cricket building, right after passing the gate with the spear-wielding Seeker</td></tr>
+<tr><td>ST: Mibu Possession Balloon - path before cricket building</td><td>Along the left cliff edge on the way up to the cricket building, right after passing the gate with the spear-wielding Seeker</td></tr>
 <tr><td>ST: Mibu Possession Balloon - tree above other side of broken bridge</td><td>Under a tree with red leaves, found dropping down to the right of the stairs leading up to the temple with the inner courtyard</td></tr>
 <tr><td>ST: Monkey Booze - building before Bell Demon&#x27;s Temple idol</td><td>In the building before the Bell Demon, in the room accessible only from grappling onto a ledge grab after Shegundo</td></tr>
 <tr><td>ST: Mortal Blade - Divine Child</td><td>Given by the Divine Child</td></tr>
@@ -1155,9 +1162,9 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Pellet - behind Inner Sanctum building</td><td>Behind the Inner Sanctum building</td></tr>
 <tr><td>ST: Pellet - broken bridge, other side</td><td>On the Shegundo side of the broken bridge, at the lowest point to the left of the bridge</td></tr>
 <tr><td>ST: Pellet - cave, under tree after exiting</td><td>By a tree in front of the pagoda which is after the cave near the Main Hall side entrance</td></tr>
-<tr><td>ST: Pellet - on path to cricket building</td><td>On the left side of the main path leading up the cricket building, behind a tree next to a grapple point</td></tr>
+<tr><td>ST: Pellet - path to cricket building</td><td>On the left side of the main path leading up the cricket building, behind a tree next to a grapple point</td></tr>
 <tr><td>ST: Pellet - under grapple spot to Shugendo idol</td><td>Down the slope after the Temple Grounds Sculptor&#x27;s Idol, on the way to the broken bridge</td></tr>
-<tr><td>ST: Persimmon - broken bridge, other side at leafless tree</td><td>Under a persimmon tree all the way down the slope from Temple Grounds, on the Temple Grounds side of the broken bridge</td></tr>
+<tr><td>ST: Persimmon - broken bridge, other side at leafless tree</td><td>Unique item sold by Shegundo Memorial Mob</td></tr>
 <tr><td>ST: Prayer Bead - bridge arena, miniboss drop</td><td>Dropped by Armored Warrior</td></tr>
 <tr><td>ST: Prayer Bead - cliffside temple, miniboss drop</td><td>Dropped by Long Arm Centipede Sen-Un</td></tr>
 <tr><td>ST: Prayer Bead - underwater, Carp pond</td><td>Underwater in the Temple Grounds pond</td></tr>
@@ -1165,9 +1172,9 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Red and White Pinwheel - hill with many pinwheels before bridge arena</td><td>Up the hill with many red and white pinwheels before Armored Warrior&#x27;s building</td></tr>
 <tr><td>ST: Rice for Kuro - Divine Child for Persimmon</td><td>Given by the Divine Child after receiving and eating rice three times and then healing her with a Persimmon</td></tr>
 <tr><td>ST: Scrap Iron - uphill from Kotaro</td><td>At the start, up the hill from Kotaro</td></tr>
-<tr><td>ST: Scrap Magnetite - before Sunken Valley Cavern idol</td><td>Before entering the cavern with the Sunken Valley Cavern Sculptor&#x27;s Idol</td></tr>
-<tr><td>ST: Scrap Magnetite - next to Temple Grounds idol</td><td>Next to the Temple Grounds Sculptor&#x27;s Idol</td></tr>
-<tr><td>ST: Scrap Magnetite - sloped path, enemies after bonfire, enemy drop</td><td>Guaranteed drop from the greatshield-wielding Taro Troop on the slope leading up to Main Hall</td></tr>
+<tr><td>ST: Scrap Magnetite - before Sunken Valley Cavern idol</td><td>Unique item sold by Shegundo Memorial Mob</td></tr>
+<tr><td>ST: Scrap Magnetite - next to Temple Grounds idol</td><td>Before entering the cavern with the Sunken Valley Cavern Sculptor&#x27;s Idol</td></tr>
+<tr><td>ST: Scrap Magnetite - sloped path, enemies after bonfire, enemy drop</td><td>Next to the Temple Grounds Sculptor&#x27;s Idol</td></tr>
 <tr><td>ST: Senpou Esoteric Text - cave, pagoda after exiting</td><td>Inside of the pagoda after the cave accessible near the Main Hall side entrance</td></tr>
 <tr><td>ST: Snap Seed - after kite jump</td><td>Right after using the kite to grapple</td></tr>
 <tr><td>ST: Taro Persimmon - Halls of Illusion, Kotaro quest</td><td>Given or dropped by Kotaro upon completing his quest using Red and White Pinwheel in either location</td></tr>
@@ -1187,7 +1194,7 @@ static _Sekiro_ randomizer].
 <tr><td>SV: Contact Medicine - Gun Fort chasm, bottom ledge</td><td>In the network of caves accessed beneath Long-arm Centipede Giraffe&#x27;s room. After reaching the ravine, grapple up to the right, then again up to the skull, then down to the pit with Centipedes.</td></tr>
 <tr><td>SV: Divine Confetti - Gun Fort chasm, dead-end tunnel</td><td>In the network of caves accessed beneath Long-arm Centipede Giraffe&#x27;s room. After reaching the ravine, grapple up to the right, then again up to the tree branch, and pass the many geckos.</td></tr>
 <tr><td>SV: Divine Grass - pond cave, behind giant pillar</td><td>At the back of the cave with the Headless, found going backwards from the Under-Shrine Valley Sculptor&#x27;s Idol and under the pond</td></tr>
-<tr><td>SV: Fistful of Ash - Gun Fort approach, on ground right of miniboss</td><td>Next to a rock to the right of Snake Eyes Shirafuji</td></tr>
+<tr><td>SV: Fistful of Ash - Gun Fort approach, ground right of miniboss</td><td>Next to a rock to the right of Snake Eyes Shirafuji</td></tr>
 <tr><td>SV: Fistful of Ash - right of Under-Shrine Valley idol</td><td>After the Under-Shrine Valley Sculptor&#x27;s Idol, before the jump to the other side</td></tr>
 <tr><td>SV: Gokan&#x27;s Spiritfall - pond cave, miniboss drop</td><td>Dropped by the Headless found going backwards from the Under-Shrine Valley Sculptor&#x27;s Idol and under the pond</td></tr>
 <tr><td>SV: Gokan&#x27;s Sugar - Gun Fort, ledge left of cave entrance</td><td>Dropping down to the left of the Gun Fort cave entrance</td></tr>
@@ -1202,29 +1209,29 @@ static _Sekiro_ randomizer].
 <tr><td>SV: Prayer Bead - Gun Fort approach, miniboss drop</td><td>Dropped by Snake Eyes Shirafuji</td></tr>
 <tr><td>SV: Prayer Bead - Gun Fort chasm, bottom ledge</td><td>In the network of caves accessed beneath Long-arm Centipede Giraffe&#x27;s room. After reaching the ravine, grapple up to the right, then again up to the skull, then down to the pit with Centipedes.</td></tr>
 <tr><td>SV: Prayer Bead - Gun Fort shrine, miniboss drop</td><td>Dropped by Long-arm Centipede Giraffe</td></tr>
-<tr><td>SV: Prayer Bead - before pond cave, on ground</td><td>In the area before the Headless cave, found going backwards from the Under-Shrine Valley Sculptor&#x27;s Idol</td></tr>
+<tr><td>SV: Prayer Bead - before pond cave, near stone pyramid</td><td>In the area before the Headless cave, found going backwards from the Under-Shrine Valley Sculptor&#x27;s Idol</td></tr>
 <tr><td>SV: Scrap Magnetite - Gun Fort approach, rightmost ledge overlooking rope bridge</td><td>On the cliff outcroppings you climb up to access Gun Fort, jumping up and to the right and climbing up again</td></tr>
 <tr><td>SV: Scrap Magnetite - Gun Fort approach, slope left of miniboss</td><td>Down the slope to the left of Snake Eyes Shirafuji</td></tr>
 <tr><td>SV: Scrap Magnetite - Gun Fort shrine, right of statue</td><td>In the room with Long-arm Centipede Giraffe to the right of the statue</td></tr>
 <tr><td>SV: Scrap Magnetite - Gun Fort, ledge behind barricades</td><td>Grappling up behind the Gun Fort pikes on the right (with the cave entrance on the left)</td></tr>
 <tr><td>SV: Scrap Magnetite - right of Sunken Valley idol</td><td>To the right of the Sunken Valley Sculptor&#x27;s Idol</td></tr>
-<tr><td>SV: Snap Seed - Gun Fort, on wooden battlement</td><td>On the wooden platform in Gun Fort overlooking the two scattershot-wielding Sunken Valley Clan</td></tr>
-<tr><td>SV: Ungo&#x27;s Sugar - Gun Fort, on stone pillar facing cave entrance</td><td>Grappling up to the rock behind the Gun Fort cave entrance</td></tr>
+<tr><td>SV: Snap Seed - Gun Fort, atop wooden battlement</td><td>On the wooden platform in Gun Fort overlooking the two scattershot-wielding Sunken Valley Clan</td></tr>
+<tr><td>SV: Ungo&#x27;s Sugar - Gun Fort, stone pillar facing cave entrance</td><td>Grappling up to the rock behind the Gun Fort cave entrance</td></tr>
 <tr><td>SV: Yellow Gunpowder - Gun Fort shrine, below in crawl space</td><td>In the crawl space underneath the room with Long-arm Centipede Giraffe</td></tr>
 <tr><td>SV: Yellow Gunpowder - Gun Fort shrine, miniboss drop</td><td>Dropped by Long-arm Centipede Giraffe</td></tr>
-<tr><td>SV: Yellow Gunpowder - Gun Fort, in cave, enemy drop</td><td>Guaranteed drop from the scattershot-wielding Sunken Valley Clan in Gun Fort before the Sculptor&#x27;s Idol. Not the one who can be backstabbed</td></tr>
+<tr><td>SV: Yellow Gunpowder - Gun Fort, enemy drop</td><td>Guaranteed drop from the scattershot-wielding Sunken Valley Clan in Gun Fort before the Sculptor&#x27;s Idol. Not the one who can be backstabbed</td></tr>
 <tr><td>SV: Yellow Gunpowder - Gun Fort, under wooden battlement</td><td>In the area with the two scattershot-wielding Sunken Valley Clan before the Gun Fort Sculptor&#x27;s Idol</td></tr>
 <tr><td>SV: Yellow Gunpowder - hidden encampment</td><td>After two tree branch grapples in Under-Shrine Valley, rather than going right toward the Sunken Valley Sculptor&#x27;s Idol, climb up the wall to the left and follow that path</td></tr>
 <tr><td>SVP: Adamantite Scrap - grapple spot above Riven Cave idol</td><td>Right after grappling up from Riven Cave</td></tr>
 <tr><td>SVP: Adamantite Scrap - underwater, lake opposite from Riven Cave entrance</td><td>Underwater in the lake guarded by the Great Serpent, on the opposite side from the Riven Cave entrance</td></tr>
 <tr><td>SVP: Ako&#x27;s Sugar - third left bodhi statue, base</td><td>At the base of the third statue on the left side of Bodhisattva Valley, coming from Riven Cave</td></tr>
 <tr><td>SVP: Antidote Powder - shrine cave, shortly after entering</td><td>At the start of the Serpent Shrine cave, where you see the first Rock Diver</td></tr>
-<tr><td>SVP: Bulging Coin Purse - underwater, next to log in middle of lake</td><td>Underwater in the lake guarded by the Great Serpent, in the middle of the lake next to an underwater log</td></tr>
+<tr><td>SVP: Bulging Coin Purse - underwater, log in middle of lake</td><td>Underwater in the lake guarded by the Great Serpent, in the middle of the lake next to an underwater log</td></tr>
 <tr><td>SVP: Bundled Jizo Statue - Sunken Valley Cavern, after killing serpent</td><td>In the cave after killing the Great Serpent</td></tr>
 <tr><td>SVP: Contact Medicine - dropdown after broken bodhi head</td><td>On the left side of Bodhisattva Valley, coming from Riven Cave, below the outstretched hand of the second statue near the statue&#x27;s base</td></tr>
 <tr><td>SVP: Contact Medicine - last upright left bodhi statue, behind</td><td>On the left side of Bodhisattva Valley, coming from Riven Cave, behind the base of the last statue on that side</td></tr>
-<tr><td>SVP: Divine Confetti - underground shrine, on ledge above</td><td>Found grappling up after accessing the underground Serpent Shrine</td></tr>
-<tr><td>SVP: Dragon&#x27;s Blood Droplet - Sunken Valley Cavern, after killing serpent</td><td>In the cave after killing the Great Serpent</td></tr>
+<tr><td>SVP: Divine Confetti - underground shrine, ledge above</td><td>Found grappling up after accessing the underground Serpent Shrine</td></tr>
+<tr><td>SVP: Dragon&#x27;s Blood Droplet - Sunken Valley Cavern, after killing serpent</td><td>Sold by Toxic Memorial Mob and restocked when Dragonrot is healed</td></tr>
 <tr><td>SVP: Dried Serpent Viscera - underground shrine, statue</td><td>Held by a statue after the shrine building</td></tr>
 <tr><td>SVP: Fistful of Ash - shrine cave, 3-item group</td><td>Near the end of the cave with the Serpent Shrine, in between two walls with Rock Divers, in a group of three items</td></tr>
 <tr><td>SVP: Fistful of Ash - shrine cave, under low arch</td><td>In a pit in the Serpent Shrine cave with many geckos, accessed crouching underneath an arch</td></tr>
@@ -1233,10 +1240,10 @@ static _Sekiro_ randomizer].
 <tr><td>SVP: Gachiin&#x27;s Sugar - underwater, lake opposite from Riven Cave entrance</td><td>Underwater in the lake guarded by the Great Serpent, on the opposite side from the Riven Cave entrance</td></tr>
 <tr><td>SVP: Great White Whisker - Guardian Ape&#x27;s Watering Hole, after killing Giant Carp</td><td>Next to the Great Carp in Guardian Ape&#x27;s Watering Hole</td></tr>
 <tr><td>SVP: Green Mossy Gourd - Toxic Memorial Mob</td><td>Unique item sold by Toxic Memorial Mob</td></tr>
-<tr><td>SVP: Heavy Coin Purse - swamp below Bodhisattva Valley idol</td><td>On a platform at the edge of the poison swamp well below the Bodhisattva Valley Sculptor&#x27;s Idol</td></tr>
+<tr><td>SVP: Heavy Coin Purse - swamp below Bodhisattva Valley idol</td><td>Unique item sold by Toxic Memorial Mob</td></tr>
 <tr><td>SVP: Light Coin Purse - swamp island, behind right mound</td><td>At the back of the poison swamp area with the meditating Elder Monkey</td></tr>
 <tr><td>SVP: Lotus of the Palace - cave behind Guardian Ape&#x27;s Watering Hole idol</td><td>After Guardian Ape</td></tr>
-<tr><td>SVP: Memory: Guardian Ape - Guardian Ape&#x27;s Watering Hole, boss drop</td><td>Dropped by Guardian Ape</td></tr>
+<tr><td>SVP: Memory: Guardian Ape</td><td>Dropped by Guardian Ape</td></tr>
 <tr><td>SVP: Mibu Balloon of Soul - Sunken Valley Cavern, lake overlook after killing serpent</td><td>Overlooking the lake below after killing the Great Serpent</td></tr>
 <tr><td>SVP: Mibu Balloon of Soul - alcove left of swamp island</td><td>In an alcove to the left in the poison swamp area with the meditating Elder Monkey</td></tr>
 <tr><td>SVP: Mibu Balloon of Soul - ledge under Bodhisattva Valley idol</td><td>Under the Bodhisattva Valley Sculptor&#x27;s Idol on the opposite side from Guardian Ape</td></tr>
@@ -1244,8 +1251,8 @@ static _Sekiro_ randomizer].
 <tr><td>SVP: Monkey Booze - kill 23-enemy cluster between statues, enemy drop</td><td>Guaranteed drop from killing all 23 the monkeys in the area before the Bodhisattva Valley Sculptor&#x27;s Idol</td></tr>
 <tr><td>SVP: Pacifying Agent - in front of broken bodhi head</td><td>On the left side of Bodhisattva Valley, coming from Riven Cave, right before the second statue</td></tr>
 <tr><td>SVP: Pacifying Agent - ledge next to 23-enemy cluster</td><td>On the cliff edge next to the many monkeys</td></tr>
-<tr><td>SVP: Pellet - shrine cave, 3-item group</td><td>Near the end of the cave with the Serpent Shrine, in between two walls with Rock Divers, in a group of three items</td></tr>
-<tr><td>SVP: Precious Bait - underwater, in Guardian Ape&#x27;s Watering Hole</td><td>Underwater in the Guardian Ape&#x27;s Watering Hole</td></tr>
+<tr><td>SVP: Pellet - shrine cave, 3-item group</td><td>Unique item sold by Toxic Memorial Mob</td></tr>
+<tr><td>SVP: Precious Bait - underwater, Guardian Ape&#x27;s Watering Hole</td><td>Underwater in the Guardian Ape&#x27;s Watering Hole</td></tr>
 <tr><td>SVP: Scrap Iron - behind 23-enemy cluster</td><td>In the back of the area with many monkeys before the Bodhisattva Valley Sculptor&#x27;s Idol</td></tr>
 <tr><td>SVP: Scrap Magnetite - behind fallen bodhi statue&#x27;s head</td><td>Along the left wall of Bodhisattva Valley, coming from Riven Cave, past the Nightjar Ninjas</td></tr>
 <tr><td>SVP: Scrap Magnetite - shrine cave, 3-item group</td><td>Near the end of the cave with the Serpent Shrine, in between two walls with Rock Divers, in a group of three items</td></tr>
@@ -1260,14 +1267,14 @@ static _Sekiro_ randomizer].
 <tr><td>SVP: Treasure Carp Scale - underwater, lake far from Riven Cave entrance, Carp drop</td><td>Dropped by the underwater Treasure Carp farther from the Riven Cave entrance</td></tr>
 <tr><td>SVP: Ungo&#x27;s Sugar - island before Toxic Memorial Mob</td><td>In an island in the poison swamp before the Toxic Memorial Mob</td></tr>
 <tr><td>SVP: Ungo&#x27;s Sugar - left side ledge opposite of 23-enemy cluster</td><td>In a cliff alcove in Bodhisattva Valley on the opposite side from the many monkeys. Can be accessed by grappling to a lower tree branch, then again to the alcove itself.</td></tr>
-<tr><td>SVP: Yashariku&#x27;s Sugar - underwater, in lake between rocks</td><td>Underwater in the lake guarded by the Great Serpent, near the rock structure before the Riven Cave entrance</td></tr>
+<tr><td>SVP: Yashariku&#x27;s Sugar - underwater, lake between rocks</td><td>Underwater in the lake guarded by the Great Serpent, near the rock structure before the Riven Cave entrance</td></tr>
 <tr><td>SVP: Yellow Gunpowder - before Toxic Memorial Mob, enemy drop</td><td>Guaranteed drop from the Elder Monkey patrolling in front of the Toxic Memorial Mob</td></tr>
 <tr><td>SVP: Yellow Gunpowder - swamp island, enemy drop</td><td>Guaranteed drop from the meditating Elder Monkey in the poison swamp area</td></tr>
 <tr><td>SVP: Yellow Gunpowder - under Bodhisattva Valley idol in toxic water</td><td>In the poison swamp well below the Bodhisattva Valley Sculptor&#x27;s Idol</td></tr>
 <tr><td>T: Fistful of Ash - ledge after miniboss</td><td>On the way to Secret Passage shortly after the Ashina Reservoir Sculptor&#x27;s Idol location</td></tr>
-<tr><td>T: Ornamental Letter - in starting well</td><td>In the starting well</td></tr>
+<tr><td>T: Ornamental Letter - starting well</td><td>In the starting well</td></tr>
+<tr><td>T: Pellet - ledge under bridge</td><td>On a ledge after crossing underneath the bridge on the way to the Secret Passage</td></tr>
 <tr><td>T: Pellet - miniboss drop</td><td>Dropped by Leader Shigenori Yamauchi</td></tr>
 <tr><td>T: Pellet - moon-view tower, upper floor</td><td>On the upper floor of the Moon-View Tower</td></tr>
-<tr><td>T: Pellet - on ledge under bridge</td><td>On a ledge after crossing underneath the bridge on the way to the Secret Passage</td></tr>
 </table>
 <!-- end location table -->

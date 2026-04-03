@@ -14,9 +14,6 @@ https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice/
 [Sekiro: Shadows Die Twice AP Client]:
 https://github.com/fswap/from-software-archipelago-clients/releases?q=Sekiro
 
-**For improved readability further mentions of the game will be reduced to 
-_Sekiro_.**
-
 ## Optional Software
 
 Hopefully coming soon!
@@ -53,16 +50,13 @@ only need to do this once per multiworld.
 
 To run _Sekiro_ in Archipelago mode:
 
-1. Start Steam. **Do not run Steam in offline mode.** Running Steam in offline
-   mode will make certain scripted invaders fail to spawn.
-
-2. To prevent you from getting penalized, **make sure to set _Sekiro_ to offline
+1. To prevent you from getting penalized, **make sure to set _Sekiro_ to offline
    mode in the game options.**
 
-3. Run `launch-sekiro.bat`. This will start _Sekiro_ with an in-game overlay
+2. Run `launch-sekiro.bat`. This will start _Sekiro_ with an in-game overlay
    that you can use to interact with the Archipelago server.
 
-4. Start playing as normal. An "Archipelago connected" message will appear
+3. Start playing as normal. An "Archipelago connected" message will appear
    onscreen once you have control of your character and the connection is 
    established.
 

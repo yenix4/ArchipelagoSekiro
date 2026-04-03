@@ -54,14 +54,18 @@ class RemoveHeadlessSlowWalk(Toggle):
 
 ## Skills
 
-class ShuffleSkills(Toggle):
-    """Shuffle the Skills in the Skill Trees unlocked via Esoteric Texts"""
-    display_name = "Shuffle Skills in Esoteric Texts"
+class RandomizeSkillsandProsthetics(Toggle):
+    """Randomize Skills and Prosthetics in their respective upgrade trees."""
+    display_name = "Randomize Skills and Prosthetics"
 
 
-class RandomizeSkillsItemOption(Toggle):
-    """Randomize the Skills as Item pickups """
-    display_name = "Randomize Skills as Item Pickups"
+class ReplaceEsotericTextswithSkills(Toggle):
+    """Randomize Skills as Item pickups, removing the Esoteric Texts.
+
+    This is ignored unless Skills and Prosthetics are randomized.
+    """
+    # Remember to put an option error when implementing this!
+    display_name = "Replace Esoteric Texts with Skills as Items"
     visibility = Visibility.none
 
 ### Enemies
@@ -147,10 +151,9 @@ class Carpsanity(Toggle):
     """Add Treasure Carp drops into the item pool"""
     display_name = "Carpsanity"
 
-
 class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""
-    default = frozenset({"Hidden", "Upgrade", "Miscellaneous"})
+    default = frozenset({"Hidden", "Upgrade", "Miscellaneous", "Headless"})
 
 
 class ExcludedLocationBehaviorOption(Choice):
@@ -203,8 +206,8 @@ class SekiroOptions(PerGameCommonOptions):
     remove_headless_slow_walk: RemoveHeadlessSlowWalk
 
     # Skills
-    shuffle_skills: ShuffleSkills
-    randomize_skills_as_items: RandomizeSkillsItemOption
+    randomize_skills_and_prosthetics: RandomizeSkillsandProsthetics
+    replace_esoteric_texts_with_skills: ReplaceEsotericTextswithSkills
 
     # Enemies
     randomize_enemies: RandomizeEnemiesOption
@@ -224,8 +227,8 @@ class SekiroOptions(PerGameCommonOptions):
 
 option_groups = [
     OptionGroup("Skills", [
-        ShuffleSkills,
-        RandomizeSkillsItemOption,
+        RandomizeSkillsandProsthetics,
+        ReplaceEsotericTextswithSkills,
     ]),
     OptionGroup("Enemies", [
         RandomizeEnemiesOption,

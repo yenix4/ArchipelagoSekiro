@@ -5,9 +5,6 @@ Game Page | [Items] | [Locations]
 [Items]: /tutorial/Sekiro/items/en
 [Locations]: /tutorial/Sekiro/locations/en
 
-**For improved readability further mentions of the game will be reduced to 
-_Sekiro_.**
-
 ## What do I need to do to randomize Sekiro?
 
 See full instructions on [the setup page].
@@ -17,30 +14,29 @@ See full instructions on [the setup page].
 ## What does randomization do to this game?
 
 1. All item locations can be randomized, including those in the overworld, in
-   shops, and dropped by enemies.
-   Treasure Carp locations are turned off by default, but can enabled.
-   Most locations can contain items from other worlds,
-   and any items from your world can appear in other players' worlds.
+   shops, and dropped by enemies. Treasure Carp locations are turned off by 
+   default, but can be enabled. Most locations can contain items from other 
+   worlds, and any items from your world can appear in other players' worlds.
 
-2. By default, all enemies and bosses except for Headless are randomized.
-   This can be disabled by setting "Randomize Enemies" to false.
+2. By default, all enemies and bosses except for Headless are randomized. This 
+   can be disabled by setting "Randomize Enemies" to false.
 
-There are also options that can make playing the game more convenient or
-bring a new experience, like removing the Headless-induced slow walk or
-shuffling skills between Esoteric Texts. Check out the Template YAML or the 
-Option Builder in the Archipelago Launcher for more.
+There are also options that can make playing the game more convenient or bring 
+a new experience, like removing the Headless-induced slow walk or shuffling 
+skills between Esoteric Texts. Check out the Template YAML or the Option Builder
+in the Archipelago Launcher for more.
 
 ## What's the goal?
 
-Your goal is to find the "Divine Dragon's Tears" item and achieve
-one of the endings requiring this item.
+Your goal is to find the "Divine Dragon's Tears" item and achieve one of the 
+endings that require this item.
 
 ## Do I have to check every item in every area?
 
 Sekiro has nearly 750 item locations, which is a lot of checks for a single run!
 But you don't necessarily need to check all of them. Locations that you can
 potentially miss, such as rewards for failable quests or areas that become 
-unavailabe during the game state changes, will _never_ have items required for 
+unavailable during the game state changes, will _never_ have items required for 
 any game to progress. The following types of locations are also guaranteed not 
 to contain progression items by default:
 
@@ -54,6 +50,9 @@ to contain progression items by default:
 * **Miscellaneous:** Locations that contain generic stackable items in vanilla,
   such as sugars, mibu balloons, resistance buffs and so on.
 
+* **Headless:** Headless miniboss drops. These locations contain the spiritfall 
+  items in vanilla.
+
 You can customize which locations are guaranteed not to contain progression
 items by setting the `exclude_locations` field in your YAML to the [location
 groups] you want to omit. For example, this is the default setting but without
@@ -66,6 +65,7 @@ Shadows Die Twice:
   exclude_locations:
     - Upgrade
     - Miscellaneous
+    - Headless
 ```
 
 This allows _all_ non-missable locations to have progression items, if you're in
@@ -73,25 +73,22 @@ for the long haul:
 
 ```yaml
 Shadows Die Twice:
-  exclude_locations: [ ]
+  exclude_locations: []
 ```
 
 ## What if I don't want to do the whole game?
 
 If you want a shorter Sekiro randomizer experience, you can exclude entire
-regions
-from containing progression items. The items and enemies from those regions will
-still be included in the randomization pool, but none of them will be mandatory.
+regions from containing progression items. The items and enemies from those 
+regions will still be included in the randomization pool, but none of them will 
+be mandatory.
 
-However, since Sekiro requires you to still reach the end of the game,
-most regions will still need to be traversed, they will just not have any
-mandatory checks.\
-Below you can find an example of regions that
-technically do not have to be traversed at all to complete the game in the
-randomizer.
+However, since Sekiro requires you to still reach the end of the game, most 
+regions will still need to be traversed, they will just not have any mandatory 
+checks. Below you can find an example of regions that technically do not have to
+be traversed at all to complete the game in the randomizer.
 
-**Please note that adding too many exclusions will make the apworld fail
-generation as there will not be enough filler items to accomodate them.**
+**Please note that excluding too many locations can make generations fail.**
 
 ```yaml
 Shadows Die Twice:
@@ -99,7 +96,7 @@ Shadows Die Twice:
     # Exclude non-required regions
     - Sunken Valley
     - Sunken Valley Passage
-    # Note the formatting here, otherwise the generation will fail!
+    # For locations containing a single quote, double quotes need to be used!
     - "Hirata Estate (Father's Bell Charm)"
     - Ashina Outskirts (Central Forces)
 
@@ -107,6 +104,7 @@ Shadows Die Twice:
     - Hidden
     - Upgrade
     - Miscellaneous
+    - Headless
 ```
 
 ## Where can I learn more about Sekiro locations?

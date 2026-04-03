@@ -13,7 +13,7 @@ import yaml
 
 from .Locations import location_dictionary
 
-location_re = re.compile(r"^([A-Z0-9]+): (.*?)(?:$| - )")
+location_re = re.compile(r"^([A-Z0-9/]+): (.*?)(?:$| - )")
 
 if __name__ == "__main__":
     url = "https://raw.githubusercontent.com/fswap/SoulsRandomizers/refs/heads/archipelago/dists/Base/annotations.txt"
