@@ -47,6 +47,7 @@ class DeathLink(Choice):
     alias_true = 1
     option_any_death = 2
     default = 0
+    visibility = Visibility.none
 
 class RemoveHeadlessSlowWalk(Toggle):
     """Remove the Headless-induced slow walk."""
@@ -150,6 +151,7 @@ class RandomEnemyPresetOption(OptionDict):
 class Carpsanity(Toggle):
     """Add Treasure Carp drops into the item pool"""
     display_name = "Carpsanity"
+    visibility = Visibility.none
 
 class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""

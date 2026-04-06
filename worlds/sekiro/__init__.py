@@ -501,12 +501,13 @@ class SekiroWorld(World):
         ))
 
         self._add_location_rule([
-            "ST: Frozen Tears - Divine Child for both Serpent Viscera after first Invasion"
+            "ST: Frozen Tears - Divine Child for both Serpent Viscera after first invasion"
         ], lambda state: (
             state.has("Dried Serpent Viscera", self.player)
             and state.has("Fresh Serpent Viscera", self.player)
             and self._can_get(state, "ST: Holy Chapter: Dragon's Return - "
                                      "cave, blue-robed corpse after Holy Chapter: Infested")
+            and self._can_get(state, "AC/I: Memory: Great Shinobi")
         ))
 
         self._add_location_rule([

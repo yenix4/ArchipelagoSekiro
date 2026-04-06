@@ -824,7 +824,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="07,0:52000390::"),
         SekiroLocationData("ST: Five-color Rice - Shugendo Memorial Mob", "Five-color Rice", shop=True),
         # Missable if Divine Child quest is not followed
-        SekiroLocationData("ST: Frozen Tears - Divine Child for both Serpent Viscera after first Invasion",
+        SekiroLocationData("ST: Frozen Tears - Divine Child for both Serpent Viscera after first invasion",
                            "Frozen Tears", missable=True, npc=True, progression=True, conditional=True),
         SekiroLocationData("ST: Gachiin's Sugar - broken bridge", "Gachiin's Sugar", static="07,0:52000070::"),
         SekiroLocationData("ST: Gachiin's Sugar - area with kite mechanism", "Gachiin's Sugar",
