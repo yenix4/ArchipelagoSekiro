@@ -745,11 +745,11 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            npc=True, conditional=True),
         SekiroLocationData("AD: Mask Fragment: Dragon - Dungeon Memorial Mob", "Mask Fragment: Dragon", shop=True),
         SekiroLocationData("AD: Mibu Balloon of Soul - Bottomless Hole drop, top platform after falling",
-                           "Mibu Balloon of Soul", static="04,0:51300190::", conditional=True, diving=True),
+                           "Mibu Balloon of Soul", static="04,0:51300170::"),
         SekiroLocationData("AD: Mibu Balloon of Soul - underwater, grapple after path to Doujun's cell",
-                           "Mibu Balloon of Soul x3", static="04,0:51300080::"),
+                           "Mibu Balloon of Soul x3", static="04,0:51300190::", conditional=True, diving=True),
         SekiroLocationData("AD: Mibu Balloon of Soul - Bottomless Hole, stalagmite in miniboss arena",
-                           "Mibu Balloon of Soul x2", static="04,0:51300170::"),
+                           "Mibu Balloon of Soul x2", static="04,0:51300080::"),
         SekiroLocationData("AD: Mibu Balloon of Soul - Bottomless Hole, wooden planks above miniboss arena",
                            "Mibu Balloon of Soul", static="04,0:51300060::"),
         SekiroLocationData("AD: Oil - cricket pit #1", "Oil"),
@@ -853,8 +853,9 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         # Missable if Divine Child quest is not followed
         SekiroLocationData("ST: Holy Chapter: Dragon's Return - cave, blue-robed corpse after Holy Chapter: Infested",
                            "Holy Chapter: Dragon's Return", missable=True, conditional=True),
+        # Missable if Divine Child quest is progressed too far without checking this location
         SekiroLocationData("ST: Holy Chapter: Infested - underwater, Carp pond", "Holy Chapter: Infested",
-                           conditional=True, diving=True),
+                           missable=True, conditional=True, diving=True),
         SekiroLocationData("ST: Light Coin Purse - cliffside right of cricket building, 3-item group",
                            "Light Coin Purse", static="07,0:52000400::"),
         SekiroLocationData("ST: Light Coin Purse - atrium, right side near exit", "Light Coin Purse",
@@ -912,7 +913,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            prominent=True, progression=True, boss=True),
         SekiroLocationData("ST: Red and White Pinwheel - hill with many pinwheels before bridge arena",
                            "Red and White Pinwheel"),
-        # Missable if Divine Child quest is not followed
+        # Missable if Divine Child quest is not followed / Rice for Kuro is already obtained.
         SekiroLocationData("ST: Rice for Kuro - Divine Child for Persimmon", "Rice for Kuro", npc=True, missable=True,
                            conditional=True),
         SekiroLocationData("ST: Scrap Iron - uphill from Kotaro", "Scrap Iron x2"),

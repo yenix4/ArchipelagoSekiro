@@ -671,10 +671,10 @@ static _Sekiro_ randomizer].
 <tr><td>AD: Lump of Fat Wax - Doujun after sending subject</td><td>Given by Doujun after sending him Kotaro or Jinzaemon</td></tr>
 <tr><td>AD: Lump of Grave Wax - Doujun for Red Carp Eyes</td><td>Given by Doujun upon delivering Red Carp Eyes to him</td></tr>
 <tr><td>AD: Mask Fragment: Dragon - Dungeon Memorial Mob</td><td>Unique item sold by Dungeon Memorial Mob</td></tr>
-<tr><td>AD: Mibu Balloon of Soul - Bottomless Hole drop, top platform after falling</td><td>Climbing up from underwater in Underground Waterway toward the cell behind Doujun</td></tr>
-<tr><td>AD: Mibu Balloon of Soul - Bottomless Hole, stalagmite in miniboss arena</td><td>On one of the higher platforms after jumping down into the Bottomless Hole</td></tr>
+<tr><td>AD: Mibu Balloon of Soul - Bottomless Hole drop, top platform after falling</td><td>On one of the higher platforms after jumping down into the Bottomless Hole</td></tr>
+<tr><td>AD: Mibu Balloon of Soul - Bottomless Hole, stalagmite in miniboss arena</td><td>In the pit with Shichimen Warrior</td></tr>
 <tr><td>AD: Mibu Balloon of Soul - Bottomless Hole, wooden planks above miniboss arena</td><td>On wooden rafters overlooking Shichimen Warrior, coming from the cricket area</td></tr>
-<tr><td>AD: Mibu Balloon of Soul - underwater, grapple after path to Doujun&#x27;s cell</td><td>In the pit with Shichimen Warrior</td></tr>
+<tr><td>AD: Mibu Balloon of Soul - underwater, grapple after path to Doujun&#x27;s cell</td><td>Climbing up from underwater in Underground Waterway toward the cell behind Doujun</td></tr>
 <tr><td>AD: Oil - cricket pit #1</td><td>In the cricket-filled pit in the middle of Abandoned Dungeon</td></tr>
 <tr><td>AD: Oil - cricket pit #2</td><td>In the cricket-filled pit in the middle of Abandoned Dungeon</td></tr>
 <tr><td>AD: Pacifying Agent - Bottomless Hole, small platform above miniboss arena</td><td>On ground overlooking Shichimen Warrior, coming from the cricket area</td></tr>
@@ -1119,7 +1119,7 @@ static _Sekiro_ randomizer].
 <tr><td>ST: Fistful of Ash - ground before cricket building entrance</td><td>On the ground in the area where you can grapple up into the cricket building</td></tr>
 <tr><td>ST: Fistful of Ash - sloped path, beside bonfire</td><td>On top of the massive rock where a bonfire is burning before the long slope leading up to the Main Hall, before where the greatshield-wielding Taro Troop patrols</td></tr>
 <tr><td>ST: Five-color Rice - Shugendo Memorial Mob</td><td>Unique item sold by Shegundo Memorial Mob</td></tr>
-<tr><td>ST: Frozen Tears - Divine Child for both Serpent Viscera after first Invasion</td><td>Given by the Divine Child after receiving rice, healing her with a Persimmon, giving her the two serpentine fruits, and returning</td></tr>
+<tr><td>ST: Frozen Tears - Divine Child for both Serpent Viscera after first invasion</td><td>Given by the Divine Child after receiving rice, healing her with a Persimmon, giving her the two serpentine fruits, and returning</td></tr>
 <tr><td>ST: Gachiin&#x27;s Sugar - area with kite mechanism</td><td>In the area with the kite mechanism</td></tr>
 <tr><td>ST: Gachiin&#x27;s Sugar - broken bridge</td><td>At the end of the broken bridge before grappling to the Shegundo Sculptor&#x27;s Idol</td></tr>
 <tr><td>ST: Gachiin&#x27;s Sugar - left of Senpou Temple, Mt. Kongo idol building</td><td>To the left of the building with the Senpou Temple Sculptor&#x27;s Idol</td></tr>
