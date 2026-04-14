@@ -461,7 +461,7 @@ class SekiroWorld(World):
 
         self._add_location_rule([
             "HE1: Memory: Lady Butterfly",
-            "HE1: Sakura Droplet - Hidden Temple, boss drop",
+            "HE1: Sakura Droplet - boss drop",
         ], lambda state: state.has("Hidden Temple Key", self.player))
 
         self._add_location_rule([
@@ -630,28 +630,28 @@ class SekiroWorld(World):
         grapple_locations = {
             "HE1: Bulging Coin Purse - side path before cave, enemy drop",
             "HE1: Ceramic Shard - Main Hall, island in the marsh",
-            "HE1: Contact Medicine - next to three-story-pagoda entrance tunnel",
-            "HE1: Divine Confetti - Audience Chamber, behind shinobi door far left",
-            "HE1: Divine Confetti - Main Hall, inside large building before marsh",
-            "HE1: Dousing Powder - Audience Chamber, left room in left corner",
-            "HE1: Dousing Powder - grapple from first archer at Bamboo Thicket Slope",
-            "HE1: Dousing Powder - Main Hall, inside large building before marsh",
-            "HE1: Light Coin Purse - Audience Chamber, behind shinobi door right corner",
+            "HE1: Contact Medicine - by tunnel to three-story pagoda",
+            "HE1: Divine Confetti - Audience Chamber, shinobi door",
+            "HE1: Divine Confetti - Main Hall, large building before marsh",
+            "HE1: Dousing Powder - Audience Chamber, left room",
+            "HE1: Dousing Powder - Bamboo Thicket Slope, grapple from first ledge",
+            "HE1: Dousing Powder - Main Hall, large building before marsh",
+            "HE1: Light Coin Purse - Audience Chamber, shinobi door",
             "HE1: Light Coin Purse - Main Hall, left building after marsh",
             "HE1: Memory: Lady Butterfly",
             "HE1: Mibu Balloon of Soul - Audience Chamber, room left of idol",
             "HE1: Mibu Balloon of Soul - side path before cave",
-            "HE1: Mibu Balloon of Wealth - Audience Chamber, straight behind shinobi door",
+            "HE1: Mibu Balloon of Wealth - Audience Chamber, shinobi door",
             "HE1: Mibu Possession Balloon - side path before cave, crouch opening",
             "HE1: Mist Raven's Feathers - three-story pagoda",
             "HE1: Oil - Audience Chamber, left hallway before shinobi door",
             "HE1: Oil - Main Hall, between well and idol",
-            "HE1: Pellet - Audience Chamber, left room on far wall",
+            "HE1: Pellet - Audience Chamber, left room",
             "HE1: Pellet - side path before cave",
-            "HE1: Prayer Bead - Audience Chamber, chest behind shinobi door",
+            "HE1: Prayer Bead - Audience Chamber, shinobi door chest",
             "HE1: Prayer Bead - Main Hall, miniboss drop",
-            "HE1: Sakura Droplet - Hidden Temple, boss drop",
-            "HE1: Scrap Iron - guarding three-story pagoda, enemy drop",
+            "HE1: Sakura Droplet - boss drop",
+            "HE1: Scrap Iron - three-story pagoda, enemy drop",
             "HE1: Snap Seed - Audience Chamber, Inosuke",
             "HE1: Unrefined Sake - Main Hall, miniboss drop",
         }
@@ -825,7 +825,7 @@ class SekiroWorld(World):
         ], lambda state: self._can_go_to(state, "Fountainhead Palace (before underwater progression)"))
 
         self._add_location_rule([
-            "HE1: Lapis Lazuli - Pot Noble Harunaga's pot after Truly Precious Bait",
+            "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
         ], lambda state: (
                     self._can_go_to(state, "Fountainhead Palace (underwater progression)")
                     and self._can_get(state, "SVP: Great White Whisker - "
@@ -883,7 +883,7 @@ class SekiroWorld(World):
             "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #2",
             "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #3",
             "FP1: Water of the Palace - Mibu Manor, dive in left corner before exit, chest",
-            "HE1: Lapis Lazuli - Pot Noble Harunaga's pot after Truly Precious Bait",
+            "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
             "MV: Light Coin Purse - underwater, pond village side #1",
             "MV: Light Coin Purse - underwater, pond village side #2",
             "MV: Prayer Bead - underwater, pond chest",

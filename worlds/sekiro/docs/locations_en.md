@@ -180,8 +180,19 @@ progression.
 
 ### Hirata Estate (Young Lord's Bell Charm)
 
-* **Estate Path:** The main walled-off path that leads from the Estate Path idol
-  to the rest of the area.
+* **Estate Path:** The path that leads from the Estate Path idol to the bridge 
+  before the first miniboss. Includes all areas directly connected to the path 
+  walls. "Left" and "right" are used with the player facing in the direction of 
+  area progression.
+
+    * Courtyard: Walled off areas reachable from the actual path.
+    * Shortcut: Areas after the shortcut doors.
+
+* **Bonfire:** The large campfire in a courtyard right of the Estate Path. 
+  Surrounded by multiple enemies.
+
+* **Three-Story Pagoda:** The pagoda containing the Mist Raven's Feathers in 
+  vanilla.
 
 * **Side Path Before Cave:** The side path before the cave that leads to Main 
   Hall. Contains two Monk enemies in vanilla.
@@ -191,9 +202,6 @@ progression.
 
 * **Audience Chamber:** The big building containing the Audience Chamber idol
   guarded by a miniboss and many enemies.
-
-* **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the
-  end of the area.
 
 * **Underwater:** Requires diving via Mibu Breathing Technique.
 
@@ -445,9 +453,6 @@ spawn brings you back into Hirata Estate - Young Lord's Bell Charm.
 
 * **Audience Chamber:** The big building containing the Audience Chamber idol
   guarded by a miniboss and many enemies.
-
-* **Hidden Temple:** The boss arena accessed via the Hidden Temple Key at the
-  end of the area.
 
 ### Fountainhead Palace (before underwater progression)
 
@@ -914,42 +919,42 @@ static _Sekiro_ randomizer].
 <tr><td>FP2: Treasure Carp Scale - underwater, under Sakura Branch, Carp drop</td><td>Dropped by an underwater Treasure Carp underneath the Great Sakura branch</td></tr>
 <tr><td>FP2: Ungo&#x27;s Sugar - Feeding Grounds, up stairs from idol</td><td>Up the stairs from the Feeding Grounds area</td></tr>
 <tr><td>FP2: Yashariku&#x27;s Spiritfall - underwater, miniboss drop</td><td>Dropped by Underwater Headless</td></tr>
-<tr><td>HE1: Ako&#x27;s Sugar - Estate Path, first compound along right wall</td><td>Behind one of the smaller huts in the first group of houses down the Estate Path</td></tr>
-<tr><td>HE1: Antidote Powder - talk to woman inside unpillaged house</td><td>Given by a villager you can talk to in the group of buildings not yet invaded by bandits</td></tr>
+<tr><td>HE1: Ako&#x27;s Sugar - Estate Path, first compound, along right wall</td><td>Behind one of the smaller huts in the first group of houses down the Estate Path</td></tr>
+<tr><td>HE1: Antidote Powder - Estate Path shortcut, second right courtyard, NPC</td><td>Given by a villager you can talk to in the group of buildings not yet invaded by bandits</td></tr>
 <tr><td>HE1: Bulging Coin Purse - side path before cave, enemy drop</td><td>Dropped by either of the two Shinobi Hunters in a side path before the cave leading up to the Main Hall</td></tr>
 <tr><td>HE1: Bundled Jizo Statue - bamboo path behind Anayama</td><td>Replaces Shinobi Axe of the Monkey in NG+</td></tr>
+<tr><td>HE1: Ceramic Shard - Estate Path, beside idol</td><td>Next to the Estate Path Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Ceramic Shard - Main Hall, island in the marsh</td><td>On an island in the middle of the marsh</td></tr>
-<tr><td>HE1: Ceramic Shard - beside Estate Path idol</td><td>Next to the Estate Path Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Ceramic Shard - bonfire houses, base of tree</td><td>By the group of houses with the bonfire, under a tree near the outer wall</td></tr>
-<tr><td>HE1: Contact Medicine - next to three-story-pagoda entrance tunnel</td><td>After grappling up to a tree branch before the tall waterfall, from the river under the Bamboo Thicket Slope bridge, before the tunnel to the Three-Story Pagoda</td></tr>
-<tr><td>HE1: Divine Confetti - Audience Chamber, behind shinobi door far left</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
-<tr><td>HE1: Divine Confetti - Main Hall, inside large building before marsh</td><td>In the large open building in Main Hall before crossing the marsh</td></tr>
+<tr><td>HE1: Contact Medicine - by tunnel to three-story pagoda</td><td>After grappling up to a tree branch before the tall waterfall, from the river under the Bamboo Thicket Slope bridge, before the tunnel to the Three-Story Pagoda</td></tr>
+<tr><td>HE1: Divine Confetti - Audience Chamber, shinobi door</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
+<tr><td>HE1: Divine Confetti - Main Hall, large building before marsh</td><td>In the large open building in Main Hall before crossing the marsh</td></tr>
 <tr><td>HE1: Divine Grass - Pot Noble Harunaga</td><td>Sold by Pot Noble Harunaga, or Koremori in Fountainhead after using his Truly Precious Bait</td></tr>
-<tr><td>HE1: Dousing Powder - Audience Chamber, left room in left corner</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
-<tr><td>HE1: Dousing Powder - Main Hall, inside large building before marsh</td><td>In the large open building in Main Hall before crossing the marsh</td></tr>
-<tr><td>HE1: Dousing Powder - grapple from first archer at Bamboo Thicket Slope</td><td>On an elevated patch of forest in Bamboo Thicket Slope. Can be accessed by grappling from where the first archer is standing</td></tr>
-<tr><td>HE1: Dousing Powder - near bandits&#x27; bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
-<tr><td>HE1: Dousing Powder - turn around before crossing first bridge</td><td>On the ground before crossing the first bridge</td></tr>
+<tr><td>HE1: Dousing Powder - Audience Chamber, left room</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
+<tr><td>HE1: Dousing Powder - Bamboo Thicket Slope, grapple from first ledge</td><td>On an elevated patch of forest in Bamboo Thicket Slope. Can be accessed by grappling from where the first archer is standing</td></tr>
+<tr><td>HE1: Dousing Powder - Main Hall, large building before marsh</td><td>In the large open building in Main Hall before crossing the marsh</td></tr>
+<tr><td>HE1: Dousing Powder - before first bridge</td><td>On the ground before crossing the first bridge</td></tr>
+<tr><td>HE1: Dousing Powder - bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
 <tr><td>HE1: Fistful of Ash - Estate Path, before shortcut door</td><td>Right before the Estate Path shortcut door</td></tr>
-<tr><td>HE1: Fistful of Ash - after Bamboo Thicket Slope bridge on right</td><td>On the right after the Bamboo Thicket Slope bridge, before heading up to the courtyard where Owl is</td></tr>
-<tr><td>HE1: Fistful of Ash - after jump at start, beside dying Nightjar</td><td>At the start, after jumping down from the tree branches</td></tr>
-<tr><td>HE1: Fistful of Ash - left of bandits&#x27; bonfire near tree</td><td>By the group of houses with the bonfire, under a tree near the bonfire</td></tr>
-<tr><td>HE1: Flame Barrel - near bandits&#x27; bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
+<tr><td>HE1: Fistful of Ash - after Bamboo Thicket Slope bridge</td><td>On the right after the Bamboo Thicket Slope bridge, before heading up to the courtyard where Owl is</td></tr>
+<tr><td>HE1: Fistful of Ash - before first bridge, dying Nightjar</td><td>At the start, after jumping down from the tree branches</td></tr>
+<tr><td>HE1: Fistful of Ash - tree near bonfire</td><td>By the group of houses with the bonfire, under a tree near the bonfire</td></tr>
+<tr><td>HE1: Flame Barrel - bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
 <tr><td>HE1: Floating Passage Text - Pot Noble Harunaga</td><td>Sold by Pot Noble Harunaga, or Koremori in Fountainhead after using his Truly Precious Bait</td></tr>
-<tr><td>HE1: Gokan&#x27;s Sugar - Estate Path, right after shortcut</td><td>Right after the shortcut door on Estate Path</td></tr>
-<tr><td>HE1: Hidden Temple Key - Owl in burning courtyard</td><td>Given by dying Owl in the courtyard up Bamboo Thicket Slope</td></tr>
-<tr><td>HE1: Lapis Lazuli - Pot Noble Harunaga&#x27;s pot after Truly Precious Bait</td><td>Where Pot Noble Harunaga&#x27;s pot used to be after using his Truly Precious Bait</td></tr>
-<tr><td>HE1: Light Coin Purse - Audience Chamber, behind shinobi door right corner</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
-<tr><td>HE1: Light Coin Purse - Estate Path, left house roof after shortcut</td><td>In a bird&#x27;s nest on the roof of the house with many gamefowl</td></tr>
+<tr><td>HE1: Gokan&#x27;s Sugar - Estate Path shortcut, gate</td><td>Right after the shortcut door on Estate Path</td></tr>
+<tr><td>HE1: Hidden Temple Key - Owl</td><td>Given by dying Owl in the courtyard up Bamboo Thicket Slope</td></tr>
+<tr><td>HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait</td><td>Where Pot Noble Harunaga&#x27;s pot used to be after using his Truly Precious Bait</td></tr>
+<tr><td>HE1: Light Coin Purse - Audience Chamber, shinobi door</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
+<tr><td>HE1: Light Coin Purse - Estate Path shortcut, first left courtyard, roof</td><td>In a bird&#x27;s nest on the roof of the house with many gamefowl</td></tr>
+<tr><td>HE1: Light Coin Purse - Estate Path shortcut, first right courtyard, house</td><td>In the main building in the group of houses where you can eavesdrop the bandits arguing about whether to loot the shrine</td></tr>
 <tr><td>HE1: Light Coin Purse - Main Hall, left building after marsh</td><td>In the open building in Main Hall after crossing the marsh, before accessing the Audience Chamber building</td></tr>
-<tr><td>HE1: Light Coin Purse - left of buddha shrine</td><td>In the main building in the group of houses where you can eavesdrop the bandits arguing about whether to loot the shrine</td></tr>
-<tr><td>HE1: Light Coin Purse - rocks near Pot Noble Harunaga</td><td>On Pot Noble Harunaga&#x27;s island</td></tr>
+<tr><td>HE1: Light Coin Purse - by Pot Noble Harunaga</td><td>On Pot Noble Harunaga&#x27;s island</td></tr>
 <tr><td>HE1: Mask Fragment: Right - Pot Noble Harunaga</td><td>Sold by Pot Noble Harunaga, or Koremori in Fountainhead after using his Truly Precious Bait</td></tr>
 <tr><td>HE1: Memory: Lady Butterfly</td><td>Dropped by Lady Butterfly</td></tr>
 <tr><td>HE1: Mibu Balloon of Soul - Audience Chamber, room left of idol</td><td>In the room on the left side of the Audience Chamber Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Mibu Balloon of Soul - side path before cave</td><td>In the area where the two Shinobi Hunters can be found, on a side path before the cave leading up to the Main Hall</td></tr>
-<tr><td>HE1: Mibu Balloon of Wealth - Audience Chamber, straight behind shinobi door</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
-<tr><td>HE1: Mibu Balloon of Wealth - near bandits&#x27; bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
+<tr><td>HE1: Mibu Balloon of Wealth - Audience Chamber, shinobi door</td><td>Behind the scroll-covered shinobi door near the Audience Chamber</td></tr>
+<tr><td>HE1: Mibu Balloon of Wealth - bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
 <tr><td>HE1: Mibu Possession Balloon - boat near Pot Noble Harunaga</td><td>On one of the boats to the right side of the entrance to Hirata</td></tr>
 <tr><td>HE1: Mibu Possession Balloon - left of gate to Bamboo Thicket Slope idol</td><td>In front of the large gate leading to the Bamboo Thicket Slope</td></tr>
 <tr><td>HE1: Mibu Possession Balloon - side path before cave, crouch opening</td><td>Crouching through an opening in bamboo near where the two Shinobi Hunters can be found, partly down a side path before the cave leading up to the Main Hall</td></tr>
@@ -957,41 +962,41 @@ static _Sekiro_ randomizer].
 <tr><td>HE1: Oil - Audience Chamber, left hallway before shinobi door</td><td>In the hallway with the scroll-covered shinobi door near the Audience Chamber</td></tr>
 <tr><td>HE1: Oil - Main Hall, between well and idol</td><td>Between the well you climb out of and the Main Hall Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Oil - before Bamboo Thicket Slope bridge</td><td>On Bamboo Thicket Slope right before the bridge leading up to the courtyard</td></tr>
-<tr><td>HE1: Pellet - Audience Chamber, left room on far wall</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
-<tr><td>HE1: Pellet - Estate Path, first compound, inside largest house</td><td>In the large building in the first group of houses on the right down the Estate Path</td></tr>
-<tr><td>HE1: Pellet - Estate Path, left house after shortcut near well</td><td>In the group of houses with the many gamefowl, next to a well outside</td></tr>
+<tr><td>HE1: Pellet - Audience Chamber, left room</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
+<tr><td>HE1: Pellet - Estate Path shortcut, first left compound, well</td><td>In the group of houses with the many gamefowl, next to a well outside</td></tr>
+<tr><td>HE1: Pellet - Estate Path, first compound, largest house</td><td>In the large building in the first group of houses on the right down the Estate Path</td></tr>
 <tr><td>HE1: Pellet - behind start</td><td>Behind you at the start</td></tr>
-<tr><td>HE1: Pellet - near bandits&#x27; bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
+<tr><td>HE1: Pellet - bonfire</td><td>Near the bandits&#x27; bonfire</td></tr>
 <tr><td>HE1: Pellet - right of gate to Bamboo Thicket Slope idol</td><td>To the right of the large gate leading to the Bamboo Thicket Slope</td></tr>
 <tr><td>HE1: Pellet - side path before cave</td><td>In the area where the two Shinobi Hunters can be found, on a side path before the cave leading up to the Main Hall</td></tr>
-<tr><td>HE1: Prayer Bead - Audience Chamber, chest behind shinobi door</td><td>In a chest behind the scroll-covered shinobi door before the Audience Chamber</td></tr>
+<tr><td>HE1: Prayer Bead - Audience Chamber, shinobi door chest</td><td>In a chest behind the scroll-covered shinobi door before the Audience Chamber</td></tr>
 <tr><td>HE1: Prayer Bead - Main Hall, miniboss drop</td><td>Dropped by Juzou the Drunkard</td></tr>
 <tr><td>HE1: Prayer Bead - before Bamboo Thicket Slope, miniboss drop</td><td>Dropped by Shinobi Hunter Enshin of Misen</td></tr>
-<tr><td>HE1: Sakura Droplet - Hidden Temple, boss drop</td><td>Dropped by Lady Butterfly</td></tr>
-<tr><td>HE1: Scrap Iron - guarding three-story pagoda, enemy drop</td><td>Guaranteed drop from the Lone Shadow guarding the Three-Story Pagoda</td></tr>
-<tr><td>HE1: Shinobi Axe of the Monkey - buddha shrine</td><td>In the shrine where you can eavesdrop bandits arguing about whether to loot the shrine</td></tr>
+<tr><td>HE1: Sakura Droplet - boss drop</td><td>Dropped by Lady Butterfly</td></tr>
+<tr><td>HE1: Scrap Iron - three-story pagoda, enemy drop</td><td>Guaranteed drop from the Lone Shadow guarding the Three-Story Pagoda</td></tr>
+<tr><td>HE1: Shinobi Axe of the Monkey - Estate Path shortcut, first right courtyard, shrine</td><td>In the shrine where you can eavesdrop bandits arguing about whether to loot the shrine</td></tr>
 <tr><td>HE1: Snap Seed - Audience Chamber, Inosuke</td><td>Given by Inosuke before the Lady Butterfly fight</td></tr>
-<tr><td>HE1: Treasure Carp Scale - behind rock before crossing first bridge</td><td>Behind a rock on the shore before crossing the first bridge</td></tr>
+<tr><td>HE1: Treasure Carp Scale - behind rock before first bridge</td><td>Behind a rock on the shore before crossing the first bridge</td></tr>
 <tr><td>HE1: Treasure Carp Scale - near Pot Noble Harunaga, Carp drop</td><td>Dropped by Treasure Carp on the surface of the Dragonspring lake, near Pot Noble Harunaga</td></tr>
-<tr><td>HE1: Treasure Carp Scale - near bridge, Carp drop</td><td>Dropped by Treasure Carp on the surface of the Dragonspring lake, near the bridge</td></tr>
+<tr><td>HE1: Treasure Carp Scale - near first bridge, Carp drop</td><td>Dropped by Treasure Carp on the surface of the Dragonspring lake, near the bridge</td></tr>
 <tr><td>HE1: Treasure Carp Scale - under Bamboo Thicket Slope bridge, Carp drop</td><td>Dropped by Treasure Carp on the surface of the river under the Bamboo Thicket Slope bridge</td></tr>
 <tr><td>HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #1</td><td>Dropped by one of the two underwater Treasure Carp in Dragonspring lake</td></tr>
 <tr><td>HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #2</td><td>Dropped by one of the two underwater Treasure Carp in Dragonspring lake</td></tr>
 <tr><td>HE1: Treasure Carp Scale - underwater, under Bamboo Thicket Slope bridge, Carp drop</td><td>Dropped by underwater Treasure Carp in the river under the Bamboo Thicket Slope bridge</td></tr>
 <tr><td>HE1: Truly Precious Bait - Pot Noble Harunaga after trading 6 scales</td><td>Given by Pot Noble Harunaga after using 6 carp scales at his shop</td></tr>
-<tr><td>HE1: Ungo&#x27;s Sugar - Estate Path, left big house after shortcut</td><td>In the large building in the second group of houses on the right down the Estate Path</td></tr>
+<tr><td>HE1: Ungo&#x27;s Sugar - Estate Path shortcut, first left courtyard, house</td><td>In the large building in the second group of houses on the right down the Estate Path</td></tr>
 <tr><td>HE1: Ungo&#x27;s Sugar - left of Estate Path, over wall</td><td>In the grassy area to the left of the Estate Path after the Sculptor&#x27;s Idol</td></tr>
 <tr><td>HE1: Unrefined Sake - Main Hall, miniboss drop</td><td>Dropped by Juzou the Drunkard</td></tr>
 <tr><td>HE1: Withered Red Gourd - Pot Noble Harunaga</td><td>Sold by Pot Noble Harunaga, or Koremori in Fountainhead after using his Truly Precious Bait</td></tr>
 <tr><td>HE2: Adamantite Scrap - Main Hall, roof near three enemies</td><td>In a bird&#x27;s nest on the roof of the building overlooking the Main Hall marsh, in the middle of three Lone Shadows</td></tr>
 <tr><td>HE2: Adamantite Scrap - Main Hall, tree at entrance to Audience Chamber</td><td>To the right of the door leading into the Audience Chamber building</td></tr>
 <tr><td>HE2: Adamantite Scrap - burning courtyard, miniboss drop</td><td>Dropped by Lone Shadow Masanaga the Spear-Bearer</td></tr>
-<tr><td>HE2: Aromatic Flower - Hidden Temple, boss drop</td><td>Dropped by Owl</td></tr>
+<tr><td>HE2: Aromatic Flower - boss drop</td><td>Dropped by Owl</td></tr>
 <tr><td>HE2: Ashina Sake - Main Hall, left building after marsh</td><td>In the open building in Main Hall after crossing the marsh, before accessing the Audience Chamber building</td></tr>
 <tr><td>HE2: Fistful of Ash - Main Hall, corpse of Ashina Elite near miniboss</td><td>In the open in the big area before the Audience Chamber building</td></tr>
 <tr><td>HE2: Fulminated Mercury - Audience Chamber, hallway to shinobi door</td><td>In the hallway with the scroll-covered shinobi door near the Audience Chamber</td></tr>
 <tr><td>HE2: Fulminated Mercury - burning courtyard, after miniboss</td><td>To the left of the courtyard with Lone Shadow Masanaga the Spear-bearer</td></tr>
-<tr><td>HE2: Gokan&#x27;s Sugar - Audience Chamber, left second room in left corner</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
+<tr><td>HE2: Gokan&#x27;s Sugar - Audience Chamber, left second room</td><td>In the area with books and bookshelves near the Audience Chamber</td></tr>
 <tr><td>HE2: Light Coin Purse - Main Hall, left building after marsh</td><td>In the open building in Main Hall after crossing the marsh, before accessing the Audience Chamber building</td></tr>
 <tr><td>HE2: Memory: Foster Father</td><td>Dropped by Owl</td></tr>
 <tr><td>HE2: Mibu Balloon of Wealth - Main Hall, open area before marsh</td><td>In the open after the Main Hall Sculptor&#x27;s Idol, through the opening in the newly burnt down wall</td></tr>
