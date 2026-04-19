@@ -465,15 +465,15 @@ class SekiroWorld(World):
         ], lambda state: state.has("Hidden Temple Key", self.player))
 
         self._add_location_rule([
-            "AC: Scrap Magnetite - behind statue in Kuro's Room"
+            "AC: Scrap Magnetite - Kuro's room, behind statue"
         ], lambda state: (
             self._can_get(state, "AC: Memory: Genichiro")
         ))
 
         self._add_location_rule([
-            "AC: Gun Fort Shrine Key - library in Kuro's Room after talking to Isshin"
+            "AC: Gun Fort Shrine Key - Kuro's library"
         ] , lambda state: (
-            self._can_get(state, "AC: Unrefined Sake - ask Isshin about Mortal Blade")
+            self._can_get(state, "AC: Unrefined Sake - Isshin")
         ))
 
         self._add_location_rule([
@@ -702,27 +702,27 @@ class SekiroWorld(World):
 
         ## Kuro
         self._add_location_rule([
-            "AC: Immortal Severance Text - talk to Kuro"
+            "AC: Immortal Severance Text - Kuro"
         ], lambda state: (
             self._can_get(state, "AC: Memory: Genichiro")
         ))
 
         self._add_location_rule([
-            "AC: Fragrant Flower Note - talk to Kuro about flower"
+            "AC: Fragrant Flower Note - Kuro"
         ], lambda state: (
-            self._can_get(state, "AC: Unrefined Sake - ask Isshin about Mortal Blade")
+            self._can_get(state, "AC: Unrefined Sake - Isshin")
         ))
 
         self._add_location_rule([
-            "AC: Page's Diary - talk to Kuro after agreeing to Immortal Severance",
-            "AC: Okami's Ancient Text - show Lotus of the Palace to Kuro",
+            "AC: Page's Diary - Kuro",
+            "AC: Okami's Ancient Text - Kuro with Lotus of the Palace",
         ], lambda state: (
             state.has("Lotus of the Palace", self.player)
-            and self._can_get(state, "AC: Immortal Severance Text - talk to Kuro")
+            and self._can_get(state, "AC: Immortal Severance Text - Kuro")
         ))
 
         self._add_location_rule([
-            "AC: Sweet Rice Ball - Kuro after Rice for Kuro"
+            "AC: Sweet Rice Ball - Kuro for Rice for Kuro"
         ], lambda state:
             state.has("Rice for Kuro", self.player)
             and self._can_get(state, "AC: Memory: Genichiro"))
@@ -730,7 +730,7 @@ class SekiroWorld(World):
         self._add_location_rule([
             "AC/I: Sweet Rice Ball - Kuro after incense and Rice for Kuro"
         ], lambda state: (
-            self._can_get(state, "AC: Sweet Rice Ball - Kuro after Rice for Kuro")
+            self._can_get(state, "AC: Sweet Rice Ball - Kuro for Rice for Kuro")
             and self._can_go_to(state, "Fountainhead Palace (before underwater progression)")
         ))
 
@@ -742,10 +742,10 @@ class SekiroWorld(World):
 
         ## Emma
         self._add_location_rule([
-            "AC: Immortal Severance Scrap - talk to Emma after Kuro"
+            "AC: Immortal Severance Scrap - Emma"
         ], lambda state: (
             state.has("Lotus of the Palace", self.player)
-            and self._can_get(state, "AC: Immortal Severance Text - talk to Kuro")
+            and self._can_get(state, "AC: Immortal Severance Text - Kuro")
         ))
 
         self._add_location_rule([
@@ -762,9 +762,9 @@ class SekiroWorld(World):
 
         ## Isshin
         self._add_location_rule([
-            "AC: Unrefined Sake - ask Isshin about Mortal Blade"
+            "AC: Unrefined Sake - Isshin"
         ], lambda state: (
-            self._can_get(state, "AC: Immortal Severance Text - talk to Kuro")
+            self._can_get(state, "AC: Immortal Severance Text - Kuro")
         ))
 
         ## Doujun
@@ -861,12 +861,12 @@ class SekiroWorld(World):
         """Adds rules for items obtainable only after obtaining Mibu Breathing Technique."""
 
         diving = {
-            "AC: Heavy Coin Purse - underwater, near headless in rear moat #1",
-            "AC: Heavy Coin Purse - underwater, near headless in rear moat #2",
-            "AC: Heavy Coin Purse - underwater, near headless in rear moat #3",
-            "AC: Mibu Possession Balloon - underwater, near Serpent Shrine bridge",
-            "AC: Treasure Carp Scale - underwater, below Ashina Castle idol",
-            "AC: Ungo's Spiritfall - underwater, miniboss drop",
+            "AC: Heavy Coin Purse - underwater, near headless #1",
+            "AC: Heavy Coin Purse - underwater, near headless #2",
+            "AC: Heavy Coin Purse - underwater, near headless #3",
+            "AC: Mibu Possession Balloon - underwater, lake, near bridge",
+            "AC: Treasure Carp Scale - underwater, by Ashina Castle idol",
+            "AC: Ungo's Spiritfall - underwater, headless drop",
             "AC: Yashariku's Sugar - underwater, near headless against castle wall",
             "AD: Academics' Red Lump - Underground Waterway island, red-eyed Doujun, enemy drop",
             "AD: Ceramic Shard - underwater, Underground Waterway",
@@ -906,7 +906,7 @@ class SekiroWorld(World):
         # Add Carp locations for Carpsanity setting
         if self.options.carpsanity:
             diving.update({
-            "AC/I: Treasure Carp Scale - underwater, below Ashina Castle idol, Carp drop",
+            "AC/I: Treasure Carp Scale - underwater, by Ashina Castle idol, Carp drop",
             "HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #1",
             "HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #2",
             "HE1: Treasure Carp Scale - underwater, under Bamboo Thicket Slope bridge, Carp drop",
