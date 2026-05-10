@@ -487,6 +487,10 @@ class SekiroWorld(World):
         ], lambda state: self._can_get(state, "ST: Puppeteer Ninjutsu - Halls of Illusion, boss drop"))
 
         self._add_location_rule([
+            "ST: Holy Chapter: Infested - underwater, carp pond"
+        ], lambda state: self._can_get(state, "AC: Scrap Magnetite - Kuro's room, behind statue"))
+
+        self._add_location_rule([
             "ST: Rice for Kuro - Divine Child for Persimmon"
         ], lambda state: (
             state.has("Persimmon", self.player)
@@ -883,14 +887,13 @@ class SekiroWorld(World):
             "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #2",
             "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #3",
             "FP1: Water of the Palace - Mibu Manor, dive in left corner before exit, chest",
-            "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
             "MV: Light Coin Purse - underwater, pond village side #1",
             "MV: Light Coin Purse - underwater, pond village side #2",
             "MV: Prayer Bead - underwater, pond chest",
             "MV: Precious Bait - underwater, river upstream from Head Priest's house",
             "MV: Red Carp Eyes - underwater, near the end of the pond, Carp drop",
-            "ST: Prayer Bead - underwater, Carp pond",
-            "ST: Holy Chapter: Infested - underwater, Carp pond",
+            "ST: Prayer Bead - underwater, carp pond",
+            "ST: Holy Chapter: Infested - underwater, carp pond",
             "SV: Divine Grass - pond cave, behind giant pillar",
             "SV: Gokan's Spiritfall - pond cave, miniboss drop",
             "SV: Lump of Grave Wax - pond cave, behind miniboss",
