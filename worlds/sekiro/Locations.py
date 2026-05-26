@@ -78,6 +78,9 @@ class SekiroLocationData:
     Minibosses are enemies with unique health bars that do not drop memories.
     """
 
+    prosthetic: bool = False
+    """Whether this location normally contains a prosthetic tool item."""
+
     drop: bool = False
     """Whether this is an item dropped by a (non-boss) enemy.
 
@@ -144,6 +147,7 @@ class SekiroLocationData:
         if self.headless: names.append("Headless")
         if self.drop: names.append("Drops")
         if self.npc: names.append("Friendly")
+        if self.prosthetic: names.append("Prosthetics")
         if self.hidden: names.append("Hidden")
         if self.offering_box: names.append("Offering Box")
 
@@ -216,7 +220,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
     ],
     "Ashina Outskirts": [
         SekiroLocationData("AO: Robert's Firecrackers - Crow's Bed & Battlefield Memorial Mob",
-                           "Robert's Firecrackers", shop=True),
+                           "Robert's Firecrackers", prosthetic=True, shop=True),
         SekiroLocationData("AO: Gourd Seed - Battlefield Memorial Mob", "Gourd Seed", static="00,0:-1:1100100:",
                            shop=True),
         SekiroLocationData("AO: Phantom Kunai - Anayama the Peddler", "Phantom Kunai", shop=True, offering_box=True),
@@ -337,7 +341,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            drop=True, missable=True),
         SekiroLocationData("AO: Ako's Spiritfall - headless cave, miniboss drop", "Ako's Spiritfall",
                            miniboss=True, headless=True),
-        SekiroLocationData("AO: Shuriken Wheel - wide gate house, second floor", "Shuriken Wheel", offering_box=True),
+        SekiroLocationData("AO: Shuriken Wheel - wide gate house, second floor", "Shuriken Wheel", prosthetic=True,
+                           offering_box=True),
         SekiroLocationData("AO: Shinobi Medicine Rank 1 - before lookout building, miniboss drop",
                            "Shinobi Medicine Rank 1", miniboss=True),
         SekiroLocationData("AO: Gourd Seed - cliff courtyard, miniboss drop", "Gourd Seed",
@@ -487,11 +492,11 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            "Treasure Carp Scale", carp=True, conditional=True, diving=True),
         SekiroLocationData("HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #2",
                            "Treasure Carp Scale", carp=True, conditional=True, diving=True),
-        SekiroLocationData("HE1: Flame Barrel - bonfire", "Flame Barrel"),
+        SekiroLocationData("HE1: Flame Barrel - bonfire", "Flame Barrel", prosthetic=True),
         SekiroLocationData("HE1: Shinobi Axe of the Monkey - Estate Path shortcut, first right courtyard, shrine",
-                           "Shinobi Axe of the Monkey"),
+                           "Shinobi Axe of the Monkey", prosthetic=True),
         SekiroLocationData("HE1: Mist Raven's Feathers - three-story pagoda", "Mist Raven's Feathers", progression=True,
-                           conditional=True),
+                           prosthetic=True, conditional=True),
         SekiroLocationData("HE1: Sakura Droplet - boss drop", "Sakura Droplet", prominent=True,
                            boss=True, conditional=True),
         SekiroLocationData("HE1: Prayer Bead - before Bamboo Thicket Slope, miniboss drop", "Prayer Bead",
@@ -511,8 +516,9 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AC: Sweet Rice Ball - Kuro for Rice for Kuro", "Sweet Rice Ball x2", missable=True,
                            npc=True, conditional=True),
         SekiroLocationData("AC: Page's Diary - Kuro", "Page's Diary", npc=True),
+        # Missable if not triggered before Fountainhead Incense is placed
         SekiroLocationData("AC: Okami's Ancient Text - Kuro with Lotus of the Palace", "Okami's Ancient Text",
-                           npc=True, conditional=True),
+                           missable=True, npc=True, conditional=True),
         SekiroLocationData("AC: Immortal Severance Scrap - Emma", "Immortal Severance Scrap", npc=True,
                            conditional=True),
         # Missable if you already have Mortal Blade when speaking to Isshin
@@ -599,7 +605,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AC: Ungo's Spiritfall - underwater, headless drop", "Ungo's Spiritfall", miniboss=True,
                            conditional=True, headless=True, diving=True),
         SekiroLocationData("AC: Gatehouse Key - bridge to AD, enemy drop", "Gatehouse Key", drop=True),
-        SekiroLocationData("AC: Sabimaru - basement, chest", "Sabimaru"),
+        SekiroLocationData("AC: Sabimaru - basement, chest", "Sabimaru", prosthetic=True),
         SekiroLocationData("AC: Gourd Seed - upper tower, chest near Antechamber idol", "Gourd Seed"),
         SekiroLocationData("AC: Bloodsmoke Ninjutsu - boss arena, boss drop", "Bloodsmoke Ninjutsu", boss=True),
         SekiroLocationData("AC: Prayer Bead - main stairway, miniboss drop", "Prayer Bead",
@@ -608,7 +614,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="02,0:6767:9022,1100500:", miniboss=True, offering_box=True),
         SekiroLocationData("AC: Prayer Bead - upper tower, shinobi door, chest", "Prayer Bead",
                            static="02,0:6790::"),
-        SekiroLocationData("AC: Iron Fortress - Blackhat Badger", "Iron Fortress", shop=True, offering_box=True),
+        SekiroLocationData("AC: Iron Fortress - Blackhat Badger", "Iron Fortress", prosthetic=True, shop=True,
+                           offering_box=True),
         SekiroLocationData("AC -> SV", None),
     ],
     "Ashina Reservoir": [
@@ -630,8 +637,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AR: Heavy Coin Purse - door left of Secret Passage", "Heavy Coin Purse",
                            static="01,0:51120160::"),
         SekiroLocationData("AR: Mibu Balloon of Spirit - moat", "Mibu Balloon of Spirit"),
-        SekiroLocationData("AR: Gyoubu's Broken Horn - gatehouse, chest", "Gyoubu's Broken Horn", conditional=True,
-                           offering_box=True),
+        SekiroLocationData("AR: Gyoubu's Broken Horn - gatehouse, chest", "Gyoubu's Broken Horn", prosthetic=True,
+                           conditional=True, offering_box=True),
         SekiroLocationData("AR: Prayer Bead - moon-view tower, miniboss drop", "Prayer Bead", miniboss=True,
                            offering_box=True),
         SekiroLocationData("AR: Prayer Bead - starting well, miniboss drop", "Prayer Bead", miniboss=True),
@@ -871,7 +878,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("SV: Yellow Gunpowder - Gun Fort, enemy drop", "Yellow Gunpowder x3", drop=True),
         SekiroLocationData("SV: Gokan's Spiritfall - pond cave, miniboss drop", "Gokan's Spiritfall", conditional=True,
                            miniboss=True, headless=True, diving=True),
-        SekiroLocationData("SV: Large Fan - Gun Fort shrine, statue", "Large Fan"),
+        SekiroLocationData("SV: Large Fan - Gun Fort shrine, statue", "Large Fan", prosthetic=True),
         SekiroLocationData("SV: Gourd Seed - behind hidden encampment", "Gourd Seed"),
         SekiroLocationData("SV: Prayer Bead - Gun Fort approach, miniboss drop", "Prayer Bead", miniboss=True),
         SekiroLocationData("SV: Prayer Bead - Gun Fort shrine, miniboss drop", "Prayer Bead", miniboss=True),
@@ -935,7 +942,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         # Missable as if you warp away before picking up, you cannot go back.
         SekiroLocationData("SVP: Bundled Jizo Statue - Sunken Valley Cavern, after killing serpent",
                            "Bundled Jizo Statue", missable=True, conditional=True),
-        SekiroLocationData("SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance",
+        SekiroLocationData("SVP: Treasure Carp Scale - underwater, lake at Riven Cave entrance",
                            "Treasure Carp Scale", conditional=True, diving=True),
         SekiroLocationData("SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp",
                            "Great White Whisker", conditional=True),
@@ -947,12 +954,12 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="06,0:51700935::", drop=True),
         SekiroLocationData("SVP: Fresh Serpent Viscera - Sunken Valley Cavern, plunge kill serpent, enemy drop",
                            "Fresh Serpent Viscera", progression=True, drop=True, conditional=True),
-        SekiroLocationData("SVP: Treasure Carp Scale - lake close to Riven Cave entrance, Carp drop",
-                           "Treasure Carp Scale", carp=True),
         SekiroLocationData("SVP: Treasure Carp Scale - underwater, lake far from Riven Cave entrance, Carp drop",
                            "Treasure Carp Scale", carp=True, conditional=True, diving=True),
+        SekiroLocationData("SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance, Carp drop",
+                           "Treasure Carp Scale", carp=True, conditional=True, diving=True),
         SekiroLocationData("SVP: Slender Finger - Guardian Ape's Watering Hole, boss drop", "Slender Finger",
-                           boss=True),
+                           boss=True, prosthetic=True),
     ],
     "Poison Pool": [
         SekiroLocationData("PP: Memory: Headless Ape", "Memory: Headless Ape", prominent=True, boss=True,
@@ -1002,7 +1009,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("HF: Scrap Magnetite - sinkhole, beside miniboss", "Scrap Magnetite"),
         SekiroLocationData("HF: Scrap Magnetite - sinkhole, gravestone on hill", "Scrap Magnetite"),
         SekiroLocationData("HF: Yellow Gunpowder - right of temple front, against wall", "Yellow Gunpowder"),
-        SekiroLocationData("HF: Lump of Fat Wax - sinkhole, next to miniboss", "Lump of Fat Wax"),
+        SekiroLocationData("HF: Lump of Fat Wax - sinkhole, beside miniboss", "Lump of Fat Wax"),
         SekiroLocationData("HF: Lump of Fat Wax - after cliffside path", "Lump of Fat Wax"),
         SekiroLocationData("HF: Mibu Balloon of Soul - above sinkhole, before second branch", "Mibu Balloon of Soul"),
         SekiroLocationData("HF: Bite Down - temple front, right side", "Bite Down"),
@@ -1088,23 +1095,24 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            drop=True, conditional=True, diving=True),
     ],
     "Ashina Castle (Interior Ministry)": [
-        # Fully commented locations should currently not be generated as they are unreachable in regular ending.
-        # Keep for implementing Shura end, we currently inject these items so that they can be found.
+        # Remove the following two locations for Shura!
         SekiroLocationData("AC/I: Aromatic Branch - boss arena, boss drop", "Aromatic Branch", prominent=True,
                            progression=True, boss=True),
         SekiroLocationData("AC/I: Memory: Great Shinobi", "Memory: Great Shinobi", boss=True),
+        # Fully commented locations should currently not be generated as they are unreachable in regular ending.
+        # Keep for implementing Shura end, we currently inject these items so that they can be found.
         # SekiroLocationData("AC/I: Memory: Isshin Ashina", "Memory: Isshin Ashina", prominent=True, shura=True,
         # boss=True),
-        # Missable if one does not have Rice for Kuro / does not give it to Kuro
+        # Missable if one does not have Rice for Kuro / does not give it to Kuro. Remove for Shura!
         SekiroLocationData("AC/I: Sweet Rice Ball - Kuro after incense and Rice for Kuro", "Sweet Rice Ball",
                            missable=True, npc=True, conditional=True),
-        # Missable if not speaking to Kuro before second invasion
+        # Missable if not speaking to Kuro before second invasion. Remove for Shura!
         SekiroLocationData("AC/I: Divine Grass - Kuro after entering Fountainhead Palace", "Divine Grass",
                            missable=True, npc=True, conditional=True),
-        # Missable by not doing the requirements before the second invasion, therefore not missable in Shura.
+        # Missable by not doing the requirements before the second invasion. Remove for Shura!
         SekiroLocationData("AC/I: Father's Bell Charm - Emma after eavesdropping on her", "Father's Bell Charm",
                            progression=True, conditional=True, missable=True),
-        # Missable by not doing the requirements before the second invasion, therefore not missable in Shura.
+        # Missable by not doing the requirements before the second invasion, Remove for Shura!
         SekiroLocationData("AC/I: Tomoe's Note - Emma after eavesdropping on Kuro", "Tomoe's Note", npc=True,
                            missable=True),
         # Removed in the second invasion, therefore not missable in Shura
@@ -1253,8 +1261,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         # Missable if Pot Noble Harunaga's bait is not fed to Great Carp
         SekiroLocationData("FP2: Lapis Lazuli - Koremori's pot after Truly Precious Bait", "Lapis Lazuli",
                            missable=True, npc=True, conditional=True),
-        SekiroLocationData("FP2: Light Coin Purse - underwater, plants near Pot Noble Koremori", "Light Coin Purse"),
-        SekiroLocationData("FP2: Scrap Magnetite - underwater, plants near Pot Noble Koremori", "Scrap Magnetite x3"),
+        SekiroLocationData("FP2: Light Coin Purse - underwater, near Pot Noble Koremori", "Light Coin Purse"),
+        SekiroLocationData("FP2: Scrap Magnetite - underwater, near Pot Noble Koremori", "Scrap Magnetite x3"),
         SekiroLocationData("FP2: Red Lump - underwater, right of demolished bridge", "Red Lump"),
         SekiroLocationData("FP2: Precious Bait - underwater, below Feeding Grounds", "Precious Bait"),
         SekiroLocationData("FP2: Ceramic Shard - underwater, entrance to Great Carp ravine", "Ceramic Shard x2"),
@@ -1368,6 +1376,7 @@ location_name_groups: dict[str, set[str]] = {
     "Headless": set(),
     "Drops": set(),
     "Friendly": set(),
+    "Prosthetics": set(),
     "Esoteric Texts": set(),
     "Skills": set(),
     "Upgrade": set(),
@@ -1392,7 +1401,8 @@ location_descriptions = {
     "Drops": "Drops from anything other than bosses, including minibosses, treasure carps, NPCs or normal enemies.",
     "Friendly": "Locations that contain items given by friendly NPCs as part of their quests or from "
                 "non-violent interaction.",
-    "Esoteric Texts": "Locations that contain an esoteric text item.",
+    "Prosthetics": "Locations that contain a prosthetic tool unlock item in vanilla.",
+    "Esoteric Texts": "Locations that contain an esoteric text item in vanilla.",
     "Skills": "Locations that contain skills found as item drops, such as "
               "Shinobi Medicine or Ninjutsu Techniques.",
     "Upgrade": "Locations that contain non-unique upgrade materials for prosthetic tools in vanilla.",

@@ -60,7 +60,10 @@ many locations at once:
 * **Friendly:** Locations that contain items given by friendly NPCs as part of
   their quests or from non-violent interaction.
 
-* **Esoteric Texts:** Locations that contain an esoteric text item.
+* **Prosthetic:** Locations that contain a prosthetic tool unlock item in 
+  vanilla.
+
+* **Esoteric Texts:** Locations that contain an esoteric text item in vanilla.
 
 * **Skills:** Locations that contain skills found as item drops in vanilla, such
   as Shinobi Medicine or Ninjutsu techniques.
@@ -914,8 +917,8 @@ static _Sekiro_ randomizer].
 <tr><td>FP2: Heavy Coin Purse - Feeding Grounds, bridge</td><td>Guarded by an Okami Warrior on the upraised broken bridge along the right wall of the lake, accessing from Feeding Grounds</td></tr>
 <tr><td>FP2: Lapis Lazuli - Koremori&#x27;s pot after Truly Precious Bait</td><td>Where Pot Noble Koremori&#x27;s pot used to be after using his Truly Precious Bait</td></tr>
 <tr><td>FP2: Light Coin Purse - underwater, building overlooking headless</td><td>Underneath the completely submerged building overlooking the two Underwater Headless</td></tr>
+<tr><td>FP2: Light Coin Purse - underwater, near Pot Noble Koremori</td><td>At the bottom of the lake near Pot Noble Koremori under some tall plants</td></tr>
 <tr><td>FP2: Light Coin Purse - underwater, near bottom of Great Carp ravine</td><td>At the bottom of the Great Carp ravine closer to the entrance. The carp will not attack after feeding it Precious Bait.</td></tr>
-<tr><td>FP2: Light Coin Purse - underwater, plants near Pot Noble Koremori</td><td>At the bottom of the lake near Pot Noble Koremori under some tall plants</td></tr>
 <tr><td>FP2: Lump of Grave Wax - underwater, building with Old Woman on roof</td><td>Underneath the building where the Old Palace Maid asks you to open the palace doors, near Feeding Grounds</td></tr>
 <tr><td>FP2: Memory: Divine Dragon</td><td>Dropped by Divine Dragon</td></tr>
 <tr><td>FP2: Mibu Balloon of Soul - Palace Grounds, pool of water</td><td>On the surface of the pool after the Palace Grounds building below the waterfall</td></tr>
@@ -924,7 +927,7 @@ static _Sekiro_ randomizer].
 <tr><td>FP2: Precious Bait - underwater, building beneath Great Sakura miniboss</td><td>Underneath the roof of an overturned building nearly directly below Okami Leader Shizu&#x27;s tree branch</td></tr>
 <tr><td>FP2: Precious Bait - underwater, log near headless</td><td>Deep in the lake on top of a sunken log nearby the Underwater Headless</td></tr>
 <tr><td>FP2: Red Lump - underwater, right of demolished bridge</td><td>Shiny object in the lake a bit to the right of the bridge demolished by the Great Carp, coming from Flower Viewing Stage Sculptor&#x27;s Idol</td></tr>
-<tr><td>FP2: Scrap Magnetite - underwater, plants near Pot Noble Koremori</td><td>At the bottom of the lake near Pot Noble Koremori under some tall plants</td></tr>
+<tr><td>FP2: Scrap Magnetite - underwater, near Pot Noble Koremori</td><td>At the bottom of the lake near Pot Noble Koremori under some tall plants</td></tr>
 <tr><td>FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp once</td><td>Given by the Master&#x27;s Chamberlain after using Precious Bait once, or dropped at the end of his quest or on death</td></tr>
 <tr><td>FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp twice</td><td>Given by the Master&#x27;s Chamberlain after using Precious Bait twice, or dropped at the end of his quest or on death</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, beneath Feeding Grounds, Carp drop</td><td>Dropped by an underwater Treasure Carp underneath Feeding Grounds</td></tr>
@@ -1037,7 +1040,7 @@ static _Sekiro_ randomizer].
 <tr><td>HF: Light Coin Purse - above sinkhole, right side cliff</td><td>Found climbing up a path to the right of the tree with the gamefowl</td></tr>
 <tr><td>HF: Light Coin Purse - temple front, 3-item group</td><td>In the forest area in front of the temple, close to the grapple point to the monkeys, in a group of three items by a tree</td></tr>
 <tr><td>HF: Lump of Fat Wax - after cliffside path</td><td>At the end of the path looping back from the monkey area to the tree overlooking the temple</td></tr>
-<tr><td>HF: Lump of Fat Wax - sinkhole, next to miniboss</td><td>Next to the Headless</td></tr>
+<tr><td>HF: Lump of Fat Wax - sinkhole, beside miniboss</td><td>Next to the Headless</td></tr>
 <tr><td>HF: Lump of Grave Wax - temple, miniboss drop</td><td>Dropped by the Mist Noble in the temple</td></tr>
 <tr><td>HF: Mibu Balloon of Soul - above sinkhole, before second branch</td><td>Under the tree right after the Hidden Forest Sculptor&#x27;s Idol</td></tr>
 <tr><td>HF: Mibu Balloon of Wealth - sinkhole, 3-item group</td><td>Below the tree with the gamefowl in a group of three items</td></tr>
@@ -1289,9 +1292,9 @@ static _Sekiro_ randomizer].
 <tr><td>SVP: Snap Seed - first left bodhi statue, base</td><td>At the foot of the first statue in Bodhisattva Valley, coming from Riven Cave</td></tr>
 <tr><td>SVP: Snap Seed - next to Toxic Memorial Mob</td><td>Next to the Toxic Memorial Mob</td></tr>
 <tr><td>SVP: Snap Seed - right ledge after Gun Fort shrine</td><td>Dropping down to the right after using the Gun Fort Shrine Key</td></tr>
-<tr><td>SVP: Treasure Carp Scale - lake close to Riven Cave entrance, Carp drop</td><td>Dropped by the underwater Treasure Carp closer to the Riven Cave entrance</td></tr>
-<tr><td>SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance</td><td>Underwater in the lake guarded by the Great Serpent, right before the Riven Cave entrance</td></tr>
-<tr><td>SVP: Treasure Carp Scale - underwater, lake far from Riven Cave entrance, Carp drop</td><td>Dropped by the underwater Treasure Carp farther from the Riven Cave entrance</td></tr>
+<tr><td>SVP: Treasure Carp Scale - underwater, lake at Riven Cave entrance</td><td>Underwater in the lake guarded by the Great Serpent, right before the Riven Cave entrance</td></tr>
+<tr><td>SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance, Carp drop</td><td>Dropped by the underwater Treasure Carp farther from the Riven Cave entrance</td></tr>
+<tr><td>SVP: Treasure Carp Scale - underwater, lake far from Riven Cave entrance, Carp drop</td><td>Dropped by the underwater Treasure Carp closer to the Riven Cave entrance</td></tr>
 <tr><td>SVP: Ungo&#x27;s Sugar - island before Toxic Memorial Mob</td><td>In an island in the poison swamp before the Toxic Memorial Mob</td></tr>
 <tr><td>SVP: Ungo&#x27;s Sugar - left side ledge opposite of 23-enemy cluster</td><td>In a cliff alcove in Bodhisattva Valley on the opposite side from the many monkeys. Can be accessed by grappling to a lower tree branch, then again to the alcove itself.</td></tr>
 <tr><td>SVP: Yashariku&#x27;s Sugar - underwater, lake between rocks</td><td>Underwater in the lake guarded by the Great Serpent, near the rock structure before the Riven Cave entrance</td></tr>

@@ -319,15 +319,15 @@ class SekiroWorld(World):
                 and self._is_location_available("AO: Young Lord's Bell Charm - Inosuke's Mother")):
                 itemlist = ["Shinobi Prosthetic", "Young Lord's Bell Charm"]
                 randomitem = self.random.choice(itemlist)
-                self._fill_local_item(randomitem,
-                                      ["Tutorial", "Dilapidated Temple"])
+                self._fill_local_item(randomitem, ["Dilapidated Temple"],
+                                      lambda location: location.name == "DT: Shinobi Prosthetic - complete Tutorial")
 
         # If no very early Hirata is selected, place the Prosthetic early.
         # Don't place this in the multiworld because it's necessary almost immediately.
         if (not self.options.very_early_hirata
                 and self._is_location_available("DT: Shinobi Prosthetic - complete Tutorial")):
-                self._fill_local_item("Shinobi Prosthetic",
-                                      ["Tutorial", "Dilapidated Temple"])
+                self._fill_local_item("Shinobi Prosthetic", ["Dilapidated Temple"],
+                                      lambda location: location.name == "DT: Shinobi Prosthetic - complete Tutorial")
 
     def _fill_local_item(
         self, name: str,
@@ -451,7 +451,8 @@ class SekiroWorld(World):
                        "Mist Raven's Feathers", "Sabimaru", "Iron Fortress", "Large Fan", "Gyoubu's Broken Horn",
                        "Slender Finger"]
         self._add_location_rule("DT: Prosthetic Esoteric Text - talk to Sculptor with 3 prosthetic tools"
-                                , lambda state: state.has_from_list(prosthetics, self.player, 3))
+                                , lambda state: ( state.has_from_list(prosthetics, self.player, 3)
+                                                 and state.has("Shinobi Prosthetic", self.player)))
 
         # Similar to above, but much simpler. Making sure this does not BK Prosthetic/Bell
         self._add_location_rule("DT: Shinobi Esoteric Text - talk to Sculptor with 1 skill point"
@@ -567,6 +568,7 @@ class SekiroWorld(World):
             "PP: Malcontent's Ring - Guardian Ape's Burrow, miniboss drop"
         ], lambda state: (
             self._can_get(state, "PP: Bestowal Ninjutsu - Guardian Ape's Burrow, boss drop")
+            and state.has("Slender Finger", self.player)
             and self._can_go_to(state, "Hidden Forest")
         ))
 
@@ -902,7 +904,7 @@ class SekiroWorld(World):
             "SVP: Gachiin's Sugar - underwater, lake opposite from Riven Cave entrance",
             "SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp",
             "SVP: Precious Bait - underwater, Guardian Ape's Watering Hole",
-            "SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance",
+            "SVP: Treasure Carp Scale - underwater, lake at Riven Cave entrance",
             "SVP: Yashariku's Sugar - underwater, lake between rocks"
         }
 
@@ -914,6 +916,7 @@ class SekiroWorld(World):
             "HE1: Treasure Carp Scale - underwater, Dragonspring Lake, Carp drop #2",
             "HE1: Treasure Carp Scale - underwater, under Bamboo Thicket Slope bridge, Carp drop",
             "MV: Treasure Carp Scale - underwater, near Water Mill idol, Carp drop",
+            "SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance, Carp drop",
             "SVP: Treasure Carp Scale - underwater, lake far from Riven Cave entrance, Carp drop"
             })
         for location in sorted(diving):
@@ -970,7 +973,6 @@ class SekiroWorld(World):
 
     def _add_early_item_rules(self, randomized_items: set[str]) -> None:
         """Adds rules to make sure specific items are available early."""
-
         if "Young Lord's Bell Charm" in randomized_items:
              # Make this available pretty early for the option.
              if self.options.quick_hirata == "early_global":
@@ -999,7 +1001,7 @@ class SekiroWorld(World):
             data = location_dictionary[location]
             if data.carp and not self.options.carpsanity: continue
             if isinstance(rule, str):
-                assert item_dictionary[rule].classification == ItemClassification.progression
+                assert item_dictionary[rule].classification & ItemClassification.progression
                 rule = lambda state, item=rule: state.has(item, self.player)
             add_rule(self.multiworld.get_location(location, self.player), rule)
 

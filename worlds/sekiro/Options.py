@@ -25,13 +25,9 @@ class QuickHirata(Choice):
     default = option_off
 
 
-class VeryEarlyHirata(Choice):
+class VeryEarlyHirata(Toggle):
     """Make it possible to need to progress into Hirata Estate before Ashina Outskirts (no softlock)"""
     display_name = "Allow Very Early Hirata"
-    option_off = 0
-    option_early_global = 1
-    option_early_local = 2
-    default = option_off
 
 class DeathLink(Choice):
     """When you die, everyone who enabled death link dies. Of course, the reverse is true too.
