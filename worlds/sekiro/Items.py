@@ -219,14 +219,12 @@ _all_items = [
     *SekiroItemData("Mibu Balloon of Soul", 0x40000E1A, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Mibu Possession Balloon", 0x40000E24, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Mibu Balloon of Spirit", 0x40000E2E, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
-    SekiroItemData("Bundled Jizo Statue", 0x40000E88, SekiroItemCategory.MISC,
-                   classification = ItemClassification.useful),
-    SekiroItemData("Dragon's Blood Droplet", 0x400015E0, SekiroItemCategory.MISC,
-                   classification = ItemClassification.useful),
-    SekiroItemData("Ashina Sake", 0x4000238C, SekiroItemCategory.MISC, skip=True),
-    SekiroItemData("Unrefined Sake", 0x4000238D, SekiroItemCategory.MISC, skip=True),
-    SekiroItemData("Monkey Booze", 0x4000238E, SekiroItemCategory.MISC, skip=True),
-    SekiroItemData("Dragonspring Sake", 0x4000238F, SekiroItemCategory.MISC, skip=True),
+    SekiroItemData("Bundled Jizo Statue", 0x40000E88, SekiroItemCategory.MISC),
+    SekiroItemData("Dragon's Blood Droplet", 0x400015E0, SekiroItemCategory.MISC),
+    SekiroItemData("Ashina Sake", 0x4000238C, SekiroItemCategory.MISC, skip = True),
+    SekiroItemData("Unrefined Sake", 0x4000238D, SekiroItemCategory.MISC, skip = True),
+    SekiroItemData("Monkey Booze", 0x4000238E, SekiroItemCategory.MISC, skip = True),
+    SekiroItemData("Dragonspring Sake", 0x4000238F, SekiroItemCategory.MISC, skip = True),
     SekiroItemData("Precious Bait", 0x400023DC, SekiroItemCategory.MISC,
                    classification = ItemClassification.progression_deprioritized_skip_balancing),
 
@@ -378,9 +376,9 @@ _all_items = [
 
 
     # Upgrade
-    *SekiroItemData("Scrap Iron", 0x40001770, SekiroItemCategory.UPGRADE, filler=True).counts([2, 3, 5]),
-    *SekiroItemData("Scrap Magnetite", 0x4000177A, SekiroItemCategory.UPGRADE, filler=True).counts([2, 3]),
-    *SekiroItemData("Adamantite Scrap", 0x40001784, SekiroItemCategory.UPGRADE, filler=True).counts([2]),
+    *SekiroItemData("Scrap Iron", 0x40001770, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3, 5]),
+    *SekiroItemData("Scrap Magnetite", 0x4000177A, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3]),
+    *SekiroItemData("Adamantite Scrap", 0x40001784, SekiroItemCategory.UPGRADE, filler = True).counts([2]),
     *SekiroItemData("Black Gunpowder", 0x400017D4, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3]),
     *SekiroItemData("Yellow Gunpowder", 0x40001838, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3, 4]),
     SekiroItemData("Fulminated Mercury", 0x40001842, SekiroItemCategory.UPGRADE),
