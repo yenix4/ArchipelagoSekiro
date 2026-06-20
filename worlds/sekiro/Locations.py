@@ -1,9 +1,16 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import ClassVar, cast
+from enum import Enum, auto
 
 from BaseClasses import ItemClassification, Location, Region
 
+from .Options import SekiroOptions, GoalOption
 from .Items import SekiroItemCategory, item_dictionary
+
+class MissableTypes(Enum):
+    SHURA = auto()
+    FULL_GAME = auto()
+    ALWAYS = auto()
 
 @dataclass
 class SekiroLocationData:
@@ -46,7 +53,7 @@ class SekiroLocationData:
     association instead.
     """
 
-    missable: bool = False
+    missable: set[MissableTypes] = field(default_factory=set)
     """Whether this item is possible to permanently lose access to.
 
     Missable locations are always marked as excluded, so they will never contain
@@ -124,16 +131,39 @@ class SekiroLocationData:
     and warrant their own rule due to the amount of them.
     """
 
+    shura: bool = False
+    """Whether this location is only accessible in the Shura path
+    
+    This is used for locations in regions that are accessible in both goal options."""
+
+    full_game: bool = False
+    """Whether this location is only accessible in the Full Game path.
+    
+    This is used for locations in regions that are accessible in both goal options."""
+
     @property
     def is_event(self) -> bool:
         """Whether this location represents an event rather than a specific item pickup."""
         return self.default_item_name is None
 
+    def is_missable(self, options: SekiroOptions):
+        """Whether this location is missable given the GoalOption"""
+        if MissableTypes.ALWAYS in self.missable:
+            return True
+
+        if options.goal_option == GoalOption.option_shura:
+            return MissableTypes.SHURA in self.missable
+
+        if options.goal_option == GoalOption.option_full_game:
+            return MissableTypes.FULL_GAME in self.missable
+
+        return False
+
     def __post_init__(self):
         if not self.is_event:
             self.ap_code = self.ap_code or SekiroLocationData.__location_id
             SekiroLocationData.__location_id += 1
-        if self.miniboss or self.carp: self.drop = True
+        if self.miniboss: self.drop = True
 
     def location_groups(self) -> list[str]:
         """The names of location groups this location should appear in.
@@ -159,7 +189,7 @@ class SekiroLocationData:
                          SekiroItemCategory.PRAYER_BEADS: "Prayer Beads",
                          SekiroItemCategory.UNIQUE: "Unique",
                          SekiroItemCategory.MEMORIES: "Memories",
-                         SekiroItemCategory.CURRENCY: "Currency",
+                         SekiroItemCategory.SCALES: "Treasure Carp Scales",
                          SekiroItemCategory.UPGRADE: "Upgrade",
                          SekiroItemCategory.GOURD_SEEDS: "Gourd Seeds",
                      }[default_item.category])
@@ -190,12 +220,14 @@ location_tables: dict[str, list[SekiroLocationData]] = {
     "Tutorial": [
         # This is all flagged missable due to only being accessible again upon reaching Ashina Reservoir
         SekiroLocationData("T: Pellet - miniboss drop", "Pellet", static="01,0:51112920::", miniboss=True,
-                           missable=True),
-        SekiroLocationData("T: Ornamental Letter - starting well", "Ornamental Letter", missable=True),
+                           missable={MissableTypes.ALWAYS}),
+        SekiroLocationData("T: Ornamental Letter - starting well", "Ornamental Letter", missable={MissableTypes.ALWAYS}),
         SekiroLocationData("T: Pellet - moon-view tower, upper floor", "Pellet", static="01,0:51120040::",
-                           missable=True),
-        SekiroLocationData("T: Pellet - ledge under bridge", "Pellet", static="01,0:51120140::", missable=True),
-        SekiroLocationData("T: Fistful of Ash - ledge after miniboss", "Fistful of Ash x2", missable=True),
+                           missable={MissableTypes.ALWAYS}),
+        SekiroLocationData("T: Pellet - ledge under bridge", "Pellet", static="01,0:51120140::",
+                           missable={MissableTypes.ALWAYS}),
+        SekiroLocationData("T: Fistful of Ash - ledge after miniboss", "Fistful of Ash x2",
+                           missable={MissableTypes.ALWAYS}),
     ],
     "Dilapidated Temple": [
         SekiroLocationData("DT: Gourd Seed - Fujioka the Info Broker", "Gourd Seed", shop=True, conditional=True),
@@ -207,16 +239,16 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("DT: Shinobi Prosthetic - complete Tutorial", "Shinobi Prosthetic", progression=True),
         # Technically missable due to it being a pickup, not an auto drop. If you reload, it despawns.
         SekiroLocationData("DT: Hidden Tooth - complete Hanbei's quest", "Hidden Tooth", npc=True, conditional=True,
-                           missable=True),
-        SekiroLocationData("DT: Pellet - next to idol", "Pellet x2"),
-        SekiroLocationData("DT: Light Coin Purse - behind DT", "Light Coin Purse"),
+                           missable={MissableTypes.ALWAYS}),
+        SekiroLocationData("DT: Pellet - next to idol", "Pellet x2", static="00,0:51100020::"),
+        SekiroLocationData("DT: Light Coin Purse - behind DT", "Light Coin Purse", static="00,0:51100030::"),
         SekiroLocationData("DT: Shinobi Esoteric Text - talk to Sculptor with 1 skill point", "Shinobi Esoteric Text",
                            npc=True, conditional=True),
         SekiroLocationData("DT: Prosthetic Esoteric Text - talk to Sculptor with 3 prosthetic tools",
                            "Prosthetic Esoteric Text", npc=True, conditional=True),
         # Missable as some people may be too good to ever trigger this. Also second invasion removes it.
-        SekiroLocationData("DT: Ashina Sake - Emma after healing Sculptor's dragonrot", "Ashina Sake", missable=True,
-                           npc=True, conditional=True),
+        SekiroLocationData("DT: Ashina Sake - Emma after healing Sculptor's dragonrot", "Ashina Sake",
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
     ],
     "Ashina Outskirts": [
         SekiroLocationData("AO: Robert's Firecrackers - Crow's Bed & Battlefield Memorial Mob",
@@ -227,35 +259,38 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AO: Memory: Gyoubu Oniwa", "Memory: Gyoubu Oniwa", boss=True),
         # Technically missable due to it being a pickup if not collected until second invasion. Despawns on reload.
         # (not missable in Shura)
-        SekiroLocationData("AO: Young Lord's Bell Charm - Inosuke's Mother", "Young Lord's Bell Charm", missable=True,
-                           npc=True, progression=True),
-        SekiroLocationData("AO: Flame Barrel Memo - Anayama", "Flame Barrel Memo", missable=True, npc=True),
+        SekiroLocationData("AO: Young Lord's Bell Charm - Inosuke's Mother", "Young Lord's Bell Charm",
+                           missable={MissableTypes.FULL_GAME}, npc=True, progression=True),
+        SekiroLocationData("AO: Flame Barrel Memo - Anayama", "Flame Barrel Memo", missable={MissableTypes.ALWAYS},
+                           npc=True),
         # Missable if the player does not have Flame Barrel on first encounter.
-        SekiroLocationData("AO: Oil - Anayama with Flame Barrel", "Oil x2", missable=True, npc=True, conditional=True),
+        SekiroLocationData("AO: Oil - Anayama with Flame Barrel", "Oil x2", missable={MissableTypes.ALWAYS}, npc=True,
+                           conditional=True),
         SekiroLocationData("AO: Rat Description - agree to help Tengu", "Rat Description", npc=True),
         # Removed in the second invasion, therefore not missable in Shura
-        SekiroLocationData("AO: Snap Seed - near palanquin in Underbridge Valley", "Snap Seed x5", missable=True),
+        SekiroLocationData("AO: Snap Seed - near palanquin in Underbridge Valley", "Snap Seed x5",
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Pellet - left on lower path at area start", "Pellet", static="00,0:51100040::",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ungo's Sugar - broken wall above Ashina Outskirts idol", "Ungo's Sugar",
-                           static="00,0:51100050::", missable=True),
+                           static="00,0:51100050::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ceramic Shard - under branch on lower path at area start", "Ceramic Shard",
-                           static="00,0:51100060::", missable=True),
+                           static="00,0:51100060::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ungo's Sugar - gate house before tall grass", "Ungo's Sugar x2",
-                           static="00,0:51100070::", missable=True),
+                           static="00,0:51100070::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ceramic Shard - right cliff from Outskirts idol, near broken wall", "Ceramic Shard x2",
-                           static="00,0:51100080::", missable=True),
+                           static="00,0:51100080::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Fistful of Ash - cliff courtyard, broken hut", "Fistful of Ash x2",
-                           static="00,0:51100090::", missable=True),
+                           static="00,0:51100090::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Pellet - left above wide gate house", "Pellet x3", static="00,0:51100100::",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AO: Ceramic Shard - destroyed house, second floor", "Ceramic Shard x3",
                            static="00,0:51100110::"),
         SekiroLocationData("AO: Mibu Balloon of Wealth - destroyed house, first floor", "Mibu Balloon of Wealth"),
@@ -268,7 +303,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="00,0:51100160::"),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Fistful of Ash - right of gate leading to Gate Path idol", "Fistful of Ash",
-                           static="00,0:51100170::", missable=True),
+                           static="00,0:51100170::", missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AO: Pellet - up stairs, before lookout building miniboss", "Pellet",
                            static="00,0:51100180::"),
         SekiroLocationData("AO: Mibu Balloon of Wealth - left of miniboss before lookout building",
@@ -276,43 +311,45 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AO: Ceramic Shard - lookout building, left room", "Ceramic Shard x2",
                            static="00,0:51100210::"),
         SekiroLocationData("AO: Gachiin's Sugar - house with headless cave shortcut", "Gachiin's Sugar x2"),
-        SekiroLocationData("AO: Antidote Powder - lookout building, right room", "Antidote Powder"),
-        SekiroLocationData("AO: Divine Grass - lookout building, right room", "Divine Grass"),
+        SekiroLocationData("AO: Antidote Powder - lookout building, right room", "Antidote Powder",
+                           static="00,0:51100230::"),
+        SekiroLocationData("AO: Divine Grass - lookout building, right room", "Divine Grass", static="00,0:51100240::"),
         SekiroLocationData("AO: Pellet - just before Underbridge Valley idol", "Pellet x2", static="00,0:51100250::"),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ungo's Sugar - fortress, behind house", "Ungo's Sugar", static="00,0:51100260::",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Heavy Coin Purse - fortress, courtyard house bottom floor", "Heavy Coin Purse",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}, static="00,0:51100270::"),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Fistful of Ash - fortress, near dead horse", "Fistful of Ash x2",
-                           static="00,0:51100280::", missable=True),
+                           static="00,0:51100280::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Pellet - fortress, near doors opened from other side", "Pellet x2",
-                           static="00,0:51100290::", missable=True),
+                           static="00,0:51100290::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
-        SekiroLocationData("AO: Ako's Sugar - fortress, along left outer wall from idol", "Ako's Sugar", missable=True),
+        SekiroLocationData("AO: Ako's Sugar - fortress, along left outer wall from idol", "Ako's Sugar",
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Fistful of Ash - boss arena", "Fistful of Ash x2", static="00,0:51100320::",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AO: Nightjar Monocular - lookout building, grapple entrance", "Nightjar Monocular"),
         SekiroLocationData("AO: Scrap Iron - courtyard after lookout building", "Scrap Iron"),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Bundled Jizo Statue - cave beneath wide gate house", "Bundled Jizo Statue",
-                           hidden=True, missable=True),
+                           hidden=True, missable={MissableTypes.FULL_GAME}, static="00,0:51100350::"),
         SekiroLocationData("AO: Light Coin Purse - destroyed house, roof", "Light Coin Purse",
                            static="00,0:51100360::"),
         SekiroLocationData("AO: Pellet - behind cliffside gate", "Pellet x2", static="00,0:51100370::"),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ako's Sugar - right cliff from Outskirts idol, wall cave", "Ako's Sugar", hidden=True,
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Pellet - left of gate to Gate Path idol", "Pellet", static="00,0:51100390::",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ceramic Shard - left of Gate Path idol", "Ceramic Shard x2", static="00,0:51100400::",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AO: Scrap Iron - secluded platforms, after snake skin", "Scrap Iron"),
         SekiroLocationData("AO: Mibu Possession Balloon - secluded platforms, before snake skin #1",
                            "Mibu Possession Balloon"),
@@ -321,13 +358,14 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AO: Gachiin's Sugar - after shimmy on way to headless cave", "Gachiin's Sugar x2"),
         SekiroLocationData("AO: Divine Confetti - slope before headless warning sign", "Divine Confetti"),
         # Removed in the second invasion, therefore not missable in Shura
-        SekiroLocationData("AO: Gachiin's Sugar - fortress, left of idol", "Gachiin's Sugar", missable=True),
+        SekiroLocationData("AO: Gachiin's Sugar - fortress, left of idol", "Gachiin's Sugar",
+                           missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Ceramic Shard - fortress, courtyard outside house", "Ceramic Shard",
-                           static="00,0:51100480::", missable=True),
+                           static="00,0:51100480::", missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Mibu Balloon of Wealth - fortress, courtyard house bottom floor",
-                           "Mibu Balloon of Wealth x3", missable=True),
+                           "Mibu Balloon of Wealth x3", missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AO: Ceramic Shard - before stairs next to Tengu Tower", "Ceramic Shard",
                            static="00,0:51100500::"),
         SekiroLocationData("AO: Light Coin Purse - Tengu Tower, second floor", "Light Coin Purse",
@@ -335,10 +373,10 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AO: Pellet - Tengu Tower, bottom floor", "Pellet x2", static="00,0:51100520::"),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Herb Catalogue Scrap - fortress, near idol, enemy drop", "Herb Catalogue Scrap",
-                           drop=True, missable=True),
+                           drop=True, missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AO: Black Gunpowder - right cobblestone platform, enemy drop", "Black Gunpowder",
-                           drop=True, missable=True),
+                           drop=True, missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AO: Ako's Spiritfall - headless cave, miniboss drop", "Ako's Spiritfall",
                            miniboss=True, headless=True),
         SekiroLocationData("AO: Shuriken Wheel - wide gate house, second floor", "Shuriken Wheel", prosthetic=True,
@@ -358,34 +396,35 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="00,0:6762:9028,1100500:", miniboss=True, offering_box=True),
         SekiroLocationData("AO: Prayer Bead - Tengu Tower, top floor chest", "Prayer Bead", static="00,0:6788::"),
         # Missable in Shura if the player refuses the quest. Otherwise, can be picked up after reaching AC/C
-        SekiroLocationData("AO: Ashina Esoteric Text - Tengu after killing rats", "Ashina Esoteric Text", missable=True,
-                           npc=True),
+        SekiroLocationData("AO: Ashina Esoteric Text - Tengu after killing rats", "Ashina Esoteric Text",
+                           missable={MissableTypes.SHURA}, npc=True),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Pellet - tree near Tengu rat quest enemy", "Pellet x2", static="02,0:51110090::",
-                           missable=True),
+                           missable={MissableTypes.ALWAYS}),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Fistful of Ash - castle gate courtyard, corner house at tree", "Fistful of Ash x2",
-                           static="02,0:51110100::", missable=True),
+                           static="02,0:51110100::", missable={MissableTypes.ALWAYS}),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Ako's Sugar - castle gate courtyard, cliffside, behind wall", "Ako's Sugar x2",
-                           static="02,0:51110260::", hidden=True, missable=True),
+                           static="02,0:51110260::", hidden=True, missable={MissableTypes.ALWAYS}),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Light Coin Purse - building in castle gate courtyard, top floor", "Light Coin Purse",
-                           static="02,0:51110270::", missable=True),
+                           static="02,0:51110270::", missable={MissableTypes.ALWAYS}),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Ceramic Shard - base of stairs after Ashina Castle Gate idol", "Ceramic Shard",
-                           static="02,0:51110290::", missable=True),
+                           static="02,0:51110290::", missable={MissableTypes.ALWAYS}),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Scrap Iron - castle gate courtyard, hidden behind corner house", "Scrap Iron",
-                           missable=True),
+                           missable={MissableTypes.ALWAYS}, hidden=True),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
-        SekiroLocationData("AO: Scrap Iron - stone near Ashina Castle entrance walls", "Scrap Iron", missable=True),
+        SekiroLocationData("AO: Scrap Iron - stone near Ashina Castle entrance walls", "Scrap Iron",
+                           missable={MissableTypes.ALWAYS}),
         # Generally missable after the first invasion (unless skip, but we do not assume that)
         SekiroLocationData("AO: Gachiin's Sugar - tree near Ashina Castle entrance walls", "Gachiin's Sugar x2",
-                           missable=True),
+                           missable={MissableTypes.ALWAYS}),
         # Missable due to first invasion removing this enemy.
         SekiroLocationData("AO: Black Gunpowder - Tengu rat quest, enemy drop", "Black Gunpowder", drop=True,
-                           missable=True),
+                           missable={MissableTypes.ALWAYS}),
         SekiroLocationData("AO: Shinobi Medicine Rank 2 - Ashina Castle entrance, miniboss drop",
                            "Shinobi Medicine Rank 2", miniboss=True),
         SekiroLocationData("AO: Prayer Bead - Ashina Castle entrance, miniboss drop", "Prayer Bead",
@@ -399,21 +438,22 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("HE1: Mask Fragment: Right - Pot Noble Harunaga", "Mask Fragment: Right", shop=True,
                            conditional=True),
         SekiroLocationData("HE1: Memory: Lady Butterfly", "Memory: Lady Butterfly", boss=True, conditional=True),
-        # Removed as soon as one enters Hirata 2
+        # Removed as soon as one enters Hirata 2. Not missable in Shura.
         SekiroLocationData("HE1: Hidden Temple Key - Owl", "Hidden Temple Key", npc=True, progression=True,
-                           missable=True),
-        # Removed as soon as one enters Hirata 2
-        SekiroLocationData("HE1: Snap Seed - Audience Chamber, Inosuke", "Snap Seed", conditional=True, missable=True),
-        # Removed as soon as one enters Hirata 2
+                           missable={MissableTypes.FULL_GAME}),
+        # Removed as soon as one enters Hirata 2. Not missable in Shura.
+        SekiroLocationData("HE1: Snap Seed - Audience Chamber, Inosuke", "Snap Seed", conditional=True,
+                           missable={MissableTypes.FULL_GAME}),
+        # Removed as soon as one enters Hirata 2. Not missable in Shura.
         SekiroLocationData("HE1: Antidote Powder - Estate Path shortcut, second right courtyard, NPC",
-                           "Antidote Powder x2", npc=True, missable=True),
-        # Missable for now as location may not work if the item is already given to the Great Carp. Remove in Shura!
+                           "Antidote Powder x2", npc=True, missable={MissableTypes.FULL_GAME}),
+        # Missable for now as location may not work if the item is already given to the Great Carp. Removed for Shura.
         SekiroLocationData("HE1: Truly Precious Bait - Pot Noble Harunaga after trading 6 scales",
-                           "Truly Precious Bait (Harunaga)", static="03,0:50006360::", npc=True, missable=True,
-                           conditional=True),
-        # Missable if Pot Noble Harunaga's bait is not fed to Great Carp. Remove in Shura!
+                           "Truly Precious Bait (Harunaga)", static="03,0:50006360::", npc=True,
+                           missable={MissableTypes.FULL_GAME}, conditional=True, full_game=True),
+        # Missable if Pot Noble Harunaga's bait is not fed to Great Carp. Removed for Shura.
         SekiroLocationData("HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait", "Lapis Lazuli",
-                           missable=True, npc=True, conditional=True),
+                           missable={MissableTypes.FULL_GAME}, npc=True, conditional=True, full_game=True),
         SekiroLocationData("HE1: Pellet - behind start", "Pellet x2"),
         SekiroLocationData("HE1: Dousing Powder - before first bridge", "Dousing Powder x2"),
         SekiroLocationData("HE1: Mibu Possession Balloon - boat near Pot Noble Harunaga", "Mibu Possession Balloon"),
@@ -448,14 +488,16 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("HE1: Fistful of Ash - before first bridge, dying Nightjar", "Fistful of Ash x2",
                            static="03,0:51000260::"),
         SekiroLocationData("HE1: Ceramic Shard - Main Hall, island in the marsh", "Ceramic Shard", conditional=True),
-        SekiroLocationData("HE1: Treasure Carp Scale - behind rock before first bridge", "Treasure Carp Scale"),
+        SekiroLocationData("HE1: Treasure Carp Scale - behind rock before first bridge", "Treasure Carp Scale",
+                           hidden=True),
         SekiroLocationData("HE1: Ceramic Shard - Estate Path, beside idol", "Ceramic Shard x2"),
         SekiroLocationData("HE1: Mibu Balloon of Wealth - bonfire", "Mibu Balloon of Wealth"),
         SekiroLocationData("HE1: Dousing Powder - bonfire", "Dousing Powder"),
         SekiroLocationData("HE1: Gokan's Sugar - Estate Path shortcut, gate", "Gokan's Sugar"),
         SekiroLocationData("HE1: Mibu Balloon of Soul - side path before cave", "Mibu Balloon of Soul",
                            conditional=True),
-        SekiroLocationData("HE1: Bundled Jizo Statue - bamboo path behind Anayama", "Bundled Jizo Statue"),
+        SekiroLocationData("HE1: Bundled Jizo Statue - bamboo path behind Anayama", "Bundled Jizo Statue",
+                           static="03,0:51000350::"),
         SekiroLocationData("HE1: Pellet - right of gate to Bamboo Thicket Slope idol", "Pellet x2"),
         SekiroLocationData("HE1: Mibu Possession Balloon - left of gate to Bamboo Thicket Slope idol",
                            "Mibu Possession Balloon"),
@@ -474,9 +516,9 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            "Mibu Balloon of Wealth", conditional=True),
         SekiroLocationData("HE1: Mibu Balloon of Soul - Audience Chamber, room left of idol", "Mibu Balloon of Soul",
                            conditional=True),
-        # Does not drop from Juzou in Hirata 2, therefore missable if skipped here
+        # Does not drop from Juzou in Hirata 2, therefore missable if skipped here. Not missable in Shura.
         SekiroLocationData("HE1: Unrefined Sake - Main Hall, miniboss drop", "Unrefined Sake", miniboss=True,
-                           missable=True, conditional=True),
+                           missable={MissableTypes.FULL_GAME}, conditional=True),
         SekiroLocationData("HE1: Bulging Coin Purse - side path before cave, enemy drop", "Bulging Coin Purse",
                            drop=True, conditional=True),
         SekiroLocationData("HE1: Scrap Iron - three-story pagoda, enemy drop", "Scrap Iron", drop=True,
@@ -497,8 +539,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            "Shinobi Axe of the Monkey", prosthetic=True),
         SekiroLocationData("HE1: Mist Raven's Feathers - three-story pagoda", "Mist Raven's Feathers", progression=True,
                            prosthetic=True, conditional=True),
-        SekiroLocationData("HE1: Sakura Droplet - boss drop", "Sakura Droplet", prominent=True,
-                           boss=True, conditional=True),
+        SekiroLocationData("HE1: Sakura Droplet - boss drop", "Sakura Droplet", prominent=True, boss=True,
+                           conditional=True),
         SekiroLocationData("HE1: Prayer Bead - before Bamboo Thicket Slope, miniboss drop", "Prayer Bead",
                            static="03,0:6763::", miniboss=True),
         SekiroLocationData("HE1: Prayer Bead - Main Hall, miniboss drop", "Prayer Bead",
@@ -507,92 +549,111 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="03,0:6789::", conditional=True),
     ],
     "Ashina Castle": [
+        SekiroLocationData("AC: Prayer Bead - Dungeon Memorial Mob", "Prayer Bead", shop=True),
+        SekiroLocationData("AC: Mask Fragment: Dragon - Dungeon Memorial Mob", "Mask Fragment: Dragon", shop=True),
         SekiroLocationData("AC: Anti-air Deathblow Text - Blackhat Badger", "Anti-air Deathblow Text", shop=True,
                            offering_box=True),
         SekiroLocationData("AC: Memory: Genichiro", "Memory: Genichiro", prominent=True, boss=True),
         SekiroLocationData("AC: Fragrant Flower Note - Kuro", "Fragrant Flower Note", npc=True),
         SekiroLocationData("AC: Immortal Severance Text - Kuro", "Immortal Severance Text", npc=True),
         # Missable if one does not have Rice for Kuro / does not give it to Kuro
-        SekiroLocationData("AC: Sweet Rice Ball - Kuro for Rice for Kuro", "Sweet Rice Ball x2", missable=True,
-                           npc=True, conditional=True),
+        SekiroLocationData("AC: Sweet Rice Ball - Kuro for Rice for Kuro", "Sweet Rice Ball x2",
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
         SekiroLocationData("AC: Page's Diary - Kuro", "Page's Diary", npc=True),
         # Missable if not triggered before Fountainhead Incense is placed
         SekiroLocationData("AC: Okami's Ancient Text - Kuro with Lotus of the Palace", "Okami's Ancient Text",
-                           missable=True, npc=True, conditional=True),
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
         SekiroLocationData("AC: Immortal Severance Scrap - Emma", "Immortal Severance Scrap", npc=True,
                            conditional=True),
         # Missable if you already have Mortal Blade when speaking to Isshin
-        SekiroLocationData("AC: Unrefined Sake - Isshin", "Unrefined Sake", missable=True, npc=True),
+        SekiroLocationData("AC: Unrefined Sake - Isshin", "Unrefined Sake", missable={MissableTypes.ALWAYS}, npc=True),
+        SekiroLocationData("AC: Mushin Esoteric Text - Tengu after unlocking special technique", "Mushin Esoteric Text",
+                           npc=True, conditional=True),
         # These are missable after progressing Divine Child questline to eating both Viscera (not missable in Shura)
-        SekiroLocationData("AC: Ungo's Sugar - any Old Praying Woman, pop 1 balloon", "Ungo's Sugar", missable=True,
-                           npc=True, hidden=True),
-        SekiroLocationData("AC: Ako's Sugar - any Old Praying Woman, pop 2 balloons", "Ako's Sugar", missable=True,
-                           npc=True, hidden=True),
+        SekiroLocationData("AC: Ungo's Sugar - any Old Praying Woman, pop 1 balloon", "Ungo's Sugar",
+                           missable={MissableTypes.FULL_GAME}, npc=True, hidden=True),
+        SekiroLocationData("AC: Ako's Sugar - any Old Praying Woman, pop 2 balloons", "Ako's Sugar",
+                           missable={MissableTypes.FULL_GAME}, npc=True, hidden=True),
         SekiroLocationData("AC: Divine Confetti - any Old Praying Woman, pop 3 balloons", "Divine Confetti",
-                           missable=True, npc=True, hidden=True),
+                           missable={MissableTypes.FULL_GAME}, npc=True, hidden=True),
         # Only given if Fujioka's pursuers are defeated prior to beating AC boss.
-        SekiroLocationData("AC: Nightjar Beacon Memo - Fujioka", "Nightjar Beacon Memo", missable=True, npc=True),
+        SekiroLocationData("AC: Nightjar Beacon Memo - Fujioka", "Nightjar Beacon Memo",
+                           missable={MissableTypes.ALWAYS}, npc=True),
         SekiroLocationData("AC: Eel Liver - shrine across from serpent shrine", "Eel Liver x3"),
-        SekiroLocationData("AC: Light Coin Purse - upper tower, shinobi door", "Light Coin Purse"),
+        SekiroLocationData("AC: Light Coin Purse - upper tower, shinobi door", "Light Coin Purse",
+                           static="02,0:51110030::"),
         # Removed in the second invasion, therefore not missable in Shura
-        SekiroLocationData("AC: Light Coin Purse - house before bridge to AD", "Light Coin Purse", missable=True),
+        SekiroLocationData("AC: Light Coin Purse - house before bridge to AD", "Light Coin Purse",
+                           static="02,0:51110060::",missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AC: Eel Liver - Ashina Dojo", "Eel Liver x3"),
         SekiroLocationData("AC: Mibu Possession Balloon - underwater, lake, near bridge",
-                           "Mibu Possession Balloon x2", conditional=True, diving=True),
-        SekiroLocationData("AC: Pellet - bird's nest before grappling to castle roof", "Pellet"),
+                           "Mibu Possession Balloon x2", conditional=True, diving=True, static="02,0:51110080::"),
+        SekiroLocationData("AC: Pellet - bird's nest before grappling to castle roof", "Pellet",
+                           static="02,0:51110120::"),
         SekiroLocationData("AC: Fistful of Ash - courtyard right of Ashina Castle idol", "Fistful of Ash x3"),
+        SekiroLocationData("AC: Heavy Coin Purse - wagon by Dungeon Memorial Mob", "Heavy Coin Purse",
+                           static="02,0:51110110::"),
         SekiroLocationData("AC: Gachiin's Sugar - old grave, courtyard near Blackhat Badger", "Gachiin's Sugar"),
-        SekiroLocationData("AC: Pellet - upper tower, room near map room", "Pellet x2"),
+        SekiroLocationData("AC: Pellet - upper tower, room near map room", "Pellet x2", static="02,0:51110150::"),
         SekiroLocationData("AC: Ako's Sugar - upper tower, map room", "Ako's Sugar"),
         SekiroLocationData("AC: Gokan's Sugar - upper tower, Ashina Dojo idol room", "Gokan's Sugar"),
         SekiroLocationData("AC: Scrap Iron - lake, far ledge", "Scrap Iron x2"),
         SekiroLocationData("AC: Mibu Balloon of Spirit - serpent shrine", "Mibu Balloon of Spirit"),
         SekiroLocationData("AC: Gachiin's Sugar - old grave, bird's nest close to idol", "Gachiin's Sugar"),
-        SekiroLocationData("AC: Mibu Possession Balloon - courtyard near AR entrance", "Mibu Possession Balloon"),
+        SekiroLocationData("AC: Mibu Possession Balloon - courtyard near AR entrance", "Mibu Possession Balloon",
+                           static="02,0:51110220::"),
         SekiroLocationData("AC: Scrap Magnetite - Kuro's room, behind statue", "Scrap Magnetite"),
         SekiroLocationData("AC: Eel Liver - Isshin's dojo", "Eel Liver x2"),
         SekiroLocationData("AC: Ceramic Shard - area right of main stairway, near Fujioka's pursuers", "Ceramic Shard"),
         SekiroLocationData("AC: Mibu Balloon of Wealth - main stairway, alcove near top", "Mibu Balloon of Wealth"),
         # Removed in the second invasion, therefore not missable in Shura
-        SekiroLocationData("AC: Black Gunpowder - outside building at AD entrance", "Black Gunpowder", missable=True),
+        SekiroLocationData("AC: Black Gunpowder - outside building at AD entrance", "Black Gunpowder",
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AC: Gokan's Sugar - basement, chest room", "Gokan's Sugar"),
         SekiroLocationData("AC: Scrap Iron - courtyard near AR entrance", "Scrap Iron"),
         SekiroLocationData("AC: Gachiin's Sugar - upper tower, rafters", "Gachiin's Sugar x2"),
-        SekiroLocationData("AC: Pellet - Isshin's dojo, stairs", "Pellet x2"),
+        SekiroLocationData("AC: Pellet - Isshin's dojo, stairs", "Pellet x2", static="02,0:51110340::"),
         SekiroLocationData("AC: Gachiin's Sugar - bird's nest on roof near Isshin's watchtower", "Gachiin's Sugar"),
         SekiroLocationData("AC: Scrap Iron - upper tower, map room", "Scrap Iron"),
-        SekiroLocationData("AC: Light Coin Purse - upper tower exterior, birds's nest", "Light Coin Purse"),
+        SekiroLocationData("AC: Light Coin Purse - upper tower exterior, birds's nest", "Light Coin Purse",
+                           static="02,0:51110370::"),
         SekiroLocationData("AC: Ungo's Sugar - Blackhat Badger building, roof, bird's nest", "Ungo's Sugar"),
         SekiroLocationData("AC: Scrap Magnetite - Ashina Dojo, side room", "Scrap Magnetite"),
         SekiroLocationData("AC: Ceramic Shard - old grave, courtyard near Blackhat Badger", "Ceramic Shard"),
-        SekiroLocationData("AC: Pellet - before AR gate", "Pellet"),
+        SekiroLocationData("AC: Pellet - before AR gate", "Pellet", static="02,0:51110410::"),
         SekiroLocationData("AC: Ceramic Shard - bird's nest on rooftop path", "Ceramic Shard x2"),
-        SekiroLocationData("AC: Heavy Coin Purse - upper tower, shinobi door", "Heavy Coin Purse", hidden=True),
+        SekiroLocationData("AC: Heavy Coin Purse - upper tower, shinobi door", "Heavy Coin Purse",
+                           static="02,0:51110440::", hidden=True),
         SekiroLocationData("AC: Scrap Iron - ledge right of Ashina Castle idol", "Scrap Iron"),
         SekiroLocationData("AC: Treasure Carp Scale - underwater, by Ashina Castle idol", "Treasure Carp Scale",
                            conditional=True, diving=True),
-        SekiroLocationData("AC: Mibu Possession Balloon - lake, bridge", "Mibu Possession Balloon x2"),
+        SekiroLocationData("AC: Mibu Possession Balloon - lake, bridge", "Mibu Possession Balloon x2",
+                           static="02,0:51110470::"),
         SekiroLocationData("AC: Heavy Coin Purse - underwater, near headless #1", "Heavy Coin Purse", conditional=True,
-                           diving=True),
+                           diving=True, static="02,0:51110480::"),
         SekiroLocationData("AC: Heavy Coin Purse - underwater, near headless #2", "Heavy Coin Purse", conditional=True,
-                           diving=True),
+                           diving=True, static="02,0:51110490::"),
         SekiroLocationData("AC: Yashariku's Sugar - underwater, near headless against castle wall",
-                           "Yashariku's Sugar", conditional=True, diving=True),
-        SekiroLocationData("AC: Mibu Possession Balloon - lake, under bridge", "Mibu Possession Balloon"),
-        SekiroLocationData("AC: Dragon's Blood Droplet - old grave, near graves", "Dragon's Blood Droplet"),
-        SekiroLocationData("AC: Light Coin Purse - old grave, courtyard near Blackhat Badger", "Light Coin Purse"),
+                           "Yashariku's Sugar", conditional=True, diving=True, static="02,0:51110500::"),
+        SekiroLocationData("AC: Mibu Possession Balloon - lake, under bridge", "Mibu Possession Balloon",
+                           static="02,0:51110510::"),
+        SekiroLocationData("AC: Dragon's Blood Droplet - old grave, near graves", "Dragon's Blood Droplet",
+                           static="02,0:51110520::"),
+        SekiroLocationData("AC: Light Coin Purse - old grave, courtyard near Blackhat Badger", "Light Coin Purse",
+                           static="02,0:51110590::"),
         SekiroLocationData("AC: Ceramic Shard - bird's nest before Antechamber idol", "Ceramic Shard"),
         SekiroLocationData("AC: Mibu Balloon of Wealth - upper tower, stairs to Ashina Dojo idol",
                            "Mibu Balloon of Wealth"),
-        SekiroLocationData("AC: Pellet - Ashina Dojo, side room", "Pellet"),
+        SekiroLocationData("AC: Pellet - Ashina Dojo, side room", "Pellet", static="02,0:51110690::"),
         SekiroLocationData("AC: Ungo's Sugar - reservoir tower", "Ungo's Sugar x2"),
         SekiroLocationData("AC: Ceramic Shard - upper tower, right of stairs to Ashina Dojo idol", "Ceramic Shard"),
         SekiroLocationData("AC: Divine Grass - main stairway, chest at top", "Divine Grass"),
         SekiroLocationData("AC: Black Gunpowder - old grave, destroyed bridge", "Black Gunpowder"),
         # Removed once the boss at the top of AC is defeated, if Tengu was met previously.
-        SekiroLocationData("AC: Isshin's Letter - Isshin's watchtower", "Isshin's Letter", missable=True),
+        SekiroLocationData("AC: Isshin's Letter - Isshin's watchtower", "Isshin's Letter",
+                           missable={MissableTypes.ALWAYS}),
         SekiroLocationData("AC: Heavy Coin Purse - underwater, near headless #3", "Heavy Coin Purse", conditional=True,
-                           diving=True),
+                           diving=True, static="02,0:51110800::"),
         SekiroLocationData("AC: Fistful of Ash - old grave, courtyard near Blackhat Badger", "Fistful of Ash"),
         SekiroLocationData("AC: Gun Fort Shrine Key - Kuro's library", "Gun Fort Shrine Key", progression=True),
         SekiroLocationData("AC: Fistful of Ash - upper tower, by Antechamber idol", "Fistful of Ash"),
@@ -601,7 +662,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            static="02,0:51110971::", drop=True),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AC: Scrap Magnetite - outside building at AD entrance, enemy drop", "Scrap Magnetite",
-                           drop=True, missable=True),
+                           drop=True, missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AC: Ungo's Spiritfall - underwater, headless drop", "Ungo's Spiritfall", miniboss=True,
                            conditional=True, headless=True, diving=True),
         SekiroLocationData("AC: Gatehouse Key - bridge to AD, enemy drop", "Gatehouse Key", drop=True),
@@ -622,16 +683,19 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         # This applies to all missables in this region:
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AR: Scrap Magnetite - starting well, miniboss drop", "Scrap Magnetite x2", miniboss=True),
-        SekiroLocationData("AR: Scrap Iron - tree beside moon-view tower", "Scrap Iron", missable=True),
+        SekiroLocationData("AR: Scrap Iron - tree beside moon-view tower", "Scrap Iron",
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AR: Scrap Iron - starting well, ledge above water", "Scrap Iron"),
-        SekiroLocationData("AR: Pellet - broken cart in yard", "Pellet", missable=True),
-        SekiroLocationData("AR: Ceramic Shard - gatehouse, below", "Ceramic Shard x2", hidden=True, missable=True),
-        SekiroLocationData("AR: Fistful of Ash - stairs to gatehouse", "Fistful of Ash", missable=True),
+        SekiroLocationData("AR: Pellet - broken cart in yard", "Pellet", missable={MissableTypes.FULL_GAME}),
+        SekiroLocationData("AR: Ceramic Shard - gatehouse, below", "Ceramic Shard x2", hidden=True,
+                           missable={MissableTypes.FULL_GAME}),
+        SekiroLocationData("AR: Fistful of Ash - stairs to gatehouse", "Fistful of Ash",
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AR: Scrap Iron - door left of Secret Passage", "Scrap Iron"),
         SekiroLocationData("AR: Heavy Coin Purse - gatehouse, next to chest", "Heavy Coin Purse",
-                           static="01,0:51120110::", conditional=True, missable=True),
+                           static="01,0:51120110::", conditional=True, missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AR: Bundled Jizo Statue - moon-view tower, red balcony", "Bundled Jizo Statue",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}, hidden=True),
         SekiroLocationData("AR: Mibu Balloon of Soul - underwater, starting well", "Mibu Balloon of Soul",
                            conditional=True, diving=True),
         SekiroLocationData("AR: Heavy Coin Purse - door left of Secret Passage", "Heavy Coin Purse",
@@ -644,26 +708,22 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AR: Prayer Bead - starting well, miniboss drop", "Prayer Bead", miniboss=True),
     ],
     "Abandoned Dungeon": [
-        SekiroLocationData("AD: Prayer Bead - Dungeon Memorial Mob", "Prayer Bead", shop=True),
-        SekiroLocationData("AD: Mask Fragment: Dragon - Dungeon Memorial Mob", "Mask Fragment: Dragon", shop=True),
-        SekiroLocationData("AD: Heavy Coin Purse - wagon by Dungeon Memorial Mob", "Heavy Coin Purse",
-                           static="02,0:51110110::"),
-
         # The following block is missable if Doujun's quest is not completed
         SekiroLocationData("AD: Red Lump - Underground Waterway island, red-eyed Kotaro, enemy drop", "Red Lump",
-                           npc=True, drop=True, missable=True, conditional=True, diving=True),
+                           npc=True, drop=True, missable={MissableTypes.ALWAYS}, conditional=True, diving=True),
         SekiroLocationData("AD: Red Lump - Underground Waterway island, red-eyed Jinzaemon, enemy drop", "Red Lump",
-                           npc=True, drop=True, missable=True, conditional=True, diving=True),
+                           npc=True, drop=True, missable={MissableTypes.ALWAYS}, conditional=True, diving=True),
         SekiroLocationData("AD: Surgeon's Bloody Letter - start Doujun's quest", "Surgeon's Bloody Letter",
-                           missable=True, npc=True),
-        SekiroLocationData("AD: Lump of Fat Wax - Doujun after sending subject", "Lump of Fat Wax x3", missable=True,
-                           npc=True, conditional=True),
+                           missable={MissableTypes.ALWAYS}, npc=True),
+        SekiroLocationData("AD: Lump of Fat Wax - Doujun after sending subject", "Lump of Fat Wax x3",
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
         SekiroLocationData("AD: Surgeon's Stained Letter - Doujun requests Red Carp Eyes", "Surgeon's Stained Letter",
-                           missable=True, npc=True, conditional=True),
-        SekiroLocationData("AD: Lump of Grave Wax - Doujun for Red Carp Eyes", "Lump of Grave Wax x2", missable=True,
-                           npc=True, conditional=True),
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
+        SekiroLocationData("AD: Lump of Grave Wax - Doujun for Red Carp Eyes", "Lump of Grave Wax x2",
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
         SekiroLocationData("AD: Academics' Red Lump - Underground Waterway island, red-eyed Doujun, enemy drop",
-                           "Academics' Red Lump", drop=True, npc=True, missable=True, conditional=True, diving=True),
+                           "Academics' Red Lump", drop=True, npc=True, missable={MissableTypes.ALWAYS},
+                           conditional=True, diving=True),
 
         SekiroLocationData("AD: Dosaku's Note - underwater, Doujun's cell", "Dosaku's Note", conditional=True,
                            diving=True),
@@ -711,22 +771,23 @@ location_tables: dict[str, list[SekiroLocationData]] = {
     "Senpou Temple, Mt. Kongo": [
         # Missable if Kotaro's quest is not done / he is sent to Anayama or Doujun.
         SekiroLocationData("ST: Taro Persimmon - Halls of Illusion, Kotaro quest", "Taro Persimmon", npc=True,
-                           missable=True, conditional=True),
+                           missable={MissableTypes.ALWAYS}, conditional=True),
         SekiroLocationData("ST: Five-color Rice - Shugendo Memorial Mob", "Five-color Rice", shop=True),
         SekiroLocationData("ST: Memory: Screen Monkeys", "Memory: Screen Monkeys", boss=True),
         SekiroLocationData("ST: Mortal Blade - Divine Child", "Mortal Blade", npc=True, prominent=True,
                            progression=True),
         # Missable if Divine Child quest is not followed / Rice for Kuro is already obtained.
-        SekiroLocationData("ST: Rice for Kuro - Divine Child for Persimmon", "Rice for Kuro", npc=True, missable=True,
-                           conditional=True),
-        # Missable if Divine Child quest is not followed
+        SekiroLocationData("ST: Rice for Kuro - Divine Child for Persimmon", "Rice for Kuro", npc=True,
+                           missable={MissableTypes.ALWAYS}, conditional=True),
+        # Missable if Divine Child quest is not followed.
         SekiroLocationData("ST: Frozen Tears - Divine Child for both Serpent Viscera after first invasion",
-                           "Frozen Tears", missable=True, npc=True, progression=True, conditional=True),
+                           "Frozen Tears", missable={MissableTypes.FULL_GAME}, npc=True, progression=True,
+                           conditional=True, full_game=True),
         SekiroLocationData("ST: Holy Chapter: Infested - underwater, carp pond", "Holy Chapter: Infested",
                            conditional=True, diving=True),
         # Missable if Divine Child quest is not followed
         SekiroLocationData("ST: Holy Chapter: Dragon's Return - cave, blue-robed corpse after Holy Chapter: Infested",
-                           "Holy Chapter: Dragon's Return", missable=True, conditional=True),
+                           "Holy Chapter: Dragon's Return", missable={MissableTypes.ALWAYS}, conditional=True),
         SekiroLocationData("ST: Monkey Booze - right room before Bell Demon's Temple idol", "Monkey Booze"),
         SekiroLocationData("ST: Red and White Pinwheel - hill with many pinwheels before bridge arena",
                            "Red and White Pinwheel"),
@@ -780,8 +841,9 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("ST: Black Gunpowder - room before Bell Demon's Temple idol", "Black Gunpowder"),
         SekiroLocationData("ST: Antidote Powder - left corner before broken bridge", "Antidote Powder"),
         SekiroLocationData("ST: Scrap Magnetite - before Sunken Valley Cavern idol", "Scrap Magnetite",
-                           conditional=True),
-        SekiroLocationData("ST: Scrap Magnetite - next to Temple Grounds idol", "Scrap Magnetite"),
+                           conditional=True, static="07,0:52000510::"),
+        SekiroLocationData("ST: Scrap Magnetite - next to Temple Grounds idol", "Scrap Magnetite",
+                           static="07,0:52000520::"),
         SekiroLocationData("ST: Black Gunpowder - Main Hall, right wing", "Black Gunpowder"),
         SekiroLocationData("ST: Black Gunpowder - cliffside temple #2", "Black Gunpowder"),
         SekiroLocationData("ST: Lump of Fat Wax - Main Hall, behind large statue", "Lump of Fat Wax"),
@@ -800,7 +862,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("ST: Fistful of Ash - sloped path, beside bonfire", "Fistful of Ash x5", hidden=True),
         SekiroLocationData("ST: Mibu Balloon of Spirit - sloped path. base", "Mibu Balloon of Spirit"),
         SekiroLocationData("ST: Gokan's Sugar - sloped path, ledge above tall grass", "Gokan's Sugar"),
-        SekiroLocationData("ST: Bundled Jizo Statue - Main Hall, amid statues left of idol", "Bundled Jizo Statue"),
+        SekiroLocationData("ST: Bundled Jizo Statue - Main Hall, amid statues left of idol", "Bundled Jizo Statue",
+                           static="07,0:52000700::"),
         # Make sure to separate this from shop persimmons, so keep static
         SekiroLocationData("ST: Persimmon - temple grounds side path, persimmon tree", "Persimmon",
                            static="07,0:52000710::"),
@@ -823,9 +886,9 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("ST: Heavy Coin Purse - broken bridge, enemy drop", "Heavy Coin Purse",
                            static="07,0:52000900::", drop=True),
         SekiroLocationData("ST: Bulging Coin Purse - kill 3 enemies outside Main Hall, enemy drop",
-                           "Bulging Coin Purse", drop=True),
+                           "Bulging Coin Purse", drop=True, static="07,0:52000910::"),
         SekiroLocationData("ST: Scrap Magnetite - sloped path, enemies after bonfire, enemy drop", "Scrap Magnetite",
-                           drop=True),
+                           drop=True, static="07,0:52000930::"),
         SekiroLocationData("ST: Yellow Gunpowder - cliffside temple, miniboss drop", "Yellow Gunpowder x2",
                            miniboss=True),
         SekiroLocationData("ST: Treasure Carp Scale - carp pond, Carp drop #1", "Treasure Carp Scale", carp=True),
@@ -872,7 +935,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            hidden=True),
         SekiroLocationData("SV: Contact Medicine - Gun Fort chasm, bottom ledge", "Contact Medicine"),
         SekiroLocationData("SV: Lump of Grave Wax - pond cave, behind miniboss", "Lump of Grave Wax", conditional=True,
-                           diving=True),
+                           diving=True, hidden=True),
         SekiroLocationData("SV: Yellow Gunpowder - Gun Fort shrine, miniboss drop", "Yellow Gunpowder x2",
                            miniboss=True),
         SekiroLocationData("SV: Yellow Gunpowder - Gun Fort, enemy drop", "Yellow Gunpowder x3", drop=True),
@@ -896,7 +959,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("SVP: Snap Seed - right ledge after Gun Fort shrine", "Snap Seed x2"),
         # Missable as if you warp away before picking up, you cannot go back.
         SekiroLocationData("SVP: Dragon's Blood Droplet - Sunken Valley Cavern, after killing serpent",
-                           "Dragon's Blood Droplet", missable=True, conditional=True),
+                           "Dragon's Blood Droplet", missable={MissableTypes.ALWAYS}, conditional=True,
+                           static="06,0:51700260::"),
         SekiroLocationData("SVP: Ungo's Sugar - left side ledge opposite of 23-enemy cluster", "Ungo's Sugar"),
         SekiroLocationData("SVP: Pacifying Agent - ledge next to 23-enemy cluster", "Pacifying Agent"),
         SekiroLocationData("SVP: Mibu Balloon of Soul - alcove left of swamp island", "Mibu Balloon of Soul"),
@@ -915,7 +979,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            conditional=True, diving=True),
         SekiroLocationData("SVP: Yellow Gunpowder - under Bodhisattva Valley idol in toxic water", "Yellow Gunpowder",
                            static="06,0:51700580::"),
-        SekiroLocationData("SVP: Heavy Coin Purse - swamp below Bodhisattva Valley idol", "Heavy Coin Purse"),
+        SekiroLocationData("SVP: Heavy Coin Purse - swamp below Bodhisattva Valley idol", "Heavy Coin Purse",
+                           static="06,0:51700610::"),
         SekiroLocationData("SVP: Yashariku's Sugar - underwater, lake between rocks", "Yashariku's Sugar",
                            conditional=True, diving=True),
         SekiroLocationData("SVP: Pacifying Agent - in front of broken bodhi head", "Pacifying Agent"),
@@ -928,7 +993,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("SVP: Scrap Magnetite - shrine cave, late along left wall and up", "Scrap Magnetite x2"),
         SekiroLocationData("SVP: Mibu Balloon of Soul - underground shrine, back porch", "Mibu Balloon of Soul",
                            conditional=True),
-        SekiroLocationData("SVP: Pellet - shrine cave, 3-item group", "Pellet x2"),
+        SekiroLocationData("SVP: Pellet - shrine cave, 3-item group", "Pellet x2", static="06,0:51700710::"),
         SekiroLocationData("SVP: Fistful of Ash - shrine cave, 3-item group", "Fistful of Ash"),
         SekiroLocationData("SVP: Dried Serpent Viscera - underground shrine, statue", "Dried Serpent Viscera",
                            progression=True, conditional=True),
@@ -938,14 +1003,15 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("SVP: Scrap Iron - behind 23-enemy cluster", "Scrap Iron x3"),
         # Missable as if you warp away before picking up, you cannot go back.
         SekiroLocationData("SVP: Mibu Balloon of Soul - Sunken Valley Cavern, lake overlook after killing serpent",
-                           "Mibu Balloon of Soul", missable=True, conditional=True),
+                           "Mibu Balloon of Soul", missable={MissableTypes.ALWAYS}, conditional=True),
         # Missable as if you warp away before picking up, you cannot go back.
         SekiroLocationData("SVP: Bundled Jizo Statue - Sunken Valley Cavern, after killing serpent",
-                           "Bundled Jizo Statue", missable=True, conditional=True),
+                           "Bundled Jizo Statue", missable={MissableTypes.ALWAYS}, conditional=True),
         SekiroLocationData("SVP: Treasure Carp Scale - underwater, lake at Riven Cave entrance",
                            "Treasure Carp Scale", conditional=True, diving=True),
+        # Removed for Shura.
         SekiroLocationData("SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp",
-                           "Great White Whisker", conditional=True),
+                           "Great White Whisker", conditional=True, full_game=True),
         SekiroLocationData("SVP: Gachiin's Sugar - underwater, lake opposite from Riven Cave entrance",
                            "Gachiin's Sugar x3", conditional=True, diving=True),
         SekiroLocationData("SVP: Yellow Gunpowder - swamp island, enemy drop", "Yellow Gunpowder",
@@ -1028,19 +1094,20 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            prominent=True, progression=True, boss=True),
         SekiroLocationData("MV: Memory: Corrupted Monk", "Memory: Corrupted Monk", boss=True),
         SekiroLocationData("MV: Dragonspring Sake - Head Priest for Water of the Palace", "Dragonspring Sake",
-                           static="05,0:50006280::", npc=True, conditional=True),
+                           static="05,0:50006280::", npc=True, conditional=True, full_game=True),
         # Technically missable due to it being a pickup, not an auto drop. If you reload, it despawns.
         SekiroLocationData("MV: Treasure Carp Scale - Head Priest's house, enemy drop", "Treasure Carp Scale x5",
-                           npc=True, drop=True, conditional=True, missable=True),
+                           static = "05,0:50006281::", npc=True, drop=True, conditional=True,
+                           missable={MissableTypes.ALWAYS}, full_game=True),
         # Missable if the player chooses to send Jinzaemon to Doujun or just ignores him
         SekiroLocationData("MV: Jinza's Jizo Statue - Jinzaemon reward after killing miniboss", "Jinza's Jizo Statue",
-                           missable=True, npc=True, conditional=True),
+                           missable={MissableTypes.ALWAYS}, npc=True, conditional=True),
         SekiroLocationData("MV: Ashina Sake - villager fields, shrine", "Ashina Sake"),
         SekiroLocationData("MV: Shelter Stone - Wedding Cave", "Shelter Stone", prominent=True, progression=True,
                            conditional=True),
         SekiroLocationData("MV: Mibu Balloon of Soul - main path, big tree bed right", "Mibu Balloon of Soul"),
         SekiroLocationData("MV: Treasure Carp Scale - near enemy downstream from Mibu Village idol",
-                           "Treasure Carp Scale"),
+                           "Treasure Carp Scale", static="05,0:51500230::"),
         SekiroLocationData("MV: Mibu Balloon of Soul - near tree on bank before docks", "Mibu Balloon of Soul"),
         SekiroLocationData("MV: Pacifying Agent - main path, behind Shosuke's house", "Pacifying Agent"),
         SekiroLocationData("MV: Mibu Balloon of Wealth - boat by the docks", "Mibu Balloon of Wealth x2"),
@@ -1076,15 +1143,16 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("MV: Mibu Balloon of Soul - grapple from Inuhiko's house, up the path",
                            "Mibu Balloon of Soul x2", hidden=True),
         SekiroLocationData("MV: Divine Confetti - Head Priest's house, statue", "Divine Confetti x5"),
-        SekiroLocationData("MV: Divine Grass - bottom waterfall chest", "Divine Grass"),
-        SekiroLocationData("MV: Heavy Coin Purse - Head Priest's house, bird's nest on roof", "Heavy Coin Purse"),
+        SekiroLocationData("MV: Divine Grass - bottom waterfall chest", "Divine Grass", static="05,0:51500610::"),
+        SekiroLocationData("MV: Heavy Coin Purse - Head Priest's house, bird's nest on roof", "Heavy Coin Purse",
+                           static="05,0:51500620::"),
         SekiroLocationData("MV: Light Coin Purse - hut across from Head Priest's house in bird's nest",
                            "Light Coin Purse"),
         SekiroLocationData("MV: Pellet - boat across pond", "Pellet", static="05,0:51500640::"),
         SekiroLocationData("MV: Scrap Magnetite - downstream from Mibu Village idol, enemy drop", "Scrap Magnetite",
                            drop=True),
         SekiroLocationData("MV: Treasure Carp Scale - underwater, near Water Mill idol, Carp drop",
-                           "Treasure Carp Scale", carp=True, conditional=True, diving=True),
+                           "Treasure Carp Scale", static="05,0:52500967::", carp=True, conditional=True, diving=True),
         SekiroLocationData("MV: Breath of Life: Shadow - miniboss drop", "Breath of Life: Shadow", miniboss=True),
         SekiroLocationData("MV: Gourd Seed - main path, big tree bed center", "Gourd Seed"),
         SekiroLocationData("MV: Pine Resin Ember - Inuhiko's house, roof", "Pine Resin Ember"),
@@ -1095,28 +1163,28 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            drop=True, conditional=True, diving=True),
     ],
     "Ashina Castle (Interior Ministry)": [
-        # Remove the following two locations for Shura!
+        # Removed for Shura.
         SekiroLocationData("AC/I: Aromatic Branch - boss arena, boss drop", "Aromatic Branch", prominent=True,
-                           progression=True, boss=True),
-        SekiroLocationData("AC/I: Memory: Great Shinobi", "Memory: Great Shinobi", boss=True),
-        # Fully commented locations should currently not be generated as they are unreachable in regular ending.
-        # Keep for implementing Shura end, we currently inject these items so that they can be found.
-        # SekiroLocationData("AC/I: Memory: Isshin Ashina", "Memory: Isshin Ashina", prominent=True, shura=True,
-        # boss=True),
-        # Missable if one does not have Rice for Kuro / does not give it to Kuro. Remove for Shura!
+                           progression=True, boss=True, full_game=True),
+        # Removed for Shura.
+        SekiroLocationData("AC/I: Memory: Great Shinobi", "Memory: Great Shinobi", boss=True, full_game=True),
+        # Removed for Full Game.
+        SekiroLocationData("AC/I: Memory: Isshin Ashina", "Memory: Isshin Ashina", prominent=True, boss=True,
+        shura=True),
+        # Missable if one does not have Rice for Kuro / does not give it to Kuro. Removed for Shura!
         SekiroLocationData("AC/I: Sweet Rice Ball - Kuro after incense and Rice for Kuro", "Sweet Rice Ball",
-                           missable=True, npc=True, conditional=True),
-        # Missable if not speaking to Kuro before second invasion. Remove for Shura!
+                           missable={MissableTypes.FULL_GAME}, npc=True, conditional=True, full_game=True),
+        # Missable if not speaking to Kuro before second invasion. Removed for Shura!
         SekiroLocationData("AC/I: Divine Grass - Kuro after entering Fountainhead Palace", "Divine Grass",
-                           missable=True, npc=True, conditional=True),
-        # Missable by not doing the requirements before the second invasion. Remove for Shura!
+                           missable={MissableTypes.FULL_GAME}, npc=True, conditional=True, full_game=True),
+        # Missable by not doing the requirements before the second invasion. Removed for Shura!
         SekiroLocationData("AC/I: Father's Bell Charm - Emma after eavesdropping on her", "Father's Bell Charm",
-                           progression=True, conditional=True, missable=True),
-        # Missable by not doing the requirements before the second invasion, Remove for Shura!
+                           progression=True, conditional=True, missable={MissableTypes.FULL_GAME}, full_game=True),
+        # Missable by not doing the requirements before the second invasion, Removed for Shura!
         SekiroLocationData("AC/I: Tomoe's Note - Emma after eavesdropping on Kuro", "Tomoe's Note", npc=True,
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}, full_game=True),
         # Removed in the second invasion, therefore not missable in Shura
-        SekiroLocationData("AC/I: Pellet - end of bridge from AD", "Pellet x2", missable=True),
+        SekiroLocationData("AC/I: Pellet - end of bridge from AD", "Pellet x2", missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AC/I: Ceramic Shard - lake, bridge", "Ceramic Shard"),
         SekiroLocationData("AC/I: Adamantite Scrap - basement, passage to main stairway right", "Adamantite Scrap"),
         SekiroLocationData("AC/I: Pellet - upper tower, rafters", "Pellet x3"),
@@ -1138,13 +1206,13 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("AC/I: Lump of Fat Wax - Ashina Dojo, miniboss drop", "Lump of Fat Wax x2", miniboss=True),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AC/I: Yellow Gunpowder - serpent shrine, miniboss drop", "Yellow Gunpowder x2",
-                           miniboss=True, missable=True),
+                           miniboss=True, missable={MissableTypes.FULL_GAME}),
         # Removed in the second invasion, therefore not missable in Shura
         SekiroLocationData("AC/I: Heavy Coin Purse - old grave, broken bridge, enemy drop", "Heavy Coin Purse",
-                           drop=True, missable=True),
+                           drop=True, missable={MissableTypes.FULL_GAME}, static="02,0:51110985::"),
         SekiroLocationData("AC/I: Treasure Carp Scale - underwater, by Ashina Castle idol, Carp drop",
                            "Treasure Carp Scale", carp=True, conditional=True, diving=True),
-        # SekiroLocationData("AC/I: One Mind - boss arena, boss drop", "One Mind", shura=True, boss=True),
+        SekiroLocationData("AC/I: One Mind - boss arena, boss drop", "One Mind", boss=True, shura=True),
         SekiroLocationData("AC/I: Shinobi Medicine Rank 3 - basement, miniboss drop", "Shinobi Medicine Rank 3",
                            miniboss=True),
         SekiroLocationData("AC/I: Prayer Bead - basement, miniboss drop", "Prayer Bead", static="02,0:6778::",
@@ -1180,7 +1248,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
         SekiroLocationData("FP1: Memory: True Monk", "Memory: True Monk", boss=True),
         # Missable as location may not work if the item is already given to the Great Carp
         SekiroLocationData("FP1: Truly Precious Bait - Pot Noble Koremori after 9 scales",
-                           "Truly Precious Bait (Koremori)", npc=True, missable=True),
+                           "Truly Precious Bait (Koremori)", npc=True, missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("FP1: Mibu Balloon of Soul - first building after descent from Vermilion Bridge",
                            "Mibu Balloon of Soul"),
         SekiroLocationData("FP1: Light Coin Purse - log left of first building", "Light Coin Purse"),
@@ -1238,7 +1306,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            "Water of the Palace", conditional=True, diving=True),
         SekiroLocationData("FP1: Ceramic Shard - bird's nest on wall before courtyard", "Ceramic Shard x3"),
         SekiroLocationData("FP1: Lapis Lazuli - past bridge, at waterfall, miniboss drop", "Lapis Lazuli",
-                           miniboss=True),
+                           miniboss=True, static="08,0:52500930::"),
         SekiroLocationData("FP1: Dragonspring Sake - before Great Sakura idol, enemy drop", "Dragonspring Sake",
                            drop=True),
         SekiroLocationData("FP1: A Beast's Karma - beside Mibu Manor, miniboss drop", "A Beast's Karma", miniboss=True),
@@ -1257,10 +1325,10 @@ location_tables: dict[str, list[SekiroLocationData]] = {
                            npc=True, conditional=True),
         # Missable if one does not complete the Great Carp feeding quest
         SekiroLocationData("FP2: Divine Grass - Feeding Grounds, Attendant for Great White Whisker", "Divine Grass",
-                           missable=True, npc=True, conditional=True),
+                           missable={MissableTypes.FULL_GAME}, npc=True, conditional=True),
         # Missable if Pot Noble Harunaga's bait is not fed to Great Carp
         SekiroLocationData("FP2: Lapis Lazuli - Koremori's pot after Truly Precious Bait", "Lapis Lazuli",
-                           missable=True, npc=True, conditional=True),
+                           missable={MissableTypes.FULL_GAME}, npc=True, conditional=True),
         SekiroLocationData("FP2: Light Coin Purse - underwater, near Pot Noble Koremori", "Light Coin Purse"),
         SekiroLocationData("FP2: Scrap Magnetite - underwater, near Pot Noble Koremori", "Scrap Magnetite x3"),
         SekiroLocationData("FP2: Red Lump - underwater, right of demolished bridge", "Red Lump"),
@@ -1311,7 +1379,7 @@ location_tables: dict[str, list[SekiroLocationData]] = {
     "Ashina Castle (Central Forces)": [
         # Missable if Blackhat Badger's quest is not followed
         SekiroLocationData("AC/C: Mibu Pilgrimage Balloon - complete Blackhat Badger quest", "Mibu Pilgrimage Balloon",
-                           missable=True),
+                           missable={MissableTypes.FULL_GAME}),
         SekiroLocationData("AC/C: Secret Passage Key - Emma", "Secret Passage Key", npc=True, progression=True),
         SekiroLocationData("AC/C: Fistful of Ash - courtyard before Old Grave idol", "Fistful of Ash"),
         SekiroLocationData("AC/C: Ministry Dousing Powder - main stairway, middle", "Ministry Dousing Powder"),
@@ -1328,8 +1396,8 @@ location_tables: dict[str, list[SekiroLocationData]] = {
     ],
     "Ashina Outskirts (Central Forces)": [
         # Missable if Kotaro was not sent to Anayama
-        SekiroLocationData("AO/C: Promissory Note - Anayama the Peddler", "Promissory Note", missable=True, shop=True,
-                           conditional=True),
+        SekiroLocationData("AO/C: Promissory Note - Anayama the Peddler", "Promissory Note",
+                           missable={MissableTypes.FULL_GAME}, shop=True, conditional=True),
         SekiroLocationData("AO/C: Lapis Lazuli - Flames of Hatred, boss drop", "Lapis Lazuli x2", boss=True),
         SekiroLocationData("AO/C: Memory: Hatred Demon", "Memory: Hatred Demon", prominent=True, boss=True),
         SekiroLocationData("AO/C: Adamantite Scrap - near headless warning sign", "Adamantite Scrap"),
@@ -1365,6 +1433,17 @@ location_tables: dict[str, list[SekiroLocationData]] = {
     ],
 }
 
+for region in [
+    "Hirata Estate (Father's Bell Charm)",
+    "Fountainhead Palace (before underwater progression)",
+    "Fountainhead Palace (underwater progression)",
+    "Ashina Castle (Central Forces)",
+    "Ashina Outskirts (Central Forces)",
+    "Ashina Reservoir (Central Forces)",
+]:
+    for location in location_tables[region]:
+        location.full_game = True
+
 location_name_groups: dict[str, set[str]] = {
     # We could insert these locations automatically with setdefault(), but we set them up explicitly
     # instead so we can choose the ordering.
@@ -1380,7 +1459,7 @@ location_name_groups: dict[str, set[str]] = {
     "Esoteric Texts": set(),
     "Skills": set(),
     "Upgrade": set(),
-    "Currency": set(),
+    "Treasure Carp Scales": set(),
     "Memories": set(),
     "Unique": set(),
     "Gourd Seeds": set(),
@@ -1398,7 +1477,7 @@ location_descriptions = {
     "Boss Rewards": "Boss drops. Bosses are strong enemies that drop memories.",
     "Miniboss Rewards": "Miniboss drops. Minibosses are enemies with unique health bars that do not drop memories.",
     "Headless": "Headless miniboss drops. These locations contain the spiritfall items in vanilla",
-    "Drops": "Drops from anything other than bosses, including minibosses, treasure carps, NPCs or normal enemies.",
+    "Drops": "Drops from anything other than bosses or treasure carps. Including minibosses, NPCs and normal enemies.",
     "Friendly": "Locations that contain items given by friendly NPCs as part of their quests or from "
                 "non-violent interaction.",
     "Prosthetics": "Locations that contain a prosthetic tool unlock item in vanilla.",
@@ -1406,11 +1485,11 @@ location_descriptions = {
     "Skills": "Locations that contain skills found as item drops, such as "
               "Shinobi Medicine or Ninjutsu Techniques.",
     "Upgrade": "Locations that contain non-unique upgrade materials for prosthetic tools in vanilla.",
-    "Currency": "Locations that contain coin pouches and treasure carp scales in vanilla.",
+    "Treasure Carp Scales": "Locations that contain treasure carp scales in vanilla.",
     "Memories": "Locations that contain memories in vanilla.",
     "Unique": "Locations that contain items which can be obtained once in a run, such as keys, notes, "
               "reusable items, prosthetics & unique upgrades.",
-    "Miscellaneous": "Locations that contain generic stackable items in vanilla, such as sugars, "
+    "Miscellaneous": "Locations that contain generic stackable items in vanilla, such as sugars, coin purses"
                      "mibu balloons, resistance buffs and so on.",
     "Hidden": "Locations that are particularly difficult to find, such as in crawl spaces, "
               "down hidden drops, behind walls and so on.",

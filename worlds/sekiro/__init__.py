@@ -18,7 +18,17 @@ from BaseClasses import (
 from worlds.AutoWorld import WebWorld, World
 from worlds.generic.Rules import CollectionRule, ItemRule, add_item_rule, add_rule
 
-from .Items import SekiroItem, SekiroItemData, filler_item_names, item_descriptions, item_dictionary, item_name_groups
+from .Items import (
+    SekiroItem,
+    SekiroItemCategory,
+    SekiroItemData,
+    filler_item_names,
+    item_descriptions,
+    item_dictionary,
+    item_name_groups,
+    region_lock_dictionary,
+    skill_pickup_dictionary,
+)
 from .Locations import (
     SekiroLocation,
     SekiroLocationData,
@@ -91,6 +101,11 @@ class SekiroWorld(World):
         self.created_regions = set()
         self.all_excluded_locations.update(self.options.exclude_locations.value)
 
+        if self.options.replace_esoteric_texts_with_skills and not self.options.randomize_skills_and_prosthetics:
+            raise OptionError(
+                f"Player {self.player_name} has enabled skills as items but not randomized skill trees. "
+                f"Please fix your options by either enabling both or disabling the skills as item pickups.")
+
     def create_regions(self) -> None:
         # Create Game Regions
         regions: dict[str, Region] = {"Menu": self.create_region("Menu", {})}
@@ -109,13 +124,18 @@ class SekiroWorld(World):
             "Hidden Forest",
             "Mibu Village",
             "Ashina Castle (Interior Ministry)",
-            "Hirata Estate (Father's Bell Charm)",
-            "Fountainhead Palace (before underwater progression)",
-            "Fountainhead Palace (underwater progression)",
-            "Ashina Castle (Central Forces)",
-            "Ashina Outskirts (Central Forces)",
-            "Ashina Reservoir (Central Forces)",
         ]})
+
+        # Create Full game regions only if option is not Shura
+        if self.options.goal_option == 0:
+            regions.update({region_name: self.create_region(region_name, location_tables[region_name]) for region_name in [
+                "Hirata Estate (Father's Bell Charm)",
+                "Fountainhead Palace (before underwater progression)",
+                "Fountainhead Palace (underwater progression)",
+                "Ashina Castle (Central Forces)",
+                "Ashina Outskirts (Central Forces)",
+                "Ashina Reservoir (Central Forces)",
+                ]})
 
         # Connect Regions
         def create_connection(from_region: str, to_region: str):
@@ -131,14 +151,13 @@ class SekiroWorld(World):
         create_connection("Dilapidated Temple", "Ashina Outskirts")
         create_connection("Dilapidated Temple", "Hirata Estate (Young Lord's Bell Charm)")
 
-        create_connection("Hirata Estate (Young Lord's Bell Charm)",
-                          "Hirata Estate (Father's Bell Charm)")
-
         create_connection("Ashina Outskirts", "Ashina Castle")
 
         create_connection("Ashina Castle", "Ashina Reservoir")
         create_connection("Ashina Castle", "Abandoned Dungeon")
         create_connection("Ashina Castle", "Sunken Valley")
+
+        create_connection("Ashina Castle", "Ashina Castle (Interior Ministry)")
 
         create_connection("Abandoned Dungeon", "Senpou Temple, Mt. Kongo")
         create_connection("Abandoned Dungeon", "Poison Pool")
@@ -149,19 +168,22 @@ class SekiroWorld(World):
 
         create_connection("Hidden Forest", "Mibu Village")
 
-        create_connection("Mibu Village", "Ashina Castle (Interior Ministry)")
+        # Region connections for full game
+        if self.options.goal_option == 0:
+            create_connection("Hirata Estate (Young Lord's Bell Charm)",
+                              "Hirata Estate (Father's Bell Charm)")
 
-        create_connection("Ashina Castle (Interior Ministry)",
-                          "Fountainhead Palace (before underwater progression)")
+            create_connection("Ashina Castle (Interior Ministry)",
+                              "Fountainhead Palace (before underwater progression)")
 
-        create_connection("Fountainhead Palace (before underwater progression)",
-                          "Fountainhead Palace (underwater progression)")
+            create_connection("Fountainhead Palace (before underwater progression)",
+                              "Fountainhead Palace (underwater progression)")
 
-        create_connection("Fountainhead Palace (underwater progression)",
-                          "Ashina Castle (Central Forces)")
+            create_connection("Fountainhead Palace (underwater progression)",
+                              "Ashina Castle (Central Forces)")
 
-        create_connection("Ashina Castle (Central Forces)", "Ashina Outskirts (Central Forces)")
-        create_connection("Ashina Castle (Central Forces)", "Ashina Reservoir (Central Forces)")
+            create_connection("Ashina Castle (Central Forces)", "Ashina Outskirts (Central Forces)")
+            create_connection("Ashina Castle (Central Forces)", "Ashina Reservoir (Central Forces)")
 
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
@@ -176,7 +198,7 @@ class SekiroWorld(World):
                 new_location = SekiroLocation(self.player, location, new_region)
                 if (
                     # Exclude missable locations that don't allow useful items
-                    location.missable and self.options.missable_location_behavior == "forbid_useful"
+                    location.is_missable(self.options) and self.options.missable_location_behavior == "forbid_useful"
                     and not (
                         # Unless they are excluded to a higher degree already
                         location.name in self.all_excluded_locations
@@ -192,8 +214,12 @@ class SekiroWorld(World):
                     if not (self.options.missable_location_behavior < self.options.excluded_location_behavior):
                         self.all_excluded_locations.remove(location.name)
 
-                # Don't create Carp drop locations if the option is disabled.
-                if location.carp and not self.options.carpsanity: continue
+                # Don't create ending-based unreachable locations in regions accessible in both endings.
+                if location.shura and self.options.goal_option == 0: continue
+                if location.full_game and self.options.goal_option == 1: continue
+
+                # Don't create region entrance event locations if region locks are enabled.
+                if location.name.__contains__("->") and self.options.additional_region_locks: continue
 
                 # Replace non-randomized items with events that give the default item
                 event_item = (
@@ -227,6 +253,9 @@ class SekiroWorld(World):
 
             default_item_name = cast(str, location.data.default_item_name)
             item = item_dictionary[default_item_name]
+            # Remove Esoteric Texts from the itempool if the option is enabled to turn Skills into items.
+            if self.options.replace_esoteric_texts_with_skills and "Esoteric Text" in item.name:
+                item_dictionary[item.name].skip = True
             if item.skip:
                 num_required_extra_items += 1
             elif not item.unique:
@@ -266,15 +295,26 @@ class SekiroWorld(World):
             in item_dictionary.values()
             if item.inject
         ]
+
+        # Add region lock items to the item pool if the option is selected.
+        if self.options.additional_region_locks:
+            for item in region_lock_dictionary.values():
+                all_injectable_items.append(item)
+
+        # Add skills as actual items if option is selected. Remove comments when implemented!
+        if self.options.replace_esoteric_texts_with_skills:
+            for item in skill_pickup_dictionary.values():
+                all_injectable_items.append(item)
+
+        # Make skills mandatory as injection.
         injectable_mandatory = [
             item for item in all_injectable_items
-            if item.classification == ItemClassification.progression
+            if item.classification == ItemClassification.progression or item.category == 1
         ]
         injectable_optional = [
             item for item in all_injectable_items
             if item.classification != ItemClassification.progression
         ]
-
         number_to_inject = min(num_required_extra_items, len(all_injectable_items))
         items = (
             self.random.sample(
@@ -292,12 +332,23 @@ class SekiroWorld(World):
             # making them part of the starting health back
             for item in injectable_mandatory:
                 if item in items: continue
-                self.multiworld.push_precollected(self.create_item(item))
-                warning(
-                    f"Couldn't add \"{item.name}\" to the item pool for "
-                    f"{self.player_name}. Adding it to the starting "
-                    "inventory instead."
-                )
+                else:
+                    removable_filler = [
+                        item for item
+                        in item_dictionary.values()
+                        if item.filler and self.create_item(item) in self.local_itempool
+                    ]
+                    filler_choice = self.random.choice(removable_filler)
+                    self.local_itempool.remove(self.create_item(filler_choice))
+                    removable_filler.remove(filler_choice)
+                    items.append(item)
+
+                #self.multiworld.push_precollected(self.create_item(item))
+                #warning(
+                #    f"Couldn't add \"{item.name}\" to the item pool for "
+                #    f"{self.player_name}. Adding it to the starting "
+                #    "inventory instead."
+                #)
 
         return [self.create_item(item) for item in items]
 
@@ -329,6 +380,15 @@ class SekiroWorld(World):
                 self._fill_local_item("Shinobi Prosthetic", ["Dilapidated Temple"],
                                       lambda location: location.name == "DT: Shinobi Prosthetic - complete Tutorial")
 
+        # Local quick hirata option only if very_early_hirata did not already place the item.
+        if self.options.quick_hirata == 'early_local' and "Young Lord's Bell Charm" not in self.multiworld.get_items():
+            self._fill_local_item("Young Lord's Bell Charm", ["Dilapidated Temple", "Ashina Outskirts"])
+
+        # Keep Mushin location unrandomized unless the item is disabled due to the skills being pickups.
+        if not self.options.replace_esoteric_texts_with_skills:
+            self._fill_local_item("Mushin Esoteric Text", ["Ashina Castle"], lambda location:
+                                  location.name == "AC: Mushin Esoteric Text - Tengu after unlocking special technique")
+
     def _fill_local_item(
         self, name: str,
         regions: list[str],
@@ -350,7 +410,7 @@ class SekiroWorld(World):
                 for region in regions
                 for location in location_tables[region]
                 if self._is_location_available(location)
-                and not location.missable
+                and not location.is_missable(self.options)
                 and not location.conditional
                 and (not additional_condition or additional_condition(location))
             )
@@ -403,12 +463,20 @@ class SekiroWorld(World):
         self._add_entrance_rule("Ashina Castle", lambda state: (
             self._can_get(state, "AO: Memory: Gyoubu Oniwa")
         ))
-        self._add_entrance_rule("Sunken Valley", "AC -> SV")
-        self._add_entrance_rule("Senpou Temple, Mt. Kongo", "AD -> ST")
-        self._add_entrance_rule("Poison Pool", "AD -> PP")
+        # Add rules for custom keys if option is enabled
+        if self.options.additional_region_locks:
+            self._add_entrance_rule("Abandoned Dungeon", "Abandoned Dungeon Key")
+            self._add_entrance_rule("Senpou Temple, Mt. Kongo", "Senpou Temple Key")
+            self._add_entrance_rule("Sunken Valley", "Bell of Dispelling (Sunken Valley Key)")
+            self._add_entrance_rule("Poison Pool", "Ashina Depths (Poison Pool) Key")
+        else:
+            self._add_entrance_rule("Senpou Temple, Mt. Kongo", "AD -> ST")
+            self._add_entrance_rule("Sunken Valley", "AC -> SV")
+            self._add_entrance_rule("Poison Pool", "AD -> PP")
+
         self._add_entrance_rule("Sunken Valley Passage", lambda state: (
-            state.has("Gun Fort Shrine Key", self.player)
-            and self._can_get(state, "SV: Prayer Bead - Gun Fort shrine, miniboss drop")
+                state.has("Gun Fort Shrine Key", self.player)
+                and self._can_get(state, "SV: Prayer Bead - Gun Fort shrine, miniboss drop")
         ))
         # Since you can skip Headless if you early, we assume this is in logic.
         self._add_entrance_rule("Hidden Forest", lambda state: (
@@ -419,31 +487,38 @@ class SekiroWorld(World):
         ))
         # Make sure Sunken Valley Passage can be accessed before first invasion
         self._add_entrance_rule("Ashina Castle (Interior Ministry)", lambda state: (
-            state.has("Shelter Stone", self.player)
-            and state.has("Lotus of the Palace", self.player)
-            and state.has("Mortal Blade", self.player)
+                state.has("Shelter Stone", self.player)
+                and state.has("Lotus of the Palace", self.player)
+                and state.has("Mortal Blade", self.player)
+                and self._can_get(state, "AC: Immortal Severance Text - Kuro")
+                and (self._can_go_to(state, "Poison Pool")
+                     or self._can_go_to(state, "Senpou Temple, Mt. Kongo")
+                     or self._can_go_to(state, "Sunken Valley"))
         ))
-        # Make HE2 dependent on HE1 boss to avoid these locations being missable
-        self._add_entrance_rule("Hirata Estate (Father's Bell Charm)", lambda state: (
-                state.has("Father's Bell Charm", self.player)
-                and self._can_get(state, "HE1: Memory: Lady Butterfly")
-        ))
-        self._add_entrance_rule("Fountainhead Palace (before underwater progression)", lambda state: (
-            state.has("Aromatic Branch", self.player)
-            and self._can_get(state, "AC/I: Memory: Great Shinobi")
-        ))
-        self._add_entrance_rule("Fountainhead Palace (underwater progression)", lambda state: (
-            state.has("Mibu Breathing Technique", self.player)
-        ))
-        self._add_entrance_rule("Ashina Castle (Central Forces)", lambda state: (
-            self._can_get(state, "FP2: Divine Dragon's Tears - Sanctuary, boss drop")
-        ))
+        # Only if full game is selected
+        if self.options.goal_option == 0:
+            # Make HE2 dependent on HE1 boss to avoid these locations being missable
+            self._add_entrance_rule("Hirata Estate (Father's Bell Charm)", lambda state: (
+                    state.has("Father's Bell Charm", self.player)
+                    and self._can_get(state, "HE1: Memory: Lady Butterfly")
+            ))
+            self._add_entrance_rule("Fountainhead Palace (before underwater progression)", lambda state: (
+                    state.has("Aromatic Branch", self.player)
+                    and self._can_get(state, "AC/I: Memory: Great Shinobi")
+                    and self._can_get(state, "MV: Memory: Corrupted Monk")
+            ))
+            self._add_entrance_rule("Fountainhead Palace (underwater progression)", lambda state: (
+                state.has("Mibu Breathing Technique", self.player)
+            ))
+            self._add_entrance_rule("Ashina Castle (Central Forces)", lambda state: (
+                self._can_get(state, "FP2: Divine Dragon's Tears - Sanctuary, boss drop")
+            ))
 
         # Define the access rules to some specific locations
         self._add_location_rule("DT: Hidden Tooth - complete Hanbei's quest", "Mortal Blade")
         self._add_location_rule("DT: Ashina Sake - Emma after healing Sculptor's dragonrot",
                                 lambda state: (
-                                self._can_get(state, "AC: Memory: Genichiro")
+                                    self._can_get(state, "AC: Memory: Genichiro")
                                 ))
 
         # Have 3 Prosthetic materials for this check to become reachable
@@ -451,12 +526,12 @@ class SekiroWorld(World):
                        "Mist Raven's Feathers", "Sabimaru", "Iron Fortress", "Large Fan", "Gyoubu's Broken Horn",
                        "Slender Finger"]
         self._add_location_rule("DT: Prosthetic Esoteric Text - talk to Sculptor with 3 prosthetic tools"
-                                , lambda state: ( state.has_from_list(prosthetics, self.player, 3)
+                                , lambda state: (state.has_from_list(prosthetics, self.player, 3)
                                                  and state.has("Shinobi Prosthetic", self.player)))
 
         # Similar to above, but much simpler. Making sure this does not BK Prosthetic/Bell
         self._add_location_rule("DT: Shinobi Esoteric Text - talk to Sculptor with 1 skill point"
-            , lambda state: (
+                                , lambda state: (
                 self._can_get(state, "AO: Prayer Bead - before lookout building, miniboss drop")
             ))
 
@@ -473,14 +548,30 @@ class SekiroWorld(World):
 
         self._add_location_rule([
             "AC: Gun Fort Shrine Key - Kuro's library"
-        ] , lambda state: (
+        ], lambda state: (
             self._can_get(state, "AC: Unrefined Sake - Isshin")
         ))
+
+        if self.options.replace_esoteric_texts_with_skills:
+            self._add_location_rule([
+                "AC: Mushin Esoteric Text - Tengu after unlocking special technique"
+            ], lambda state: (
+                self._can_get(state, "AC: Memory: Genichiro")
+                and state.has_any(["Shadowrush", "Living Force", "Ashina Cross", "High Monk"], self.player)
+            ))
+
+        # Add access rule for region lock as this is behind the fog wall
+        if self.options.additional_region_locks:
+            self._add_location_rule([
+                "AC: Eel Liver - shrine across from serpent shrine"
+            ], lambda state: (
+                state.has("Bell of Dispelling (Sunken Valley Key)", self.player)
+            ))
 
         self._add_location_rule([
             "AR: Gyoubu's Broken Horn - gatehouse, chest",
             "AR: Heavy Coin Purse - gatehouse, next to chest"
-        ],lambda state: state.has("Gatehouse Key", self.player))
+        ], lambda state: state.has("Gatehouse Key", self.player))
 
         self._add_location_rule([
             "ST: Mortal Blade - Divine Child",
@@ -494,25 +585,25 @@ class SekiroWorld(World):
         self._add_location_rule([
             "ST: Rice for Kuro - Divine Child for Persimmon"
         ], lambda state: (
-            state.has("Persimmon", self.player)
-            and self._can_get(state, "ST: Mortal Blade - Divine Child")
+                state.has("Persimmon", self.player)
+                and self._can_get(state, "ST: Mortal Blade - Divine Child")
         ))
 
         self._add_location_rule([
             "ST: Holy Chapter: Dragon's Return - cave, blue-robed corpse after Holy Chapter: Infested"
         ], lambda state: (
-            state.has("Holy Chapter: Infested", self.player)
-            and self._can_get(state, "ST: Rice for Kuro - Divine Child for Persimmon")
+                state.has("Holy Chapter: Infested", self.player)
+                and self._can_get(state, "ST: Rice for Kuro - Divine Child for Persimmon")
         ))
 
         self._add_location_rule([
             "ST: Frozen Tears - Divine Child for both Serpent Viscera after first invasion"
         ], lambda state: (
-            state.has("Dried Serpent Viscera", self.player)
-            and state.has("Fresh Serpent Viscera", self.player)
-            and self._can_get(state, "ST: Holy Chapter: Dragon's Return - "
-                                     "cave, blue-robed corpse after Holy Chapter: Infested")
-            and self._can_get(state, "AC/I: Memory: Great Shinobi")
+                state.has("Dried Serpent Viscera", self.player)
+                and state.has("Fresh Serpent Viscera", self.player)
+                and self._can_get(state, "ST: Holy Chapter: Dragon's Return - "
+                                         "cave, blue-robed corpse after Holy Chapter: Infested")
+                and self._can_get(state, "AC/I: Memory: Great Shinobi")
         ))
 
         self._add_location_rule([
@@ -529,8 +620,8 @@ class SekiroWorld(World):
             "SVP: Fresh Serpent Viscera - Sunken Valley Cavern, plunge kill serpent, enemy drop",
             "SVP: Mibu Balloon of Soul - Sunken Valley Cavern, lake overlook after killing serpent"
         ], lambda state: (
-            state.has("Puppeteer Ninjutsu", self.player)
-            and state.has("Gun Fort Shrine Key", self.player)
+                state.has("Puppeteer Ninjutsu", self.player)
+                and state.has("Gun Fort Shrine Key", self.player)
         ))
 
         self._add_location_rule([
@@ -538,15 +629,15 @@ class SekiroWorld(World):
             "SVP: Dried Serpent Viscera - underground shrine, statue",
             "SVP: Mibu Balloon of Soul - underground shrine, back porch"
         ], lambda state: (
-            state.has("Puppeteer Ninjutsu", self.player)
-            or state.has("Mist Raven's Feathers", self.player)
+                state.has("Puppeteer Ninjutsu", self.player)
+                or state.has("Mist Raven's Feathers", self.player)
         ))
 
         self._add_location_rule([
             "SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp"
         ], lambda state: (
-            self.has_any_truly_precious_bait(state)
-            and self._can_get(state, "FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp twice")
+                self.has_any_truly_precious_bait(state)
+                and self._can_get(state, "FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp twice")
         ))
 
         self._add_location_rule([
@@ -560,16 +651,16 @@ class SekiroWorld(World):
         self._add_location_rule([
             "PP: Bestowal Ninjutsu - Guardian Ape's Burrow, boss drop"
         ], lambda state: (
-            self._can_get(state, "SVP: Memory: Guardian Ape")
-            and state.has("Mortal Blade", self.player)
+                self._can_get(state, "SVP: Memory: Guardian Ape")
+                and state.has("Mortal Blade", self.player)
         ))
 
         self._add_location_rule([
             "PP: Malcontent's Ring - Guardian Ape's Burrow, miniboss drop"
         ], lambda state: (
-            self._can_get(state, "PP: Bestowal Ninjutsu - Guardian Ape's Burrow, boss drop")
-            and state.has("Slender Finger", self.player)
-            and self._can_go_to(state, "Hidden Forest")
+                self._can_get(state, "PP: Bestowal Ninjutsu - Guardian Ape's Burrow, boss drop")
+                and state.has("Slender Finger", self.player)
+                and self._can_go_to(state, "Hidden Forest")
         ))
 
         self._add_location_rule([
@@ -581,13 +672,13 @@ class SekiroWorld(World):
         self._add_location_rule([
             "MV: Treasure Carp Scale - Head Priest's house, enemy drop"
         ], lambda state: (
-           self._can_get(state,"MV: Dragonspring Sake - Head Priest for Water of the Palace")
+            self._can_get(state, "MV: Dragonspring Sake - Head Priest for Water of the Palace")
         ))
 
         self._add_location_rule([
             "MV: Shelter Stone - Wedding Cave"
         ], lambda state: (
-            self._can_get(state,"MV: Memory: Corrupted Monk")
+            self._can_get(state, "MV: Memory: Corrupted Monk")
         ))
 
         self._add_location_rule("FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp once",
@@ -595,10 +686,10 @@ class SekiroWorld(World):
 
         self._add_location_rule(
             "FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp twice",
-             lambda state: (
-                 self._can_get(state, "FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp once")
-                 and state.has("Precious Bait", self.player)
-             ))
+            lambda state: (
+                    self._can_get(state, "FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp once")
+                    and state.has("Precious Bait", self.player)
+            ))
 
         self._add_location_rule("FP2: Divine Grass - Feeding Grounds, Attendant for Great White Whisker",
                                 lambda state: state.has("Great White Whisker", self.player))
@@ -606,7 +697,7 @@ class SekiroWorld(World):
         self._add_location_rule([
             "AR/C: Dragon Flash - final boss drop",
             "AR/C: Memory: Saint Isshin"
-        ],lambda state: state.has("Secret Passage Key", self.player))
+        ], lambda state: state.has("Secret Passage Key", self.player))
 
 
         # Forbid shops from carrying items with multiple counts (the static randomizer has its own
@@ -616,16 +707,21 @@ class SekiroWorld(World):
                 self._add_item_rule(
                     location.name,
                     lambda item: (
-                        item.player != self.player or
-                        (item.data.count == 1)
+                            item.player != self.player or
+                            (item.data.count == 1)
                     )
                 )
-        # Create event for multiworld completion to trigger only upon being sent by the client.
-        # That way, you only complete the game after the credits and doing the actual ending.
-        self.multiworld.completion_condition[self.player] = lambda state: (
-            self._can_get(state, "AR/C: Memory: Saint Isshin")
-            and state.has("Divine Dragon's Tears", self.player)
-        )
+
+        # Completion condition depending on selected ending
+        if self.options.goal_option == 0:
+            self.multiworld.completion_condition[self.player] = lambda state: (
+                self._can_get(state, "AR/C: Memory: Saint Isshin")
+                and state.has("Divine Dragon's Tears", self.player)
+            )
+        else:
+            self.multiworld.completion_condition[self.player] = lambda state: (
+                self._can_get(state, "AC/I: Memory: Isshin Ashina")
+            )
 
     def _add_prosthetic_rules(self) -> None:
         """Adds rules for items that need the prosthetic in case of early Hirata setting.
@@ -730,14 +826,14 @@ class SekiroWorld(World):
         self._add_location_rule([
             "AC: Sweet Rice Ball - Kuro for Rice for Kuro"
         ], lambda state:
-            state.has("Rice for Kuro", self.player)
-            and self._can_get(state, "AC: Memory: Genichiro"))
+        state.has("Rice for Kuro", self.player)
+        and self._can_get(state, "AC: Memory: Genichiro"))
 
         self._add_location_rule([
             "AC/I: Sweet Rice Ball - Kuro after incense and Rice for Kuro"
         ], lambda state: (
-            self._can_get(state, "AC: Sweet Rice Ball - Kuro for Rice for Kuro")
-            and self._can_go_to(state, "Fountainhead Palace (before underwater progression)")
+                self._can_get(state, "AC: Sweet Rice Ball - Kuro for Rice for Kuro")
+                and self._can_go_to(state, "Fountainhead Palace (before underwater progression)")
         ))
 
         self._add_location_rule([
@@ -756,7 +852,7 @@ class SekiroWorld(World):
 
         self._add_location_rule([
             "AC/I: Tomoe's Note - Emma after eavesdropping on Kuro"
-        ], lambda state:(
+        ], lambda state: (
             self._can_get(state, "AC/I: Memory: Great Shinobi")
         ))
 
@@ -819,48 +915,65 @@ class SekiroWorld(World):
         ))
 
         ## Pot Noble Harunaga
-        # Add logic to exclude these from being too early, as scales are not available in these quantities.
+        # Add Carp Scale logic for the shop inventory as we do not randomize prices here.
         self._add_location_rule([
             "HE1: Floating Passage Text - Pot Noble Harunaga",
-            "HE1: Mask Fragment: Right - Pot Noble Harunaga",
-        ], lambda state: self._can_go_to(state, "Ashina Castle"))
+        ], lambda state: state.has("Treasure Carp Scale", self.player, 5))
 
-        # He only gives this check after reaching Fountainhead
+        self._add_location_rule([
+            "HE1: Divine Grass - Pot Noble Harunaga"
+        ], lambda state: state.has("Treasure Carp Scale", self.player, 1))
+
+        self._add_location_rule([
+            "HE1: Withered Red Gourd - Pot Noble Harunaga",
+        ], lambda state: state.has("Treasure Carp Scale", self.player, 2))
+
+        self._add_location_rule([
+            "HE1: Mask Fragment: Right - Pot Noble Harunaga",
+        ], lambda state: state.has("Treasure Carp Scale", self.player, 7))
+
         self._add_location_rule([
             "HE1: Truly Precious Bait - Pot Noble Harunaga after trading 6 scales",
-        ], lambda state: self._can_go_to(state, "Fountainhead Palace (before underwater progression)"))
+        ], lambda state: (
+            self._can_go_to(state, "Fountainhead Palace (before underwater progression)")
+            and state.has("Treasure Carp Scale", self.player, 6)
+        ))
 
         self._add_location_rule([
             "HE1: Lapis Lazuli - Pot Noble Harunaga after Truly Precious Bait",
         ], lambda state: (
-                    self._can_go_to(state, "Fountainhead Palace (underwater progression)")
-                    and self._can_get(state, "SVP: Great White Whisker - "
-                                             "Guardian Ape's Watering Hole, after killing Giant Carp")
-            ))
-
-        # Add logic for Carpsanity setting, as low-cost locations may also not yet be available on first visit.
-        if self.options.carpsanity:
-            self._add_location_rule([
-                "HE1: Withered Red Gourd - Pot Noble Harunaga",
-                "HE1: Divine Grass - Pot Noble Harunaga"
-            ], lambda state: self._can_go_to(state, "Ashina Castle"))
-
+                self._can_go_to(state, "Fountainhead Palace (underwater progression)")
+                and self._can_get(state, "SVP: Great White Whisker - "
+                                         "Guardian Ape's Watering Hole, after killing Giant Carp")
+        ))
 
         ## Pot Noble Koremori
+        # Add Carp Scale logic for the shop inventory as we do not randomize prices here.
+        self._add_location_rule([
+            "FP1: Mask Fragment: Left - Pot Noble Koremori",
+        ], lambda state: state.has("Treasure Carp Scale", self.player, 12))
+
+        self._add_location_rule([
+            "FP1: Dragon's Blood Droplet - Pot Noble Koremori"
+        ], lambda state: state.has("Treasure Carp Scale", self.player, 1))
+
+        self._add_location_rule(
+            "FP1: Truly Precious Bait - Pot Noble Koremori after 9 scales",
+            lambda state: state.has("Treasure Carp Scale", self.player, 12))
+
         self._add_location_rule(
             "FP2: Lapis Lazuli - Koremori's pot after Truly Precious Bait",
             lambda state: (
                     self._can_go_to(state, "Fountainhead Palace (underwater progression)")
                     and self._can_get(state, "SVP: Great White Whisker - "
-                                             "Guardian Ape's Watering Hole, after killing Giant Carp")
-            ))
+                                             "Guardian Ape's Watering Hole, after killing Giant Carp")))
 
         ## Blackhat Badger
         self._add_location_rule([
             "AC/C: Mibu Pilgrimage Balloon - complete Blackhat Badger quest"
         ], lambda state: (
-            state.has("Puppeteer Ninjutsu", self.player)
-            and self._can_get(state, "ST: Mibu Balloon of Spirit - after Sunken Valley Cavern idol")
+                state.has("Puppeteer Ninjutsu", self.player)
+                and self._can_get(state, "ST: Mibu Balloon of Spirit - after Sunken Valley Cavern idol")
         ))
 
     def _add_mibu_rules(self) -> None:
@@ -885,10 +998,6 @@ class SekiroWorld(World):
             "AD: Red Lump - Underground Waterway island, red-eyed Jinzaemon, enemy drop",
             "AD: Red Lump - Underground Waterway island, red-eyed Kotaro, enemy drop",
             "AR: Mibu Balloon of Soul - underwater, starting well",
-            "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #1",
-            "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #2",
-            "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #3",
-            "FP1: Water of the Palace - Mibu Manor, dive in left corner before exit, chest",
             "MV: Light Coin Purse - underwater, pond village side #1",
             "MV: Light Coin Purse - underwater, pond village side #2",
             "MV: Prayer Bead - underwater, pond chest",
@@ -902,7 +1011,6 @@ class SekiroWorld(World):
             "SVP: Adamantite Scrap - underwater, lake opposite from Riven Cave entrance",
             "SVP: Bulging Coin Purse - underwater, log in middle of lake",
             "SVP: Gachiin's Sugar - underwater, lake opposite from Riven Cave entrance",
-            "SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp",
             "SVP: Precious Bait - underwater, Guardian Ape's Watering Hole",
             "SVP: Treasure Carp Scale - underwater, lake at Riven Cave entrance",
             "SVP: Yashariku's Sugar - underwater, lake between rocks"
@@ -918,6 +1026,15 @@ class SekiroWorld(World):
             "MV: Treasure Carp Scale - underwater, near Water Mill idol, Carp drop",
             "SVP: Treasure Carp Scale - underwater, lake close to Riven Cave entrance, Carp drop",
             "SVP: Treasure Carp Scale - underwater, lake far from Riven Cave entrance, Carp drop"
+            })
+        # Add Full_game locations if that option is selected.
+        if self.options.goal_option == 0:
+            diving.update({
+            "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #1",
+            "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #2",
+            "FP1: Treasure Carp Scale - Mibu Manor, dive in left corner before exit #3",
+            "FP1: Water of the Palace - Mibu Manor, dive in left corner before exit, chest",
+            "SVP: Great White Whisker - Guardian Ape's Watering Hole, after killing Giant Carp",
             })
         for location in sorted(diving):
             self._add_location_rule(location, lambda state: state.has("Mibu Breathing Technique", self.player))
@@ -938,7 +1055,7 @@ class SekiroWorld(World):
                     location.name
                     for location in all_locations
                     if location.name in self.all_excluded_locations
-                    and not location.data.missable
+                    and not location.data.is_missable(self.options)
                 }
                 if self.options.excluded_location_behavior < self.options.missable_location_behavior
                 else self.all_excluded_locations
@@ -949,7 +1066,7 @@ class SekiroWorld(World):
             {
                 location.name
                 for location in all_locations
-                if location.data.missable
+                if location.data.is_missable(self.options)
                 and not (
                     location.name in self.all_excluded_locations
                     and self.options.missable_location_behavior <
@@ -977,13 +1094,6 @@ class SekiroWorld(World):
              # Make this available pretty early for the option.
              if self.options.quick_hirata == "early_global":
                  self.multiworld.early_items[self.player]["Young Lord's Bell Charm"] = 1
-             elif self.options.quick_hirata == "early_local":
-                 self.multiworld.local_early_items[self.player]["Young Lord's Bell Charm"] = 1
-
-        if "Mechanical Barrel" in randomized_items:
-            # Make this available early to allow prosthetic upgrades
-            self._add_entrance_rule("Abandoned Dungeon", "Mechanical Barrel")
-            self._add_entrance_rule("Sunken Valley", "Mechanical Barrel")
 
     def has_any_truly_precious_bait(self, state: CollectionState) -> bool:
         return (
@@ -1000,6 +1110,8 @@ class SekiroWorld(World):
         for location in locations:
             data = location_dictionary[location]
             if data.carp and not self.options.carpsanity: continue
+            if data.shura and self.options.goal_option == 0: continue
+            if data.full_game and self.options.goal_option == 1: continue
             if isinstance(rule, str):
                 assert item_dictionary[rule].classification & ItemClassification.progression
                 rule = lambda state, item=rule: state.has(item, self.player)
@@ -1009,9 +1121,10 @@ class SekiroWorld(World):
         """Sets a rule for the entrance to the given region."""
         assert region in location_tables
         if region not in self.created_regions: return
+        all_items = { **item_dictionary, **region_lock_dictionary}
         if isinstance(rule, str):
             if " -> " not in rule:
-                assert item_dictionary[rule].classification == ItemClassification.progression
+                assert all_items[rule].classification == ItemClassification.progression
             rule = lambda state, item=rule: state.has(item, self.player)
         add_rule(self.multiworld.get_entrance("Go To " + region, self.player), rule)
 
@@ -1042,13 +1155,15 @@ class SekiroWorld(World):
         return (
             not data.is_event
             and (not data.carp or bool(self.options.carpsanity))
+            and (not data.shura or self.options.goal_option == 1)
+            and (not data.full_game or self.options.goal_option == 0)
             and not (
                 self.options.excluded_location_behavior == "do_not_randomize"
                 and data.name in self.all_excluded_locations
             )
             and not (
                 self.options.missable_location_behavior == "do_not_randomize"
-                and data.missable
+                and data.is_missable(self.options)
             )
         )
 
@@ -1101,9 +1216,12 @@ class SekiroWorld(World):
 
         slot_data = {
             "options": {
+                "goal_option": self.options.goal_option.value,
+                "additional_region_locks": self.options.additional_region_locks.value,
                 "death_link": self.options.death_link.value,
                 "remove_headless_slow_walk": self.options.remove_headless_slow_walk.value,
                 "randomize_skills_and_prosthetics": self.options.randomize_skills_and_prosthetics.value,
+                "replace_esoteric_texts_with_skills": self.options.replace_esoteric_texts_with_skills.value,
                 "randomize_enemies": self.options.randomize_enemies.value,
                 "randomize_headless": self.options.randomize_headless.value,
                 "similar_boss_phases": self.options.similar_boss_phases.value,

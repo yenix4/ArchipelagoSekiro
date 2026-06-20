@@ -21,7 +21,7 @@ once:
 * **Unique:** Items that can be obtained once in a run, such as keys, notes,
   reusable items, prosthetics
   & unique upgrades. Doesn't include Skill Texts or Skills.
-* **Currency:** Coin Purses and Treasure Carp Scales.
+* **Treasure Carp Scales:** Treasure Carp Scales.
 * **Upgrade:** Non-unique upgrade materials to upgrade prosthetic tools.
-* **Miscellaneous:** Generic stackable items such as sugars, mibu balloons,
-  resistance buffs and so on.
+* **Miscellaneous:** Generic stackable items such as sugars, coin purses, 
+  mibu balloons, resistance buffs and so on.

@@ -15,19 +15,39 @@ from Options import (
 
 ## Game Options
 
+class GoalOption(Choice):
+    """
+    Shura: Play until the first invasion and choose to obey the Iron Code when prompted by Owl.
+    This is a shorter playthrough ideal for big syncs with time limits.
+
+    Full Game: Play the entire game by breaking the Iron Code when prompted by Owl after the first invasion.
+    Any of the 3 full endings will work for this.
+    """
+    display_name = "Goal"
+    option_full_game = 0
+    option_shura = 1
+    default = 0
 
 class QuickHirata(Choice):
-    """Force the Young Lord's Bell Charm to be early in your local world or the multiworld"""
+    """Force the Young Lord's Bell Charm to be early in your local world or the multiworld
+
+    If you wish to use this in a solo playthrough, please use early_local for best results.
+    """
     display_name = "Quick Hirata"
     option_off = 0
     option_early_global = 1
     option_early_local = 2
     default = option_off
 
-
 class VeryEarlyHirata(Toggle):
     """Make it possible to need to progress into Hirata Estate before Ashina Outskirts (no softlock)"""
     display_name = "Allow Very Early Hirata"
+
+class AdditionalRegionLocks(Toggle):
+    """Add custom progression blockers to Abandoned Dungeon, Senpou Temple, Ashina Depths (Poison Pool) and Sunken
+    Valley to allow for more spheres and a less open world."""
+    display_name = "Additional Progression Blockers"
+    visibility = Visibility.none
 
 class DeathLink(Choice):
     """When you die, everyone who enabled death link dies. Of course, the reverse is true too.
@@ -59,9 +79,8 @@ class RandomizeSkillsandProsthetics(Toggle):
 class ReplaceEsotericTextswithSkills(Toggle):
     """Randomize Skills as Item pickups, removing the Esoteric Texts.
 
-    This is ignored unless Skills and Prosthetics are randomized.
+    This will raise an error unless Skills and Prosthetics are also randomized.
     """
-    # Remember to put an option error when implementing this!
     display_name = "Replace Esoteric Texts with Skills as Items"
     visibility = Visibility.none
 
@@ -151,11 +170,11 @@ class Carpsanity(Toggle):
 
 class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""
-    default = frozenset({"Hidden", "Upgrade", "Miscellaneous", "Headless"})
+    default = frozenset({"Hidden", "Miscellaneous", "Upgrade"})
 
 
 class ExcludedLocationBehaviorOption(Choice):
-    """How to choose items for excluded locations in DS3.
+    """How to choose items for excluded locations in Sekiro.
 
     - **Allow Useful:** Excluded locations can't have progression items, but they can have useful
       items.
@@ -181,8 +200,7 @@ class MissableLocationBehaviorOption(Choice):
       items.
     - **Forbid Useful:** Neither progression items nor useful items can be placed in missable
       locations.
-    - **Do Not Randomize:** Missable locations always contain the same item as in vanilla Dark Souls
-      III.
+    - **Do Not Randomize:** Missable locations always contain the same item as in vanilla Sekiro.
 
     A "progression item" is anything that's required to unlock another location in some game. A
     "useful item" is something each game defines individually, usually items that are quite
@@ -198,8 +216,10 @@ class MissableLocationBehaviorOption(Choice):
 @dataclass
 class SekiroOptions(PerGameCommonOptions):
     # Game Options
+    goal_option: GoalOption
     quick_hirata: QuickHirata
     very_early_hirata: VeryEarlyHirata
+    additional_region_locks: AdditionalRegionLocks
     death_link: DeathLink
     remove_headless_slow_walk: RemoveHeadlessSlowWalk
 

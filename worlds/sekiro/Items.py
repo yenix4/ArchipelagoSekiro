@@ -6,6 +6,8 @@ from typing import ClassVar
 
 from BaseClasses import Item, ItemClassification
 
+from .Options import AdditionalRegionLocks
+
 
 class SekiroItemCategory(IntEnum):
     ESOTERIC_TEXTS = 0
@@ -14,7 +16,7 @@ class SekiroItemCategory(IntEnum):
     PRAYER_BEADS = 3
     MEMORIES = 4
     MISC = 5
-    CURRENCY = 6
+    SCALES = 6
     UNIQUE = 7
     UPGRADE = 8
 
@@ -59,7 +61,7 @@ class SekiroItemData:
     def unique(self):
         """Whether this item should be unique, appearing only once in the randomizer."""
         return self.category not in {
-            SekiroItemCategory.MISC, SekiroItemCategory.CURRENCY, SekiroItemCategory.UPGRADE,
+            SekiroItemCategory.MISC, SekiroItemCategory.SCALES, SekiroItemCategory.UPGRADE,
             SekiroItemCategory.GOURD_SEEDS, SekiroItemCategory.PRAYER_BEADS,
         }
 
@@ -81,7 +83,7 @@ class SekiroItemData:
                          SekiroItemCategory.PRAYER_BEADS: "Prayer Beads",
                          SekiroItemCategory.UNIQUE: "Unique",
                          SekiroItemCategory.MEMORIES: "Memories",
-                         SekiroItemCategory.CURRENCY: "Currency",
+                         SekiroItemCategory.SCALES: "Treasure Carp Scales",
                          SekiroItemCategory.UPGRADE: "Upgrade",
                          SekiroItemCategory.GOURD_SEEDS: "Gourd Seeds",
                      }[self.category])
@@ -121,13 +123,9 @@ class SekiroItem(Item):
 
 
 _all_items = [
-    # Currency
-    SekiroItemData("Light Coin Purse", 0x40000E74, SekiroItemCategory.CURRENCY, filler = True),
-    SekiroItemData("Heavy Coin Purse", 0x40000E78, SekiroItemCategory.CURRENCY),
-    SekiroItemData("Bulging Coin Purse", 0x40000E7C, SekiroItemCategory.CURRENCY,
-                   classification = ItemClassification.useful),
-    *SekiroItemData("Treasure Carp Scale", 0x40002710, SekiroItemCategory.CURRENCY,
-                    classification = ItemClassification.useful).counts([3, 5]),
+    # Treasure Carp Scales
+    *SekiroItemData("Treasure Carp Scale", 0x40002710, SekiroItemCategory.SCALES,
+                    classification = ItemClassification.progression_deprioritized_skip_balancing).counts([3, 5]),
 
     # Esoteric Texts
     SekiroItemData("Shinobi Esoteric Text", 0x40000B68, SekiroItemCategory.ESOTERIC_TEXTS,
@@ -137,6 +135,8 @@ _all_items = [
     SekiroItemData("Ashina Esoteric Text", 0x40000B6A, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
     SekiroItemData("Senpou Esoteric Text", 0x40000B6B, SekiroItemCategory.ESOTERIC_TEXTS,
+                   classification = ItemClassification.useful),
+    SekiroItemData("Mushin Esoteric Text", 0x40000B6C, SekiroItemCategory.ESOTERIC_TEXTS,
                    classification = ItemClassification.useful),
 
     # Healing
@@ -180,14 +180,15 @@ _all_items = [
                    classification = ItemClassification.useful),
     SekiroItemData("Memory: Saint Isshin", 0x4000145B, SekiroItemCategory.MEMORIES,
                    classification = ItemClassification.useful),
-    #For now injected as unreachable in regular ending.
-    # redo when implementing alternate ending for Shura
     SekiroItemData("Memory: Isshin Ashina", 0x4000145C, SekiroItemCategory.MEMORIES,
-                   classification = ItemClassification.useful, inject = True),
+                   classification = ItemClassification.useful),
     SekiroItemData("Memory: Headless Ape", 0x4000145D, SekiroItemCategory.MEMORIES,
                    classification = ItemClassification.useful),
 
     # Misc
+    SekiroItemData("Light Coin Purse", 0x40000E74, SekiroItemCategory.MISC, filler=True),
+    SekiroItemData("Heavy Coin Purse", 0x40000E78, SekiroItemCategory.MISC),
+    SekiroItemData("Bulging Coin Purse", 0x40000E7C, SekiroItemCategory.MISC),
     *SekiroItemData("Pellet", 0x40000BCC, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     SekiroItemData("Divine Grass", 0x40000BE0, SekiroItemCategory.MISC),
     *SekiroItemData("Red Lump", 0x40000BEA, SekiroItemCategory.MISC).counts([2]),
@@ -206,15 +207,16 @@ _all_items = [
     *SekiroItemData("Bite Down", 0x40000CDA, SekiroItemCategory.MISC, filler = True).counts([2]),
     *SekiroItemData("Ako's Sugar", 0x40000D48, SekiroItemCategory.MISC).counts([2, 3]),
     *SekiroItemData("Yashariku's Sugar", 0x40000D52, SekiroItemCategory.MISC).counts([2, 3]),
-    *SekiroItemData("Ungo's Sugar", 0x40000D5C, SekiroItemCategory.MISC).counts([2, 3]),
-    *SekiroItemData("Gokan's Sugar", 0x40000D66, SekiroItemCategory.MISC).counts([2, 3]),
+    *SekiroItemData("Ungo's Sugar", 0x40000D5C, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
+    *SekiroItemData("Gokan's Sugar", 0x40000D66, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Gachiin's Sugar", 0x40000D70, SekiroItemCategory.MISC).counts([2, 3]),
+    *SekiroItemData("Divine Confetti", 0x40000D7A, SekiroItemCategory.MISC).counts([2]),
     *SekiroItemData("Divine Confetti", 0x40000D7A, SekiroItemCategory.MISC,
-                    classification = ItemClassification.useful).counts([2, 3, 5]),
+                    classification=ItemClassification.useful).counts([3, 5]),
     *SekiroItemData("Ceramic Shard", 0x40000DAC, SekiroItemCategory.MISC, filler = True).counts([2, 3, 4]),
     *SekiroItemData("Fistful of Ash", 0x40000DB6, SekiroItemCategory.MISC, filler = True).counts([2, 3, 5]),
     *SekiroItemData("Oil", 0x40000DC0, SekiroItemCategory.MISC, filler = True).counts([2, 3, 5]),
-    *SekiroItemData("Snap Seed", 0x40000DCA, SekiroItemCategory.MISC).counts([2, 3, 5]),
+    *SekiroItemData("Snap Seed", 0x40000DCA, SekiroItemCategory.MISC, filler = True).counts([2, 3, 5]),
     *SekiroItemData("Mibu Balloon of Wealth", 0x40000E10, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Mibu Balloon of Soul", 0x40000E1A, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
     *SekiroItemData("Mibu Possession Balloon", 0x40000E24, SekiroItemCategory.MISC, filler = True).counts([2, 3]),
@@ -244,24 +246,19 @@ _all_items = [
     SekiroItemData("Floating Passage Text", 0x4000099D, SekiroItemCategory.SKILLS),
     SekiroItemData("Shinobi Medicine Rank 2", 0x400009A7, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.useful),
-    # For now injected as unreachable in regular ending.
-    # redo when implementing alternate ending for Shura
-    SekiroItemData("One Mind", 0x4000099E, SekiroItemCategory.SKILLS, inject = True),
+    SekiroItemData("One Mind", 0x4000099E, SekiroItemCategory.SKILLS),
     SekiroItemData("Shinobi Medicine Rank 3", 0x400009A8, SekiroItemCategory.SKILLS,
                    classification = ItemClassification.useful),
-    SekiroItemData("A Beast's Karma", 0x400009AB, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful),
-    SekiroItemData("Breath of Life: Shadow", 0x400009B0, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful),
-    SekiroItemData("Breath of Nature: Shadow", 0x400009B1, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful),
+    SekiroItemData("A Beast's Karma", 0x400009AB, SekiroItemCategory.SKILLS),
+    SekiroItemData("Breath of Life: Shadow", 0x400009B0, SekiroItemCategory.SKILLS),
+    SekiroItemData("Breath of Nature: Shadow", 0x400009B1, SekiroItemCategory.SKILLS),
 
     # Unique
     SekiroItemData("Shinobi Prosthetic", 0x40000906, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression),
     SekiroItemData("Aromatic Flower", 0x400009C7, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mechanical Barrel", 0x40000B5E, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.useful),
     SekiroItemData("Sweet Rice Ball", 0x40000BF5, SekiroItemCategory.UNIQUE),
     SekiroItemData("Taro Persimmon", 0x40000BFF, SekiroItemCategory.UNIQUE),
     SekiroItemData("Green Mossy Gourd", 0x40000CE4, SekiroItemCategory.UNIQUE),
@@ -276,7 +273,7 @@ _all_items = [
     SekiroItemData("Mibu Pilgrimage Balloon", 0x40000E38, SekiroItemCategory.UNIQUE),
     SekiroItemData("Jinza's Jizo Statue", 0x40000E89, SekiroItemCategory.UNIQUE),
     SekiroItemData("Ceremonial Tanto", 0x40000ED8, SekiroItemCategory.UNIQUE),
-    SekiroItemData("Nightjar Monocular", 0x40000F3C, SekiroItemCategory.UNIQUE),
+    SekiroItemData("Nightjar Monocular", 0x40000F3C, SekiroItemCategory.UNIQUE, skip = True),
     SekiroItemData("Mask Fragment: Right", 0x4000157C, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mask Fragment: Left", 0x4000157D, SekiroItemCategory.UNIQUE),
     SekiroItemData("Mask Fragment: Dragon", 0x4000157E, SekiroItemCategory.UNIQUE),
@@ -295,7 +292,7 @@ _all_items = [
                    classification = ItemClassification.useful),
     SekiroItemData("Promissory Note", 0x40002365, SekiroItemCategory.UNIQUE),
     SekiroItemData("Water of the Palace", 0x4000236E, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Great White Whisker", 0x4000236F, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Red and White Pinwheel", 0x40002378, SekiroItemCategory.UNIQUE,
@@ -310,23 +307,23 @@ _all_items = [
     SekiroItemData("Truly Precious Bait (Koremori)", 0x400023DE, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Fresh Serpent Viscera", 0x400023E8, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Dried Serpent Viscera", 0x400023E9, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Herb Catalogue Scrap", 0x400023F0, SekiroItemCategory.UNIQUE),
     SekiroItemData("Dosaku's Note", 0x400023F5, SekiroItemCategory.UNIQUE),
     SekiroItemData("Rat Description", 0x400023F6, SekiroItemCategory.UNIQUE),
     SekiroItemData("Surgeon's Bloody Letter", 0x400023F7, SekiroItemCategory.UNIQUE),
     SekiroItemData("Surgeon's Stained Letter", 0x400023F8, SekiroItemCategory.UNIQUE),
     SekiroItemData("Holy Chapter: Dragon's Return", 0x400023F9, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Immortal Severance Text", 0x400023FA, SekiroItemCategory.UNIQUE),
     SekiroItemData("Immortal Severance Scrap", 0x400023FB, SekiroItemCategory.UNIQUE),
     SekiroItemData("Fragrant Flower Note", 0x400023FC, SekiroItemCategory.UNIQUE),
     SekiroItemData("Okami's Ancient Text", 0x400023FD, SekiroItemCategory.UNIQUE),
     SekiroItemData("Page's Diary", 0x400023FE, SekiroItemCategory.UNIQUE),
     SekiroItemData("Holy Chapter: Infested", 0x400023FF, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Tomoe's Note", 0x40002400, SekiroItemCategory.UNIQUE),
     SekiroItemData("Flame Barrel Memo", 0x40002401, SekiroItemCategory.UNIQUE),
     SekiroItemData("Nightjar Beacon Memo", 0x40002402, SekiroItemCategory.UNIQUE),
@@ -348,32 +345,28 @@ _all_items = [
                    classification = ItemClassification.progression),
     SekiroItemData("Shuriken Wheel", 0x400025E4, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
-    SekiroItemData("Phantom Kunai", 0x400025E5, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.useful),
+    SekiroItemData("Phantom Kunai", 0x400025E5, SekiroItemCategory.UNIQUE),
     SekiroItemData("Robert's Firecrackers", 0x400025EE, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
     #Mark as progression if we implement it being there for Anayama
     SekiroItemData("Flame Barrel", 0x400025F8, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
-    SekiroItemData("Pine Resin Ember", 0x400025F9, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.useful),
+                   classification = ItemClassification.progression_deprioritized),
+    SekiroItemData("Pine Resin Ember", 0x400025F9, SekiroItemCategory.UNIQUE),
     SekiroItemData("Shinobi Axe of the Monkey", 0x40002602, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
     SekiroItemData("Mist Raven's Feathers", 0x4000260C, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Sabimaru", 0x40002616, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
     SekiroItemData("Iron Fortress", 0x40002620, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
     SekiroItemData("Large Fan", 0x4000262A, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
+                   classification = ItemClassification.progression_deprioritized),
     SekiroItemData("Gyoubu's Broken Horn", 0x40002634, SekiroItemCategory.UNIQUE,
                    classification = ItemClassification.useful),
     SekiroItemData("Slender Finger", 0x4000263E, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.progression),
-    SekiroItemData("Malcontent's Ring", 0x4000263F, SekiroItemCategory.UNIQUE,
-                   classification = ItemClassification.useful),
-
+                   classification = ItemClassification.progression_deprioritized),
+    SekiroItemData("Malcontent's Ring", 0x4000263F, SekiroItemCategory.UNIQUE),
 
     # Upgrade
     *SekiroItemData("Scrap Iron", 0x40001770, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3, 5]),
@@ -382,63 +375,81 @@ _all_items = [
     *SekiroItemData("Black Gunpowder", 0x400017D4, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3]),
     *SekiroItemData("Yellow Gunpowder", 0x40001838, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3, 4]),
     SekiroItemData("Fulminated Mercury", 0x40001842, SekiroItemCategory.UPGRADE),
-    *SekiroItemData("Lump of Fat Wax", 0x4000189C, SekiroItemCategory.UPGRADE).counts([2, 3]),
+    *SekiroItemData("Lump of Fat Wax", 0x4000189C, SekiroItemCategory.UPGRADE, filler = True).counts([2, 3]),
     *SekiroItemData("Lump of Grave Wax", 0x400018A6, SekiroItemCategory.UPGRADE).counts([2]),
     *SekiroItemData("Lapis Lazuli", 0x40001900, SekiroItemCategory.UPGRADE).counts([2]),
 
+]
+
+_added_region_locks = [
+    # Custom region unlock items used to have some more spheres and split the game up a bit.
+    SekiroItemData("Abandoned Dungeon Key", 0x400024BF, SekiroItemCategory.UNIQUE,
+                   classification = ItemClassification.progression),
+    SekiroItemData("Senpou Temple Key", 0x400024BE, SekiroItemCategory.UNIQUE,
+                   classification = ItemClassification.progression),
+    SekiroItemData("Bell of Dispelling (Sunken Valley Key)", 0x400024C1, SekiroItemCategory.UNIQUE,
+                   classification=ItemClassification.progression),
+    SekiroItemData("Ashina Depths (Poison Pool) Key", 0x400024C0, SekiroItemCategory.UNIQUE,
+                   classification = ItemClassification.progression),
 ]
 
 _skills_as_pickup = [
     # Skills usually obtained via Skill Tree. Keep for implementing option to also have them as item pickups.
     # This will have to be some sort of event pickup, as they have no actual item IDs.
     # Therefore, these are currently unused.
-    SekiroItemData("Grappling Hook Attack", 0x00030D40, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful, inject = True),
-    SekiroItemData("Mid-air Deflection", 0x00030DA4, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Mid-air Prosthetic Tool", 0x00030E08, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Mikiri Counter", 0x00030E6C, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful, inject = True),
-    SekiroItemData("Run and Slide", 0x00030ED0, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Mid-air Combat Arts", 0x00030F34, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Vault Over", 0x00030F98, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Whirlwind Slash", 0x00033450, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Shadowrush", 0x00033838, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Chasing Slice", 0x000497C8, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Fang and Blade", 0x0004982C, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Projected Force", 0x00049890, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Living Force", 0x000498F4, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Nightjar Slash", 0x0004BAF0, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Nightjar Slash Reversal", 0x0004BB54, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Ichimonji", 0x00064190, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Ichimonji: Double", 0x000641F4, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Ashina Cross", 0x000645D8, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Praying Strikes", 0x0007C7B0, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Praying Strikes - Exorcism", 0x0007C814, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Senpou Leaping Kicks", 0x0007CBF8, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("High Monk", 0x0007CC5C, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Shadowfall", 0x00095114, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Spiral Cloud Passage", 0x000954FC, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Empowered Mortal Draw", 0x000959E4, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Suppress Presence", 0x000974A0, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Suppress Sound", 0x00097504, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Virtuous Deed", 0x00098160, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Most Virtuous Deed", 0x000981C4, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Emma's Medicine: Potency", 0x0009C400, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Emma's Medicine: Aroma", 0x0009C464, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("A Shinobi's Karma: Body", 0x0009E848, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("A Shinobi's Karma: Mind", 0x0009E8AC, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Sculptor's Karma: Blood", 0x0009E910, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Sculptor's Karma: Scars", 0x0009E974, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Breath of Life: Light", 0x000A1310, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Breath of Nature: Light", 0x000A13D8, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Shinobi Eyes", 0x000A14A0, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Devotion", 0x000A1504, SekiroItemCategory.SKILLS, inject = True),
-    SekiroItemData("Ascending Carp", 0x000A1568, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful, inject = True),
-    SekiroItemData("Descending Carp", 0x000A15CC, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful, inject = True),
-    SekiroItemData("Flowing Water", 0x000A1630, SekiroItemCategory.SKILLS,
-                   classification = ItemClassification.useful, inject = True),
+
+    SekiroItemData("Mid-air Deflection", 0x40001905, SekiroItemCategory.SKILLS),
+    SekiroItemData("Mikiri Counter", 0x40001906, SekiroItemCategory.SKILLS,
+                   classification = ItemClassification.useful),
+    SekiroItemData("Run and Slide", 0x40001907, SekiroItemCategory.SKILLS),
+    SekiroItemData("Mid-air Combat Arts", 0x40001908, SekiroItemCategory.SKILLS),
+    SekiroItemData("Vault Over", 0x40001909, SekiroItemCategory.SKILLS),
+    SekiroItemData("Whirlwind Slash", 0x4000190A, SekiroItemCategory.SKILLS),
+    SekiroItemData("Shadowrush", 0x4000190B, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.progression_deprioritized),
+    SekiroItemData("Suppress Presence", 0x4000190C, SekiroItemCategory.SKILLS),
+    SekiroItemData("Suppress Sound", 0x4000190D, SekiroItemCategory.SKILLS),
+    SekiroItemData("Shinobi Eyes", 0x4000190E, SekiroItemCategory.SKILLS),
+    SekiroItemData("A Shinobi's Karma: Body", 0x4000190F, SekiroItemCategory.SKILLS),
+    SekiroItemData("A Shinobi's Karma: Mind", 0x40001910, SekiroItemCategory.SKILLS),
+    SekiroItemData("Breath of Life: Light", 0x40001911, SekiroItemCategory.SKILLS),
+    SekiroItemData("Chasing Slice", 0x40001912, SekiroItemCategory.SKILLS),
+    SekiroItemData("Fang and Blade", 0x40001913, SekiroItemCategory.SKILLS),
+    SekiroItemData("Projected Force", 0x40001914, SekiroItemCategory.SKILLS),
+    SekiroItemData("Living Force", 0x40001915, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.progression_deprioritized),
+    SekiroItemData("Grappling Hook Attack", 0x40001916, SekiroItemCategory.SKILLS,
+                   classification = ItemClassification.useful),
+    SekiroItemData("Mid-air Prosthetic Tool", 0x40001917, SekiroItemCategory.SKILLS),
+    SekiroItemData("Nightjar Slash", 0x40001918, SekiroItemCategory.SKILLS),
+    SekiroItemData("Nightjar Slash Reversal", 0x40001919, SekiroItemCategory.SKILLS),
+    SekiroItemData("Emma's Medicine: Potency", 0x4000191A, SekiroItemCategory.SKILLS),
+    SekiroItemData("Emma's Medicine: Aroma", 0x4000191B, SekiroItemCategory.SKILLS),
+    SekiroItemData("Sculptor's Karma: Blood", 0x4000191C, SekiroItemCategory.SKILLS),
+    SekiroItemData("Sculptor's Karma: Scars", 0x4000191D, SekiroItemCategory.SKILLS),
+    SekiroItemData("Ichimonji", 0x4000191E, SekiroItemCategory.SKILLS),
+    SekiroItemData("Ichimonji: Double", 0x4000191F, SekiroItemCategory.SKILLS),
+    SekiroItemData("Ashina Cross", 0x40001920, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.progression_deprioritized),
+    SekiroItemData("Breath of Nature: Light", 0x40001921, SekiroItemCategory.SKILLS),
+    SekiroItemData("Ascending Carp", 0x40001922, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.useful),
+    SekiroItemData("Descending Carp", 0x40001923, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.useful),
+    SekiroItemData("Flowing Water", 0x40001924, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.useful),
+    SekiroItemData("Praying Strikes", 0x40001925, SekiroItemCategory.SKILLS),
+    SekiroItemData("Praying Strikes - Exorcism", 0x40001926, SekiroItemCategory.SKILLS),
+    SekiroItemData("Senpou Leaping Kicks", 0x40001927, SekiroItemCategory.SKILLS),
+    SekiroItemData("High Monk", 0x40001928, SekiroItemCategory.SKILLS,
+                   classification=ItemClassification.progression_deprioritized),
+    SekiroItemData("Virtuous Deed", 0x40001929, SekiroItemCategory.SKILLS),
+    SekiroItemData("Most Virtuous Deed", 0x4000192A, SekiroItemCategory.SKILLS),
+    SekiroItemData("Devotion", 0x4000192B, SekiroItemCategory.SKILLS),
+    SekiroItemData("Shadowfall", 0x4000192C, SekiroItemCategory.SKILLS),
+    SekiroItemData("Spiral Cloud Passage", 0x4000192D, SekiroItemCategory.SKILLS),
+    SekiroItemData("Empowered Mortal Draw", 0x4000192E, SekiroItemCategory.SKILLS,
+                   classification = ItemClassification.useful),
 ]
 
 item_name_groups: dict[str, set] = {
@@ -449,7 +460,7 @@ item_name_groups: dict[str, set] = {
     "Miscellaneous": set(),
     "Unique": set(),
     "Memories": set(),
-    "Currency": set(),
+    "Treasure Carp Scales": set(),
     "Upgrade": set(),
     "Gourd Seeds": set(),
 }
@@ -464,10 +475,12 @@ item_descriptions = {
     "Skills": "Skills obtained as Items, such as Shinobi Medicine and Ninjutsu Techniques.",
     "Unique": "Items that can be obtained once in a run, such as keys, notes, reusable items, prosthetics "
               "& unique upgrades. Doesn't include Skill Texts or Skills.",
-    "Currency": "Coin Purses and Treasure Carp Scales.",
+    "Treasure Carp Scales": "Treasure Carp Scales.",
     "Upgrade": "Non-unique materials to upgrade prosthetic tools.",
-    "Miscellaneous": "Generic stackable items, such as sugars, mibu balloons, resistance buffs and so on.",
+    "Miscellaneous": "Generic stackable items, such as sugars, coin purses, mibu balloons, resistance buffs and so on."
 }
+
+_all_items = _all_items + _added_region_locks + _skills_as_pickup
 
 for item_data in _all_items:
     for group_name in item_data.item_groups():
@@ -475,3 +488,5 @@ for item_data in _all_items:
 
 filler_item_names = [item_data.name for item_data in _all_items if item_data.filler]
 item_dictionary = {item_data.name: item_data for item_data in _all_items}
+region_lock_dictionary = {item_data.name: item_data for item_data in _added_region_locks}
+skill_pickup_dictionary = {item_data.name: item_data for item_data in _skills_as_pickup}

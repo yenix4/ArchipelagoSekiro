@@ -28,8 +28,12 @@ in the Archipelago Launcher for more.
 
 ## What's the goal?
 
-Your goal is to find the "Divine Dragon's Tears" item and achieve one of the 
-endings that require this item.
+There are two options available for the goal.
+
+The "Full Game" goal is to find the "Divine Dragon's Tears" item and achieve 
+one of the endings that require this item.
+The "Shura" goal is achieved by joining Owl in the first invasion and defeating
+the alternate final boss.
 
 ## Do I have to check every item in every area?
 
@@ -47,11 +51,8 @@ to contain progression items by default:
 * **Upgrade:** Locations that contain non-unique upgrade materials for
   prosthetic tools in vanilla.
 
-* **Miscellaneous:** Locations that contain generic stackable items in vanilla,
-  such as sugars, mibu balloons, resistance buffs and so on.
-
-* **Headless:** Headless miniboss drops. These locations contain the spiritfall 
-  items in vanilla.
+* **Miscellaneous:** Locations that contain generic stackable items such as
+  sugars, coin pouches, mibu balloons, resistance buffs and so on.
 
 You can customize which locations are guaranteed not to contain progression
 items by setting the `exclude_locations` field in your YAML to the [location
@@ -65,7 +66,6 @@ Shadows Die Twice:
   exclude_locations:
     - Upgrade
     - Miscellaneous
-    - Headless
 ```
 
 This allows _all_ non-missable locations to have progression items, if you're in
@@ -78,34 +78,10 @@ Shadows Die Twice:
 
 ## What if I don't want to do the whole game?
 
-If you want a shorter Sekiro randomizer experience, you can exclude entire
-regions from containing progression items. The items and enemies from those 
-regions will still be included in the randomization pool, but none of them will 
-be mandatory.
-
-However, since Sekiro requires you to still reach the end of the game, most 
-regions will still need to be traversed, they will just not have any mandatory 
-checks. Below you can find an example of regions that technically do not have to
-be traversed at all to complete the game in the randomizer.
-
-**Please note that excluding too many locations can make generations fail.**
-
-```yaml
-Shadows Die Twice:
-  exclude_locations:
-    # Exclude non-required regions
-    - Sunken Valley
-    - Sunken Valley Passage
-    # For locations containing a single quote, double quotes need to be used!
-    - "Hirata Estate (Father's Bell Charm)"
-    - Ashina Outskirts (Central Forces)
-
-    # Default exclusions
-    - Hidden
-    - Upgrade
-    - Miscellaneous
-    - Headless
-```
+If you want a shorter Sekiro randomizer experience, you can choose the Shura 
+ending. This will allow you to end the game after the first invasion and 
+removes several late-game regions entirely. Combining this with the default 
+exclusions will give you a pretty quick game.
 
 ## Where can I learn more about Sekiro locations?
 
