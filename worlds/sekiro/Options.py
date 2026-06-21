@@ -47,7 +47,6 @@ class AdditionalRegionLocks(Toggle):
     """Add custom progression blockers to Abandoned Dungeon, Senpou Temple, Ashina Depths (Poison Pool) and Sunken
     Valley to allow for more spheres and a less open world."""
     display_name = "Additional Progression Blockers"
-    visibility = Visibility.none
 
 class DeathLink(Choice):
     """When you die, everyone who enabled death link dies. Of course, the reverse is true too.
@@ -63,7 +62,6 @@ class DeathLink(Choice):
     alias_true = 1
     option_any_death = 2
     default = 0
-    visibility = Visibility.none
 
 class RemoveHeadlessSlowWalk(Toggle):
     """Remove the Headless-induced slow walk."""
@@ -82,7 +80,6 @@ class ReplaceEsotericTextswithSkills(Toggle):
     This will raise an error unless Skills and Prosthetics are also randomized.
     """
     display_name = "Replace Esoteric Texts with Skills as Items"
-    visibility = Visibility.none
 
 ### Enemies
 
@@ -166,7 +163,6 @@ class RandomEnemyPresetOption(OptionDict):
 class Carpsanity(Toggle):
     """Add Treasure Carp drops into the item pool"""
     display_name = "Carpsanity"
-    visibility = Visibility.none
 
 class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""
