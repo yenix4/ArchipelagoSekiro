@@ -1,5 +1,5 @@
-# python -m worlds.dark_souls_3.detailed_location_descriptions \
-#     worlds/dark_souls_3/detailed_location_descriptions.py
+# python -m worlds.sekiro.detailed_location_descriptions \
+#     worlds/sekiro/detailed_location_descriptions.py
 #
 # This script downloads the static randomizer's descriptions for each location and adds them to
 # the location documentation.

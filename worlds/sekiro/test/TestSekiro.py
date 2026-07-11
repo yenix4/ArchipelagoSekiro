@@ -1,7 +1,7 @@
 from test.bases import WorldTestBase
 
-from worlds.dark_souls_3.Items import item_dictionary
-from worlds.dark_souls_3.Locations import location_tables
+from worlds.sekiro.Items import item_dictionary
+from worlds.sekiro.Locations import location_tables
 
 class SekiroTest(WorldTestBase):
     game = "Sekiro: Shadows Die Twice"
