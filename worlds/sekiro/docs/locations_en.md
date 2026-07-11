@@ -2,8 +2,8 @@
 
 [Game Page] | [Items] | Locations
 
-[Game Page]: /games/Sekiro/info/en
-[Items]: /tutorial/Sekiro/items/en
+[Game Page]: /worlds/sekiro/docs/en_Sekiro%20Shadows%20Die%20Twice.md
+[Items]: /worlds/sekiro/docs/items_en.md
 
 ## Table of Contents
 
@@ -662,7 +662,7 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Mibu Possession Balloon - underwater, lake, near bridge</td><td>Underwater past and to the right of the bridge leading to the Great Serpent Shrine</td></tr>
 <tr><td>AC: Mushin Esoteric Text - Tengu after unlocking special technique</td><td>Given by Isshin or Emma after learning Shadowrush, Living Force, Ashina Cross, and High Monk.</td></tr>
 <tr><td>AC: Nightjar Beacon Memo - Fujioka</td><td>Given by Fujioka the Info Broker after completing his request in Ashina Castle</td></tr>
-<tr><td>AC: Okami&#x27;s Ancient Text - Kuro with Lotus of the Palace</td><td>Given by Kuro after he recruits you to achieve Immortal Severence and you show him Lotus of the Palace, describing Ashina Depths</td></tr>
+<tr><td>AC: Okami&#x27;s Ancient Text - Kuro</td><td>Given by Kuro after he recruits you to achieve Immortal Severence and you show him Lotus of the Palace, describing Ashina Depths</td></tr>
 <tr><td>AC: Page&#x27;s Diary - Kuro</td><td>Given by Kuro after he recruits you to achieve Immortal Severence and you show him Lotus of the Palace, to ask Emma about the Mortal Blade</td></tr>
 <tr><td>AC: Pellet - Ashina Dojo, side room</td><td>In the side room of Ashina Dojo</td></tr>
 <tr><td>AC: Pellet - Isshin&#x27;s dojo, stairs</td><td>On the lower floor of Isshin&#x27;s watchtower at the base of the stairs</td></tr>
@@ -934,14 +934,14 @@ static _Sekiro_ randomizer].
 <tr><td>FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp once</td><td>Given by the Master&#x27;s Chamberlain after using Precious Bait once, or dropped at the end of his quest or on death</td></tr>
 <tr><td>FP2: Treasure Carp Scale - Feeding Grounds, feed Great Carp twice</td><td>Given by the Master&#x27;s Chamberlain after using Precious Bait twice, or dropped at the end of his quest or on death</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, beneath Feeding Grounds, Carp drop</td><td>Dropped by an underwater Treasure Carp underneath Feeding Grounds</td></tr>
-<tr><td>FP2: Treasure Carp Scale - underwater, further out from first bridge, Carp drop</td><td>Dropped by a underwater Treasure Carp near the bridge where the Okami Warrior is dancing</td></tr>
+<tr><td>FP2: Treasure Carp Scale - underwater, further out from first bridge, Carp drop</td><td>Dropped by an underwater Treasure Carp between the bridge where the Okami Warrior is dancing and the massive abov-ewater roof</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, giant skeleton near headless #1</td><td>Shiny object near the chest guarded by the two Underwater Headless</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, giant skeleton near headless #2</td><td>Shiny object near the chest guarded by the two Underwater Headless</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, inside house along right wall #1</td><td>Shiny object inside of a completely submerged building along the right wall of the lake, coming from Vermillion Bridge</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, inside house along right wall #2</td><td>Shiny object inside of a completely submerged building along the right wall of the lake, coming from Vermillion Bridge</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, inside house along right wall #3</td><td>Shiny object inside of a completely submerged building along the right wall of the lake, coming from Vermillion Bridge</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, middle of the lake, Carp drop</td><td>Dropped by an underwater Treasure Carp in the middle of the lake above the Underwater Headless area</td></tr>
-<tr><td>FP2: Treasure Carp Scale - underwater, near first bridge, Carp drop</td><td>Dropped by an underwater Treasure Carp between the bridge where the Okami Warrior is dancing and the massive abov-ewater roof</td></tr>
+<tr><td>FP2: Treasure Carp Scale - underwater, near first bridge, Carp drop</td><td>Dropped by a underwater Treasure Carp near the bridge where the Okami Warrior is dancing</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, near first house of area, Carp drop</td><td>Dropped by an underwater Treasure Carp near the first house with the Palace Nobles</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, right wall before building, Carp drop</td><td>Dropped by an underwater Treasure Carp before the completely submerged building on the right wall of the lake</td></tr>
 <tr><td>FP2: Treasure Carp Scale - underwater, under Sakura Branch, Carp drop</td><td>Dropped by an underwater Treasure Carp underneath the Great Sakura branch</td></tr>
@@ -1060,7 +1060,7 @@ static _Sekiro_ randomizer].
 <tr><td>HF: Unrefined Sake - cliffside, miniboss drop</td><td>Dropped by Tokujiro the Glutton</td></tr>
 <tr><td>HF: Yashariku&#x27;s Sugar - inside temple</td><td>In the temple</td></tr>
 <tr><td>HF: Yashariku&#x27;s Sugar - sinkhole, up ledge behind miniboss</td><td>Under the tree branch bridge between the Temple Master and the forest before the temple, near the Headless</td></tr>
-<tr><td>HF: Yellow Gunpowder - right of temple front, against wall</td><td>In the forest in front of the temple area, farthest from the temple</td></tr>
+<tr><td>HF: Yellow Gunpowder - opposite of temple, against wall</td><td>In the forest in front of the temple area, farthest from the temple</td></tr>
 <tr><td>MV: Adamantite Scrap - Head Priest&#x27;s house, behind</td><td>On the ground behind the Head Priest&#x27;s house</td></tr>
 <tr><td>MV: Adamantite Scrap - Inuhiko&#x27;s house, bird&#x27;s nest on roof</td><td>In the bird&#x27;s nest on top of Inuhiko&#x27;s house, the last house down the path on the other side of the pond</td></tr>
 <tr><td>MV: Adamantite Scrap - villager fields, upper ledge on right</td><td>On a high-up ledge to the right of the field with the laboring villagers</td></tr>
