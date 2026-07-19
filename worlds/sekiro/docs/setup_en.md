@@ -83,7 +83,9 @@ even Steam Deck. There are a few things to keep in mind:
 
 The [Sekiro: Shadows Die Twice AP World] includes an Options template. You can 
 also use the Options Creator in the Archipelago Launcher to configure your 
-personal options and export them into a config file.
+personal options and export them into a config file. Please read the
+documentation in the template carefully before asking questions about the 
+options, most things will be explained there already.
 
 ## Troubleshooting
 
@@ -116,8 +118,8 @@ you, make sure:
 
 * Steam is not running in administrator mode. To fix this, right-click
   `steam.exe` (by default this is in `C:\Program Files\Steam`), select
-  "Properties", open the "Compatiblity" tab, and uncheck "Run this program as an
-  administrator".
+  "Properties", open the "Compatibility" tab, and uncheck "Run this program as 
+  an administrator".
 
 * There is no `dinput8.dll` file in your Sekiro game directory. The client 
   directory brings its own Modengine instance with it, existing files of other

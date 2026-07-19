@@ -638,9 +638,9 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Gourd Seed - upper tower, chest near Antechamber idol</td><td>In a chest before the Upper Tower Antechamber</td></tr>
 <tr><td>AC: Gun Fort Shrine Key - Kuro&#x27;s library</td><td>In the library area in Kuro&#x27;s Room which opens up after you ask Isshin where the Mortal Blade can be found.</td></tr>
 <tr><td>AC: Heavy Coin Purse - courtyard before Old Grave idol, enemy drop</td><td>Guaranteed drop from Shinobi Hunter in or near the courtyard before the bridge leading to the Great Serpent Shrine</td></tr>
-<tr><td>AC: Heavy Coin Purse - underwater, near headless #1</td><td>Guarded by the Underwater Headless in the rear moat</td></tr>
-<tr><td>AC: Heavy Coin Purse - underwater, near headless #2</td><td>Guarded by the Underwater Headless in the rear moat</td></tr>
-<tr><td>AC: Heavy Coin Purse - underwater, near headless #3</td><td>Guarded by the Underwater Headless in the rear moat</td></tr>
+<tr><td>AC: Heavy Coin Purse - underwater, lake, near headless #1</td><td>Guarded by the Underwater Headless in the rear moat</td></tr>
+<tr><td>AC: Heavy Coin Purse - underwater, lake, near headless #2</td><td>Guarded by the Underwater Headless in the rear moat</td></tr>
+<tr><td>AC: Heavy Coin Purse - underwater, lake, near headless #3</td><td>Guarded by the Underwater Headless in the rear moat</td></tr>
 <tr><td>AC: Heavy Coin Purse - upper tower, shinobi door</td><td>Past a scroll-covered shinobi door in the Upper Tower room where two fencers are studying a map, behind a destructible screen</td></tr>
 <tr><td>AC: Heavy Coin Purse - wagon by Dungeon Memorial Mob</td><td>Behind a wagon in Abandoned Dungeon Entrance</td></tr>
 <tr><td>AC: Immortal Severance Scrap - Emma</td><td>Given by Emma when asking her about Immortal Severence at Kuro&#x27;s prompting</td></tr>
@@ -683,12 +683,12 @@ static _Sekiro_ randomizer].
 <tr><td>AC: Scrap Magnetite - outside building at AD entrance, enemy drop</td><td>Guaranteed drop from the Taro Troop outside of the building with the Abandoned Dungeon entrance</td></tr>
 <tr><td>AC: Sweet Rice Ball - Kuro for Rice for Kuro</td><td>Given by Kuro after he receives Rice for Kuro</td></tr>
 <tr><td>AC: Treasure Carp Scale - underwater, by Ashina Castle idol</td><td>Underwater in the moat below the Ashina Castle Sculptor&#x27;s Idol</td></tr>
-<tr><td>AC: Ungo&#x27;s Spiritfall - underwater, headless drop</td><td>Dropped by Underwater Headless</td></tr>
+<tr><td>AC: Ungo&#x27;s Spiritfall - underwater, lake, headless drop</td><td>Dropped by Underwater Headless</td></tr>
 <tr><td>AC: Ungo&#x27;s Sugar - Blackhat Badger building, roof, bird&#x27;s nest</td><td>In a bird&#x27;s nest on the second-story roof of the building where Blackhat Badger hides near Old Grave</td></tr>
 <tr><td>AC: Ungo&#x27;s Sugar - any Old Praying Woman, pop 1 balloon</td><td>Given by any Old Praying Woman after popping one balloon</td></tr>
 <tr><td>AC: Ungo&#x27;s Sugar - reservoir tower</td><td>In a bird&#x27;s nest on the roof of one of the towers outside of the Antechamber Sculptor&#x27;s Idol</td></tr>
 <tr><td>AC: Unrefined Sake - Isshin</td><td>Given by Isshin when asking about the Mortal Blade, if you don&#x27;t already have the Mortal Blade</td></tr>
-<tr><td>AC: Yashariku&#x27;s Sugar - underwater, near headless against castle wall</td><td>Underwater in the moat with the Underwater Headless, against the castle wall</td></tr>
+<tr><td>AC: Yashariku&#x27;s Sugar - underwater, lake, against castle wall</td><td>Underwater in the moat with the Underwater Headless, against the castle wall</td></tr>
 <tr><td>AD: Academics&#x27; Red Lump - Underground Waterway island, red-eyed Doujun, enemy drop</td><td>Dropped by the Doujun at the end of his quest</td></tr>
 <tr><td>AD: Ako&#x27;s Sugar - Underground Waterway island, boat</td><td>In the area with boats and soldiers after the Underground Waterway Sculptor&#x27;s Idol</td></tr>
 <tr><td>AD: Bite Down - thin cave connecting AD to Bottomless Hole</td><td>In the narrow cave between the cricket area and the Shichimen Warrior area</td></tr>
