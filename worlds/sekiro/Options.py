@@ -22,6 +22,8 @@ class GoalOption(Choice):
 
     Full Game: Play the entire game by breaking the Iron Code when prompted by Owl after the first invasion.
     Any of the 3 full endings will work for this.
+
+    NOTE: The choice of ending must still be selected by you in the game. So no mashing through the dialogue!
     """
     display_name = "Goal"
     option_full_game = 0
@@ -31,7 +33,9 @@ class GoalOption(Choice):
 class QuickHirata(Choice):
     """Force the Young Lord's Bell Charm to be early in your local world or the multiworld
 
-    If you wish to use this in a solo playthrough, please use early_local for best results.
+    If you wish to use this in a solo playthrough or with games that have a very limited sphere 1, please use
+    early_local for best results. Otherwise, the generation may not be able to place this early and will put it anywhere
+    in the multiworld.
     """
     display_name = "Quick Hirata"
     option_off = 0
@@ -40,12 +44,21 @@ class QuickHirata(Choice):
     default = option_off
 
 class VeryEarlyHirata(Toggle):
-    """Make it possible to need to progress into Hirata Estate before Ashina Outskirts (no softlock)"""
+    """Make it possible to need to progress into Hirata Estate before Ashina Outskirts (no softlock)
+
+    If this is selected, and you get the Young Lord's Bell Charm instead of the Prosthetic, the Prosthetic can end up
+    being in the multiworld. Keep this in mind, as it may BK you for a good bit.
+    """
     display_name = "Allow Very Early Hirata"
 
-class AdditionalRegionLocks(Toggle):
-    """Add custom progression blockers to Abandoned Dungeon, Senpou Temple, Ashina Depths (Poison Pool) and Sunken
-    Valley to allow for more spheres and a less open world."""
+class AdditionalRegionLocks(DefaultOnToggle):
+    """Add custom progression items and corresponding blockers to the entrances to Ashina Castle, Abandoned Dungeon,
+    Senpou Temple, Ashina Depths (Poison Pool) and Sunken Valley to allow for more spheres and better balancing. The
+    items in question are described in the item documentation found on the GitHub. This also removes Bull skip!
+
+    This is recommended to be kept enabled.
+    If you disable it, you will immediately have over half the game in logic once you have the prosthetic.
+    """
     display_name = "Additional Progression Blockers"
 
 class DeathLink(Choice):
@@ -117,6 +130,11 @@ class BalancedEndgameBossPhases(DefaultOnToggle):
 class SimpleEarlyMinibosses(DefaultOnToggle):
     """Prevent early minibosses from being unfun without scaling.
 
+    Should you turn this off, you will be provided 2x Divine Confetti to be collected from the Offering Box (each
+    costing 50 sen, because the Offering Box is weird like that and will not display it if it costs less than 50...)
+    This is in case you get an early blocking Shichimen (or Headless if they are enabled).
+    After using those, your fate is up to luck (or skill).
+
     This is ignored unless enemies are randomized.
     """
     display_name = "Simple Early Minibosses"
@@ -136,7 +154,7 @@ class ScaleEnemiesOption(DefaultOnToggle):
 class RandomEnemyPresetOption(OptionDict):
     """The YAML preset for the static enemy randomizer.
 
-    See the static randomizer documentation in `randomizer\\presets\\README.txt` for details.
+    See the static randomizer documentation in `randomizerAP\\presets\\README.txt` for details.
     Include this as nested YAML. For example:
 
     .. code-block:: YAML
@@ -144,6 +162,9 @@ class RandomEnemyPresetOption(OptionDict):
       random_enemy_preset:
         RemoveSource: Demon of Hatred; Corrupted monk
         DontRandomize: Shichimen Warrior
+
+    Full presets such as Ashina Zoo or Nightmare Mode have been built into the client for ease of use. Simply use the
+    `Randomizer options` to select your desired preset before first connecting to a multiworld.
     """
     display_name = "Random Enemy Preset"
     supports_weighting = False
@@ -166,7 +187,7 @@ class Carpsanity(Toggle):
 
 class SekiroExcludeLocations(ExcludeLocations):
     """Prevent these locations from having an important item."""
-    default = frozenset({"Hidden", "Miscellaneous", "Upgrade"})
+    default = frozenset({"Hidden", "Headless"})
 
 
 class ExcludedLocationBehaviorOption(Choice):
