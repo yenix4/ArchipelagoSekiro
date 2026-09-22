@@ -181,13 +181,20 @@ class ScaleEnemiesOption(DefaultOnToggle):
 class RandomEnemyPresetOption(OptionDict):
     """The YAML preset for the static enemy randomizer.
 
-    See the static randomizer documentation in `randomizerAP\\presets\\README.txt` for details.
+    See the static randomizer documentation in the `randomizerAP\\presets\\` folder for details.
+    At this time, the following preset text files can be found in that folder:
+        10% Boss Replacement.txt
+        Ashina Zoo.txt
+        Better Nightmare Mode.txt
+        Nightmare Mode.txt
+        No Demon of Hatred.txt
+        Oops All.txt
     Include this as nested YAML. For example:
 
     .. code-block:: YAML
 
       random_enemy_preset:
-        RemoveSource: Demon of Hatred; Corrupted monk
+        RemoveSource: Demon of Hatred
         DontRandomize: Shichimen Warrior
 
     Full presets such as Ashina Zoo or Nightmare Mode have been built into the client for ease of use. Simply use the
