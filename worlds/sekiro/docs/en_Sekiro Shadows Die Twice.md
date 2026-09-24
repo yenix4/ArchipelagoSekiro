@@ -1,9 +1,11 @@
 # Sekiro: Shadows Die Twice
 
-Game Page | [Items] | [Locations]
+Game Page | [Setup] | [Items] | [Locations] | [Enemy Randomization]
 
+[Setup]: /worlds/sekiro/docs/setup_en.md
 [Items]: /worlds/sekiro/docs/items_en.md
 [Locations]: /worlds/sekiro/docs/locations_en.md
+[Enemy Randomization]: /worlds/sekiro/docs/enemy-randomization_en.md
 
 ## What do I need to do to randomize Sekiro?
 
