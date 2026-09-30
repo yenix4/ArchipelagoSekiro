@@ -42,6 +42,9 @@ you'll need to reinstall the latest version before using this version. You
 should also delete the `dinput8.dll` file if you still have one from an older 
 randomizer version.
 
+The minimum required version of the Archipelago Launcher is **0.6.7**, any 
+version prior to that is not compatible with the Sekiro APWorld!
+
 ### Client Operation
 
 1. Whenever you want to connect to a multiworld, run

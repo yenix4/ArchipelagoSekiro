@@ -214,3 +214,4 @@ detect_rule_variable_capture_issues.py
 indirect_conditions.py
 /check_placement_item_location_references.py
 /global_mutation.py
+.run*
